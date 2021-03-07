@@ -1,0 +1,94 @@
+.Fields {
+    /*display: block;*/
+
+    width: 100%;
+    font-size: 1em !important;
+    /*margin-top: 0.5em;*/
+}
+.regForm {
+
+    /*margin-top: 30% !important;*/
+    margin-left: 20%;
+    /*box-shadow: 0px 0px 30px -6px rgba(0, 0, 0, 0.75);*/
+    width: 60%;
+    height: 55%;
+    padding: 15px;
+    border: none;
+    /*border-radius: 15px 15px 15px 15px;*/
+
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    border: 3px solid green;
+}
+
+.countriesAndCities{
+    width: 100%;
+    font-size: 1em !important;
+    height: 100%;
+    border-color: darkgrey;
+    color: dimgray;
+    border-radius: 2px 2px 2px 2px;
+
+}
+
+.welcomeHeader{
+    text-align:center;
+    margin-top: 5%;
+}
+.accountTypeHeader{
+    text-align:center;
+    margin-bottom: 5%;
+}
+
+.Label{
+
+    margin-right: 6%;
+    /*display: inline-block;*/
+    width: 95%;
+    text-align: right;
+}
+
+/*.steps-demo .p-steps {*/
+/*    height: 350px;*/
+/*}*/
+/*.steps-demo .p-steps > ul {*/
+/*    flex-direction: column;*/
+/*    height: 100%;*/
+/*}*/
+/*.steps-demo .p-steps > ul .p-steps-item {*/
+/*    flex-direction: column-reverse;*/
+/*    align-items: flex-start;*/
+/*    justify-content: center;*/
+/*}*/
+/*.steps-demo .p-steps > ul .p-steps-item:before {*/
+/*    position: static;*/
+/*    left: auto;*/
+/*    top: auto;*/
+/*    margin-top: 0;*/
+/*    border-left: 1px solid ;*/
+/*    border-top: 0 none;*/
+/*    width: auto;*/
+/*    height: 100%;*/
+/*    margin-left: 1rem;*/
+/*}*/
+/*.steps-demo .p-steps > ul .p-steps-item .p-menuitem-link {*/
+/*    flex-direction: row;*/
+/*    overflow: visible;*/
+/*}*/
+/*.steps-demo .p-steps > ul .p-steps-item .p-menuitem-link .p-steps-title {*/
+/*    margin: 0 .5rem 0;*/
+/*}*/
+/*.steps-demo .p-steps > ul .p-steps-item:last-child {*/
+/*    flex-grow: 0;*/
+/*}*/
+/*.steps-demo .p-steps > ul .p-steps-item:last-child .p-menuitem-link {*/
+/*    padding: 0;*/
+/*}*/
+/*.steps-demo .p-steps > ul .p-steps-item:last-child:before {*/
+/*    display: none;*/
+/*}*/
+
