@@ -1,5 +1,5 @@
 import {BrowserRouter, Route, Switch} from "react-router-dom";
-import Homepage from "../../Containers/Homepage/Homepage";
+import Homepage from "../../Containers/Homepage/Home.html";
 import Registration from "../../Containers/Registration/Registration";
 const Content = (props) => {
     return (

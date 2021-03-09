@@ -1,13 +1,13 @@
 import {InputText} from "primereact/inputtext";
 import classes from "../Registration/Registration.module.css";
-
+import styles from './Home.module.css';
 
 const Homepage = (props) => {
     let user="";
     return (
         <div>
 
-           <h1>this is the home page</h1>
+           <h1><a href={Homepage}></a></h1>
             <InputText
                 className="p-invalid p-d-block"
                 id="lastName"
@@ -19,3 +19,7 @@ const Homepage = (props) => {
     );
 }
 export default Homepage;
+
+class Home extends Homepage {
+
+}
