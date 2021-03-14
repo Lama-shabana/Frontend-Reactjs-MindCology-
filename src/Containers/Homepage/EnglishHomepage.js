@@ -2,8 +2,7 @@ import "./Homepage.css";
 import img2 from "../../images/3485230f.jpg";
 import img3 from "../../images/AdobeStock_331776137-960x640.jpeg";
 import LoggedOutTopBar from "../../Components/TopBar/LoggedOutTopBar";
-const Homepage = (props) => {
-    let user = "";
+const EnglishHomepage = (props) => {
     return (
         <div>
             <body className="u-body">
@@ -289,4 +288,4 @@ const Homepage = (props) => {
         </div>
     );
 }
-export default Homepage;
+export default EnglishHomepage;
