@@ -1,5 +1,6 @@
 import {InputText} from "primereact/inputtext";
-import "./Homepage.module.css";
+import "./Homepage.css";
+
 import MindCology from "../../images/MindCology.png";
 import img2 from "../../images/3485230f.jpg";
 import img3 from "../../images/AdobeStock_331776137-960x640.jpeg";
@@ -8,7 +9,8 @@ const Homepage = (props) => {
     return (
         <div>
             <body className="u-body">
-            <header className="u-clearfix u-header u-white u-header" id="sec-c387">
+            <header
+                className="u-clearfix u-header u-white u-header" id="sec-c387">
                 <div className="u-clearfix u-sheet u-sheet-1">
                     <a href="Homepage.html" className="u-image u-logo u-image-1">
                         <img src={MindCology}
