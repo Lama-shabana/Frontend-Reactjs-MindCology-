@@ -1,7 +1,8 @@
 import "./Homepage.css";
-import img2 from "../../images/3485230f.jpg";
-import img3 from "../../images/AdobeStock_331776137-960x640.jpeg";
-import LoggedOutTopBar from "../../Components/TopBar/LoggedOutTopBar";
+// import img2 from "../../images/3485230f.jpg";
+// import img3 from "../../images/AdobeStock_331776137-960x640.jpeg";
+import LoggedOutTopBar from "../../../Components/TopBar/LoggedOutTopBar"
+        // "../../../Components/TopBar/LoggedOutTopBar";
 const About = (props) => {
     return (
         <div>
