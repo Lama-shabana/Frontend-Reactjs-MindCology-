@@ -2,10 +2,12 @@ import "./Homepage.css";
 import img2 from "../../images/3485230f.jpg";
 import img3 from "../../images/AdobeStock_331776137-960x640.jpeg";
 import LoggedOutTopBar from "../../Components/TopBar/LoggedOutTopBar";
+
 const EnglishHomepage = (props) => {
     return (
         <div>
-            <body className="u-body">
+
+                <body className="u-body">
             <LoggedOutTopBar/>
             <section className="u-clearfix u-section-1" id="carousel_74b7">
                 <div className="u-clearfix u-sheet u-sheet-1">
@@ -23,7 +25,7 @@ const EnglishHomepage = (props) => {
                                             or Psychiatrists.
 
                                         </p>
-                                        <a href="Homepage.html"
+                                        <a href="/"
                                            className="u-active-white u-btn u-btn-rectangle u-button-style u-custom-font u-font-oswald u-hover-palette-1-light-2 u-radius-0 u-text-palette-1-base u-white u-btn-1"
                                            target="_blank">learn more</a>
                                     </div>

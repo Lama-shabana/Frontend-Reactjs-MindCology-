@@ -2,13 +2,14 @@ import "./Homepage.css";
 import img1 from "../../images/3485230f.jpg";
 import img2 from "../../images/AdobeStock_331776137-960x640.jpeg";
 import LoggedOutTopBar from "../../Components/TopBar/LoggedOutTopBar";
+import ArabicLoggedOutTopBar from "../../Components/TopBar/ArabicLoggedOutTopBar";
 
 const ArabicHomepage = (props) => {
     return (
         <div>
 
             <body className="u-body">
-            <LoggedOutTopBar/>
+            <ArabicLoggedOutTopBar/>
             <section className="u-clearfix u-section-1" id="carousel_74b7">
                 <div className="u-clearfix u-sheet u-sheet-1">
                     <div className="u-clearfix u-gutter-12 u-layout-wrap u-layout-wrap-1">
@@ -279,14 +280,14 @@ const ArabicHomepage = (props) => {
             </footer>
             <section className="u-backlink u-clearfix u-grey-80">
                 <a className="u-link" href="Contact/Contact-Arabic.html" target="_blank">
-                    <span>تواصل </span>
+                    <span>  معنا  </span>
                 </a>
                 <p className="u-text">
-                    <span></span>
+                    <span>   </span>
                 </p>
                 <a className="u-link" href="Contact/Contact-Arabic.html" target="_blank">
-                    <span>معنا</span>
-                </a>.
+                    <span>تواصل </span>
+                </a>
             </section>
             </body>
 
