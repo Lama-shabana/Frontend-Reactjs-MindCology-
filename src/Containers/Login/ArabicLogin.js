@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 
 
 import ArabicLoggedOutTopBar from "../../Components/TopBar/ArabicLoggedOutTopBar";
-import LoggedOutTopBar from "../../Components/TopBar/LoggedOutTopBar";
+
 import OnlineCounselling from "../../assets/online-therapy.jpg";
 
 
@@ -74,7 +74,7 @@ const ArabicLogin=(props) => {
                                     height: "8.5%"
                                 }}
                                     // icon="pi pi-key"
-                                        type="submit">Sign in</Button>
+                                        type="submit">تسجيل الدخول</Button>
 
                                 <hr/>
                                 <Button variant="link"
