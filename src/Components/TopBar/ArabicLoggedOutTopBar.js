@@ -27,14 +27,15 @@ const ArabicLoggedOutTopBar=() => {
                 <div className="p-col-1">
                     <a href="/arabicregistration" className={classes.links}>تسجيل الدخول </a>
                 </div>
-                <div className="p-col-1">
-                    <a href="/arabiclogin" className={classes.links}>تسجيل الدخول </a>
+
+                <div className="p-col-1" >
+                    <a   href="/arabiclogin" className={classes.links}>تسجيل الدخول </a>
                 </div>
                 <div className="p-col-2"/>
 
                 <div className="p-col-2">
                     <div className="dropdown" style={{marginTop: "2em"}}>
-                        <button className="dropbtn">English</button>
+                        <button className="dropbtn">العربية</button>
                         <div className="dropdown-content">
                             <a href="/">English</a>
                             <a href="/ArabicHomepage"> Arabic </a>
