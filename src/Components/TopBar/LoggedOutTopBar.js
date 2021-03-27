@@ -38,15 +38,10 @@ const LoggedOutTopBar = (props) => {
                 </div>
                 : <div className="p-col-1"/>}
 
-
-            {/*<div className="p-col-1">*/}
-            {/*    <a href="/login" className={classes.links}>Login </a>*/}
-            {/*</div>*/}
             {window.location.pathname === "/registration" ?
                 <div className="p-col-3"/>
 
                 : <div className="p-col-2"/>}
-
 
 
             <div className="p-col-2">
