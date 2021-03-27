@@ -1,4 +1,6 @@
-import {BrowserRouter, Route, Switch} from "react-router-dom";
+import React from 'react';
+
+import { Route, Switch } from "react-router-dom";
 import EnglishHomepage from "../../Containers/Homepage/EnglishHomepage";
 import Registration from "../../Containers/Registration/Registration";
 import ArabicRegistration from "../../Containers/Registration/ArabicRegistration";
@@ -10,11 +12,12 @@ import ArabicContact from "../../Containers/Homepage/Contact/ArabicContact";
 import Login from "../../Containers/Login/Login";
 import ArabicLogin from "../../Containers/Login/ArabicLogin";
 
-const Content = () => {
+const Content = (props) => {
     return (
         <div>
-            <BrowserRouter>
-                <Switch>
+
+            <Switch>
+
                     <Route path="/" exact component={EnglishHomepage}/>
                     <Route path="/arabicHomepage" exact component={ArabicHomepage}/>
                     <Route path="/about" exact component={About}/>
@@ -25,12 +28,7 @@ const Content = () => {
                     <Route path="/registration" exact component={Registration}/>
                     <Route path="/login" exact component={Login}/>
                     <Route path="/arabiclogin" exact component={ArabicLogin}/>
-
-                    {/*<Route path="/homepage" exact component={}/>*/}
-
                 </Switch>
-            </BrowserRouter>
-
         </div>
     );
 }

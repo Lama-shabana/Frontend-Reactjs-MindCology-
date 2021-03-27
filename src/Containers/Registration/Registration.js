@@ -16,6 +16,7 @@ import 'react-phone-input-2/lib/style.css'
 import { Password } from 'primereact/password';
 import * as registrationActions from "./store/RegistrationActions"
 import { AsyncThunkAction } from '@reduxjs/toolkit';
+import LoggedOutTopBar from "../../Components/TopBar/LoggedOutTopBar";
 
 const Registration = (props) => {
 
@@ -344,10 +345,11 @@ const Registration = (props) => {
 
             {console.log(patientInfo)}
             {/*<header className={classes.Topbar}/>*/}
-            <h2 className="p-col-fixed">
-                Registration
-            </h2>
-            <hr/>
+            <LoggedOutTopBar/>
+            {/*<h2 className="p-col-fixed">*/}
+            {/*    Registration*/}
+            {/*</h2>*/}
+            {/*<hr/>*/}
             {displayForm()}
         </div>
 

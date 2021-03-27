@@ -7,12 +7,13 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
 
-function App() {
+function App(props) {
   return (
       <React.Fragment>
-        {/*<InterfaceUtility/>*/}
+          {/*<InterfaceUtility/>*/}
         <ToastProvider>
           {/*<Layout {...props}>*/}
+
             <Content/>
           {/*</Layout>*/}
         </ToastProvider>
