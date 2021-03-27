@@ -14,6 +14,7 @@ import {useToasts} from "react-toast-notifications";
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import { Password } from 'primereact/password';
+import ArabicLoggedOutTopBar from "../../Components/TopBar/ArabicLoggedOutTopBar";
 
 
 const ArabicRegistration = () => {
@@ -343,12 +344,13 @@ const ArabicRegistration = () => {
     return (
         <div>
 
+            <ArabicLoggedOutTopBar/>
             {console.log(patientInfo)}
             {/*<header className={classes.Topbar}/>*/}
-            <h2 className="p-col-fixed">
-                Registration
-            </h2>
-            <hr/>
+            {/*<h2 className="p-col-fixed">*/}
+            {/*    Registration*/}
+            {/*</h2>*/}
+            {/*<hr/>*/}
             {displayForm()}
         </div>
 

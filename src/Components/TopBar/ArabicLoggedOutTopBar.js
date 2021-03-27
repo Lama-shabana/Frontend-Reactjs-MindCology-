@@ -26,14 +26,26 @@ const ArabicLoggedOutTopBar=() => {
 
                 </div>
 
+                {window.location.pathname !== "/arabiclogin" ?
+                    <div className="p-col-1">
+                        <a href="/arabiclogin" className={classes.links}>تسجيل الدخول  </a>
+                    </div>
+                    : null}
 
-                <div className="p-col-1" >
-                    <a   href="/arabiclogin" className={classes.links}>تسجيل الدخول </a>
-                </div>
-                <div className="p-col-1">
-                    <a href="/arabicregistration" className={classes.links}>إبدأ الآن </a>
-                </div>
-                <div className="p-col-2"/>
+                {window.location.pathname !== "/arabicregistration" ?
+                    <div className="p-col-1">
+                        <a href="/arabicregistration" className={classes.links}>إبدأ الآن </a>
+                    </div>
+                    : <div className="p-col-1"/>}
+
+
+
+
+                {window.location.pathname === "/arabicregistration" ?
+                    <div className="p-col-2"/>
+
+                    : <div className="p-col-2"/>}
+
 
                 <div className="p-col-2">
                     <div className="dropdown" style={{marginTop: "2em"}}>

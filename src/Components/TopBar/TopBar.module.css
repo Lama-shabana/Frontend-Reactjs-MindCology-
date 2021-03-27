@@ -2,9 +2,13 @@
     width: 15em;
 }
 .links{
-    display: inline-block;
+   /* display: inline-block;*/
    margin-top: 3em !important;
     color: black !important;
+    text-align: center !important;
+    align-content: center !important;
+    /*margin:0 auto;*/
+    display:block;
 }
 
 
