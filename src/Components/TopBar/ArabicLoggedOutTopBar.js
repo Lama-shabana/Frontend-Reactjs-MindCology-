@@ -11,13 +11,12 @@ const ArabicLoggedOutTopBar=() => {
     return (
         <div>
             <div className="p-grid">
-                <div className="p-col-2">
+                <div className="p-col-3">
                     <a href="/">
                         <img src={MindCology} className={classes.image}
                              alt="logo"/>
                     </a>
                 </div>
-                <div className="p-col-1"/>
 
                 <div className="p-col-1">
                     <a href="/arabicHomepage" className={classes.links}>الصفحة الرئيسية</a>
@@ -26,12 +25,13 @@ const ArabicLoggedOutTopBar=() => {
                     <a href="/arabicabout" className={classes.links}>معلومات عنا</a>
 
                 </div>
-                <div className="p-col-1">
-                    <a href="/arabicregistration" className={classes.links}>تسجيل الدخول </a>
-                </div>
+
 
                 <div className="p-col-1" >
                     <a   href="/arabiclogin" className={classes.links}>تسجيل الدخول </a>
+                </div>
+                <div className="p-col-1">
+                    <a href="/arabicregistration" className={classes.links}>إبدأ الآن </a>
                 </div>
                 <div className="p-col-2"/>
 
