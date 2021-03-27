@@ -1,5 +1,5 @@
 body{
-    background-color: #25274d;
+    background-color: #FFFFFF;
 }
 .contact{
     padding: 4%;
@@ -30,7 +30,7 @@ body{
     font-weight:600;
 }
 .contact-form button{
-    background: #25274d;
+     background: #a474b7;
     color: #fff;
     font-weight: 600;
     width: 25%;

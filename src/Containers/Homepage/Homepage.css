@@ -41,7 +41,8 @@
 
 .u-section-1 .u-image-1 {
     min-height: 679px;
-    background-image: url("../../images/online-therapy-abstract-concept-vector-illustration-online-counseling-mental-health-amid-coronavirus-quarantine-psychological-help-189706276.jpg");
+   background-image: url("../../assets/online-therapy-abstract-concept-vector-illustration-online-counseling-mental-health-amid-coronavirus-quarantine-psychological-help-189706276.jpg");
+
 }
 
 .u-section-1 .u-container-layout-2 {
@@ -97,7 +98,7 @@
     }
 
     .u-section-1 .u-image-1 {
-        min-height: 404px;
+        min-height: 04px;
     }
 
     .u-section-1 .u-container-layout-2 {
@@ -807,7 +808,7 @@
 
 .u-section-7 .u-image-2 {
     min-height: 350px;
-    background-image: url("../../images/front-view-woman-having-video-call_23-2148521607.jpg");
+    background-image: url("../../assets/front-view-woman-having-video-call_23-2148521607.jpg");
     background-position: 50% 50%;
 }
 
@@ -822,7 +823,7 @@
 
 .u-section-7 .u-image-4 {
     min-height: 350px;
-    background-image: url("../../images/fg.jpg");
+    background-image: url("../../assets/fg.jpg");
     background-position: 50% 50%;
 }
 
@@ -33169,7 +33170,8 @@ html { font-size: 16px; }
 .dropdown {
     position: relative;
     display: inline-block;
-    padding-left: 450px;
+    padding-top: 3px;
+    padding-left:200px;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -33208,9 +33210,10 @@ html { font-size: 16px; }
 ul {
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding:0;
     overflow: hidden;
     background-color: #FFFFFF;
+    padding-bottom: 32px;
 }
 
 li {
@@ -33228,6 +33231,14 @@ li a {
 /* Change the link color to #111 (black) on hover */
 li a:hover {
     background-color: #FFFFFF;
-    color: darkred;
+    color: #f5d654;
 
+}
+
+.login-a{
+    background-color: #a474b7;
+    border-spacing: 5px;
+    color:white;
+    font-size: 15px;
+    border: 2px solid #a474b7;
 }

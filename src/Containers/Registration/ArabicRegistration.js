@@ -14,10 +14,9 @@ import {useToasts} from "react-toast-notifications";
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import { Password } from 'primereact/password';
-import * as registrationActions from "./store/RegistrationActions"
-import { AsyncThunkAction } from '@reduxjs/toolkit';
 
-const Registration = (props) => {
+
+const ArabicRegistration = () => {
 
     const [patientInfo, setPatientInfo] = useState({
         firstName: "",
@@ -28,8 +27,8 @@ const Registration = (props) => {
         city: "",
         mobileNumber: "",
         email: "",
-        username: "",
-        password: "",
+        username:"",
+        password:"",
     })
     const genders = [
         {id: 1, name: "Female"},
@@ -203,14 +202,16 @@ const Registration = (props) => {
                     <label className={classes.Label}>Password</label>
                 </div>
                 <div className="p-col-6">
-                    <Password value={patientInfo.password} toggleMask
+                    <Password  value={patientInfo.password} toggleMask
 
-                              onChange={(e) => setPatientInfo({
-                                  ...patientInfo,
-                                  password: e.currentTarget.value
-                              })}/>
+                               onChange={(e) => setPatientInfo({
+                                   ...patientInfo,
+                                   password: e.currentTarget.value
+                               })}/>
                 </div>
                 <div className="p-col-2"/>
+
+
 
 
             </div>
@@ -355,16 +356,14 @@ const Registration = (props) => {
     );
 }
 
-// const mapStateToProps = (state: State) => {
+// const mapStateToProps = state => {
 //         return {};
 //     }
 // ;
 //
-// const mapDispatchToProps = (dispatch: (arg0: AsyncThunkAction<any, void, {}>) => any) => {
-//         return {
-//             createAccount: (data) => dispatch(registrationActions.createAccount(data)),
-//         };
+// const mapDispatchToProps = dispatch => {
+//         return {};
 //     }
 // ;
 
-export default Registration;
+export default ArabicRegistration;

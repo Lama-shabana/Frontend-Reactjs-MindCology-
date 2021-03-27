@@ -1,9 +1,9 @@
 import "./Homepage.css";
-import img2 from "../../images/3485230f.jpg";
-import img3 from "../../images/AdobeStock_331776137-960x640.jpeg";
+import img2 from "../../assets/3485230f.jpg";
+import img3 from "../../assets/AdobeStock_331776137-960x640.jpeg";
 import LoggedOutTopBar from "../../Components/TopBar/LoggedOutTopBar";
 
-const EnglishHomepage = (props) => {
+const EnglishHomepage = () => {
     return (
         <div>
 
@@ -71,8 +71,10 @@ const EnglishHomepage = (props) => {
                                     </div>
                                 </div>
                                 <div
-                                    className="u-align-left u-container-style u-layout-cell u-size-15 u-size-30-md u-layout-cell-3">
-                                    <div className="u-container-layout u-valign-top u-container-layout-3">
+                                    className="u-align-left u-container-style u-layout-cell u-size-15 u-size-30-md u-layout-cell-2">
+                                    <div className="u-container-layout u-valign-top u-container-layout-2">
+                                        <div
+                                            className="u-border-4 u-border-palette-2-base u-line u-line-horizontal u-line-2"></div>
                                         <h4 className="u-text u-text-5">Fill a form</h4>
                                         <p className="u-text u-text-grey-50 u-text-6">The form contains a few questions
                                             that help you to find the perfect therapist for your problems. Also, It
@@ -80,8 +82,10 @@ const EnglishHomepage = (props) => {
                                     </div>
                                 </div>
                                 <div
-                                    className="u-align-left u-container-style u-layout-cell u-right-cell u-size-15 u-size-30-md u-layout-cell-4">
-                                    <div className="u-container-layout u-valign-top u-container-layout-4">
+                                    className="u-align-left u-container-style u-layout-cell u-size-15 u-size-30-md u-layout-cell-2">
+                                    <div className="u-container-layout u-valign-top u-container-layout-2">
+                                        <div
+                                            className="u-border-4 u-border-palette-2-base u-line u-line-horizontal u-line-2"></div>
                                         <h4 className="u-text u-text-7">Keep going</h4>
                                         <p className="u-text u-text-grey-50 u-text-8">There's no need to stop your life
                                             or worry, you can contact us according to your spare time.</p>
@@ -149,7 +153,7 @@ const EnglishHomepage = (props) => {
                                         <p className="u-text u-text-2">During
                                             Sessions using video calls, audio and chatting with professional therapist.
                                         </p>
-                                        <a href="About/About.html"
+                                        <a href="/about"
                                            className="u-border-2 u-border-grey-dark-1 u-btn u-btn-rectangle u-button-style u-none u-btn-1">learn
                                             more</a>
                                     </div>
@@ -274,13 +278,13 @@ const EnglishHomepage = (props) => {
                     <p className="u-small-text u-text u-text-variant u-text-1">Get Started</p></div>
             </footer>
             <section className="u-backlink u-clearfix u-grey-80">
-                <a className="u-link" href="Contact/Contact.html" target="_blank">
+                <a className="u-link" href="/contact" target="_blank">
                     <span>Contact </span>
                 </a>
                 <p className="u-text">
                     <span>with</span>
                 </p>
-                <a className="u-link" href="Contact/Contact.html" target="_blank">
+                <a className="u-link" href="/contact" target="_blank">
                     <span>us</span>
                 </a>.
             </section>

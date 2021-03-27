@@ -1,0 +1,12 @@
+.image{
+    width: 18em;
+}
+.links{
+    display: inline-block;
+   margin-top: 3em !important;
+    color: black !important;
+}
+
+.backgroundColor{
+    background-color: red !important;
+}
