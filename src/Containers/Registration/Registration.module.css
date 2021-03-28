@@ -1,9 +1,10 @@
 .Fields {
     /*display: block;*/
 
-    width: 100%;
+    width: 100% !important;
     font-size: 1em !important;
     /*margin-top: 0.5em;*/
+
 }
 .regForm {
 
@@ -25,14 +26,14 @@
     border: 3px solid green;
 }
 
-.countriesAndCities{
-    width: 100%;
-    font-size: 1em !important;
-    height: 110%;
-    border-color: lightgrey;
-    color: dimgray;
-    border-radius: 3px 3px 3px 3px;
-    margin-bottom: 15px;
+.password{
+    width: 100% !important;
+    /*font-size: 1em !important;*/
+    /*height: 110%;*/
+    /*border-color: lightgrey;*/
+    /*color: dimgray;*/
+    /*border-radius: 3px 3px 3px 3px;*/
+    /*margin-bottom: 15px;*/
 
 }
 
@@ -50,7 +51,7 @@
     margin-right: 6%;
     /*display: inline-block;*/
     width: 95%;
-    text-align: right;
+    text-align: left;
 }
 
 

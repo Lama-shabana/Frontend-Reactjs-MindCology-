@@ -8,8 +8,10 @@ import {Provider} from "react-redux";
 import {applyMiddleware, combineReducers, compose, createStore} from "redux";
 import thunk from 'redux-thunk';
 import PatientReducer from "./Containers/Patient/store/PatientReducer";
+import axios from "axios";
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
+axios.defaults.baseURL = 'https://localhost:5001/api/';
 
 const rootReducer = combineReducers({
 patient:PatientReducer

@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^12.8.1",
     "axios": "^0.21.1",
     "history": "^5.0.0",
+    "node-email-validation": "^1.0.4",
     "primeflex": "^2.0.0",
     "primeicons": "^4.1.0",
     "primereact": "^6.2.1",

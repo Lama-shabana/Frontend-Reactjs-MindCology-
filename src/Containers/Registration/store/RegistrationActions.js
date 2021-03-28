@@ -6,12 +6,12 @@ import axios from "axios";
 export const createAccount = createAsyncThunk(actions.CREATE_ACCOUNT, async (payload, thunkAPI) => {
     let errMsg=''
     thunkAPI.dispatch(uiActions.showLoading());
-    const response = await axios.post('/users', {
+    const response = await axios.post('Users',
         payload
-    },{
-        headers:{
-            // Authorization: thunkAPI.getState().login.token
-        }
+    ,{
+        // headers:{
+        //     Authorization: thunkAPI.getState().login.token
+        // }
     }).catch((e) => {
         thunkAPI.dispatch(uiActions.hideLoading());
         errMsg = 'error at API call ' + e.message;
