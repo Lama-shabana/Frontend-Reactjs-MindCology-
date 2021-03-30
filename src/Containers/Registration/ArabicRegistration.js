@@ -37,22 +37,21 @@ const ArabicRegistration = (props) => {
 
     function patientInfoSection() {
         return <div className={classes.regForm}>
-            <div className="p-col-1" className={classes.image}>
-                <a href="/">
-                    <img src={imgaccount}
-                         alt="logo"/>
-                </a>
-            </div>
+
             <div className={classes.Signup}>
                 انشئ حسابك الآن
             </div>
             <div className="p-grid">
 
-
-                <div className="p-col-2"/>
-                <div className="p-col-2">
-
+                <div className="p-col-1">
+                    <a href="/arabicregistration" className={classes.Signup}>
+                        <img  className ={classes.image} src={imgaccount}
+                             alt="logo"/>
+                    </a>
                 </div>
+
+                <div className="p-col-1"/>
+                <div className="p-col-2"/>
                 <div className="p-col-3">
                     <span className="p-float-label">
                         <InputText
@@ -67,6 +66,7 @@ const ArabicRegistration = (props) => {
 
                     </span>
                 </div>
+
                 <div className="p-col-3">
                     <span className="p-float-label">
                         <InputText
@@ -82,14 +82,12 @@ const ArabicRegistration = (props) => {
 
                    </span>
                 </div>
+                <div className="p-col-1"/>
+                <div className="p-col-2"/>
                 <div className="p-col-2"/>
 
-
-                <div className="p-col-2"/>
-                <div className="p-col-2">
-
-                </div>
                 <div className="p-col-3">
+
                     <Dropdown
                         className={classes.Fields}
                         value={patientInfo.gender}
@@ -143,8 +141,9 @@ const ArabicRegistration = (props) => {
                     />
                 </div>
                 <div className="p-col-2"/>
-
                 <div className="p-col-2"/>
+
+
                 <div className="p-col-2">
 
                 </div>
