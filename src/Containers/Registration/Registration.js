@@ -12,7 +12,8 @@ import * as registrationActions from "./store/RegistrationActions"
 import LoggedOutTopBar from "../../Components/TopBar/LoggedOutTopBar";
 import {connect} from 'react-redux';
 import "./Registration.css";
-
+import imgaccount from'../../assets/PinClipart.com_broadway-clip-art_4511595.png';
+import MindCology from "../../assets/MindCology.png";
 const Registration = (props) => {
 
     const [patientInfo, setPatientInfo] = useState({
@@ -36,14 +37,25 @@ const Registration = (props) => {
 
     function patientInfoSection() {
         return <div className={classes.regForm}>
+            <div className="p-col-1" className={classes.image}>
+                <a href="/">
+                    <img src={imgaccount}
+                         alt="logo"/>
+                </a>
+            </div>
+            <div className={classes.Signup}>
+                Sign up
+            </div>
             <div className="p-grid">
+
                 <div className="p-col-2"/>
                 <div className="p-col-2">
-                    <label className={classes.Label}>Full Name</label>
+
                 </div>
                 <div className="p-col-3">
                     <span className="p-float-label">
                         <InputText
+                            placeholder="First Name"
                             value={patientInfo.firstName}
                             className={classes.Fields}
                             onChange={(e) =>
@@ -51,12 +63,13 @@ const Registration = (props) => {
                                     ...patientInfo,
                                     firstName: e.currentTarget.value
                                 })}/>
-                         <label htmlFor='firstName'> First Name</label>
+
                     </span>
                 </div>
                 <div className="p-col-3">
                     <span className="p-float-label">
                         <InputText
+                            placeholder="Last Name"
                             id="lastName"
                             value={patientInfo.lastName}
                             className={classes.Fields}
@@ -65,7 +78,7 @@ const Registration = (props) => {
                                     ...patientInfo,
                                     lastName: e.currentTarget.value
                                 })}/>
-                         <label htmlFor='lastName'>Last Name</label>
+
                    </span>
                 </div>
                 <div className="p-col-2"/>
@@ -73,7 +86,7 @@ const Registration = (props) => {
 
                 <div className="p-col-2"/>
                 <div className="p-col-2">
-                    <label className={classes.Label}>Gender and Age</label>
+
                 </div>
                 <div className="p-col-3">
                     <Dropdown
@@ -92,6 +105,7 @@ const Registration = (props) => {
                 </div>
                 <div className="p-col-3">
                     <InputText
+                        placeholder="Enter your age"
                         keyfilter="int"
                         className={classes.Fields}
                         value={patientInfo.age}
@@ -112,7 +126,7 @@ const Registration = (props) => {
 
 
                 <div className="p-col-2">
-                    <label className={classes.Label}>Mobile Number</label>
+
                 </div>
                 <div className="p-col-6">
                     <PhoneInput
@@ -131,7 +145,7 @@ const Registration = (props) => {
 
                 <div className="p-col-2"/>
                 <div className="p-col-2">
-                    <label className={classes.Label}>Email</label>
+
                 </div>
                 <div className="p-col-6">
                     <InputText value={patientInfo.email}
@@ -146,14 +160,14 @@ const Registration = (props) => {
                     />
                 </div>
                 <div className="p-col-2"/>
-
                 <div className="p-col-2"/>
-                <div className="p-col-2">
-                    <label className={classes.Label}>Credentials</label>
+                <div className="p-col-2" >
+
                 </div>
                 <div className="p-col-3" style={{marginTop: "0.5em"}}>
                     <span className="p-float-label">
                         <InputText
+                            placeholder="Enter your username"
                             id="username"
                             value={patientInfo.username}
                             className={classes.Fields}
@@ -164,12 +178,13 @@ const Registration = (props) => {
                                 })
                             }}
                         />
-                        <label htmlFor='username'> Username</label>
+
                     </span>
                 </div>
                 <div className="p-col-3" style={{marginTop: "0.5em"}}>
                     <span className="p-float-label" style={{width: "100%"}}>
                         <Password id="password"
+
                                   value={patientInfo.password}
                                   className={classes.password}
                                   onChange={(e) => setPatientInfo({

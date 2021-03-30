@@ -25,6 +25,10 @@ const ArabicLoggedOutTopBar=() => {
                     <a href="/arabicabout" className={classes.links}>معلومات عنا</a>
 
                 </div>
+                <div className="p-col-1">
+                    <a href="/arabiccontact" className={classes.links}>للتواصل معنا</a>
+
+                </div>
 
                 {window.location.pathname !== "/arabiclogin" ?
                     <div className="p-col-1">

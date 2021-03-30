@@ -24,7 +24,10 @@ const LoggedOutTopBar = (props) => {
                 <a href="/about" className={classes.links}>About</a>
 
             </div>
+            <div className="p-col-1">
+                <a href="/contact" className={classes.links}>Contact Us</a>
 
+            </div>
             {window.location.pathname !== "/registration" ?
                 <div className="p-col-1">
                     <a href="/registration" className={classes.links}>Sign Up </a>
@@ -53,7 +56,7 @@ const LoggedOutTopBar = (props) => {
                     </div>
                 </div>
             </div>
-            <div className="p-col-1"/>
+
 
         </div>
         // </Sticky>

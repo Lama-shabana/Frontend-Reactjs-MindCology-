@@ -1,54 +1,62 @@
 import React, {useState} from 'react';
 import {Dropdown} from "primereact/dropdown";
 import {InputText} from "primereact/inputtext";
-import {InputTextarea} from "primereact/inputtextarea";
 import classes from "./Registration.module.css"
 import {Button} from "primereact/button";
-import {CountryDropdown, RegionDropdown} from 'react-country-region-selector';
-import {Steps} from "primereact/steps";
-// import {connect} from "react-redux";
-// import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css'
 import {useToasts} from "react-toast-notifications";
-// import * as EmailValidator from 'node-email-validation';
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
-import { Password } from 'primereact/password';
+import {Password} from 'primereact/password';
+import * as registrationActions from "./store/RegistrationActions"
 import ArabicLoggedOutTopBar from "../../Components/TopBar/ArabicLoggedOutTopBar";
+import {connect} from 'react-redux';
+import "./Registration.css";
+import imgaccount from "../../assets/PinClipart.com_broadway-clip-art_4511595.png";
 
-
-const ArabicRegistration = () => {
+const ArabicRegistration = (props) => {
 
     const [patientInfo, setPatientInfo] = useState({
         firstName: "",
         lastName: "",
         gender: "",
-        age: "",
-        country: "",
-        city: "",
-        mobileNumber: "",
+        age: 0,
+        phoneNumber: "",
         email: "",
-        username:"",
-        password:"",
+        username: "",
+        password: "",
     })
-    const genders = [
-        {id: 1, name: "Female"},
-        {id: 2, name: 'Male'},
-    ]
+
+
+
+    const genders = ["انثى","ذكر"]
 
     const {addToast} = useToasts()
 
+    let validator = require("email-validator");
 
     function patientInfoSection() {
         return <div className={classes.regForm}>
+            <div className="p-col-1" className={classes.image}>
+                <a href="/">
+                    <img src={imgaccount}
+                         alt="logo"/>
+                </a>
+            </div>
+            <div className={classes.Signup}>
+                انشئ حسابك الآن
+            </div>
             <div className="p-grid">
+
+
                 <div className="p-col-2"/>
                 <div className="p-col-2">
-                    <label className={classes.Label}>Full Name</label>
+
                 </div>
                 <div className="p-col-3">
                     <span className="p-float-label">
                         <InputText
+                            placeholder="الاسم الأول"
                             value={patientInfo.firstName}
                             className={classes.Fields}
                             onChange={(e) =>
@@ -56,12 +64,13 @@ const ArabicRegistration = () => {
                                     ...patientInfo,
                                     firstName: e.currentTarget.value
                                 })}/>
-                         <label htmlFor='firstName'> First Name</label>
+
                     </span>
                 </div>
                 <div className="p-col-3">
                     <span className="p-float-label">
                         <InputText
+                            placeholder="الاسم الأخير"
                             id="lastName"
                             value={patientInfo.lastName}
                             className={classes.Fields}
@@ -70,7 +79,7 @@ const ArabicRegistration = () => {
                                     ...patientInfo,
                                     lastName: e.currentTarget.value
                                 })}/>
-                         <label htmlFor='lastName'>Last Name</label>
+
                    </span>
                 </div>
                 <div className="p-col-2"/>
@@ -78,85 +87,58 @@ const ArabicRegistration = () => {
 
                 <div className="p-col-2"/>
                 <div className="p-col-2">
-                    <label className={classes.Label}>Gender and Age</label>
+
                 </div>
                 <div className="p-col-3">
                     <Dropdown
                         className={classes.Fields}
                         value={patientInfo.gender}
                         options={genders}
-                        optionLabel="name"
-                        optionValue="id"
-                        placeholder="Gender "
+                        placeholder="الجنس "
                         onChange={(e) => {
+                            console.log(e,"gender")
                             setPatientInfo({
                                 ...patientInfo,
-                                email: e.value,
+                                gender: e.value,
                             })
                         }}
                     />
                 </div>
                 <div className="p-col-3">
                     <InputText
+                        placeholder="العُمر"
                         keyfilter="int"
                         className={classes.Fields}
                         value={patientInfo.age}
                         onChange={(e) => {
                             if (e.currentTarget.value.charAt(e.currentTarget.value.length - 1) !== "-") {
-                                setPatientInfo({
-                                    ...patientInfo,
-                                    age: e.currentTarget.value
-                                })
+                                if(parseInt(e.currentTarget.value)){
+                                    setPatientInfo({
+                                        ...patientInfo,
+                                        age: parseInt(e.currentTarget.value)
+                                    })
+                                }
                             }
                         }
                         }/>
                 </div>
                 <div className="p-col-2"/>
                 <div className="p-col-2"/>
-                <div className="p-col-2">
-                    <label className={classes.Label}>Country and City</label>
-                </div>
-                <div className="p-col-3">
-                    <CountryDropdown
-                        defaultOptionLabel="Country"
-                        classes={classes.countriesAndCities}
-                        value={patientInfo.country}
-                        onChange={(e) => {
-                            setPatientInfo({
-                                ...patientInfo,
-                                country: e,
-                            })
-                        }}/>
-                </div>
-                <div className="p-col-3">
-                    <RegionDropdown
-                        defaultOptionLabel="City"
-                        classes={classes.countriesAndCities}
-                        country={patientInfo.country}
-                        value={patientInfo.city}
-                        onChange={(e) => {
-                            setPatientInfo({
-                                ...patientInfo,
-                                city: e,
-                            })
-                        }}/>
-                </div>
-                <div className="p-col-2"/>
 
-                <div className="p-col-2"/>
+
                 <div className="p-col-2">
-                    <label className={classes.Label}>Mobile Number</label>
+
                 </div>
                 <div className="p-col-6">
                     <PhoneInput
                         inputStyle={{width: "100%"}}
                         country={'ps'}
-                        placeholder='Enter your phone Number'
-                        value={patientInfo.mobileNumber}
+                        placeholder="رقم الهاتف المحمول"
+                        value={patientInfo.phoneNumber}
                         onChange={phone =>
                             setPatientInfo({
                                 ...patientInfo,
-                                mobileNumber: phone,
+                                phoneNumber: phone,
                             })}
                     />
                 </div>
@@ -164,12 +146,12 @@ const ArabicRegistration = () => {
 
                 <div className="p-col-2"/>
                 <div className="p-col-2">
-                    <label className={classes.Label}>Email</label>
+
                 </div>
                 <div className="p-col-6">
                     <InputText value={patientInfo.email}
                                className={classes.Fields}
-                               placeholder="Email"
+                               placeholder="البريد الالكتروني"
                                onChange={(e) => {
                                    setPatientInfo({
                                        ...patientInfo,
@@ -179,193 +161,129 @@ const ArabicRegistration = () => {
                     />
                 </div>
                 <div className="p-col-2"/>
-
                 <div className="p-col-2"/>
-                <div className="p-col-2">
-                    <label className={classes.Label}>Username</label>
+                <div className="p-col-2" >
+
                 </div>
-                <div className="p-col-6">
-                    <InputText
-                        value={patientInfo.username}
-                        className={classes.Fields}
-                        onChange={(e) => {
-                            setPatientInfo({
-                                ...patientInfo,
-                                username: e.currentTarget.value,
-                            })
-                        }}
-                    />
+                <div className="p-col-3" style={{marginTop: "0.5em"}}>
+                    <span className="p-float-label">
+                        <InputText
+                            placeholder="ادخل الاسم المستخدم"
+                            id="username"
+                            value={patientInfo.username}
+                            className={classes.Fields}
+                            onChange={(e) => {
+                                setPatientInfo({
+                                    ...patientInfo,
+                                    username: e.currentTarget.value,
+                                })
+                            }}
+                        />
+
+                    </span>
                 </div>
-                <div className="p-col-2"/>
+                <div className="p-col-3" style={{marginTop: "0.5em"}}>
+                    <span className="p-float-label" style={{width: "100%"}}>
+                        <Password id="password"
+                                  placeholder="رقم السر الخاص بك"
+                                  value={patientInfo.password}
+                                  className={classes.password}
+                                  onChange={(e) => setPatientInfo({
+                                      ...patientInfo,
+                                      password: e.currentTarget.value
+                                  })}/>
 
-                <div className="p-col-2"/>
-                <div className="p-col-2">
-                    <label className={classes.Label}>Password</label>
+                    </span>
                 </div>
-                <div className="p-col-6">
-                    <Password  value={patientInfo.password} toggleMask
-
-                               onChange={(e) => setPatientInfo({
-                                   ...patientInfo,
-                                   password: e.currentTarget.value
-                               })}/>
-                </div>
-                <div className="p-col-2"/>
-
-
-
 
             </div>
             <div className="p-grid p-justify-end">
 
-                <Button label="Finish"
+                <Button label="ارسال"
                         style={{marginTop: "2em", height: "3em"}}
                         className="primaryBtn"
                         icon="pi pi-step-forward"
                         onClick={() => {
-                            // if (!validator.validate(patientInfo.email)) {
-                            //     addToast('Please enter a valid email', {
-                            //         appearance: 'error',
-                            //         autoDismiss: true,
-                            //     })
-                            // } else
-                            if (patientInfo.email !== "") {
-                                // props.checkIfEmailExists({email: patientInfo.email}).then((data) => {
-                                //     if (data.payload.data) {
-                                //         addToast('This email already exists. Please try again.', {
-                                //             appearance: 'error',
-                                //             autoDismiss: true,
-                                //         })
-                                //     } else
-                                //         setActiveIndex(activeIndex + 1)
-                                // })
-
-                            }
-
-                        }}
-                />
+                            handleRegistration()
+                        }}/>
                 <div className="p-col-2"/>
-
             </div>
         </div>
     }
 
-    function displayForm() {
-        return patientInfoSection()
-        // else if (activeIndex === 1) {
-        //     return businessProfileSection(MSME)
-        // } else if (activeIndex === 2) {
-        //     return businessProfileSectionPartTwo(MSME)
-        // }
-    }
+
 
     function handleRegistration() {
-        // let allFieldsFilled = true;
-        // if (selectedAccountType === 1 || selectedAccountType === 2) {
-        //     Object.keys(patientInfo).map((field) => {
-        //         if (allFieldsFilled && patientInfo[field] === "") {
-        //             allFieldsFilled = false
-        //         }
-        //     })
-        //
-        //     Object.keys(businessProfile).map((field) => {
-        //         if (allFieldsFilled && businessProfile[field] === "") {
-        //             allFieldsFilled = false
-        //         }
-        //     })
-        //
-        //     if (!allFieldsFilled) {
-        //         addToast('Please fill all the required fields', {
-        //             appearance: 'error',
-        //             autoDismiss: true,
-        //         })
-        //     } else if (!validator.validate(patientInfo.email) || !validator.validate(businessProfile.email) || !validator.validate(businessProfile.contactPersonEmail)) {
-        //         addToast('Please enter a valid email', {
-        //             appearance: 'error',
-        //             autoDismiss: true,
-        //         })
-        //     } else {
-        //         props.createAccount({
-        //             MSMEOwner: {
-        //                 patientInfo: patientInfo,
-        //                 businessProfile: {
-        //                     BP_legalName: businessProfile.legalName,
-        //                     BP_registrationNumber: businessProfile.registrationNumber,
-        //                     BP_yearsOfEstablishment: businessProfile.yearsOfEstablishment.toString(),
-        //                     BP_brandName: businessProfile.brandName,
-        //                     BP_website: businessProfile.website,
-        //                     BP_email: businessProfile.email,
-        //                     BP_country: businessProfile.country,
-        //                     BP_city: businessProfile.city
-        //                 },
-        //                 businessDetails: {
-        //                     BD_companyVision: businessProfile.companyVision,
-        //                     BD_businessDescription: businessProfile.businessDescription,
-        //                     BD_productsAndServices: businessProfile.productsAndServices,
-        //                     BD_targetedCustomers: businessProfile.targetedCustomers,
-        //                     BD_competition: businessProfile.competition,
-        //                     BD_competitiveAdvantage: businessProfile.competitiveAdvantage,
-        //                     BD_hasDataForFinancialStatement: businessProfile.hasDataForFinancialStatement
-        //                 },
-        //                 contactPerson: {
-        //                     CP_name: businessProfile.contactPersonName,
-        //                     CP_jobTitle: businessProfile.contactPersonJobTitle,
-        //                     CP_phone: businessProfile.contactPersonPhone,
-        //                     CP_email: businessProfile.contactPersonEmail
-        //                 }
-        //             }
-        //
-        //         }).then(data => {
-        //             if (data.payload.valid) {
-        //                 addToast('Successfully Registered', {
-        //                     appearance: 'success',
-        //                     autoDismiss: true,
-        //                 })
-        //             } else addToast('Something went wrong', {
-        //                 appearance: 'error',
-        //                 autoDismiss: true,
-        //             })
-        //         })
-        //         if (businessProfile.hasDataForFinancialStatement) {
-        //             // return <div>hi</div>
-        //             props.history.push('/entity/GeneralInfo')
-        //         }
-        //
-        //     }
-        //     if (businessProfile.hasDataForFinancialStatement) {
-        //         return <div>hi</div>
-        //         // props.history.push('/entity/GeneralInfo')
-        //
-        //     }
+
+        let allFieldsFilled = true;
+
+        Object.keys(patientInfo).map((field) => {
+            if (allFieldsFilled && patientInfo[field] === "") {
+                allFieldsFilled = false
+            }
+        })
+
+        if (allFieldsFilled === false) {
+            addToast('ادخل جميع البيانات المطلوبة', {
+                appearance: 'error',
+                autoDismiss: true,
+            })
+        } else if (!(validator.validate(patientInfo.email))) {
+            addToast('ادخل بريدد الكتروني متوفر', {
+                appearance: 'error',
+                autoDismiss: true,
+            })
+        }else
+            props.createAccount(
+                {
+                    "firstName": patientInfo.firstName,
+                    "lastName": patientInfo.lastName,
+                    "phoneNumber": patientInfo.phoneNumber,
+                    "email": patientInfo.email,
+                    "gender":patientInfo.gender,
+                    "age": patientInfo.age,
+                    "username": patientInfo.username,
+                    "password": patientInfo.password
+                }
+            ).then((data) => {
+                    if (data.payload.id) {
+                        addToast('تم انشاء الحساب بنجاح', {
+                            appearance: 'success',
+                            autoDismiss: true,
+                        })
+                        props.history.push("/login")
+                    } else
+                        addToast('هناك خطأ ما', {
+                            appearance: 'error',
+                            autoDismiss: true,
+                        })
+                }
+            )
 
     }
 
 
     return (
         <div>
-
             <ArabicLoggedOutTopBar/>
-            {console.log(patientInfo)}
-            {/*<header className={classes.Topbar}/>*/}
             {/*<h2 className="p-col-fixed">*/}
             {/*    Registration*/}
             {/*</h2>*/}
             {/*<hr/>*/}
-            {displayForm()}
+            {patientInfoSection()}
         </div>
 
 
     );
 }
 
-// const mapStateToProps = state => {
-//         return {};
-//     }
-// ;
-//
-// const mapDispatchToProps = dispatch => {
-//         return {};
-//     }
-// ;
+const mapStateToProps = state => {
+    return {}
+}
+const mapDispatchToProps = dispatch => {
+    return {
+        createAccount: (data) => dispatch(registrationActions.createAccount(data)),
 
-export default ArabicRegistration;
+    };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ArabicRegistration);
