@@ -1,4 +1,4 @@
-import ArabicLoggedOutTopBar from "../../../Components/TopBar/ArabicLoggedOutTopBar";
+import ArabicLoggedOutTopBar from "../../../Components/LoggedOutTopBar/ArabicLoggedOutTopBar";
 import "../Homepage.css";
 import "../Contact/Contact.css";
 

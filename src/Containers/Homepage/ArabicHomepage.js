@@ -1,7 +1,7 @@
 import "./Homepage.css";
 import img1 from "../../assets/3485230f.jpg";
 import img2 from "../../assets/AdobeStock_331776137-960x640.jpeg";
-import ArabicLoggedOutTopBar from "../../Components/TopBar/ArabicLoggedOutTopBar";
+import ArabicLoggedOutTopBar from "../../Components/LoggedOutTopBar/ArabicLoggedOutTopBar";
 
 const ArabicHomepage = () => {
     return (

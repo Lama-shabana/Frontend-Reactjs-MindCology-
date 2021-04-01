@@ -10,6 +10,7 @@ import thunk from 'redux-thunk';
 import PatientReducer from "./Containers/Patient/store/PatientReducer";
 import axios from "axios";
 import login from "../src/Containers/Login/store/LoginReducer";
+import interfaceUtilityReducer from './Containers/InterfaceUtility/store/InterfaceUtilityReducer';
 
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
@@ -17,8 +18,10 @@ axios.defaults.baseURL = 'https://localhost:5001/';
 
 
 const rootReducer = combineReducers({
-patient:PatientReducer,
-    login:login
+    patient: PatientReducer,
+    login: login,
+    ui: interfaceUtilityReducer,
+
 });
 
 const store = createStore(rootReducer, composeEnhancers(

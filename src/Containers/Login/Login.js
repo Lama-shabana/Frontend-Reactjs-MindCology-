@@ -4,7 +4,7 @@ import {InputText} from 'primereact/inputtext';
 import {Password} from 'primereact/password';
 import Button from 'react-bootstrap/Button';
 import OnlineCounselling from "../../assets/online-therapy.jpg"
-import LoggedOutTopBar from "../../Components/TopBar/LoggedOutTopBar";
+import LoggedOutTopBar from "../../Components/LoggedOutTopBar/LoggedOutTopBar";
 import * as registrationActions from "./store/LoginActions";
 import {connect} from "react-redux";
 

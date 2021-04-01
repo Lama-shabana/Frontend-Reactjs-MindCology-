@@ -1,4 +1,4 @@
-import LoggedOutTopBar from "../../../Components/TopBar/LoggedOutTopBar";
+import LoggedOutTopBar from "../../../Components/LoggedOutTopBar/LoggedOutTopBar";
 import "../Homepage.css";
 import "../Contact/Contact.css";
 

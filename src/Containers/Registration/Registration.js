@@ -9,7 +9,7 @@ import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import {Password} from 'primereact/password';
 import * as registrationActions from "./store/RegistrationActions"
-import LoggedOutTopBar from "../../Components/TopBar/LoggedOutTopBar";
+import LoggedOutTopBar from "../../Components/LoggedOutTopBar/LoggedOutTopBar";
 import {connect} from 'react-redux';
 import "./Registration.css";
 import imgaccount from'../../assets/PinClipart.com_broadway-clip-art_4511595.png';

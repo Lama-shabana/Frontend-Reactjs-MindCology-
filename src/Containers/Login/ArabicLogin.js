@@ -5,7 +5,7 @@ import {Password} from 'primereact/password';
 import Button from 'react-bootstrap/Button';
 
 
-import ArabicLoggedOutTopBar from "../../Components/TopBar/ArabicLoggedOutTopBar";
+import ArabicLoggedOutTopBar from "../../Components/LoggedOutTopBar/ArabicLoggedOutTopBar";
 
 import OnlineCounselling from "../../assets/online-therapy.jpg";
 
