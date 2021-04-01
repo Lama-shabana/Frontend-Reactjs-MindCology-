@@ -11,7 +11,7 @@ const LoggedOutTopBar = (props) => {
         <div className="p-grid">
             {/*{console.log(props.history.location?.pathname,"path")}*/}
 
-            <div className="p-col-3">
+            <div className="p-col-2">
                 <a href="/">
                     <img src={MindCology} className={classes.image}
                          alt="logo"/>
@@ -57,7 +57,7 @@ const LoggedOutTopBar = (props) => {
                 </div>
             </div>
 
-
+            <div className="p-col-1"/>
         </div>
         // </Sticky>
 

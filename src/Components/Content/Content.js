@@ -28,6 +28,7 @@ const Content = (props) => {
                     <Route path="/registration" exact component={Registration}/>
                     <Route path="/login" exact component={Login}/>
                     <Route path="/arabiclogin" exact component={ArabicLogin}/>
+
                 </Switch>
         </div>
     );

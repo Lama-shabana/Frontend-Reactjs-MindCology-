@@ -10,6 +10,12 @@ const reducer = createReducer(initialState, {
 
     [actions.login.fulfilled]: (state, action) => {
         state.auth = action;
+
+        console.log(action,"reducer payload")
+    },
+
+    [actions.logout.fulfilled]: (state, action) => {
+        localStorage.clear()
         console.log(action,"reducer payload")
     },
     // [actions.createAccount.fulfilled]: (state, action) => {

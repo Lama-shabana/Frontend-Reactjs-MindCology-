@@ -10,9 +10,14 @@ import 'primeflex/primeflex.css';
 function App(props) {
   return (
       <React.Fragment>
+
           {/*<InterfaceUtility/>*/}
         <ToastProvider>
           {/*<Layout {...props}>*/}
+
+            {/*{localStorage.getItem("auth")?.userType==="admin"?<AdminContent/>:<Content/>}*/}
+            {/*{localStorage.getItem("auth")?.userType==="admin"?<PatientContent/>:<Content/>}*/}
+            {/*{localStorage.getItem("auth")?.userType==="admin"?<TherapistContent/>:<Content/>}*/}
 
             <Content/>
           {/*</Layout>*/}

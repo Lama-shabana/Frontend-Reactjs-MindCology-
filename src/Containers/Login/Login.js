@@ -15,11 +15,10 @@ const Login = (props) => {
     })
 
     const handleLogin = (e) => {
-        props.login({userFormState}).then((data)=>{console.log(data,"payload")})
-        // e.preventDefault();
-        // props.onLogin({
-        //     ...userFormState
-        // });
+        props.login(userFormState).then((data)=>{
+            localStorage.setItem('auth',JSON.stringify(data.payload))
+        })
+
 
     }
 
@@ -36,9 +35,9 @@ const Login = (props) => {
                                  alt="logo"/>
                         </div>
                         <div className="p-col-5">
-                            <form
-                                onSubmit={handleLogin}
-                            >
+                            {/*<form*/}
+                            {/*    onSubmit={handleLogin}*/}
+                            {/*>*/}
                                 <div className={classes.LoginPanel}>
                                     {/*<ErrorMsg msg={props.loginFailed}/>*/}
                                     <div className={classes.LoginForm}>
@@ -62,15 +61,15 @@ const Login = (props) => {
                              </span>
                                     </div>
                                     <br/>
-                                    <Button style={{
+                                    <Button
+                                        onClick={handleLogin}
+                                        style={{
                                         color: "white",
                                         backgroundColor: "#42235f",
                                         width: '95%',
                                         marginLeft: "2%",
                                         height: "8.5%"
-                                    }}
-                                        // icon="pi pi-key"
-                                            type="submit">Sign in</Button>
+                                    }}>Sign in</Button>
 
                                     <hr/>
                                     <Button variant="link"
@@ -81,26 +80,41 @@ const Login = (props) => {
 
                                             }}>
                                         Not a member yet? <b>Sign up now</b></Button>
+
+                                    <Button variant="logout"
+                                            className={classes.signUpButton}
+                                        // style={}
+                                            onClick={() => {
+                                                console.log(localStorage.getItem("auth"),"before")
+                                                localStorage.clear()
+                                                console.log(localStorage.getItem("auth"),"after")
+
+
+                                            }}>logout</Button>
                                 </div>
-                            </form>
+                            {/*</form>*/}
                         </div>
                         <div className="p-col-1"/>
 
                     </div>
 
             {/*{props.isLoggedIn ? <Redirect to="/dashboard"/> : null}*/}
-
+            {/*{console.log(props.isLoggedIn,"test")}*/}
         </div>
+
     );
 }
 
 const mapStateToProps = state => {
-    return {}
+    return {
+        // isLoggedIn: state.login.login,
+
+    }
 }
 const mapDispatchToProps = dispatch => {
     return {
         login: (data) => dispatch(registrationActions.login(data)),
-
+        logout:()=>dispatch(registrationActions.logout(null)),
     };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
