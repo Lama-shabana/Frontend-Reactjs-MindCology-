@@ -5,6 +5,8 @@ import {Password} from 'primereact/password';
 import Button from 'react-bootstrap/Button';
 import OnlineCounselling from "../../assets/online-therapy.jpg"
 import LoggedOutTopBar from "../../Components/TopBar/LoggedOutTopBar";
+import * as registrationActions from "./store/LoginActions";
+import {connect} from "react-redux";
 
 const Login = (props) => {
     let [userFormState, setUserFormState] = useState({
@@ -12,17 +14,15 @@ const Login = (props) => {
         password: '',
     })
 
-    // const handleLogin = (e) => {
-    //     e.preventDefault();
-    //     props.onLogin({
-    //         ...userFormState
-    //     });
-    //
-    // }
-    // if (props.isLoggedIn) {
-    //     props.loadCurrencies()
-    // }
-    //
+    const handleLogin = (e) => {
+        props.login({userFormState}).then((data)=>{console.log(data,"payload")})
+        // e.preventDefault();
+        // props.onLogin({
+        //     ...userFormState
+        // });
+
+    }
+
 
     return (
         <div>
@@ -37,7 +37,7 @@ const Login = (props) => {
                         </div>
                         <div className="p-col-5">
                             <form
-                                // onSubmit={handleLogin}
+                                onSubmit={handleLogin}
                             >
                                 <div className={classes.LoginPanel}>
                                     {/*<ErrorMsg msg={props.loginFailed}/>*/}
@@ -94,5 +94,14 @@ const Login = (props) => {
     );
 }
 
+const mapStateToProps = state => {
+    return {}
+}
+const mapDispatchToProps = dispatch => {
+    return {
+        login: (data) => dispatch(registrationActions.login(data)),
 
-export default Login;
+    };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
+// export default Login;

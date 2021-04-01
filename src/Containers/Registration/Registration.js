@@ -20,7 +20,7 @@ const Registration = (props) => {
         firstName: "",
         lastName: "",
         gender: "",
-        age: 0,
+        age: "",
         phoneNumber: "",
         email: "",
         username: "",
@@ -101,7 +101,7 @@ const Registration = (props) => {
                 </div>
                 <div className="p-col-3">
                     <InputText
-                        placeholder="Enter your age"
+                        placeholder="Age"
                         keyfilter="int"
                         className={classes.Fields}
                         value={patientInfo.age}
