@@ -14,6 +14,7 @@ import ArabicLogin from "../../Containers/Login/ArabicLogin";
 import PatientDashboard from "../../Containers/Patient/PatientDashboard/PatientDashboard";
 import PatientAccountProfile from "../../Containers/Patient/PatientDashboard/PatientAccountProfile";
 import TakeAppointment from "../../Containers/Patient/PatientDashboard/TakeAppointment";
+import EditProfile from "../../Containers/Patient/PatientDashboard/EditProfile";
 
 const PatientContent = (props) => {
     return (
@@ -34,7 +35,7 @@ const PatientContent = (props) => {
                 <Route path="/patientDashboard" exact component={PatientDashboard}/>
                 <Route path="/patientDashboard/patientInfo" exact component={PatientAccountProfile}/>
                 <Route path="/patientDashboard/takeAppointment" exact component={TakeAppointment}/>
-
+                <Route path="/patientDashboard/patientInfo/editProfile" exact component={EditProfile}/>
             </Switch>
         </div>
     );

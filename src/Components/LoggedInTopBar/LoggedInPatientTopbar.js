@@ -22,6 +22,22 @@ const LoggedInPatientTopbar = (props) => {
             }
         },
         {
+            label: 'Edit Profile',
+            icon: 'pi pi-edit-profile',
+            command: () => {
+                history.push('/patientDashboard/patientInfo/editProfile')
+
+            }
+        },
+        {
+            label: 'Settings',
+            icon: 'pi pi-settings',
+            command: () => {
+                history.push('/patientDashboard/Settings')
+
+            }
+        },
+        {
             label: 'Appointments',
             //icon: 'pi pi-appointment',
             command: () => {
