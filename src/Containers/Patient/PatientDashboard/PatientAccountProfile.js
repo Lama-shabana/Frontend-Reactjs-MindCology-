@@ -4,15 +4,15 @@ import LoggedInPatientTopbar from "../../../Components/LoggedInTopBar/LoggedInPa
 import '../PatientDashboard/Profile.css';
 import '../PatientDashboard/TakeAppointment.css';
 import myAccount from '../../../assets/images.png';
+import EditProfile from '../PatientDashboard/EditProfile';
+import '../PatientDashboard/Profile.css';
+import Button from "react-bootstrap/Button";
 const PatientAccountProfile = (props) => {
-
-
     return (
        <div>
        <form>
-           <div >
-
-
+           <div>
+               <Button className="edit-profile" onClick={()=> props.history.push("/patientDashboard/patientInfo/editProfile")}>Edit Profile </Button>
                <h4 >My Profile </h4>
                <img src={myAccount} />
              <p> Diala khalil</p>
@@ -22,7 +22,7 @@ const PatientAccountProfile = (props) => {
                        <ul className="profile-info">
                            <li>
                                <span className="title">Username: </span>
-                               <span className="text"><a href="#">diala-khalil</a></span>
+                               <span className="text"><a href="#">diala-kalil</a></span>
                            </li>
                            <li>
                                <span className="title">Age: </span>

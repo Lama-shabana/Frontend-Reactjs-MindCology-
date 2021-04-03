@@ -2,18 +2,14 @@ import React, {useState} from 'react';
 import {connect} from "react-redux";
 import LoggedInPatientTopbar from "../../../Components/LoggedInTopBar/LoggedInPatientTopbar";
 import '../PatientDashboard/Profile.css';
-
 import myAccount from '../../../assets/images.png';
 import {InputText} from "primereact/inputtext";
 
 const EditProfile = (props) => {
-
-
     return (
         <div>
             <form>
                 <div >
-
                     <h4 >Edit My Profile </h4>
                     <img src={myAccount} />
 

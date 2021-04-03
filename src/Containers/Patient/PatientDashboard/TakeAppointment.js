@@ -5,13 +5,12 @@ import '../PatientDashboard/TakeAppointment.css';
 
 const TakeAppointment = (props) => {
 
-
     return (
         <div>
      <form>
          <label>
              <fieldset>
-                 <legend>For take an appointment</legend>
+                 <legend>For Take An Appointment</legend>
                  <label>
                      Name
                      <input type="text" name="name" required/>
@@ -36,17 +35,17 @@ const TakeAppointment = (props) => {
                  </div>
                  <p>Confirmation requested by</p>
                  <div >
-                     <label>
+                     <label> Email
                          <input type="radio" name="Confirmation requested by" value="email" checked/>
-                             Email
+
                      </label>
-                     <label>
+                     <label>  Phone call
                          <input type="radio" name="Confirmation requested by" value="phone"/>
-                             Phone call
+
                      </label>
                  </div>
                  <div >
-                     <input type="text" name="_gotcha" value="message" />
+                     <input type="text" name="_gotcha" placeholder="message"  />
                      <input type="submit" value="Submit request"/>
                  </div>
              </fieldset>
