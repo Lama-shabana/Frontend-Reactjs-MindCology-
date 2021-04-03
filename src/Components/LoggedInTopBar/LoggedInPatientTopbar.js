@@ -5,16 +5,19 @@ import './NavigationMenuStyle.css';
 import * as uiActions from "../../Containers/InterfaceUtility/store/InterfaceUtilityActions";
 import {Sidebar} from "primereact/sidebar";
 import {PanelMenu} from "primereact/panelmenu";
+import { useHistory } from "react-router-dom";
 
 
 const LoggedInPatientTopbar = (props) => {
+    let history = useHistory();
+
     const navigationMenuModel = [
 
         {
             label: 'Profile',
             icon: 'pi pi-chart-bar',
             command: () => {
-                props.push('/patientDashboard/patientInfo')
+                history.push('/patientDashboard/patientInfo')
 
             }
         },
@@ -22,7 +25,7 @@ const LoggedInPatientTopbar = (props) => {
             label: 'Appointments',
             //icon: 'pi pi-appointment',
             command: () => {
-                props.push('/patientDashboard/takeAnappointment')
+                history.push('/patientDashboard/takeAppointment')
             }
         },
         {
@@ -30,12 +33,14 @@ const LoggedInPatientTopbar = (props) => {
             icon: 'pi pi-sign-out',
             command: () => {
                 localStorage.clear()
-                props.history.push('/')
+                history.push('/')
 
             }
         }
 
     ];
+
+
 
     const handleNavBarClick = (e) => {
         if (props.menuVisible)

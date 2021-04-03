@@ -231,7 +231,7 @@ table.table td h2 span {
     margin-bottom: 20px;
 }
 .cal-icon:after {
-    background: transparent url("../../../assets/img/calander.png") no-repeat scroll 0 0;
+    /*background: transparent url("../../../assets/img/calander.png") no-repeat scroll 0 0;*/
     bottom: 0;
     content: "";
     display: block;
@@ -247,7 +247,7 @@ table.table td h2 span {
     width: 100%;
 }
 .time-icon:after {
-   background: transparent url("../../../assets/img/clock.png") no-repeat scroll 0 0;
+   /*background: transparent url("../../../assets/img/clock.png") no-repeat scroll 0 0;*/
     bottom: 0;
     content: "";
     display: block;

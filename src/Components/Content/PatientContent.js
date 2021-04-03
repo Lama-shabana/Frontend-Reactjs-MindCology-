@@ -12,8 +12,9 @@ import ArabicContact from "../../Containers/Homepage/Contact/ArabicContact";
 import Login from "../../Containers/Login/Login";
 import ArabicLogin from "../../Containers/Login/ArabicLogin";
 import PatientDashboard from "../../Containers/Patient/PatientDashboard/PatientDashboard";
-import PatientAccountProfile from "../../Containers/Patient/PatientDashboard/PatientAcountProfile";
-import takeAnAppointment from "../../Containers/Patient/PatientDashboard/TakeAnAppointment";
+import PatientAccountProfile from "../../Containers/Patient/PatientDashboard/PatientAccountProfile";
+import TakeAppointment from "../../Containers/Patient/PatientDashboard/TakeAppointment";
+
 const PatientContent = (props) => {
     return (
         <div>
@@ -32,7 +33,7 @@ const PatientContent = (props) => {
                 <Route path="/arabiclogin" exact component={ArabicLogin}/>
                 <Route path="/patientDashboard" exact component={PatientDashboard}/>
                 <Route path="/patientDashboard/patientInfo" exact component={PatientAccountProfile}/>
-                <Route path="/patientDashboard/takeAnappointment" exact component={takeAnAppointment}/>
+                <Route path="/patientDashboard/takeAppointment" exact component={TakeAppointment}/>
 
             </Switch>
         </div>

@@ -41,8 +41,8 @@ function App(props) {
                 <PatientContent/>
             </div>
 
-            <TherapistContent/>
-            <Content/>
+            {/*<TherapistContent/>*/}
+            {/*<Content/>*/}
           {/*</Layout>*/}
         </ToastProvider>
 
