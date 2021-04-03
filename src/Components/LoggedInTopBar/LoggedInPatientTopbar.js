@@ -14,10 +14,17 @@ const LoggedInPatientTopbar = (props) => {
             label: 'Profile',
             icon: 'pi pi-chart-bar',
             command: () => {
-                // props.history.push('/entity/GeneralInfo')
+                props.push('/patientDashboard/patientInfo')
+
             }
         },
-
+        {
+            label: 'Appointments',
+            //icon: 'pi pi-appointment',
+            command: () => {
+                props.push('/patientDashboard/takeAnappointment')
+            }
+        },
         {
             label: 'Sign Out',
             icon: 'pi pi-sign-out',
@@ -27,6 +34,7 @@ const LoggedInPatientTopbar = (props) => {
 
             }
         }
+
     ];
 
     const handleNavBarClick = (e) => {
