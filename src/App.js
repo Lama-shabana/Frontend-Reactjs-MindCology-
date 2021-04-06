@@ -34,12 +34,13 @@ function App(props) {
             {/*{localStorage.getItem("auth")?.userType==="admin"?<AdminContent/>:<Content/>}*/}
             {/*{localStorage.getItem("auth")?.userType==="admin"?<PatientContent/>:<Content/>}*/}
             {/*{localStorage.getItem("auth")?.userType==="admin"?<TherapistContent/>:<Content/>}*/}
-            <AdminContent/>
+            <Content/>
+            {/*<AdminContent/>*/}
 
-            <LoggedInPatientTopbar/>
-            <div style={divStyleObject} className={classes.Content}>
-                <PatientContent/>
-            </div>
+            {/*<LoggedInPatientTopbar/>*/}
+            {/*<div style={divStyleObject} className={classes.Content}>*/}
+            {/*    <PatientContent/>*/}
+            {/*</div>*/}
 
             {/*<TherapistContent/>*/}
             {/*<Content/>*/}

@@ -48,8 +48,6 @@ const EnglishHomepage = () => {
                                 <div
                                     className="u-align-left u-container-style u-layout-cell u-left-cell u-size-15 u-size-30-md u-layout-cell-1">
                                     <div className="u-container-layout u-valign-top u-container-layout-1">
-                                        <div
-                                            className="u-border-4 u-border-palette-2-base u-line u-line-horizontal u-line-1"></div>
                                         <h4 className="u-text u-text-1">Stay connected</h4>
                                         <p className="u-text u-text-grey-50 u-text-2">
                                             For those who wish to enjoy a healthy life. This option is built around
@@ -61,8 +59,6 @@ const EnglishHomepage = () => {
                                 <div
                                     className="u-align-left u-container-style u-layout-cell u-size-15 u-size-30-md u-layout-cell-2">
                                     <div className="u-container-layout u-valign-top u-container-layout-2">
-                                        <div
-                                            className="u-border-4 u-border-palette-2-base u-line u-line-horizontal u-line-2"></div>
                                         <h4 className="u-text u-text-3">Talk about</h4>
                                         <p className="u-text u-text-grey-50 u-text-4">You can get all options of mental
                                             healthcare that offer this website, like take an appointment after sign up
@@ -73,8 +69,6 @@ const EnglishHomepage = () => {
                                 <div
                                     className="u-align-left u-container-style u-layout-cell u-size-15 u-size-30-md u-layout-cell-2">
                                     <div className="u-container-layout u-valign-top u-container-layout-2">
-                                        <div
-                                            className="u-border-4 u-border-palette-2-base u-line u-line-horizontal u-line-2"></div>
                                         <h4 className="u-text u-text-5">Fill a form</h4>
                                         <p className="u-text u-text-grey-50 u-text-6">The form contains a few questions
                                             that help you to find the perfect therapist for your problems. Also, It
@@ -84,8 +78,6 @@ const EnglishHomepage = () => {
                                 <div
                                     className="u-align-left u-container-style u-layout-cell u-size-15 u-size-30-md u-layout-cell-2">
                                     <div className="u-container-layout u-valign-top u-container-layout-2">
-                                        <div
-                                            className="u-border-4 u-border-palette-2-base u-line u-line-horizontal u-line-2"></div>
                                         <h4 className="u-text u-text-7">Keep going</h4>
                                         <p className="u-text u-text-grey-50 u-text-8">There's no need to stop your life
                                             or worry, you can contact us according to your spare time.</p>
@@ -105,12 +97,12 @@ const EnglishHomepage = () => {
                                 <div
                                     className="u-container-style u-expand-resize u-layout-cell u-left-cell u-size-36 u-layout-cell-1">
                                     <div className="u-container-layout">
-                                        <img className="u-image u-image-1" src={img2}/>
+                                        <img className="u-image u-image-1" src={img2} style={{marginTop:"12em"}}/>
                                     </div>
                                 </div>
                                 <div
-                                    className="u-align-left u-container-style u-layout-cell u-right-cell u-size-24 u-layout-cell-2">
-                                    <div className="u-container-layout u-container-layout-2">
+                                    className="u-align-left u-container-style u-layout-cell u-right-cell u-size-24 u-layout-cell-2" >
+                                    <div className="u-container-layout u-container-layout-2" >
                                         <h1 className="u-text u-text-body-color u-text-1">Mental Health</h1>
                                         <h3 className="u-custom-font u-font-pt-sans u-text u-text-grey-50 u-text-2">During
                                             COVID-19</h3>
@@ -163,73 +155,8 @@ const EnglishHomepage = () => {
                     </div>
                 </div>
             </section>
-            <section className="u-clearfix u-section-7" id="carousel_4f0e">
-                <div className="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
-                    <div className="u-layout">
-                        <div className="u-layout-col">
-                            <div className="u-size-30">
-                                <div className="u-layout-row">
-                                    <div
-                                        className="u-container-style u-image u-layout-cell u-left-cell u-size-20 u-image-1"
-                                        data-image-width="626" data-image-height="417">
-                                        {/*<div className="u-container-layout u-container-layout-1"></div>*/}
-                                    </div>
-                                    <div className="u-container-style u-image u-layout-cell u-size-20 u-image-2"
-                                         data-image-width="626" data-image-height="416">
-                                        {/*<div className="u-container-layout u-container-layout-2"></div>*/}
-                                    </div>
-                                    <div
-                                        className="u-container-style u-image u-layout-cell u-right-cell u-size-20 u-image-3"
-                                        data-image-width="626" data-image-height="417">
-                                        {/*<div className="u-container-layout u-container-layout-3"></div>*/}
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="u-size-30">
-                                <div className="u-layout-row">
-                                    <div
-                                        className="u-container-style u-image u-layout-cell u-left-cell u-size-20 u-image-4">
-                                        {/*<div className="u-container-layout u-container-layout-4"></div>*/}
-                                    </div>
-                                    <div className="u-container-style u-image u-layout-cell u-size-20 u-image-5">
-                                        {/*<div className="u-container-layout u-container-layout-5"></div>*/}
-                                    </div>
-                                    <div
-                                        className="u-container-style u-image u-layout-cell u-right-cell u-size-20 u-image-6">
-                                        {/*<div className="u-container-layout u-container-layout-6"></div>*/}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section className="u-clearfix u-section-8" id="carousel_c21a">
-                <div className="u-clearfix u-sheet u-sheet-1">
-                    <div className="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
-                        <div className="u-layout">
-                            <div className="u-layout-row">
-                                <div className="u-container-style u-layout-cell u-left-cell u-size-20 u-layout-cell-1">
-                                    <div className="u-container-layout u-container-layout-1">
-                                        <h2 className="u-custom-font u-font-georgia u-text u-text-1">Why our website is
-                                            special?</h2>
-                                    </div>
-                                </div>
-                                <div className="u-container-style u-layout-cell u-size-20 u-layout-cell-2">
-                                    <div className="u-container-layout u-valign-top u-container-layout-2">
-                                        <p className="u-text u-text-2">We will create a mood analysis form which will be
-                                            filled by the user. Based on the answered questions in the form our
-                                            website/app will analyze the answers and suggest podcasts, music, movies,
-                                            and books based on the user’s mood and situation.
-                                        </p>
-                                    </div>
-                                </div>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
             <section className="u-clearfix u-custom-color-1 u-section-9" id="carousel_c0f4">
                 <div className="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-xl u-sheet-1">
                     <div className="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">

@@ -11,6 +11,10 @@ import Contact from "../../Containers/Homepage/Contact/Contact";
 import ArabicContact from "../../Containers/Homepage/Contact/ArabicContact";
 import Login from "../../Containers/Login/Login";
 import ArabicLogin from "../../Containers/Login/ArabicLogin";
+import PatientDashboard from "../../Containers/Patient/PatientDashboard/PatientDashboard";
+import PatientAccountProfile from "../../Containers/Patient/PatientDashboard/PatientAccountProfile";
+import TakeAppointment from "../../Containers/Patient/PatientDashboard/TakeAppointment";
+import EditProfile from "../../Containers/Patient/PatientDashboard/EditProfile";
 
 const Content = (props) => {
     return (
@@ -28,6 +32,11 @@ const Content = (props) => {
                     <Route path="/registration" exact component={Registration}/>
                     <Route path="/login" exact component={Login}/>
                     <Route path="/arabiclogin" exact component={ArabicLogin}/>
+
+                <Route path="/patientDashboard" exact component={PatientDashboard}/>
+                <Route path="/patientDashboard/patientInfo" exact component={PatientAccountProfile}/>
+                <Route path="/patientDashboard/takeAppointment" exact component={TakeAppointment}/>
+                <Route path="/patientDashboard/patientInfo/editProfile" exact component={EditProfile}/>
 
                 </Switch>
         </div>

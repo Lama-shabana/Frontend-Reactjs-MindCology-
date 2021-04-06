@@ -104,12 +104,12 @@ const ArabicHomepage = () => {
                                 <div
                                     className="u-container-style u-expand-resize u-layout-cell u-left-cell u-size-36 u-layout-cell-1">
                                     <div className="u-container-layout">
-                                        <img className="u-image u-image-1" src={img1}/>
+                                        <img className="u-image u-image-1" src={img1} style={{marginTop:"200px"}}/>
                                     </div>
                                 </div>
                                 <div
                                     className="u-align-left u-container-style u-layout-cell u-right-cell u-size-24 u-layout-cell-2">
-                                    <div className="u-container-layout u-container-layout-2">
+                                    <div className="u-container-layout u-container-layout-2" style={{marginTop:"5em"}}>
                                         <h1 className="u-text u-text-body-color u-text-1">الصحة العقلية</h1>
                                         <h3 className="u-custom-font u-font-pt-sans u-text u-text-grey-50 u-text-2">خلال
                                             COVID-19</h3>
@@ -161,73 +161,8 @@ const ArabicHomepage = () => {
                     </div>
                 </div>
             </section>
-            <section className="u-clearfix u-section-7" id="carousel_4f0e">
-                <div className="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
-                    <div className="u-layout">
-                        <div className="u-layout-col">
-                            <div className="u-size-30">
-                                <div className="u-layout-row">
-                                    <div
-                                        className="u-container-style u-image u-layout-cell u-left-cell u-size-20 u-image-1"
-                                        data-image-width="626" data-image-height="417">
-                                        <div className="u-container-layout u-container-layout-1"/>
-                                    </div>
-                                    <div className="u-container-style u-image u-layout-cell u-size-20 u-image-2"
-                                         data-image-width="626" data-image-height="416">
-                                        <div className="u-container-layout u-container-layout-2"/>
-                                    </div>
-                                    <div
-                                        className="u-container-style u-image u-layout-cell u-right-cell u-size-20 u-image-3"
-                                        data-image-width="626" data-image-height="417">
-                                        <div className="u-container-layout u-container-layout-3"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="u-size-30">
-                                <div className="u-layout-row">
-                                    <div
-                                        className="u-container-style u-image u-layout-cell u-left-cell u-size-20 u-image-4">
-                                        <div className="u-container-layout u-container-layout-4"/>
-                                    </div>
-                                    <div className="u-container-style u-image u-layout-cell u-size-20 u-image-5">
-                                        <div className="u-container-layout u-container-layout-5"/>
-                                    </div>
-                                    <div
-                                        className="u-container-style u-image u-layout-cell u-right-cell u-size-20 u-image-6">
-                                        <div className="u-container-layout u-container-layout-6"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section className="u-clearfix u-section-8" id="carousel_c21a">
-                <div className="u-clearfix u-sheet u-sheet-1">
-                    <div className="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
-                        <div className="u-layout">
-                            <div className="u-layout-row">
-                                <div className="u-container-style u-layout-cell u-left-cell u-size-20 u-layout-cell-1">
-                                    <div className="u-container-layout u-container-layout-1">
-                                        <h2 className="u-custom-font u-font-georgia u-text u-text-1">لماذا موقعنا
-                                            مميز؟</h2>
-                                    </div>
-                                </div>
-                                <div className="u-container-style u-layout-cell u-size-20 u-layout-cell-2">
-                                    <div className="u-container-layout u-valign-top u-container-layout-2">
-                                        <p className="u-text u-text-2">
-                                            سننشئ استمارة تحليل الحالة المزاجية والتي سيتم ملؤها من قبل المستخدم.
-                                            استنادًا إلى الأسئلة التي تمت الإجابة عليها في النموذج ، سيحلل موقعنا /
-                                            تطبيقنا الإجابات ويقترح ملفات البودكاست والموسيقى والأفلام والكتب بناءً على
-                                            مزاج المستخدم ووضعه. </p>
-                                    </div>
-                                </div>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
             <section className="u-clearfix u-custom-color-1 u-section-9" id="carousel_c0f4">
                 <div className="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-xl u-sheet-1">
                     <div className="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
