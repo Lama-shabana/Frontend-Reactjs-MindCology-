@@ -11,19 +11,9 @@ const TakeAppointment = (props) => {
          <label>
              <fieldset>
                  <legend>For Take An Appointment</legend>
-                 <label>
-                     Name
-                     <input type="text" name="name" required/>
-                 </label>
+
                  <div >
-                     <label>
-                         Email address
-                         <input type="email" name="email" required/>
-                     </label>
-                     <label>
-                         Phone number
-                         <input type="tel" name="phone"/>
-                     </label>
+
                      <label>
                         Time
                          <input type="time" name="time"/>

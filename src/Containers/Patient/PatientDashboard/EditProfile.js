@@ -14,14 +14,15 @@ const EditProfile = (props) => {
                     <img src={myAccount} />
 
                     <p> Diala khalil </p>
-                    <span className="username">diala-khalail</span>
-                    <input type="text"  placeholder="Diala khalil" name="user name"/>
 
                     <div>
 
                         <div >
                             <ul className="profile-info">
-
+                                <label>
+                                    <span className="username">diala-khalail</span>
+                                    <input type="text"  placeholder="Diala khalil" name="user name"/>
+                                </label>
                                 <label>
                                     <span className="title">Age: </span>
                                 </label>

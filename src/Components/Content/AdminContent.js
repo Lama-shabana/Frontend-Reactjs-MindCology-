@@ -12,7 +12,9 @@ import ArabicContact from "../../Containers/Homepage/Contact/ArabicContact";
 import Login from "../../Containers/Login/Login";
 import ArabicLogin from "../../Containers/Login/ArabicLogin";
 import AdminDashboard from "../../Containers/Admin/AdminDashboard/AdminDashboard";
-
+import ViewPatients from "../../Containers/Admin/AdminDashboard/ViewPatients";
+import ViewTherapists from "../../Containers/Admin/AdminDashboard/ViewTherapist";
+import AddTherapist from "../../Containers/Admin/AdminDashboard/AddTherapist";
 const AdminContent = (props) => {
     return (
         <div>
@@ -30,8 +32,9 @@ const AdminContent = (props) => {
                 <Route path="/login" exact component={Login}/>
                 <Route path="/arabiclogin" exact component={ArabicLogin}/>
                 <Route path="/adminDashboard" exact component={AdminDashboard}/>
-
-
+                <Route path="/adminDashboard/patients" exact component={ViewPatients}/>
+                <Route path="/adminDashboard/therapists" exact component={ViewTherapists}/>
+                <Route path ="/AdminDashboard/ViewTherapists/addTherapist" exit component={AddTherapist}/>
 
 
 

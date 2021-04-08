@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import {connect} from "react-redux";
-
-const AdminDashboard = (props) => {
+import './ViewTable.css';
+const ViewPatients = (props) => {
 
 
     return (
         <div>
 
-            <h4>admin</h4>
+            <h1>Patients</h1>
         </div>
 
     );
@@ -22,4 +22,4 @@ const mapDispatchToProps = dispatch => {
     return {
     };
 }
-export default connect(mapStateToProps, mapDispatchToProps)(AdminDashboard);
+export default connect(mapStateToProps, mapDispatchToProps)(ViewPatients);

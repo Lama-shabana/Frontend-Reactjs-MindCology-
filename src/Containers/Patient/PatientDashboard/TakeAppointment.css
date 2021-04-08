@@ -14,18 +14,17 @@ input {
     margin-left: .5rem;
     font-weight: 700
 }
-input[type=text] {
+input[type=text] ,input[type=email],input[type=password],input[type=number]{
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
 }
-input[type=text]:focus {
+input[type=text],input[type=email],input[type=password]:focus {
     background-color: #adcce9;
 }
-input[type=text] {
+input[type=text] ,input[type=email],input[type=password]{
     background-color: white;
-
     background-position: 10px 10px;
     background-repeat: no-repeat;
     padding-left: 40px;
