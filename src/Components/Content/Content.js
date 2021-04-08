@@ -33,10 +33,10 @@ const Content = (props) => {
                     <Route path="/login" exact component={Login}/>
                     <Route path="/arabiclogin" exact component={ArabicLogin}/>
 
-                <Route path="/patientDashboard" exact component={PatientDashboard}/>
-                <Route path="/patientDashboard/patientInfo" exact component={PatientAccountProfile}/>
-                <Route path="/patientDashboard/takeAppointment" exact component={TakeAppointment}/>
-                <Route path="/patientDashboard/patientInfo/editProfile" exact component={EditProfile}/>
+                {/*<Route path="/patientDashboard" exact component={PatientDashboard}/>*/}
+                {/*<Route path="/patientDashboard/patientInfo" exact component={PatientAccountProfile}/>*/}
+                {/*<Route path="/patientDashboard/takeAppointment" exact component={TakeAppointment}/>*/}
+                {/*<Route path="/patientDashboard/patientInfo/editProfile" exact component={EditProfile}/>*/}
 
                 </Switch>
         </div>

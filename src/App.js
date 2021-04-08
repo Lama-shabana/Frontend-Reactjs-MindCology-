@@ -27,24 +27,24 @@ function App(props) {
       <React.Fragment>
 
           {console.log(divStyleObject,"style")}
-          {/*<InterfaceUtility/>*/}
+         {/*// <InterfaceUtility/>*/}
         <ToastProvider>
-          {/*<Layout {...props}>*/}
+          {/*//<Layout {...props}>*/}
 
-            {/*{localStorage.getItem("auth")?.userType==="admin"?<AdminContent/>:<Content/>}*/}
-            {/*{localStorage.getItem("auth")?.userType==="admin"?<PatientContent/>:<Content/>}*/}
-            {/*{localStorage.getItem("auth")?.userType==="admin"?<TherapistContent/>:<Content/>}*/}
+            {localStorage.getItem("auth")?.userType==="admin"?<AdminContent/>:<Content/>}
+            {localStorage.getItem("auth")?.userType==="patient"?<PatientContent/>:<Content/>}
+            {localStorage.getItem("auth")?.userType==="therapist"?<TherapistContent/>:<Content/>}
             <Content/>
-            {/*<AdminContent/>*/}
+            <AdminContent/>
 
-            {/*<LoggedInPatientTopbar/>*/}
-            {/*<div style={divStyleObject} className={classes.Content}>*/}
-            {/*    <PatientContent/>*/}
-            {/*</div>*/}
+            <LoggedInPatientTopbar/>
+            <div style={divStyleObject} className={classes.Content}>
+                <PatientContent/>
+            </div>
 
-            {/*<TherapistContent/>*/}
-            {/*<Content/>*/}
-          {/*</Layout>*/}
+            <TherapistContent/>
+            <Content/>
+         {/*</Layout>*/}
         </ToastProvider>
 
       </React.Fragment>

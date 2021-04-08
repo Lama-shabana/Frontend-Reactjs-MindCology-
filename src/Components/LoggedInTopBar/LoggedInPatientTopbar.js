@@ -21,19 +21,12 @@ const LoggedInPatientTopbar = (props) => {
 
             }
         },
-        {
-            label: 'Edit Profile',
-            icon: 'pi pi-edit-profile',
-            command: () => {
-                history.push('/patientDashboard/patientInfo/editProfile')
 
-            }
-        },
         {
-            label: 'Settings',
-            icon: 'pi pi-settings',
+            label: 'Delete Account',
+            icon: 'pi pi-delete-account',
             command: () => {
-                history.push('/patientDashboard/Settings')
+                history.push('/patientDashboard/patientInfo/deleteAccount')
 
             }
         },
