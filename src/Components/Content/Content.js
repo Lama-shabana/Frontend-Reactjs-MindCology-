@@ -19,9 +19,7 @@ import EditProfile from "../../Containers/Patient/PatientDashboard/EditProfile";
 const Content = (props) => {
     return (
         <div>
-
             <Switch>
-
                     <Route path="/" exact component={EnglishHomepage}/>
                     <Route path="/arabicHomepage" exact component={ArabicHomepage}/>
                     <Route path="/about" exact component={About}/>
@@ -32,11 +30,6 @@ const Content = (props) => {
                     <Route path="/registration" exact component={Registration}/>
                     <Route path="/login" exact component={Login}/>
                     <Route path="/arabiclogin" exact component={ArabicLogin}/>
-
-                {/*<Route path="/patientDashboard" exact component={PatientDashboard}/>*/}
-                {/*<Route path="/patientDashboard/patientInfo" exact component={PatientAccountProfile}/>*/}
-                {/*<Route path="/patientDashboard/takeAppointment" exact component={TakeAppointment}/>*/}
-                {/*<Route path="/patientDashboard/patientInfo/editProfile" exact component={EditProfile}/>*/}
 
                 </Switch>
         </div>

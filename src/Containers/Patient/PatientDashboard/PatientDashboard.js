@@ -3,12 +3,14 @@ import {connect} from "react-redux";
 import LoggedInPatientTopbar from "../../../Components/LoggedInTopBar/LoggedInPatientTopbar";
 import PatientAccountProfile from "./PatientAccountProfile";
 import TakeAnAppointment from "./TakeAppointment";
+import {ToastProvider} from "react-toast-notifications";
 
 const PatientDashboard = (props) => {
 
 
     return (
         <div>
+
 
         </div>
 

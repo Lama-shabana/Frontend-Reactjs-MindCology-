@@ -6,9 +6,7 @@ import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
-import TherapistContent from "./Components/Content/TherapistContent";
 import PatientContent from "./Components/Content/PatientContent";
-import AdminContent from "./Components/Content/AdminContent";
 import LoggedInPatientTopbar from "./Components/LoggedInTopBar/LoggedInPatientTopbar";
 import classes from "./App.css"
 import {connect} from "react-redux";
@@ -16,39 +14,54 @@ import {connect} from "react-redux";
 function App(props) {
     let divStyleObject = {
         marginLeft: "10px",
-        marginTop:'5em'
+        marginTop: '5em'
     };
 
     if (props.menuVisible)
         divStyleObject.marginLeft = "350px";
 
 
+    let userType = JSON.parse(localStorage.getItem("auth"))?.userType;
+
+    const content = () => {
+        switch (userType) {
+            case "patient":
+                return <div>
+                    <LoggedInPatientTopbar/>
+                    <div style={divStyleObject} className={classes.Content}>
+                        <PatientContent/>
+                    </div>
+                </div>
+                break;
+            case "admin":
+                // code block
+                break;
+
+            case "therapist":
+                // code block
+                break;
+            default:
+                return <Content/>
+        }
+    }
     return (
-      <React.Fragment>
+        <React.Fragment>
+            <ToastProvider>
+                {{
+                    "patient":
+                        <div>
+                            <LoggedInPatientTopbar/>
+                            <div style={divStyleObject} className={classes.Content}>
+                                <PatientContent/>
+                            </div>
+                        </div>,
+                    undefined: <Content/>
+                }[userType]}
 
-          {console.log(divStyleObject,"style")}
-         {/*// <InterfaceUtility/>*/}
-        <ToastProvider>
-          {/*//<Layout {...props}>*/}
+            </ToastProvider>
 
-            {localStorage.getItem("auth")?.userType==="admin"?<AdminContent/>:<Content/>}
-            {localStorage.getItem("auth")?.userType==="patient"?<PatientContent/>:<Content/>}
-            {localStorage.getItem("auth")?.userType==="therapist"?<TherapistContent/>:<Content/>}
-            <Content/>
-            <AdminContent/>
-
-            <LoggedInPatientTopbar/>
-            <div style={divStyleObject} className={classes.Content}>
-                <PatientContent/>
-            </div>
-
-            <TherapistContent/>
-            <Content/>
-         {/*</Layout>*/}
-        </ToastProvider>
-
-      </React.Fragment>
-  );
+        </React.Fragment>
+    );
 }
 
 const mapStateToProps = state => {

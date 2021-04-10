@@ -7,8 +7,11 @@ import OnlineCounselling from "../../assets/online-therapy.jpg"
 import LoggedOutTopBar from "../../Components/LoggedOutTopBar/LoggedOutTopBar";
 import * as registrationActions from "./store/LoginActions";
 import {connect} from "react-redux";
+import {useHistory} from "react-router-dom";
 
 const Login = (props) => {
+    let history = useHistory();
+
     let [userFormState, setUserFormState] = useState({
         username: '',
         password: '',
@@ -17,6 +20,11 @@ const Login = (props) => {
     const handleLogin = (e) => {
         props.login(userFormState).then((data)=>{
             localStorage.setItem('auth',JSON.stringify(data.payload))
+            if(data.payload.userType==="patient"){
+                history.push('/patientDashboard')
+
+            }
+            console.log(data.payload,"payload")
         })
 
 
