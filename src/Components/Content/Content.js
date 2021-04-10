@@ -19,7 +19,9 @@ import EditProfile from "../../Containers/Patient/PatientDashboard/EditProfile";
 const Content = (props) => {
     return (
         <div>
+
             <Switch>
+
                     <Route path="/" exact component={EnglishHomepage}/>
                     <Route path="/arabicHomepage" exact component={ArabicHomepage}/>
                     <Route path="/about" exact component={About}/>

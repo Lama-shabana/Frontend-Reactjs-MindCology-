@@ -61,7 +61,6 @@ const LoggedInPatientTopbar = (props) => {
 
     return (
         <header className={classes.Topbar}>
-            {/*{props.history.location.pathname === "/" || props.history.location.pathname === "/landingPage" || props.history.location.pathname === "/Registration" || props.history.location.pathname.includes("/changePassword") ?*/}
                 <div>
                     <Sidebar showCloseIcon={false}
                              className={classes.Sidebar} modal={false}
@@ -82,7 +81,7 @@ const LoggedInPatientTopbar = (props) => {
                     {/*    <img src={logo} width={150} alt={"Logo"}/>*/}
                     {/*</div>*/}
                     <span className={classes.UsernameLabel}>
-                    {props.user?.username}
+                    {JSON.parse(localStorage.getItem("auth"))?.username}
                     </span>
                     <a className={classes.UserProfileLink} onClick={() => {
                         console.log("clicked")

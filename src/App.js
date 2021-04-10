@@ -14,7 +14,6 @@ import {connect} from "react-redux";
 function App(props) {
     let divStyleObject = {
         marginLeft: "10px",
-        marginTop: '5em'
     };
 
     if (props.menuVisible)
@@ -23,37 +22,29 @@ function App(props) {
 
     let userType = JSON.parse(localStorage.getItem("auth"))?.userType;
 
-    const content = () => {
-        switch (userType) {
-            case "patient":
-                return <div>
-                    <LoggedInPatientTopbar/>
-                    <div style={divStyleObject} className={classes.Content}>
-                        <PatientContent/>
-                    </div>
-                </div>
-                break;
-            case "admin":
-                // code block
-                break;
 
-            case "therapist":
-                // code block
-                break;
-            default:
-                return <Content/>
-        }
-    }
+    const generalContent=["/","/login",'/arabicHomepage','/about','/arabicabout','/contact','/arabiccontact','/arabicregistration','/registration','/login','/arabiclogin']
     return (
         <React.Fragment>
             <ToastProvider>
                 {{
                     "patient":
                         <div>
-                            <LoggedInPatientTopbar/>
-                            <div style={divStyleObject} className={classes.Content}>
-                                <PatientContent/>
-                            </div>
+                            {!generalContent.find(x=>x===props.history.location.pathname)?
+                                <div>
+                                    <LoggedInPatientTopbar/>
+                                    <div style={divStyleObject} className={classes.Content}>
+                                        <PatientContent/>
+                                    </div>
+                                </div>:
+                                <div>
+                                    <div style={divStyleObject} className={classes.Content}>
+                                        <PatientContent/>
+                                    </div>
+                                </div>
+                            }
+
+
                         </div>,
                     undefined: <Content/>
                 }[userType]}
