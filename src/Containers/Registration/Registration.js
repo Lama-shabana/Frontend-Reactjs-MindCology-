@@ -238,7 +238,9 @@ const Registration = (props) => {
                 "gender":patientInfo.gender,
                 "age": patientInfo.age,
                 "username": patientInfo.username,
-                "password": patientInfo.password
+                "password": patientInfo.password,
+                "filledMedicalForm": "false",
+                "userType": "patient"
             }
         ).then((data) => {
                 if (data.payload.id) {
