@@ -77,7 +77,7 @@ const Login = (props) => {
                                         backgroundColor: "#42235f",
                                         width: '95%',
                                         marginLeft: "2%",
-                                        height: "8.5%"
+                                        height: "10%"
                                     }}>Sign in</Button>
 
                                     <hr/>
