@@ -10,6 +10,7 @@ import PatientContent from "./Components/Content/PatientContent";
 import LoggedInPatientTopbar from "./Components/LoggedInTopBar/LoggedInPatientTopbar";
 import classes from "./App.css"
 import {connect} from "react-redux";
+import {Redirect} from "react-router-dom";
 
 function App(props) {
     let divStyleObject = {
@@ -27,6 +28,7 @@ function App(props) {
     return (
         <React.Fragment>
             <ToastProvider>
+                {props.history.location.pathname==="/login"&&localStorage.getItem("auth")?<Redirect to="/"/>:null}
                 {{
                     "patient":
                         <div>
