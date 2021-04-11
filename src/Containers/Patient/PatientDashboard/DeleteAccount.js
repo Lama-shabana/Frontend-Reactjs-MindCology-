@@ -2,15 +2,18 @@ import React, {useState} from 'react';
 import {connect} from "react-redux";
 import LoggedInPatientTopbar from "../../../Components/LoggedInTopBar/LoggedInPatientTopbar";
 import './Deleteaccount.css';
+
 const DeleteAccount = (props) => {
 
 
     return (
         <div>
-            <button onClick="document.getElementById('id01').style.display='block'">Delete your Account</button>
+            {/*onClick="document.getElementById('id01').style.display='block'"*/}
+            <button className="deletebutton">Delete your Account</button>
 
             <div id="id01" className="modal">
-                <span onClick="document.getElementById('id01').style.display='none'" className="close"
+                {/*onClick="document.getElementById('id01').style.display='none'"*/}
+                <span  className="close"
                       title="Close Modal">&times;</span>
                 <form className="modal-content" action="">
                     <div className="container">

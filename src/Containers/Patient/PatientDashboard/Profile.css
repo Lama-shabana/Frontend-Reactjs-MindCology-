@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i);
 @import Url(https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700|Oswald:200,300,400,500,600,700|PT+Sans:400,400i,700,700i);
 
-ul {
+.profile ul {
 
     color:#a474b7;
     padding-top: 10px;
@@ -14,6 +14,7 @@ ul {
   padding: 15px;
 }
 .edit-profile {
+
   padding-left: 100px;
     background-color: #a474b7;
      color:white;
@@ -22,24 +23,37 @@ ul {
     margin: 4px 2px;
     cursor: pointer;
 }
-fieldset {
+.profile fieldset {
     background-color:ghostwhite;
+
 }
-legend {
+.profile legend {
+
     background-color: #a474b7;
     color: white;
-    padding: 5px 10px;
+    padding: 15px 10px;
 }
-p{
+.profile p{
     padding-left: 10px;
 }
 
-.text{
+.profile  .text{
 font-family: "Times New Roman", "Bold";
 }
-lable{
+.profile lable{
     font-family: "Arial Narrow";
 }
-button{
+.profile button{
     font-family: 'Titillium Web', sans-serif;
+}
+
+.profile button{
+    background: #a474b7;
+    color: #fff;
+    font-weight: 600;
+    width: 25%;
+
+}
+form{
+    padding-top: 70px;
 }

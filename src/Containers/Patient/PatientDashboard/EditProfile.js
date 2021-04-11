@@ -1,37 +1,37 @@
 import React, {useState} from 'react';
 import {connect} from "react-redux";
 import LoggedInPatientTopbar from "../../../Components/LoggedInTopBar/LoggedInPatientTopbar";
-import '../PatientDashboard/Profile.css';
-import myAccount from '../../../assets/images.png';
+import classes from './Profile.css';
+import myAccount from '../../../assets/edit-profile.png';
 import {InputText} from "primereact/inputtext";
 
 const EditProfile = (props) => {
     return (
         <div>
             <form>
-                <div >
+                <div className={classes.profile} >
                     <h4 >Edit My Profile </h4>
                     <img src={myAccount} />
 
-                    <p> Diala khalil </p>
+                    <p className={classes.profile}> Diala khalil </p>
 
                     <div>
 
-                        <div >
+                        <div className={classes.profile}>
                             <ul className="profile-info">
                                 <label>
-                                    <span className="username">diala-khalail</span>
+                                    <span className={classes.profile}>diala-khalail</span>
                                     <input type="text"  placeholder="Diala khalil" name="user name"/>
                                 </label>
                                 <label>
-                                    <span className="title">Age: </span>
+                                    <span className={classes.profile}>Age: </span>
                                 </label>
 
-                                <input type="number"  placeholder="23" name="age"/>
+                                <input className={classes.profile} type="number"  placeholder="23" name="age"/>
                                 <label>
 
-                                <span className="title">Phone:</span>    </label>
-                                <input type="text"  placeholder="770-889-6484" name="phone"/>
+                                <span className={classes.profile}>Phone:</span>    </label>
+                                <input  className={classes.profile} type="text"  placeholder="770-889-6484" name="phone"/>
 
 
                                     <label>

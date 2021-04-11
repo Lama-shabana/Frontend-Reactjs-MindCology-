@@ -84,3 +84,7 @@
     size: inherit !important;
     font-size: 3em !important;
 }
+.register button{
+    font-family: 'Titillium Web', sans-serif;
+
+}

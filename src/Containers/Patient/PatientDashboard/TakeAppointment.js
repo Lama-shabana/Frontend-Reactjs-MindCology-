@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {connect} from "react-redux";
 import LoggedInPatientTopbar from "../../../Components/LoggedInTopBar/LoggedInPatientTopbar";
-import '../PatientDashboard/TakeAppointment.css';
+import './TakeAppointment.css';
 
 const TakeAppointment = (props) => {
 

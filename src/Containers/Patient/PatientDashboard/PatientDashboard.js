@@ -11,6 +11,7 @@ const PatientDashboard = (props) => {
     return (
         <div>
 
+{/*<img  scr={pic}/>*/}
 
         </div>
 

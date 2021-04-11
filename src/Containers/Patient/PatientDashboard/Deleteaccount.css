@@ -96,3 +96,11 @@ hr {
         width: 100%;
     }
 }
+.deletebutton {
+    margin-top: 100px;
+    background: #a474b7;
+    color: #fff;
+    font-weight: 600;
+    width: 25%;
+
+}
