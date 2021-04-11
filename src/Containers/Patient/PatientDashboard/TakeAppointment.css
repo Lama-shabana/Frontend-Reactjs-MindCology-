@@ -21,11 +21,11 @@ input[type=text] ,input[type=email],input[type=password],input[type=number]{
     box-sizing: border-box;
 }
 
-input[type=text] ,input[type=email],input[type=password]{
+input[type=text] ,input[type=email],input[type=password], input[type=number]{
     background-color: white;
     background-position: 10px 10px;
     background-repeat: no-repeat;
-    padding-left: 40px;
+
 }
 textarea {
     width: 100%;

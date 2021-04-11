@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {connect} from "react-redux";
 import LoggedInPatientTopbar from "../../../Components/LoggedInTopBar/LoggedInPatientTopbar";
-import myAccount from '../../../assets/images.png';
+import myAccount from '../../../assets/profile.png';
 import EditProfile from '../PatientDashboard/EditProfile';
 import './Profile.css';
 import Button from "react-bootstrap/Button";
@@ -12,11 +12,12 @@ const PatientAccountProfile = (props) => {
        <div>
        <form>
            <div>
+               <div>
                <Button className="edit-profile" onClick={()=> props.history.push("/patientDashboard/patientInfo/editProfile")}>Edit Profile </Button>
                <h4 >My Profile </h4>
-               <img src={myAccount} />
+               <img className={classes.images} src={myAccount} />
              <p className={classes.profile}> Diala khalil</p>
-
+               </div>
                <div>
                    <div className={classes.profile}>
                        <ul className="profile-info">

@@ -11,7 +11,7 @@ const EditProfile = (props) => {
             <form>
                 <div className={classes.profile} >
                     <h4 >Edit My Profile </h4>
-                    <img src={myAccount} />
+                    <img className={classes.images} src={myAccount} />
 
                     <p className={classes.profile}> Diala khalil </p>
 

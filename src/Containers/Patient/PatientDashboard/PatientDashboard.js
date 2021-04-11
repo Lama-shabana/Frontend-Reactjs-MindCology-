@@ -4,18 +4,22 @@ import LoggedInPatientTopbar from "../../../Components/LoggedInTopBar/LoggedInPa
 import PatientAccountProfile from "./PatientAccountProfile";
 import TakeAnAppointment from "./TakeAppointment";
 import {ToastProvider} from "react-toast-notifications";
-
+import classes from './patientDashboard.css';
 const PatientDashboard = (props) => {
 
 
     return (
         <div>
 
-{/*<img  scr={pic}/>*/}
+            <h1>
+                <blockquote >You don’t have to struggle in silence. We are here to provide you with the mental health care you need
+                </blockquote>
+            </h1>
 
-        </div>
 
-    );
+</div>
+
+);
 }
 
 const mapStateToProps = state => {

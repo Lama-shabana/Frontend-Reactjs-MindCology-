@@ -14,14 +14,11 @@
   padding: 15px;
 }
 .edit-profile {
-
-  padding-left: 100px;
-    background-color: #a474b7;
-     color:white;
-    padding: 16px 12px;
-    text-decoration: none;
-    margin: 4px 2px;
-    cursor: pointer;
+    margin-top: 20px;
+    background: #a474b7;
+    color: #fff;
+    font-weight: 600;
+    width: 25%;
 }
 .profile fieldset {
     background-color:ghostwhite;
@@ -50,10 +47,16 @@ font-family: "Times New Roman", "Bold";
 .profile button{
     background: #a474b7;
     color: #fff;
-    font-weight: 600;
-    width: 25%;
+
+
 
 }
 form{
     padding-top: 70px;
+}
+.images {
+
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
 }
