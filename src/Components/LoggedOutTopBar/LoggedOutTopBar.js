@@ -12,9 +12,10 @@ const LoggedOutTopBar = (props) => {
     return (
         // <Sticky className={classes.stickyBackground}>
         <div>
-            {user.length?
+            {console.log(user,"here")}
+
+            {JSON.parse(localStorage.getItem("auth"))?.length===0?
                 <div className="p-grid">
-                    {console.log(user.length,"here")}
 
                     {/*{console.log(props.history.location?.pathname,"path")}*/}
 
