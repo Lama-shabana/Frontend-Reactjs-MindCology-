@@ -100,7 +100,16 @@ const LoggedOutTopBar = (props) => {
                     </div>
 
 
-                    <div className="p-col-3"/>
+                    <div className="p-col-1">
+                        <a href="/dashboard" className={classes.links}>Dashboard</a>
+                    </div>
+
+
+                    <div className="p-col-1" onClick={()=>localStorage.clear()}>
+
+                        <a href="/" className={classes.links}>Sign Out</a>
+                    </div>
+                    <div className="p-col-2"/>
 
                     <div className="p-col-2">
                         <div className="dropdown" style={{marginTop: "2em"}}>
