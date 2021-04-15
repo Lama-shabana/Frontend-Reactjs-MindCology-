@@ -14,6 +14,7 @@ const PatientDashboard = (props) => {
             <h1>
                 <blockquote >You don’t have to struggle in silence. We are here to provide you with the mental health care you need
                 </blockquote>
+                <h2>patient</h2>
             </h1>
 
 

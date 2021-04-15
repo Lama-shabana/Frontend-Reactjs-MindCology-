@@ -27,6 +27,7 @@ function App(props) {
     const generalContent=["/","/login",'/arabicHomepage','/about','/arabicabout','/contact','/arabiccontact','/arabicregistration','/registration','/login','/arabiclogin']
     return (
         <React.Fragment>
+            {console.log(localStorage.getItem("auth"),"before")}
             <ToastProvider>
                 {props.history.location.pathname==="/login"&&localStorage.getItem("auth")?<Redirect to="/"/>:null}
                 {{

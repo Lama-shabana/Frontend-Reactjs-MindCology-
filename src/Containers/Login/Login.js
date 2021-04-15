@@ -94,11 +94,7 @@ const Login = (props) => {
                                             className={classes.signUpButton}
                                         // style={}
                                             onClick={() => {
-                                                console.log(localStorage.getItem("auth"),"before")
                                                 localStorage.clear()
-                                                console.log(localStorage.getItem("auth"),"after")
-
-
                                             }}>logout</Button>
                                 </div>
                             {/*</form>*/}

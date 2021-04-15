@@ -5,7 +5,8 @@ import './NavigationMenuStyle.css';
 import * as uiActions from "../../Containers/InterfaceUtility/store/InterfaceUtilityActions";
 import {Sidebar} from "primereact/sidebar";
 import {PanelMenu} from "primereact/panelmenu";
-import { useHistory } from "react-router-dom";
+import {useHistory} from "react-router-dom";
+import {InputText} from "primereact/inputtext";
 
 
 const LoggedInPatientTopbar = (props) => {
@@ -50,7 +51,6 @@ const LoggedInPatientTopbar = (props) => {
     ];
 
 
-
     const handleNavBarClick = (e) => {
         if (props.menuVisible)
             props.hideMenu();
@@ -61,61 +61,71 @@ const LoggedInPatientTopbar = (props) => {
 
     return (
         <header className={classes.Topbar}>
-                <div>
-                    <Sidebar showCloseIcon={false}
-                             className={classes.Sidebar} modal={false}
-                             visible={props.menuVisible}
-                             onHide={() => props.hideMenu()}>
-                        <PanelMenu model={navigationMenuModel}>
-                        </PanelMenu>
-                    </Sidebar>
-                    <a className={classes.MenuBarLink} onClick={handleNavBarClick}>
-                <span style={{color: 'inherit'}} className={
-                    props.menuVisible ? 'pi pi-times' : 'pi pi-bars'
-                }/>
-                    </a>
-                    {/*<div onClick={() => {*/}
-                    {/*    props.history.push('/dashboard')*/}
-                    {/*}} className={classes.Logo}>*/}
-                    {/*    <img src={logo} width={150} alt={"Logo"}/>*/}
-                    {/*</div>*/}
+            <div>
+                <Sidebar showCloseIcon={false}
+                         className={classes.Sidebar} modal={false}
+                         visible={props.menuVisible}
+                         onHide={() => props.hideMenu()}>
+                    <PanelMenu model={navigationMenuModel}/>
+                </Sidebar>
+                <a className={classes.MenuBarLink} onClick={handleNavBarClick}>
+                        <span style={{color: 'inherit'}} className={
+                            props.menuVisible ? 'pi pi-times' : 'pi pi-bars'}/>
+                </a>
+                <div className="p-grid">
+                    <div className="p-col-3"/>
+                    <div className="p-col-5">
+                        <span className="p-input-icon-left">
+                            <i className="pi pi-search"/>
+                            <InputText className={classes.search}
+                                // value={value3} onChange={(e) => setValue3(e.target.value)} placeholder="Search"
+                            />
+                        </span>
 
-                    <span>
-                            <link rel="stylesheet"
-                                  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+                    </div>
 
-                    <form className="example">
-                        <input type="text" placeholder="Search" name="search"/>
-                        <button type="submit"><i className="fa fa-search"></i></button>
-                    </form>
-                     </span>
+                    <div className="p-col-1">
 
+                    </div>
+                    <div className="p-col-2">
+                        <span className={classes.UsernameLabel}>
+                             {JSON.parse(localStorage.getItem("auth"))?.username}
+                        </span>
+                        <a className={classes.UserProfileLink} onClick={() => {
+                            console.log("clicked")
+                        }}>
 
-                    <span className={classes.UsernameLabel}>
-                    {JSON.parse(localStorage.getItem("auth"))?.username}
-                    </span>
+                            <span style={{color: 'inherit'}} className="pi pi-user"/>
+                        </a>
+                    </div>
 
-                    <a className={classes.UserProfileLink} onClick={() => {
-                        console.log("clicked")
-                    }}>
-                        <span style={{color: 'inherit'}} className="pi pi-user"/>
-                    </a>
 
                 </div>
+
+
+                {/*<span>*/}
+                {/*        <link rel="stylesheet"*/}
+                {/*              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>*/}
+                {/*        <form className="example">*/}
+                {/*            <input type="text" placeholder="Search" name="search"/>*/}
+                {/*            <button type="submit"><i className="fa fa-search"></i></button>*/}
+                {/*        </form>*/}
+                {/*</span>*/}
+
+
+            </div>
 
 
         </header>
     )
 }
-const mapStateToProps = state =>
-{
+const mapStateToProps = state => {
     return {
         // user: state.login.loggedInUser?.user,
         menuVisible: state.ui.menuVisible
     }
 }
-const mapDispatchToProps = dispatch =>
-{
+const mapDispatchToProps = dispatch => {
     return {
         showMenu: () => dispatch(uiActions.showMenu()),
         hideMenu: () => dispatch(uiActions.hideMenu())
