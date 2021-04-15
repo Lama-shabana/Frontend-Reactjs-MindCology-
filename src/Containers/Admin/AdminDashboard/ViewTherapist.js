@@ -24,6 +24,8 @@ const ViewTherapists = (props) => {
                 <th>Email</th>
                 <th>Education Level</th>
                 <th>specialization</th>
+                <th>status</th>
+                {/*active ,Deactivate */}
 
 
             </table>

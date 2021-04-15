@@ -20,7 +20,7 @@ const EditProfile = (props) => {
                         <div className={classes.profile}>
                             <ul className="profile-info">
                                 <label>
-                                    <span className={classes.profile}>diala-khalail</span>
+                                    <span className={classes.profile}>User-name: </span>
                                     <input type="text"  placeholder="Diala khalil" name="user name"/>
                                 </label>
                                 <label>

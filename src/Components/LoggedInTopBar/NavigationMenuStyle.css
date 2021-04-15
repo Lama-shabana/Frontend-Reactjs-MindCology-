@@ -36,3 +36,42 @@ p-menuitem-text	Label of a menuitem.
 p-menuitem-icon	Icon of a menuitem.
 p-submenu-icon Arrow icon of a submenu.
 */
+* {
+    box-sizing: border-box;
+}
+
+/* Style the search field */
+form.example input[type=text] {
+    padding-below: 10px;
+    margin-left:800px;
+    padding-top: 2px;
+    font-size: 17px;
+    border: 1px solid whitesmoke;
+    float: left;
+    width: 20%;
+    background: #f1f1f1;
+}
+
+/* Style the submit button */
+form.example button {
+    float: left;
+    width: 10%;
+    background: #a474b7;
+    color: white;
+    font-size: 12px;
+    border: 1px solid whitesmoke;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+}
+
+form.example button:hover {
+    background: #a474b7;
+
+}
+
+/* Clear floats */
+form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}

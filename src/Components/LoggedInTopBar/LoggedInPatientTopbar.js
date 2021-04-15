@@ -67,7 +67,6 @@ const LoggedInPatientTopbar = (props) => {
                              visible={props.menuVisible}
                              onHide={() => props.hideMenu()}>
                         <PanelMenu model={navigationMenuModel}>
-
                         </PanelMenu>
                     </Sidebar>
                     <a className={classes.MenuBarLink} onClick={handleNavBarClick}>
@@ -80,19 +79,29 @@ const LoggedInPatientTopbar = (props) => {
                     {/*}} className={classes.Logo}>*/}
                     {/*    <img src={logo} width={150} alt={"Logo"}/>*/}
                     {/*</div>*/}
+
+                    <span>
+                            <link rel="stylesheet"
+                                  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+                    <form className="example">
+                        <input type="text" placeholder="Search" name="search"/>
+                        <button type="submit"><i className="fa fa-search"></i></button>
+                    </form>
+                     </span>
+
+
                     <span className={classes.UsernameLabel}>
                     {JSON.parse(localStorage.getItem("auth"))?.username}
                     </span>
+
                     <a className={classes.UserProfileLink} onClick={() => {
                         console.log("clicked")
                     }}>
                         <span style={{color: 'inherit'}} className="pi pi-user"/>
-
-
                     </a>
-                </div>
 
-            }
+                </div>
 
 
         </header>
