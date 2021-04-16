@@ -2,15 +2,15 @@
     position: fixed;
     height: 56px;
     width: 100%;
-    /*z-index: 29;*/
+    z-index: 29;
     /*background-color: white;*/
     /*//background-color: #a474b7;*/
     background: linear-gradient(90deg, rgba(255, 266, 255, 1) 7%, #a474b7 100%);
-    /*display: flex;*/
-    /*justify-content: space-between;*/
-    /*left: 0;*/
-    /*top: 0;*/
-    /*padding: 0px 00px;*/
+    display: flex;
+    justify-content: space-between;
+    left: 0;
+    top: 0;
+    padding: 0px 00px;
     /*box-sizing: border-box;*/
     /*border-bottom: 1px solid #4c2f67;*/
 }
