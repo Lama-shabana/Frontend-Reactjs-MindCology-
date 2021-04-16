@@ -17,7 +17,7 @@ import TakeAppointment from "../../Containers/Patient/PatientDashboard/TakeAppoi
 import EditProfile from "../../Containers/Patient/PatientDashboard/EditProfile";
 import DeleteAccount from "../../Containers/Patient/PatientDashboard/DeleteAccount";
 
-
+import MedicalHistoryForm from "../../Containers/Patient/MedicalHistoryForm/MedicalHistoryForm"
 const PatientContent = (props) => {
     return (
         <div>
@@ -39,6 +39,8 @@ const PatientContent = (props) => {
                 <Route path="/patientDashboard/takeAppointment" exact component={TakeAppointment}/>
                 <Route path="/patientDashboard/patientInfo/editProfile" exact component={EditProfile}/>
                 <Route path="/patientDashboard/patientInfo/deleteAccount" exact component={DeleteAccount}/>
+                <Route path="/medicalHistoryForm" exact component={MedicalHistoryForm}/>
+
             </Switch>
         </div>
     );
