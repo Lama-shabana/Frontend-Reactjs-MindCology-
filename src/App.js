@@ -11,6 +11,8 @@ import LoggedInPatientTopbar from "./Components/LoggedInTopBar/LoggedInPatientTo
 import classes from "./App.css"
 import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
+import LoggedInTherapistTopbar from "./Components/LoggedInTopBar/LoggedInTherapistTopbar";
+import TherapistContent from "./Components/Content/TherapistContent";
 
 function App(props) {
     let divStyleObject = {
@@ -43,6 +45,23 @@ function App(props) {
                                 <div>
                                     <div style={divStyleObject} className={classes.Content}>
                                         <PatientContent/>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>,
+                    "therapist":
+                        <div>
+                            {!generalContent.find(x=>x===props.history.location.pathname)?
+                                <div>
+                                    <LoggedInTherapistTopbar/>
+                                    <div style={divStyleObject} className={classes.Content}>
+                                        <TherapistContent/>
+                                    </div>
+                                </div>:
+                                <div>
+                                    <div style={divStyleObject} className={classes.Content}>
+                                        <TherapistContent/>
                                     </div>
                                 </div>
                             }
