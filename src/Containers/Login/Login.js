@@ -24,6 +24,9 @@ const Login = (props) => {
                 history.push('/patientDashboard')
 
             }
+            else if(data.payload.userType==="therapist") {
+                history.push('/therapistDashboard')
+            }
             console.log(data.payload,"payload")
             console.log(JSON.parse(localStorage.getItem("auth")),"returned after json")
         })
