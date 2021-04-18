@@ -40,7 +40,7 @@ const LoggedInTherapistTopbar = (props) => {
             }
         },
         {
-            label: 'History patients records',
+            label: 'history Patient\'s Record',
             //icon: 'pi pi-historyRecords',
             command: () => {
                 history.push('/therapistDashboard/historyPatientsRecord')

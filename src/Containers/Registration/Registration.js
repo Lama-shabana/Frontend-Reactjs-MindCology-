@@ -160,10 +160,10 @@ const Registration = (props) => {
                 <div className="p-col-2" >
 
                 </div>
-                <div className="p-col-3" style={{marginTop: "0.5em"}}>
-                    <span className="p-float-label">
+                <div className="p-col-3" style={{marginTop: "1em"}}>
+                    <span className="p-float-label" style={{width: "100%"}}>
                         <InputText
-                            placeholder="Enter your username"
+                            placeholder="username"
                             id="username"
                             value={patientInfo.username}
                             className={classes.Fields}
@@ -195,7 +195,7 @@ const Registration = (props) => {
             <div className="p-grid p-justify-end">
 
                 <Button label="Finish"
-                        style={{marginTop: "2em", height: "3em"}}
+                        style={{marginTop: "2em", height: "3em",width: "6em"}}
                         className="primaryBtn"
                         icon="pi pi-step-forward"
                         onClick={() => {

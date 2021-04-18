@@ -15,6 +15,11 @@ import PatientDashboard from "../../Containers/Patient/PatientDashboard/PatientD
 import PatientAccountProfile from "../../Containers/Patient/PatientDashboard/PatientAccountProfile";
 import TakeAppointment from "../../Containers/Patient/PatientDashboard/TakeAppointment";
 import EditProfile from "../../Containers/Patient/PatientDashboard/EditProfile";
+import TherapistDashboard from "../../Containers/Therapist/TherapistDashboard/TherapistDashboard";
+import TherapistAccountProfile from "../../Containers/Therapist/TherapistDashboard/TherapistAccountProfile";
+import TherapistEditProfile from "../../Containers/Therapist/TherapistDashboard/TherapistEditProfile";
+import TherapistDeleteAccount from "../../Containers/Therapist/TherapistDashboard/TherapistDeleteAccount";
+import HistoryPatientsRecord from "../../Containers/Therapist/TherapistDashboard/HistoryPatientsRecord";
 
 const Content = (props) => {
     return (
@@ -33,7 +38,8 @@ const Content = (props) => {
                     <Route path="/login" exact component={Login}/>
                     <Route path="/arabiclogin" exact component={ArabicLogin}/>
 
-                </Switch>
+
+            </Switch>
         </div>
     );
 }

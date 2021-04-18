@@ -62,7 +62,7 @@
 
 
 .Signup{
-    font-size: 3em !important;
+    font-size: 1em !important;
     text-align: center;
     size: inherit;
     font-family: "Arial Narrow";
@@ -71,11 +71,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50px;
+    height: 40px;
+    width: 40px;
     position:relative !important;
     margin-bottom: 10%;
     margin-top:5%;
-    padding-left:5%;
+    padding-left:10%;
 
 }
 .image{
@@ -86,5 +87,6 @@
 }
 .register button{
     font-family: 'Titillium Web', sans-serif;
+
 
 }

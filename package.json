@@ -16,6 +16,8 @@
     "react": "^17.0.1",
     "react-bootstrap": "^1.5.2",
     "react-custom-scrollbars-2": "^4.3.0",
+    "react-datetime": "^3.0.4",
+    "react-datetime-picker": "^3.2.0",
     "react-dom": "^17.0.1",
     "react-phone-input-2": "^2.13.9",
     "react-phone-number-input": "^3.1.16",
