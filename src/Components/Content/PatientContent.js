@@ -18,6 +18,7 @@ import EditProfile from "../../Containers/Patient/PatientDashboard/EditProfile";
 import DeleteAccount from "../../Containers/Patient/PatientDashboard/DeleteAccount";
 
 import MedicalHistoryForm from "../../Containers/Patient/MedicalHistoryForm/MedicalHistoryForm"
+import ArabicMedicalHistoryForm from "../../Containers/Patient/MedicalHistoryForm/ArabicMedicalHistoryForm";
 const PatientContent = (props) => {
     return (
         <div>
@@ -40,6 +41,7 @@ const PatientContent = (props) => {
                 <Route path="/patientDashboard/patientInfo/editProfile" exact component={EditProfile}/>
                 <Route path="/patientDashboard/patientInfo/deleteAccount" exact component={DeleteAccount}/>
                 <Route path="/medicalHistoryForm" exact component={MedicalHistoryForm}/>
+                <Route path="/arabicMedicalHistoryForm" exact component={ArabicMedicalHistoryForm}/>
 
             </Switch>
         </div>

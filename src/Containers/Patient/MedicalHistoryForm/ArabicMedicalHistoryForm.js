@@ -14,14 +14,14 @@ import {InputNumber} from "primereact/inputnumber";
 import {InputTextarea} from "primereact/inputtextarea";
 import {RadioButton} from "primereact/radiobutton";
 
-const MedicalHistoryForm = (props) => {
+const ArabicMedicalHistoryForm = (props) => {
 
     const steps = [
         {
-            label: 'Part 1',
+            label: ' جزء 1',
         },
         {
-            label: 'Part 2',
+            label: 'جزء 2',
         },
     ];
 
@@ -47,8 +47,8 @@ const MedicalHistoryForm = (props) => {
     const stepOne = () => {
         return <div className="p-grid">
             <div className="p-col-12">
-                <label className={classes.questionLabels}> Have you ever been provided with mental health services
-                    before? *</label>
+                <label className={classes.questionLabels}> هل سبق أن تم تزويدك بخدمات الصحة العقلية من
+                    قبل؟ *</label>
             </div>
 
             <div className="p-col-12">
@@ -57,7 +57,7 @@ const MedicalHistoryForm = (props) => {
                         ...patientInfo,
                         providedWithMentalHealthService: e.value
                     })} checked={patientInfo.providedWithMentalHealthService === 'yes'}/>
-                    <label className={classes.questionLabelsNotBold} htmlFor="yes">Yes</label>
+                    <label className={classes.questionLabelsNotBold} htmlFor="yes">نعم</label>
 
                 </div>
             </div>
@@ -69,13 +69,13 @@ const MedicalHistoryForm = (props) => {
                         ...patientInfo,
                         providedWithMentalHealthService: e.value
                     })} checked={patientInfo.providedWithMentalHealthService === 'no'}/>
-                    <label className={classes.questionLabelsNotBold} htmlFor="no">No</label>
+                    <label className={classes.questionLabelsNotBold} htmlFor="no">لا</label>
                 </div>
             </div>
 
 
             <div className="p-col-12">
-                <label className={classes.questionLabels}>The language you would like to have sessions in. *</label>
+                <label className={classes.questionLabels}>اللغة التي ترغب في إجراء الجلسات بها. *</label>
             </div>
 
             <div className="p-col-12">
@@ -84,7 +84,7 @@ const MedicalHistoryForm = (props) => {
                         ...patientInfo,
                         sessionsLanguage: e.value
                     })} checked={patientInfo.sessionsLanguage === 'Arabic'}/>
-                    <label className={classes.questionLabelsNotBold} htmlFor="Arabic">Arabic</label>
+                    <label className={classes.questionLabelsNotBold} htmlFor="Arabic">العربية</label>
                 </div>
             </div>
 
@@ -94,13 +94,13 @@ const MedicalHistoryForm = (props) => {
                         ...patientInfo,
                         sessionsLanguage: e.value
                     })} checked={patientInfo.sessionsLanguage === 'English'}/>
-                    <label className={classes.questionLabelsNotBold} htmlFor="English">English</label>
+                    <label className={classes.questionLabelsNotBold} htmlFor="English">الانجليزية</label>
                 </div>
             </div>
 
 
             <div className="p-col-12">
-                <label className={classes.questionLabels}>What gender do you prefer your therapist to be? *</label>
+                <label className={classes.questionLabels}>ما هو الجنس الذي تفضله أن يكون معالجك؟ *</label>
             </div>
 
             <div className="p-col-12">
@@ -109,7 +109,7 @@ const MedicalHistoryForm = (props) => {
                         ...patientInfo,
                         therapistGender: e.value
                     })} checked={patientInfo.therapistGender === 'male'}/>
-                    <label className={classes.questionLabelsNotBold} htmlFor="male">Male</label>
+                    <label className={classes.questionLabelsNotBold} htmlFor="male">ذكر</label>
                 </div>
             </div>
 
@@ -119,13 +119,13 @@ const MedicalHistoryForm = (props) => {
                         ...patientInfo,
                         therapistGender: e.value
                     })} checked={patientInfo.therapistGender === 'female'}/>
-                    <label className={classes.questionLabelsNotBold} htmlFor="female">Female</label>
+                    <label className={classes.questionLabelsNotBold} htmlFor="female">انثى</label>
                 </div>
             </div>
 
 
             <div className="p-col-12">
-                <label className={classes.questionLabels}>Have you ever been through traumatic experiences? *</label>
+                <label className={classes.questionLabels}>هل مررت بتجارب مؤلمة من قبل؟ *</label>
             </div>
 
             <div className="p-col-12">
@@ -134,7 +134,7 @@ const MedicalHistoryForm = (props) => {
                         ...patientInfo,
                         traumaticExperience: e.value
                     })} checked={patientInfo.traumaticExperience === 'yes'}/>
-                    <label className={classes.questionLabelsNotBold} htmlFor="yes">Yes</label>
+                    <label className={classes.questionLabelsNotBold} htmlFor="yes">نعم</label>
                 </div>
             </div>
 
@@ -144,7 +144,7 @@ const MedicalHistoryForm = (props) => {
                         ...patientInfo,
                         traumaticExperience: e.value
                     })} checked={patientInfo.traumaticExperience === 'no'}/>
-                    <label className={classes.questionLabelsNotBold} htmlFor="no">No</label>
+                    <label className={classes.questionLabelsNotBold} htmlFor="no">لا</label>
                 </div>
             </div>
 
@@ -154,12 +154,12 @@ const MedicalHistoryForm = (props) => {
                         ...patientInfo,
                         traumaticExperience: e.value
                     })} checked={patientInfo.traumaticExperience === 'maybe'}/>
-                    <label className={classes.questionLabelsNotBold} htmlFor="maybe">Maybe</label>
+                    <label className={classes.questionLabelsNotBold} htmlFor="maybe">ربما</label>
                 </div>
             </div>
 
             <div className="p-col-12">
-                <label className={classes.questionLabels}>What are exactly are you seeking help for? *</label>
+                <label className={classes.questionLabels}>ما الذي تبحث عنه بالضبط؟*</label>
             </div>
             <div className="p-col-12">
                 <InputTextarea value={patientInfo.seekingHelpFor} onChange={(e) => setPatientInfo({
@@ -176,7 +176,7 @@ const MedicalHistoryForm = (props) => {
     const stepTwo = () => {
         return <div className="p-grid">
             <div className="p-col-12">
-                <label className={classes.questionLabels}>Do you have any mental or physical disorders that you know of?
+                <label className={classes.questionLabels}>هل لديك أي اضطرابات عقلية أو جسدية تعرفها؟
                     *
                 </label>
             </div>
@@ -187,7 +187,7 @@ const MedicalHistoryForm = (props) => {
                         ...patientInfo,
                         mentalOrPhysicalDisorderBoolean: e.value
                     })} checked={patientInfo.mentalOrPhysicalDisorderBoolean === 'yes'}/>
-                    <label className={classes.questionLabelsNotBold} htmlFor="yes">Yes</label>
+                    <label className={classes.questionLabelsNotBold} htmlFor="yes">نعم</label>
 
                 </div>
             </div>
@@ -199,13 +199,13 @@ const MedicalHistoryForm = (props) => {
                         ...patientInfo,
                         mentalOrPhysicalDisorderBoolean: e.value
                     })} checked={patientInfo.mentalOrPhysicalDisorderBoolean === 'no'}/>
-                    <label className={classes.questionLabelsNotBold} htmlFor="no">No</label>
+                    <label className={classes.questionLabelsNotBold} htmlFor="no">لا</label>
                 </div>
             </div>
 
             <div className="p-col-12">
-                <label className={classes.questionLabels}>If answered "yes", what mental or physical
-                    disorders do you have?</label>
+                <label className={classes.questionLabels}>إذا كانت الإجابة "نعم" ، فما هي العقلية أو الجسدية
+                    هل لديك اضطرابات؟</label>
             </div>
 
             <div className="p-col-12">
@@ -217,7 +217,7 @@ const MedicalHistoryForm = (props) => {
             </div>
 
             <div className="p-col-12">
-                <label className={classes.questionLabels}>Have you ever tried or thought about harming yourself? *</label>
+                <label className={classes.questionLabels}>هل سبق لك أن حاولت أو فكرت في إيذاء نفسك؟ *</label>
             </div>
 
             <div className="p-col-12">
@@ -226,7 +226,7 @@ const MedicalHistoryForm = (props) => {
                         ...patientInfo,
                         thinkAboutHarmingYourselfBoolean: e.value
                     })} checked={patientInfo.thinkAboutHarmingYourselfBoolean === 'yes'}/>
-                    <label className={classes.questionLabelsNotBold} htmlFor="yes">Yes</label>
+                    <label className={classes.questionLabelsNotBold} htmlFor="yes">نعم</label>
 
                 </div>
             </div>
@@ -237,12 +237,12 @@ const MedicalHistoryForm = (props) => {
                         ...patientInfo,
                         thinkAboutHarmingYourselfBoolean: e.value
                     })} checked={patientInfo.thinkAboutHarmingYourselfBoolean === 'no'}/>
-                    <label className={classes.questionLabelsNotBold} htmlFor="no">No</label>
+                    <label className={classes.questionLabelsNotBold} htmlFor="no">لا</label>
                 </div>
             </div>
 
             <div className="p-col-12">
-                <label className={classes.questionLabels}>If answered "yes", what happened?</label>
+                <label className={classes.questionLabels}>إذا كانت الإجابة "نعم" ، ماذا حدث؟</label>
             </div>
 
             <div className="p-col-12">
@@ -255,7 +255,7 @@ const MedicalHistoryForm = (props) => {
 
 
             <div className="p-col-12">
-                <label className={classes.questionLabels}>Are you under any medications? *</label>
+                <label className={classes.questionLabels}>هل أنت تأخذ أي أدوية؟ *</label>
             </div>
 
             <div className="p-col-12">
@@ -264,7 +264,7 @@ const MedicalHistoryForm = (props) => {
                         ...patientInfo,
                         underMedicationsBoolean: e.value
                     })} checked={patientInfo.underMedicationsBoolean === 'yes'}/>
-                    <label className={classes.questionLabelsNotBold} htmlFor="yes">Yes</label>
+                    <label className={classes.questionLabelsNotBold} htmlFor="yes">نعم</label>
 
                 </div>
             </div>
@@ -275,12 +275,12 @@ const MedicalHistoryForm = (props) => {
                         ...patientInfo,
                         underMedicationsBoolean: e.value
                     })} checked={patientInfo.underMedicationsBoolean === 'no'}/>
-                    <label className={classes.questionLabelsNotBold} htmlFor="no">No</label>
+                    <label className={classes.questionLabelsNotBold} htmlFor="no">لا</label>
                 </div>
             </div>
 
             <div className="p-col-12">
-                <label className={classes.questionLabels}>If "yes", what medications are you under?</label>
+                <label className={classes.questionLabels}>إذا كانت الإجابة "نعم" ، فما الأدوية التي تتناولها؟</label>
             </div>
 
             <div className="p-col-12">
@@ -341,4 +341,4 @@ const mapDispatchToProps = dispatch => {
     return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MedicalHistoryForm);
+export default connect(mapStateToProps, mapDispatchToProps)(ArabicMedicalHistoryForm);
