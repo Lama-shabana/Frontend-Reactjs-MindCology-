@@ -25,7 +25,7 @@ const LoggedInPatientTopbar = (props) => {
 
         {
             label: 'Delete Account',
-            icon: 'pi pi-delete-account',
+            icon: 'pi pi-times',
             command: () => {
                 history.push('/patientDashboard/patientInfo/deleteAccount')
 
@@ -33,7 +33,7 @@ const LoggedInPatientTopbar = (props) => {
         },
         {
             label: 'Appointments',
-            //icon: 'pi pi-appointment',
+             icon: 'pi pi-calendar',
             command: () => {
                 history.push('/patientDashboard/takeAppointment')
             }

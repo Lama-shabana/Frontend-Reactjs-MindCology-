@@ -26,7 +26,7 @@ const LoggedInTherapistTopbar = (props) => {
 
         {
             label: 'Delete Account',
-            icon: 'pi pi-delete-account',
+            icon: 'pi pi-times',
             command: () => {
                 history.push('/therapistDashboard/therapistInfo/deleteAccount')
 
@@ -34,14 +34,14 @@ const LoggedInTherapistTopbar = (props) => {
         },
         {
             label: 'Appointments',
-            //icon: 'pi pi-appointment',
+            icon: 'pi pi-calendar',
             command: () => {
                 history.push('/therapistDashboard')
             }
         },
         {
             label: 'history Patient\'s Record',
-            //icon: 'pi pi-historyRecords',
+            icon: 'pi pi-id-card',
             command: () => {
                 history.push('/therapistDashboard/historyPatientsRecord')
             }
