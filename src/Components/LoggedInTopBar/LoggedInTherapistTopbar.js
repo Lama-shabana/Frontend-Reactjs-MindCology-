@@ -19,7 +19,7 @@ const LoggedInTherapistTopbar = (props) => {
             label: 'Profile',
             icon: 'pi pi-chart-bar',
             command: () => {
-                history.push('/therapistDashboard/therapistInfo')
+                history.push('/therapistDashboard/therapistProfileInfo')
 
             }
         },
@@ -36,7 +36,7 @@ const LoggedInTherapistTopbar = (props) => {
             label: 'Appointments',
             //icon: 'pi pi-appointment',
             command: () => {
-                history.push('/Appointments')
+                history.push('/therapistDashboard')
             }
         },
         {
@@ -111,14 +111,7 @@ const LoggedInTherapistTopbar = (props) => {
                 </div>
 
 
-                {/*<span>*/}
-                {/*        <link rel="stylesheet"*/}
-                {/*              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>*/}
-                {/*        <form className="example">*/}
-                {/*            <input type="text" placeholder="Search" name="search"/>*/}
-                {/*            <button type="submit"><i className="fa fa-search"></i></button>*/}
-                {/*        </form>*/}
-                {/*</span>*/}
+
 
 
             </div>

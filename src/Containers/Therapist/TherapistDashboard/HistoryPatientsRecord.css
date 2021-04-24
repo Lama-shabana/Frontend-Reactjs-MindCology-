@@ -1,0 +1,15 @@
+.report{
+    padding-top:20px;
+    background-color: #a474b7;
+    padding-right: 100px;
+    border-bottom-style: dashed;
+    font-family:  sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    padding-left:100px;
+    padding-bottom:20px;
+    font-size: 20%;
+}
+.record {
+    padding-left: 70px;
+    padding-top: 5em;
+
+}

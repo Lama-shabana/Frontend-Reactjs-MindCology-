@@ -3,11 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fullcalendar/core": "^5.6.0",
+    "@fullcalendar/daygrid": "^5.6.0",
+    "@fullcalendar/interaction": "^5.6.0",
+    "@fullcalendar/timegrid": "^5.6.0",
     "@reduxjs/toolkit": "^1.5.0",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.1",
     "axios": "^0.21.1",
+    "bootstrap": "^4.6.0",
     "history": "^5.0.0",
     "node-email-validation": "^1.0.4",
     "primeflex": "^2.0.0",
@@ -19,6 +24,7 @@
     "react-datetime": "^3.0.4",
     "react-datetime-picker": "^3.2.0",
     "react-dom": "^17.0.1",
+    "react-edit-inplace": "^1.1.1",
     "react-phone-input-2": "^2.13.9",
     "react-phone-number-input": "^3.1.16",
     "react-scripts": "4.0.3",
@@ -54,6 +60,7 @@
     ]
   },
   "devDependencies": {
+    "@material-ui/core": "^4.11.3",
     "css-loader": "^5.1.2",
     "email-validator": "^2.0.4",
     "react-country-region-selector": "^3.0.2",

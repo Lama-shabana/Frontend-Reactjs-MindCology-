@@ -9,7 +9,7 @@ import {useHistory} from "react-router-dom";
 import {InputText} from "primereact/inputtext";
 
 
-const LoggedInPatientTopbar = (props) => {
+const LoggedInAdminTopbar = (props) => {
     let history = useHistory();
 
     const navigationMenuModel = [
@@ -18,7 +18,7 @@ const LoggedInPatientTopbar = (props) => {
             label: 'Profile',
             icon: 'pi pi-chart-bar',
             command: () => {
-                history.push('/patientDashboard/patientProfileInfo')
+                history.push('/adminDashboard/patientInfo')
 
             }
         },
@@ -27,7 +27,7 @@ const LoggedInPatientTopbar = (props) => {
             label: 'Delete Account',
             icon: 'pi pi-delete-account',
             command: () => {
-                history.push('/patientDashboard/patientInfo/deleteAccount')
+                history.push('/adminDashboard/patientInfo/deleteAccount')
 
             }
         },
@@ -35,9 +35,31 @@ const LoggedInPatientTopbar = (props) => {
             label: 'Appointments',
             //icon: 'pi pi-appointment',
             command: () => {
-                history.push('/patientDashboard/takeAppointment')
+                history.push('/adminDashboard/viewAppointment')
             }
         },
+        {
+            label: 'therapists',
+            //icon: 'pi pi-appointment',
+            command: () => {
+                history.push('/adminDashboard/viewAllTherapists')
+            }
+        },
+        {
+            label: 'Create account For therapist',
+            //icon: 'pi pi-appointment',
+            command: () => {
+                history.push('/adminDashboard/AddTherapist')
+            }
+        },
+        {
+            label: 'patients',
+            //icon: 'pi pi-appointment',
+            command: () => {
+                history.push('/adminDashboard/viewAllPatients')
+            }
+        },
+
         {
             label: 'Sign Out',
             icon: 'pi pi-sign-out',
@@ -131,4 +153,4 @@ const mapDispatchToProps = dispatch => {
         hideMenu: () => dispatch(uiActions.hideMenu())
     };
 }
-export default connect(mapStateToProps, mapDispatchToProps)(LoggedInPatientTopbar);
+export default connect(mapStateToProps, mapDispatchToProps)(LoggedInAdminTopbar);

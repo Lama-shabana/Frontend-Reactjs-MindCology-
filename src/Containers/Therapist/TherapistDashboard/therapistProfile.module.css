@@ -1,0 +1,102 @@
+.form {
+    margin: 0 auto !important;
+    width: 75%;
+    padding-top:4em;
+
+}
+
+
+.inputs {
+
+    width: 86%;
+}
+
+.countriesAndCities {
+    width: 100%;
+    font-size: 1em !important;
+    height: 2em;
+    border-color: darkgrey;
+    color: dimgray;
+    border-radius: 2px 2px 2px 2px;
+
+}
+
+.labels {
+    margin-top: 1em;
+    color: dimgrey;
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
+}
+
+.headerLabel {
+    color:rgba(66, 35, 95, 1);
+    font-weight: bold;
+    width: 100%;
+    font-size: 2.4em;
+    text-align: center;
+}
+
+.picture {
+    margin-top: 3em;
+    width: 40em !important;
+    /*height:400px ;*/
+}
+
+.halfWidthLabel{
+    width: 48.5%;
+    margin-top: 1em;
+    color: dimgrey;
+    font-weight: 500;
+    text-align: center;
+}
+
+.halfWidthInputs{
+    width: 20%;
+}
+.note{
+    color: dimgrey;
+    font-weight: 500;
+    width: 100%;
+    font-size: 1em;
+    text-align: center;
+}
+
+
+
+.welcomeHeader{
+    text-align:center;
+    margin-top: 5%;
+    color: dimgrey;
+}
+.accountTypeHeader{
+    text-align:center;
+    margin-bottom: 5%;
+}
+
+.tab{
+    color:#68597c!important;
+    font-weight: 500;
+    font-size: 1.7em;
+}
+
+
+.labelLeft {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    color: dimgrey;
+    font-weight: 500;
+    width: 100%;
+    text-align: left;
+}
+
+.test{
+    /*color:Red;*/
+
+    /*padding-right: 50px !important;*/
+}
+
+button{
+    color: #a474b7;
+}
+

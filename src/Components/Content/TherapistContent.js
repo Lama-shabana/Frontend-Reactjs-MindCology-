@@ -16,6 +16,8 @@ import TherapistAccountProfile from "../../Containers/Therapist/TherapistDashboa
 import HistoryPatientsRecord from "../../Containers/Therapist/TherapistDashboard/HistoryPatientsRecord";
 import TherapistDeleteAccount from "../../Containers/Therapist/TherapistDashboard/TherapistDeleteAccount";
 import TherapistEditProfile from "../../Containers/Therapist/TherapistDashboard/TherapistEditProfile";
+import TherapistProfile from "../../Containers/Therapist/TherapistDashboard/TherapistProfile";
+
 
 const TherapistContent = (props) => {
     return (
@@ -38,6 +40,7 @@ const TherapistContent = (props) => {
                 <Route path="/therapistDashboard/therapistInfo/editProfile" exact component={TherapistEditProfile}/>
                 <Route path="/therapistDashboard/therapistInfo/deleteAccount" exact component={TherapistDeleteAccount}/>
                 <Route path="/therapistDashboard/historyPatientsRecord" exact component ={HistoryPatientsRecord}/>
+                <Route path="/therapistDashboard/therapistProfileInfo" exact component={TherapistProfile}/>
             </Switch>
         </div>
     );

@@ -32,9 +32,9 @@ const AdminContent = (props) => {
                 <Route path="/login" exact component={Login}/>
                 <Route path="/arabiclogin" exact component={ArabicLogin}/>
                 <Route path="/adminDashboard" exact component={AdminDashboard}/>
-                <Route path="/adminDashboard/patients" exact component={ViewPatients}/>
-                <Route path="/adminDashboard/therapists" exact component={ViewTherapists}/>
-                <Route path ="/AdminDashboard/ViewTherapists/addTherapist" exit component={AddTherapist}/>
+                <Route path="/adminDashboard/viewAllPatients" exact component={ViewPatients}/>
+                <Route path="/adminDashboard/viewAllTherapists" exact component={ViewTherapists}/>
+                <Route path ="/adminDashboard/addTherapist" exit component={AddTherapist}/>
 
 
 

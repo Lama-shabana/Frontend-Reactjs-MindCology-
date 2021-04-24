@@ -13,6 +13,7 @@ import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
 import LoggedInTherapistTopbar from "./Components/LoggedInTopBar/LoggedInTherapistTopbar";
 import TherapistContent from "./Components/Content/TherapistContent";
+import AdminContent from "./Components/Content/AdminContent";
 
 function App(props) {
     let divStyleObject = {
@@ -50,6 +51,22 @@ function App(props) {
                             }
 
                         </div>,
+                    "admin":
+                        <div>
+                            {!generalContent.find(x=>x===props.history.location.pathname)?
+                                <div>
+                                    <LoggedInPatientTopbar/>
+                                    <div style={divStyleObject} className={classes.Content}>
+                                        <AdminContent/>
+                                    </div>
+                                </div>:
+                                <div>
+                                    <div style={divStyleObject} className={classes.Content}>
+                                        <AdminContent/>
+                                    </div>
+                                </div>
+                            }
+                        </div>,
                     "therapist":
                         <div>
                             {!generalContent.find(x=>x===props.history.location.pathname)?
@@ -68,6 +85,7 @@ function App(props) {
 
 
                         </div>,
+
                     undefined: <Content/>
                 }[userType]}
 

@@ -1,26 +1,57 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {connect} from "react-redux";
 import classes from './therapist.css';
-import DateTimePicker from 'react-datetime-picker';
 import therapistImage from "../../../assets/schedule.jpg";
-const TherapistDashboard = (props) => {
+import { FullCalendar } from 'primereact/fullcalendar';
+import axios from "axios";
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import interactionPlugin from '@fullcalendar/interaction';
 
-    const [value, onChange] = useState(new Date());
+
+
+
+ class EventService {
+
+    getEvents() {
+        return axios.get('data/events.json')
+            .then(res => res.data.data);
+
+}
+}
+
+const TherapistDashboard = (props) => {
+    const [events, setEvents] = useState([]);
+    const options = {
+        plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin],
+        defaultView: 'dayGridMonth',
+        defaultDate: '2017-02-01',
+        header: {
+            left: 'prev,next',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        editable: true
+    };
+
+   const eventService = new EventService();
+
+    useEffect(() => {
+        eventService.getEvents().then(data => setEvents(data));
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
-        <div>
-             <div className="p-grid">
-            <img className="therapistImage" src={therapistImage}/>
-          <div className="schedule">
-            <div className="p-datepicker">
-                <DateTimePicker
-                    onChange={onChange}
-                    value={value}
-                />
-            </div>
 
-        </div>
-             </div>
+        <div>
+
+            <div style={{marginLeft:"1em",paddingTop:"100px"}}>
+                <div className="card">
+                    <FullCalendar
+                        // events={events}
+                         options={options}
+                    />
+                </div>
+            </div>
         </div>
     );
 }
