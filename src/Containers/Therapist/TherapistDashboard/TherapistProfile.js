@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import classes from './therapistProfile.module.css';
 import {InputText} from 'primereact/inputtext';
@@ -12,37 +12,31 @@ import {Tab, Tabs} from "react-bootstrap";
 // import { Tabs, Tab } from 'react-tab-view'
 
 import {Button} from "primereact/button";
+import * as profileActions from "../../Therapist/store/TherapistActions";
 
 const TherapistProfile = (props) => {
 
-    // const [otherInfo, setOtherInfo] = useState({
-    //     firstName: "First NameFirst ",
-    //     lastName: "Last name",
-    //     email: "email",
-    //     mobileNumber: "059",
-    //
-    //
-    // })
-
-    const [therapistInfo, setTherapistInfo] = useState({
-        firstName: "First Name",
-        lastName: "Last name",
-        mobileNumber: "+970 ",
-        age:"age",
-        gender:"gender",
-        email: "email",
-        userName:"userName",
-        educationLevel:"educationLevel",
-        specialization:"specialization",
+    const [therapistInfo, setTherapistInfo] = useState(null)
 
 
-    })
+    const gender = ["Male","Female"];
 
+    const id = JSON.parse(localStorage.getItem("auth"))?.id
 
-    const gender =["Male,Female"];
+    let dataLoaded = false;
+    useEffect(() => {
+        console.log("entered 1")
 
-
-    const therapistInfoDisplay = () => {
+        if (dataLoaded === false) {
+            console.log("entered 2")
+            props.getProfileData({id: id}).then((data) => {
+                setTherapistInfo(data.payload)
+                {console.log(data, data.payload,"therapist info")}
+            })
+            dataLoaded = true;
+        }
+    }, [dataLoaded])
+    const TherapistInfoDisplay = () => {
         return <div>
             <div className="p-grid">
                 <div className="p-col-4">
@@ -63,16 +57,16 @@ const TherapistProfile = (props) => {
                         </InplaceDisplay>
                         <InplaceContent>
                             <InputText className={classes.inputs}
-                                       placeholder="Company Name"
                                        value={therapistInfo.firstName}
-                                // onChange={(e) => setOtherInfo({
-                                //     ...otherInfo,
-                                //     firstName: e.target.value
-                                // })}
+                                       onChange={(e) => setTherapistInfo({
+                                           ...therapistInfo,
+                                           firstName: e.target.value
+                                       })}
                             />
 
                         </InplaceContent>
                     </Inplace>
+
 
                 </div>
                 <div className="p-col-4" style={{textAlign: "center"}}>
@@ -82,13 +76,12 @@ const TherapistProfile = (props) => {
                         </InplaceDisplay>
                         <InplaceContent>
                             <InputText className={classes.inputs}
-                                      // placeholder="Industry"
-                                      value={therapistInfo.lastName}
-                                // onChange={(e) => setOtherInfo({
-                                //     ...otherInfo,
-                                //     lastName: e.value
-                                // })}
-                                      editable
+                                       value={therapistInfo.lastName}
+                                       onChange={(e) => setTherapistInfo({
+                                           ...therapistInfo,
+                                           lastName: e.target.value
+                                       })}
+                                       editable
                             />
                         </InplaceContent>
                     </Inplace>
@@ -100,12 +93,11 @@ const TherapistProfile = (props) => {
                         </InplaceDisplay>
                         <InplaceContent>
                             <InputText className={classes.inputs}
-                                       placeholder="Job Title"
                                        value={therapistInfo.age}
-                                // onChange={(e) => setUserInfo({
-                                //     ...userInfo,
-                                //     jobTitle: e.target.value
-                                // })}
+                                       onChange={(e) => setTherapistInfo({
+                                           ...therapistInfo,
+                                           age: e.target.value
+                                       })}
                             />
                         </InplaceContent>
                     </Inplace>
@@ -127,6 +119,7 @@ const TherapistProfile = (props) => {
                     <label className={classes.labels}>Email </label>
                 </div>
 
+
                 <div className="p-col-4" style={{textAlign: "center"}}>
                     <Inplace closable>
                         <InplaceDisplay>
@@ -134,13 +127,12 @@ const TherapistProfile = (props) => {
                         </InplaceDisplay>
                         <InplaceContent>
                             <Dropdown className={classes.inputs}
-                                      placeholder="Industry"
                                       value={therapistInfo.gender}
                                       options={gender}
-                                // onChange={(e) => setOtherInfo({
-                                //     ...otherInfo,
-                                //     email: e.value
-                                // })}
+                                      onChange={(e) => setTherapistInfo({
+                                          ...therapistInfo,
+                                          gender: e.target.value
+                                      })}
                                       editable
                             />
                         </InplaceContent>
@@ -149,22 +141,15 @@ const TherapistProfile = (props) => {
                 <div className="p-col-4" style={{textAlign: "center"}}>
                     <Inplace closable>
                         <InplaceDisplay>
-                            {therapistInfo.mobileNumber}
+                            {therapistInfo.phoneNumber}
                         </InplaceDisplay>
                         <InplaceContent>
                             <InputText className={classes.inputs}
-                                // placeholder="Job Title"
-                                       value={therapistInfo.mobileNumber}
-                                // onChange={(e) => {
-                                //     let lastChar = e.target.value.charAt(e.target.value.length - 1)
-                                //     if (Number.isInteger(parseInt(lastChar)) || lastChar === '+') {
-                                //         setUserInfo({
-                                //             ...userInfo,
-                                //             landLineTelephone: e.target.value
-                                //         })
-                                //     }
-                                // }
-                                // }
+                                       value={therapistInfo.phoneNumber}
+                                       onChange={(e) => setTherapistInfo({
+                                           ...therapistInfo,
+                                           phoneNumber: e.target.value
+                                       })}
                             />
 
                         </InplaceContent>
@@ -179,475 +164,135 @@ const TherapistProfile = (props) => {
                         </InplaceDisplay>
                         <InplaceContent>
                             <InputText className={classes.inputs}
-                                       placeholder="Job Title"
-                                       value={therapistInfo.email}
-                                // onChange={(e) => {
-                                //     console.log(parseInt(e.target.value.charAt(e.target.value.length - 1)), Number.isInteger(parseInt(e.target.value.charAt(e.target.value.length - 1))), "TARR")
-                                //     let lastChar = e.target.value.charAt(e.target.value.length - 1)
-                                //     if (Number.isInteger(parseInt(lastChar)) || lastChar === '+') {
-                                //         setUserInfo({
-                                //             ...userInfo,
-                                //             fax: e.target.value
-                                //         })
-                                //     }
-                                // }
-                                // }
-                            />
-
-
+                                       onChange={(e) => setTherapistInfo({
+                                           ...therapistInfo,
+                                           email: e.target.value
+                                       })}/>
                         </InplaceContent>
                     </Inplace>
                 </div>
+                    <div className="p-col-4">
+                        <label className={classes.labels}>user-name</label>
+
+                    </div>
+
+                    <div className="p-col-4">
+                        <label className={classes.labels}>Education-level </label>
+
+                    </div>
+                    <div className="p-col-4">
+                        <label className={classes.labels}>specialization </label>
+                    </div>
+                    <div className="p-col-4" style={{textAlign: "center"}}>
+                        <Inplace closable>
+                            <InplaceDisplay>
+                                {therapistInfo.username}
+                            </InplaceDisplay>
+                            <InplaceContent>
+                                <InputText className={classes.inputs}
+                                           placeholder="Industry"
+                                           value={therapistInfo.username}
+                                           options={gender}
+                                           onChange={(e) => setTherapistInfo({
+                                               ...therapistInfo,
+                                               username: e.target.value
+                                           })}
+                                           editable
+                                />
+                            </InplaceContent>
+                        </Inplace>
+                    </div>
+                    <div className="p-col-4" style={{textAlign: "center"}}>
+                        <Inplace closable>
+                            <InplaceDisplay>
+                                {therapistInfo.educationLevel}
+                            </InplaceDisplay>
+                            <InplaceContent>
+                                <InputText className={classes.inputs}
+
+                                           value={therapistInfo.educationLevel}
+                                           onChange={(e) => setTherapistInfo({
+                                               ...therapistInfo,
+                                               educationLevel: e.target.value
+                                           })}
+                                />
+
+                            </InplaceContent>
+                        </Inplace>
 
 
-            <div className="p-col-4">
-                <label className={classes.labels}>user-name</label>
-
-            </div>
-
-            <div className="p-col-4">
-                <label className={classes.labels}>Education-level </label>
-
-            </div>
-            <div className="p-col-4">
-                <label className={classes.labels}>specialization </label>
-            </div>
-            <div className="p-col-4" style={{textAlign: "center"}}>
-                <Inplace closable>
-                    <InplaceDisplay>
-                        {therapistInfo.userName}
-                    </InplaceDisplay>
-                    <InplaceContent>
-                        <InputText className={classes.inputs}
-                                  placeholder="Industry"
-                                  value={therapistInfo.userName}
-                                  options={gender}
-                            // onChange={(e) => setOtherInfo({
-                            //     ...otherInfo,
-                            //     email: e.value
-                            // })}
-                                  editable
-                        />
-                    </InplaceContent>
-                </Inplace>
-            </div>
-            <div className="p-col-4" style={{textAlign: "center"}}>
-                <Inplace closable>
-                    <InplaceDisplay>
-                        {therapistInfo.educationLevel}
-                    </InplaceDisplay>
-                    <InplaceContent>
-                        <InputText className={classes.inputs}
-                            // placeholder="Job Title"
-                                   value={therapistInfo.educationLevel}
-                            // onChange={(e) => {
-                            //     let lastChar = e.target.value.charAt(e.target.value.length - 1)
-                            //     if (Number.isInteger(parseInt(lastChar)) || lastChar === '+') {
-                            //         setUserInfo({
-                            //             ...userInfo,
-                            //             landLineTelephone: e.target.value
-                            //         })
-                            //     }
-                            // }
-                            // }
-                        />
-
-                    </InplaceContent>
-                </Inplace>
+                    </div>
+                    <div className="p-col-4" style={{textAlign: "center"}}>
+                        <Inplace closable>
+                            <InplaceDisplay>
+                                {therapistInfo.specialization}
+                            </InplaceDisplay>
+                            <InplaceContent>
+                                <InputText className={classes.inputs}
+                                           placeholder="Job Title"
+                                           value={therapistInfo.specialization}
+                                           onChange={(e) => setTherapistInfo({
+                                               ...therapistInfo,
+                                               specialization: e.target.value
+                                           })}
+                                />
 
 
-            </div>
-            <div className="p-col-4" style={{textAlign: "center"}}>
-                <Inplace closable>
-                    <InplaceDisplay>
-                        {therapistInfo.specialization}
-                    </InplaceDisplay>
-                    <InplaceContent>
-                        <InputText className={classes.inputs}
-                                   placeholder="Job Title"
-                                   value={therapistInfo.specialization}
-                            // onChange={(e) => {
-                            //     console.log(parseInt(e.target.value.charAt(e.target.value.length - 1)), Number.isInteger(parseInt(e.target.value.charAt(e.target.value.length - 1))), "TARR")
-                            //     let lastChar = e.target.value.charAt(e.target.value.length - 1)
-                            //     if (Number.isInteger(parseInt(lastChar)) || lastChar === '+') {
-                            //         setUserInfo({
-                            //             ...userInfo,
-                            //             fax: e.target.value
-                            //         })
-                            //     }
-                            // }
-                            // }
-                        />
+                            </InplaceContent>
+                        </Inplace>
 
 
-                    </InplaceContent>
-                </Inplace>
-            </div>
+                </div>
 
             </div>
+
 
         </div>
     }
 
-    // const companyInfoDisplay = () => {
-    //
-    //     return <div>
-    //
-    //         <div className="p-grid">
-    //             <div className="p-col-4">
-    //                 <label className={classes.labels}>Company Name</label>
-    //
-    //             </div>
-    //             <div className="p-col-4">
-    //                 <label className={classes.labels}>Industry</label>
-    //             </div>
-    //
-    //             <div className="p-col-4">
-    //                 <label className={classes.labels}>Company Website</label>
-    //             </div>
-    //             <div className="p-col-4" style={{textAlign: "center"}}>
-    //                 <Inplace closable>
-    //                     <InplaceDisplay>
-    //                         {companyInfo.companyName}
-    //                     </InplaceDisplay>
-    //                     <InplaceContent>
-    //                         <InputText className={classes.inputs}
-    //                                    placeholder="Company Name"
-    //                                    value={companyInfo.companyName}
-    //                                    // onChange={(e) => setCompanyInfo({
-    //                                    //     ...companyInfo,
-    //                                    //     companyName: e.target.value
-    //                                    // })}
-    //                         />
-    //
-    //                     </InplaceContent>
-    //                 </Inplace>
-    //
-    //
-    //             </div>
-    //             <div className="p-col-4" style={{textAlign: "center"}}>
-    //                 <Inplace closable>
-    //                     <InplaceDisplay>
-    //                         {companyInfo.industry}
-    //                     </InplaceDisplay>
-    //                     <InplaceContent>
-    //                         <Dropdown className={classes.inputs}
-    //                                   placeholder="Industry"
-    //                                   value={companyInfo.industry}
-    //                                   options={industries}
-    //                                   // onChange={(e) => setCompanyInfo({
-    //                                   //     ...companyInfo,
-    //                                   //     industry: e.value
-    //                                   // })}
-    //                                   editable
-    //                         />
-    //                     </InplaceContent>
-    //                 </Inplace>
-    //             </div>
-    //
-    //
-    //             <div className="p-col-4" style={{textAlign: "center"}}>
-    //                 <Inplace closable>
-    //                     <InplaceDisplay>
-    //                         {companyInfo.companyWebsite}
-    //                     </InplaceDisplay>
-    //                     <InplaceContent>
-    //                         <InputText className={classes.inputs}
-    //                                    placeholder="Company Website"
-    //                                    value={companyInfo.companyWebsite}
-    //                                    // onChange={(e) => setCompanyInfo({
-    //                                    //     ...companyInfo,
-    //                                    //     companyWebsite: e.target.value
-    //                               />/     })}/>
-    //                     </InplaceContent>
-    //                 </Inplace>
-    //             </div>
-    //
-    //             <div className="p-col-4">
-    //                 <label className={classes.labels}>Company Location</label>
-    //
-    //             </div>
-    //
-    //             <div className="p-col-4">
-    //                 <label className={classes.labels}>Year Of Establishment</label>
-    //             </div>
-    //             <div className="p-col-4">
-    //                 <label className={classes.labels}>Investment Size</label>
-    //             </div>
-    //
-    //             <div className="p-col-4" style={{textAlign: "center"}}>
-    //                 <Inplace closable>
-    //                     <InplaceDisplay>
-    //                         {companyInfo.companyLocation}
-    //                     </InplaceDisplay>
-    //                     <InplaceContent>
-    //                         <InputText className={classes.inputs}
-    //                                    placeholder="Company Location"
-    //                                    value={companyInfo.companyLocation}
-    //                                    // onChange={(e) => setCompanyInfo({
-    //                                    //     ...companyInfo,
-    //                                    //     companyLocation: e.target.value
-    //                                    // })}
-    //                         />
-    //                     </InplaceContent>
-    //                 </Inplace>
-    //             </div>
-    //
-    //
-    //             <div className="p-col-4" style={{textAlign: "center"}}>
-    //                 <Inplace closable>
-    //                     <InplaceDisplay>
-    //                         {companyInfo.yearOfEstablishment}
-    //                     </InplaceDisplay>
-    //                     <InplaceContent>
-    //                         <Dropdown className={classes.inputs}
-    //                                   placeholder="Year Of Establishment"
-    //                                   value={companyInfo.yearOfEstablishment}
-    //                                   // options={years}
-    //                                   // onChange={(e) => setCompanyInfo({
-    //                                   //     ...companyInfo,
-    //                                   //     yearOfEstablishment: e.value
-    //                                   // })}
-    //                         />
-    //                     </InplaceContent>
-    //                 </Inplace>
-    //             </div>
-    //
-    //
-    //
-    //             <div className="p-col-4" style={{textAlign: "center"}}>
-    //                 <Inplace closable>
-    //                     <InplaceDisplay>
-    //                         {companyInfo.investmentSize}
-    //                     </InplaceDisplay>
-    //                     <InplaceContent>
-    //                         <InputText className={classes.inputs}
-    //
-    //                                    placeholder="Investment Size"
-    //                                    value={companyInfo.investmentSize}
-    //                                    // onChange={(e) => setCompanyInfo({
-    //                                    //     ...companyInfo,
-    //                                    //     investmentSize: e.target.value
-    //                                    // })}
-    //                         />
-    //                     </InplaceContent>
-    //                 </Inplace>
-    //             </div>
-    //
-    //
-    //
-    //             <div className="p-col-4">
-    //                 <label className={classes.labels}>Intellectual Properties, Licenses & Permits*</label>
-    //
-    //
-    //             </div>
-    //             <div className="p-col-4">
-    //                 <label className={classes.labels}>Legal Type</label>
-    //             </div>
-    //             <div className="p-col-4" style={{textAlign: "center"}}>
-    //                 <label className={classes.labels}># of Employees</label>
-    //
-    //             </div>
-    //
-    //             <div className="p-col-4" style={{textAlign: "center"}}>
-    //                 <Inplace closable>
-    //                     <InplaceDisplay>
-    //                         {companyInfo.licenses}
-    //                     </InplaceDisplay>
-    //                     <InplaceContent>
-    //                         <InputText className={classes.inputs}
-    //                                    placeholder="Licenses & Permits"
-    //                                    value={companyInfo.licenses}
-    //                                    // onChange={(e) => setCompanyInfo({
-    //                                    //     ...companyInfo,
-    //                                    //     licenses: e.target.value
-    //                                    // })}
-    //                         />
-    //                     </InplaceContent>
-    //                 </Inplace>
-    //             </div>
-    //
-    //             <div className="p-col-4" style={{textAlign: "center"}}>
-    //                 <Inplace closable>
-    //                     <InplaceDisplay>
-    //                         {companyInfo.legalType}
-    //                     </InplaceDisplay>
-    //                     <InplaceContent>
-    //                         <Dropdown className={classes.inputs}
-    //                                   placeholder="Legal type"
-    //                                   value={companyInfo.legalType}
-    //                                   options={legalTypes}
-    //                                   // onChange={(e) => setCompanyInfo({
-    //                                   //     ...companyInfo,
-    //                                   //     legalType: e.value
-    //                                   // })}
-    //                         />
-    //                     </InplaceContent>
-    //                 </Inplace>
-    //             </div>
-    //             <div className="p-col-4" style={{textAlign: "center"}}>
-    //                 <Inplace closable>
-    //                     <InplaceDisplay>
-    //                         {companyInfo.numberOfEmployees}
-    //                     </InplaceDisplay>
-    //                     <InplaceContent>
-    //                         <InputNumber className={classes.inputs}
-    //                                      placeholder="Number of Employees"
-    //                                      value={companyInfo.numberOfEmployees}
-    //                                      // onValueChange={(e) => setCompanyInfo({
-    //                                      //     ...companyInfo,
-    //                                      //     numberOfEmployees: e.target.value
-    //                                      // })}
-    //                         />
-    //                     </InplaceContent>
-    //                 </Inplace>
-    //
-    //             </div>
-    //
-    //
-    //             <div className="p-col-4" style={{textAlign: "center"}}>
-    //                 <label className={classes.labels}>Audit Firm</label>
-    //             </div>
-    //
-    //             <div className="p-col-4" style={{textAlign: "center"}}>
-    //                 <label className={classes.labels}>Owners/Partner A</label>
-    //
-    //             </div>
-    //             <div className="p-col-4" style={{textAlign: "center"}}>
-    //                 <label className={classes.labels}>Owners/Partner B</label>
-    //
-    //             </div>
-    //             <div className="p-col-4" style={{textAlign: "center"}}>
-    //                 <Inplace closable>
-    //                     <InplaceDisplay>
-    //                         {companyInfo.auditFirm}
-    //                     </InplaceDisplay>
-    //                     <InplaceContent>
-    //                         <InputText className={classes.inputs}
-    //                                    placeholder="Audit Firm"
-    //                                    value={companyInfo.auditFirm}
-    //                                    // onChange={(e) => setCompanyInfo({
-    //                                    //     ...companyInfo,
-    //                                    //     auditFirm: e.target.value
-    //                                    // })}
-    //                         />
-    //                     </InplaceContent>
-    //                 </Inplace>
-    //             </div>
-    //
-    //
-    //
-    //             <div className="p-col-4" style={{textAlign: "center"}}>
-    //                 <Inplace closable>
-    //                     <InplaceDisplay>
-    //                         {companyInfo.partnerNameA}
-    //                     </InplaceDisplay>
-    //                     <InplaceContent>
-    //                         <InputText className={classes.inputs}
-    //                                    style={{marginRight: "1%"}}
-    //                                    placeholder="Partner Name A"
-    //                                    value={companyInfo.partnerNameA}
-    //                                    // onChange={(e) => setCompanyInfo({
-    //                                    //     ...companyInfo,
-    //                                    //     partnerNameA: e.target.value
-    //                                    // })}
-    //                         />
-    //                     </InplaceContent>
-    //                 </Inplace>
-    //             </div>
-    //
-    //             <div className="p-col-4" style={{textAlign: "center"}}>
-    //                 <Inplace closable>
-    //                     <InplaceDisplay>
-    //                         {companyInfo.partnerNameB}
-    //                     </InplaceDisplay>
-    //                     <InplaceContent>
-    //                         <InputText className={classes.inputs}
-    //                                    placeholder="Partner Name B"
-    //
-    //                                    value={companyInfo.partnerNameA}
-    //                                    // onChange={(e) => setCompanyInfo({
-    //                                    //     ...companyInfo,
-    //                                    //     partnerNameB: e.target.value
-    //                                    // })}
-    //                         />
-    //                     </InplaceContent>
-    //                 </Inplace>
-    //             </div>
-    //
-    //             <div className="p-col-12" style={{textAlign: "center"}}>
-    //                 <label className={classes.labels}>Company Valuation</label>
-    //             </div>
-    //             <div className="p-col-12" style={{textAlign: "center"}}>
-    //                 <Inplace closable>
-    //                     <InplaceDisplay>
-    //                         {companyInfo.companyValuation}
-    //                     </InplaceDisplay>
-    //                     <InplaceContent>
-    //                         <InputText className={classes.inputs}
-    //                                    placeholder="Company Valuation"
-    //                                    value={companyInfo.companyValuation}
-    //                                    // onChange={(e) => setCompanyInfo({
-    //                                    //     ...companyInfo,
-    //                                    //     companyValuation: e.target.value
-    //                                    // })}
-    //                         />
-    //                     </InplaceContent>
-    //                 </Inplace>
-    //             </div>
-    //         </div>
-    //
-    //
-    //     </div>
-    // }
-
-
-
-    const accountTypes = [
-        {id: "1", name: "MSME/Startup with > 2 years."},
-        {id: "2", name: 'MSME/Startup with < 2 years'},
-        {id: "3", name: 'Individual with business idea'},
-    ]
-
+    function onSave() {
+        props.editProfile({id: id, therapistInfo}).then((data) => console.log(data, "returned"))
+    }
 
     return (
         <div className={classes.form}>
-            <label className={classes.headerLabel}> Profile
-                <i style={{marginLeft: "0.5em"}} className="pi pi-user"/>
-            </label>
+            {therapistInfo ?
+                <div>
+                    <label className={classes.headerLabel}> Profile
+                        <i style={{marginLeft: "0.5em"}} className="pi pi-user"/>
+                    </label>
 
-            <p className={classes.note}>Click on any field to edit</p>
+                    <p className={classes.note}>Click on any field to edit</p>
 
+                    <Tabs defaultActiveKey="therapistInfo" transition={false}>
+                        <Tab eventKey="therapistInfo" title="therapist Info" tabClassName={classes.tab}>
+                            {TherapistInfoDisplay()}
+                        </Tab>
 
-            {therapistInfo.accountType === '1' || therapistInfo.accountType === "2" ?
-                <Tabs defaultActiveKey="therapistInfo" transition={false}>
-                    {/*<Tab eventKey="accountType" title="Account Type" tabClassName={classes.tab}>*/}
-                    {/*    {accountType()}*/}
+                    </Tabs>
+                    <div className="p-grid">
+                        <div className="p-col-5"/>
 
-
-                    {/*<Tab eventKey="businessInfo" title="Business Info" tabClassName={classes.tab}>*/}
-                    {/*    /!*{businessInfoDisplay()}*!/*/}
-                    {/*</Tab>*/}
-
-                </Tabs>
-                : <Tabs defaultActiveKey="accountType" transition={false}>
-
-                    <Tab eventKey="therapistInfo" title="Therapist Info" tabClassName={classes.tab}>
-                        {therapistInfoDisplay()}
-                    </Tab>
-
-                </Tabs>
-            }
-            <div className="p-grid">
-                <div className="p-col-5"/>
-
-                <div className="p-col-3">
-                    <div className="box">
-                        <Button label="Save" className="primaryBtn" icon="pi pi-check" style={{width:"9em",height:"3em",marginLeft:"1em",marginTop:"2em",background:"#a474b7"}}/>
+                        <div className="p-col-3">
+                            <div className="box">
+                                <Button label="Save" className="primaryBtn" icon="pi pi-check" style={{
+                                    width: "9em",
+                                    height: "3em",
+                                    marginLeft: "1em",
+                                    marginTop: "2em",
+                                    background: "#a474b7"
+                                }}
+                                        onClick={() => {
+                                            onSave()
+                                        }}
+                                />
+                            </div>
+                        </div>
+                        <div className="p-col-4"/>
                     </div>
+
                 </div>
-                <div className="p-col-4"/>
-            </div>
+                : null}
 
 
         </div>
@@ -659,7 +304,11 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-    return {};
+    return {
+        editProfile: (data) => dispatch(profileActions.editProfile(data)),
+        getProfileData: (data) => dispatch(profileActions.getProfileData(data)),
+
+    };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TherapistProfile);

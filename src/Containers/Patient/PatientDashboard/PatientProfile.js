@@ -19,7 +19,7 @@ const PatientProfile = (props) => {
     const [patientInfo, setPatientInfo] = useState(null)
 
 
-    const gender = ["Male,Female"];
+    const gender = ["Male","Female"];
 
     const id = JSON.parse(localStorage.getItem("auth"))?.id
 
@@ -164,7 +164,6 @@ const PatientProfile = (props) => {
                         </InplaceDisplay>
                         <InplaceContent>
                             <InputText className={classes.inputs}
-                                       placeholder="Job Title"
                                        onChange={(e) => setPatientInfo({
                                            ...patientInfo,
                                            email: e.target.value
