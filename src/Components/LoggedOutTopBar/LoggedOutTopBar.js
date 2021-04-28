@@ -101,7 +101,7 @@ const LoggedOutTopBar = (props) => {
 
 
                     <div className="p-col-1">
-                        <a href="/dashboard" className={classes.links}>Dashboard</a>
+                        <a href="/patientDashboard" className={classes.links}>Dashboard</a>
                     </div>
 
 
