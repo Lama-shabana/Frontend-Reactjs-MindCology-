@@ -2,7 +2,9 @@ import React, {useEffect, useState} from 'react';
 import {connect} from "react-redux";
 import classes from './therapist.css';
 import therapistImage from "../../../assets/schedule.jpg";
+import { Calendar } from '@fullcalendar/core';
 import { FullCalendar } from 'primereact/fullcalendar';
+
 import axios from "axios";
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -47,12 +49,12 @@ const TherapistDashboard = (props) => {
         <div>
 
             <div style={{marginLeft:"1em",paddingTop:"100px"}}>
-                <div className="card">
-                    <FullCalendar
-                        // events={events}
-                         options={options}
-                    />
-                </div>
+                {/*<div className="card">*/}
+                {/*    <FullCalendar*/}
+                {/*        // events={events}*/}
+                {/*         options={options}*/}
+                {/*    />*/}
+                {/*</div>*/}
             </div>
         </div>
     );
