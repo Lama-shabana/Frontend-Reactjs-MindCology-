@@ -14,6 +14,7 @@ import {InputNumber} from "primereact/inputnumber";
 import {InputTextarea} from "primereact/inputtextarea";
 import {RadioButton} from "primereact/radiobutton";
 import * as profileActions from "../store/PatientActions";
+import {useHistory} from "react-router-dom";
 
 const MedicalHistoryForm = (props) => {
 
@@ -308,6 +309,7 @@ const MedicalHistoryForm = (props) => {
         } else return stepTwo()
     }
 
+    let history = useHistory();
 
     function onSave() {
 

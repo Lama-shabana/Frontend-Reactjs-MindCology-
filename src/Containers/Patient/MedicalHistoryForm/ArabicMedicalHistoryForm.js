@@ -13,6 +13,7 @@ import PhoneInput from "react-phone-number-input";
 import {InputNumber} from "primereact/inputnumber";
 import {InputTextarea} from "primereact/inputtextarea";
 import {RadioButton} from "primereact/radiobutton";
+import {useHistory} from "react-router-dom";
 
 const ArabicMedicalHistoryForm = (props) => {
 
@@ -304,6 +305,8 @@ const ArabicMedicalHistoryForm = (props) => {
             return stepOne()
         } else return stepTwo()
     }
+    let history = useHistory();
+
     function onSave() {
 
         console.log(patientInfo,"sent")
