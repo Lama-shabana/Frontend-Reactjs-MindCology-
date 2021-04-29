@@ -14,7 +14,7 @@ import {Tab, Tabs} from "react-bootstrap";
 import {Button} from "primereact/button";
 import * as profileActions from "../../Therapist/store/TherapistActions";
 
-const TherapistProfile = (props) => {
+const ViewTherapist = (props) => {
 
     const [therapistInfo, setTherapistInfo] = useState(null)
 
@@ -58,10 +58,10 @@ const TherapistProfile = (props) => {
                         <InplaceContent>
                             <InputText className={classes.inputs}
                                        value={therapistInfo.firstName}
-                                       onChange={(e) => setTherapistInfo({
-                                           ...therapistInfo,
-                                           firstName: e.target.value
-                                       })}
+                                       // onChange={(e) => setTherapistInfo({
+                                       //     ...therapistInfo,
+                                       //     firstName: e.target.value
+                                       // })}
                             />
 
                         </InplaceContent>
@@ -94,10 +94,10 @@ const TherapistProfile = (props) => {
                         <InplaceContent>
                             <InputText className={classes.inputs}
                                        value={therapistInfo.age}
-                                       onChange={(e) => setTherapistInfo({
-                                           ...therapistInfo,
-                                           age: e.target.value
-                                       })}
+                                       // onChange={(e) => setTherapistInfo({
+                                       //     ...therapistInfo,
+                                       //     age: e.target.value
+                                       // })}
                             />
                         </InplaceContent>
                     </Inplace>
@@ -129,10 +129,10 @@ const TherapistProfile = (props) => {
                             <Dropdown className={classes.inputs}
                                       value={therapistInfo.gender}
                                       options={gender}
-                                      onChange={(e) => setTherapistInfo({
-                                          ...therapistInfo,
-                                          gender: e.target.value
-                                      })}
+                                      // onChange={(e) => setTherapistInfo({
+                                      //     ...therapistInfo,
+                                      //     gender: e.target.value
+                                      // })}
                                       editable
                             />
                         </InplaceContent>
@@ -146,10 +146,10 @@ const TherapistProfile = (props) => {
                         <InplaceContent>
                             <InputText className={classes.inputs}
                                        value={therapistInfo.phoneNumber}
-                                       onChange={(e) => setTherapistInfo({
-                                           ...therapistInfo,
-                                           phoneNumber: e.target.value
-                                       })}
+                                       // onChange={(e) => setTherapistInfo({
+                                       //     ...therapistInfo,
+                                       //     phoneNumber: e.target.value
+                                       // })}
                             />
 
                         </InplaceContent>
@@ -164,82 +164,82 @@ const TherapistProfile = (props) => {
                         </InplaceDisplay>
                         <InplaceContent>
                             <InputText className={classes.inputs}
-                                       onChange={(e) => setTherapistInfo({
-                                           ...therapistInfo,
-                                           email: e.target.value
-                                       })}/>
+                                       // onChange={(e) => setTherapistInfo({
+                                       //     ...therapistInfo,
+                                       //     email: e.target.value
+                                       // })}
+                            />
                         </InplaceContent>
                     </Inplace>
                 </div>
-                    <div className="p-col-4">
-                        <label className={classes.labels}>user-name</label>
+                <div className="p-col-4">
+                    <label className={classes.labels}>user-name</label>
 
-                    </div>
+                </div>
 
-                    <div className="p-col-4">
-                        <label className={classes.labels}>Education-level </label>
+                <div className="p-col-4">
+                    <label className={classes.labels}>Education-level </label>
 
-                    </div>
-                    <div className="p-col-4">
-                        <label className={classes.labels}>specialization </label>
-                    </div>
-                    <div className="p-col-4" style={{textAlign: "center"}}>
-                        <Inplace closable>
-                            <InplaceDisplay>
-                                {therapistInfo.username}
-                            </InplaceDisplay>
-                            <InplaceContent>
-                                <InputText className={classes.inputs}
+                </div>
+                <div className="p-col-4">
+                    <label className={classes.labels}>specialization </label>
+                </div>
+                <div className="p-col-4" style={{textAlign: "center"}}>
+                    <Inplace closable>
+                        <InplaceDisplay>
+                            {therapistInfo.username}
+                        </InplaceDisplay>
+                        <InplaceContent>
+                            <InputText className={classes.inputs}
+                                       placeholder="Industry"
+                                       value={therapistInfo.username}
+                                       options={gender}
+                                       // onChange={(e) => setTherapistInfo({
+                                       //     ...therapistInfo,
+                                       //     username: e.target.value
+                                       // })}
+                                       editable
+                            />
+                        </InplaceContent>
+                    </Inplace>
+                </div>
+                <div className="p-col-4" style={{textAlign: "center"}}>
+                    <Inplace closable>
+                        <InplaceDisplay>
+                            {therapistInfo.educationLevel}
+                        </InplaceDisplay>
+                        <InplaceContent>
+                            <InputText className={classes.inputs}
 
-                                           value={therapistInfo.username}
-                                           options={gender}
-                                           onChange={(e) => setTherapistInfo({
-                                               ...therapistInfo,
-                                               username: e.target.value
-                                           })}
-                                           editable
-                                />
-                            </InplaceContent>
-                        </Inplace>
-                    </div>
-                    <div className="p-col-4" style={{textAlign: "center"}}>
-                        <Inplace closable>
-                            <InplaceDisplay>
-                                {therapistInfo.educationLevel}
-                            </InplaceDisplay>
-                            <InplaceContent>
-                                <InputText className={classes.inputs}
+                                       value={therapistInfo.educationLevel}
+                                       // onChange={(e) => setTherapistInfo({
+                                       //     ...therapistInfo,
+                                       //     educationLevel: e.target.value
+                                       // })}
+                            />
 
-                                           value={therapistInfo.educationLevel}
-                                           onChange={(e) => setTherapistInfo({
-                                               ...therapistInfo,
-                                               educationLevel: e.target.value
-                                           })}
-                                />
-
-                            </InplaceContent>
-                        </Inplace>
-
-
-                    </div>
-                    <div className="p-col-4" style={{textAlign: "center"}}>
-                        <Inplace closable>
-                            <InplaceDisplay>
-                                {therapistInfo.specialization}
-                            </InplaceDisplay>
-                            <InplaceContent>
-                                <InputText className={classes.inputs}
-
-                                           value={therapistInfo.specialization}
-                                           onChange={(e) => setTherapistInfo({
-                                               ...therapistInfo,
-                                               specialization: e.target.value
-                                           })}
-                                />
+                        </InplaceContent>
+                    </Inplace>
 
 
-                            </InplaceContent>
-                        </Inplace>
+                </div>
+                <div className="p-col-4" style={{textAlign: "center"}}>
+                    <Inplace closable>
+                        <InplaceDisplay>
+                            {therapistInfo.specialization}
+                        </InplaceDisplay>
+                        <InplaceContent>
+                            <InputText className={classes.inputs}
+                                       value={therapistInfo.specialization}
+                                       // onChange={(e) => setTherapistInfo({
+                                       //     ...therapistInfo,
+                                       //     specialization: e.target.value
+                                       // })}
+                            />
+
+
+                        </InplaceContent>
+                    </Inplace>
 
 
                 </div>
@@ -282,9 +282,9 @@ const TherapistProfile = (props) => {
                                     marginTop: "2em",
                                     background: "#a474b7"
                                 }}
-                                        onClick={() => {
-                                            onSave()
-                                        }}
+                                        // onClick={() => {
+                                        //     onSave()
+                                        // }}
                                 />
                             </div>
                         </div>
@@ -311,4 +311,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TherapistProfile);
+export default connect(mapStateToProps, mapDispatchToProps)(ViewTherapist);

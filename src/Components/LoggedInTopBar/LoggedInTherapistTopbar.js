@@ -14,10 +14,17 @@ const LoggedInTherapistTopbar = (props) => {
     let history = useHistory();
 
     const navigationMenuModel = [
+        {
+            label: 'Dashboard',
+            icon: 'pi pi-chart-bar',
+            command: () => {
+                history.push('/therapistDashboard')
 
+            }
+        },
         {
             label: 'Profile',
-            icon: 'pi pi-chart-bar',
+            icon: 'pi pi-user',
             command: () => {
                 history.push('/therapistDashboard/therapistProfileInfo')
 

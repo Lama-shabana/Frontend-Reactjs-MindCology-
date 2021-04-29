@@ -41,6 +41,7 @@ const TherapistContent = (props) => {
                 <Route path="/therapistDashboard/therapistInfo/deleteAccount" exact component={TherapistDeleteAccount}/>
                 <Route path="/therapistDashboard/historyPatientsRecord" exact component ={HistoryPatientsRecord}/>
                 <Route path="/therapistDashboard/therapistProfileInfo" exact component={TherapistProfile}/>
+
             </Switch>
         </div>
     );

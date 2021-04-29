@@ -1,15 +1,12 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {connect} from "react-redux";
 import { Carousel } from 'primereact/carousel';
 import { Button } from 'primereact/button';
 import './CarouselDemo.css';
-import LoggedInPatientTopbar from "../../../Components/LoggedInTopBar/LoggedInPatientTopbar";
-import PatientAccountProfile from "./PatientAccountProfile";
-import TakeAnAppointment from "./TakeAppointment";
-import {ToastProvider} from "react-toast-notifications";
-import classes from './patientDashboard.css';
+import * as profileActions from "../../Therapist/store/TherapistActions";
 const PatientDashboard = (props) => {
-    const [therapists, setTherapists] = useState([]);
+
+    const [therapistInfo, setTherapistInfo] = useState(null)
     const responsiveOptions = [
         {
             breakpoint: '1024px',
@@ -28,26 +25,38 @@ const PatientDashboard = (props) => {
         }
     ];
 
-    // const therapistService = new therapistService();
+    const id = JSON.parse(localStorage.getItem("auth"))?.id
 
-    // useEffect(() => {
-        //     therapistService.getProductsSmall().then(data => setProducts(data.slice(0,9)));
-        // }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    let dataLoaded = false;
+    useEffect(() => {
+        console.log("entered 1")
 
-        const therapistTemplate = (therapist) => {
+        if (dataLoaded === false) {
+            console.log("entered 2")
+            props.getProfileData({id: id}).then((data) => {
+                setTherapistInfo(data.payload)
+                {console.log(data, data.payload,"therapist Info")}
+            })
+            dataLoaded = true;
+        }
+    }, [dataLoaded])
+        const therapistTemplate = (therapistInfo) => {
+
             return (
+
                 <div className="therapist-item">
                     <div className="therapist-item-content">
                         <div className="p-mb-3">
-                            <img src={`showcase/demo/images/therapist/${therapist.image}`}
+                            {/*<img src={`showcase/demo/images/therapist/${therapistInfo.image}`}*/}
                                  onError={(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'}
-                                 alt={therapist.name} className="therapist-image"/>
+                                 alt={therapistInfo.username}  className="therapist-image"/>
                         </div>
                         <div>
-                            <h4 className="p-mb-1">{therapist.name}</h4>
-                            <h6 className="p-mt-0 p-mb-3">${therapist.mobileNumber}</h6>
+                            <h4 className="p-mb-1">{therapistInfo.email}</h4>
+                            <h6 className="p-mt-0 p-mb-3">${therapistInfo.specialization}</h6>
                             <span
-                                className={`product-badge status-${therapist.inventoryStatus.toLowerCase()}`}>{therapist.inventoryStatus}</span>
+
+                            >{therapistInfo.description}</span>
                             <div className="car-buttons p-mt-5">
                                 <Button icon="pi pi-search" className="p-button p-button-rounded p-mr-2"/>
                                 <Button icon="pi pi-star" className="p-button-success p-button-rounded p-mr-2"/>
@@ -59,7 +68,8 @@ const PatientDashboard = (props) => {
             );
         }
             return (
-                <div>
+
+                <div style={{paddingTop:"2em"}} >
 
                     <h1>
                         <blockquote>You don’t have to struggle in silence. We are here to provide you with the mental
@@ -70,11 +80,12 @@ const PatientDashboard = (props) => {
                     </h1>
 
                     <div>
-                        <div className="carousel-demo">
+                        <div className="therapist-demo">
                             <div className="card">
-                                <Carousel value={therapists} numVisible={3} numScroll={3}
+                                <Carousel value={therapistInfo} numVisible={3} numScroll={3}
                                           responsiveOptions={responsiveOptions}
-                                          itemTemplate={therapistTemplate} header={<h5>Therapists</h5>}/>
+                                          itemTemplate={therapistTemplate}
+                                          header={<h5>Therapists</h5>}/>
                             </div>
 
 
@@ -95,6 +106,7 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
     return {
+        getProfileData: (data) => dispatch(profileActions.getProfileData(data)),
     };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(PatientDashboard);

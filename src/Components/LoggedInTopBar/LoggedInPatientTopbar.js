@@ -13,10 +13,17 @@ const LoggedInPatientTopbar = (props) => {
     let history = useHistory();
 
     const navigationMenuModel = [
+        {
+            label: 'Dashboard',
+            icon: 'pi pi-chart-bar',
+            command: () => {
+                history.push('/patientDashboard')
 
+            }
+        },
         {
             label: 'Profile',
-            icon: 'pi pi-chart-bar',
+            icon: 'pi pi-user',
             command: () => {
                 history.push('/patientDashboard/patientProfileInfo')
 
