@@ -5,7 +5,6 @@
     width:42em !important;
 }
 .headerLabel {
-    padding-top: revert;
     color: dimgrey;
     font-weight: 500;
     width: 100%;
@@ -14,7 +13,6 @@
     text-align: center;
 }
 .form {
-    padding-top: 80px;
     margin: 0 auto !important;
     width: 30em;
 }
@@ -37,4 +35,7 @@ height: 4em;
 .grid-container {
     display: grid;
     grid-template-columns: auto auto auto auto;
+}
+.title{
+color: #5c0e5c;
 }

@@ -27,22 +27,24 @@ const ArabicMedicalHistoryForm = (props) => {
 
     const [activeIndex, setActiveIndex] = useState(0)
 
+    let userID=JSON.parse(localStorage.getItem("auth")).id
 
-    const [patientInfo, setPatientInfo] = useState({
-        providedWithMentalHealthService: "",
-        sessionsLanguage: "",
-        therapistGender: "",
-        traumaticExperience: "",
-        seekingHelpFor: "",
-        mentalOrPhysicalDisorderBoolean: "",
-        mentalOrPhysicalDisorderDetails: "",
-        thinkAboutHarmingYourselfBoolean: '',
-        thinkAboutHarmingYourselfDetails: '',
+    const [patientInfo, setPatientInfo] = useState(
+        {
+            patientId: userID,
+            providedWithMentalHealthServices: "",
+            sessionsLanguage: "",
+            therapistGender: "",
+            traumaticExperience: "",
+            seekingHelpFor: "",
+            mentalOrPhysicalDisorder: false,
+            mentalOrPhysicalDisorderDetails: "",
+            thinkAboutHarmingYourself: true,
+            thinkAboutHarmingYourselfDetails: "",
+            underMedications: true,
+            underMedicationsDetails: ""
 
-        underMedicationsBoolean: "",
-        underMedicationsDetails: ""
-    })
-
+        })
 
     const stepOne = () => {
         return <div className="p-grid">
@@ -302,11 +304,25 @@ const ArabicMedicalHistoryForm = (props) => {
             return stepOne()
         } else return stepTwo()
     }
+    function onSave() {
 
+        console.log(patientInfo,"sent")
+        props.addMedicalHistoryData(patientInfo).then((data)=>{
+            history.push('/patientDashboard')
+
+        })
+        // props.editProfile({id:userID,patientInfo:{filledMedicalHistoryForm:true}})
+    }
 
     return (
-        <div className="p-grid" style={{marginTop: "8%"}}>
+        <div className="p-grid" style={{marginTop: "5%"}}>
 
+            <div className="p-col-12">
+                <h2 className={classes.title}>
+                    Complete Your Medical History Data
+                </h2>
+                <hr/>
+            </div>
             <div className="p-col-6">
                 <img src={profilePic} className={classes.picture}/>
             </div>
@@ -328,6 +344,21 @@ const ArabicMedicalHistoryForm = (props) => {
                 </div>
             </Scrollbars>
 
+            <div className="p-col-8"/>
+
+            <div className="p-col-2">
+                <Button label="ارسال" className="primaryBtn" icon="pi pi-check" style={{
+                    width: "9em",
+                    height: "3em",
+                    marginLeft: "1em",
+                    marginTop: "2em",
+                    background: "#a474b7"
+                }}
+                        onClick={() => {
+                            onSave()
+                        }}
+                />
+            </div>
 
         </div>
     );
