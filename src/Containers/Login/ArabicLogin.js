@@ -21,15 +21,32 @@ const ArabicLogin = (props) => {
 
     let history = useHistory();
 
+
     const handleLogin = (e) => {
-        props.login(userFormState).then((data) => {
-            localStorage.setItem('auth', JSON.stringify(data.payload))
-            if (data.payload.userType === "patient") {
-                history.push('/patientDashboard')
+        props.login(userFormState).then((data)=>{
+            localStorage.setItem('auth',JSON.stringify(data.payload))
+            if(data.payload.userType==="patient"){
+                props.loadPatientData({id:data.payload.id}).then((data)=>{
+                    if(!data.payload.filledMedicalHistoryForm){
+                        history.push('/arabicMedicalHistoryForm')
+                    }else {
+                        history.push('/patientDashboard')
+                    }
+                    localStorage.setItem('patientData',JSON.stringify(data.payload))
+                })}
+            else if(data.payload.userType==="therapist") {
+                props.loadPatientData({id:data.payload.id}).then((data)=>{
+                    localStorage.setItem('therapist',JSON.stringify(data.payload))
+                    history.push('/patientDashboard')
+                })
+                history.push('/therapistDashboard')
 
             }
-            console.log(data.payload, "payload")
-            console.log(JSON.parse(localStorage.getItem("auth")), "returned after json")
+
+            localStorage.setItem('generalUserData',JSON.stringify(data.payload))
+
+            console.log(data.payload,"payload")
+            console.log(JSON.parse(localStorage.getItem("auth")),"returned after json")
         })
 
 

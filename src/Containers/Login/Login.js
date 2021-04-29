@@ -9,6 +9,8 @@ import * as registrationActions from "./store/LoginActions";
 import {connect} from "react-redux";
 import {useHistory} from "react-router-dom";
 import * as patientActions from "../Patient/store/PatientActions"
+import * as therapistActions from "../Therapist/store/TherapistActions"
+
 const Login = (props) => {
     let history = useHistory();
 
@@ -21,20 +23,24 @@ const Login = (props) => {
         props.login(userFormState).then((data)=>{
             localStorage.setItem('auth',JSON.stringify(data.payload))
             if(data.payload.userType==="patient"){
-                props.getPatientData({id:data.payload.id}).then((data)=>{
+                props.loadPatientData({id:data.payload.id}).then((data)=>{
                     if(!data.payload.filledMedicalHistoryForm){
                         history.push('/medicalHistoryForm')
                     }else {
                         history.push('/patientDashboard')
                     }
-                })
-
-            }
+                    localStorage.setItem('patientData',JSON.stringify(data.payload))
+                })}
             else if(data.payload.userType==="therapist") {
+                props.loadPatientData({id:data.payload.id}).then((data)=>{
+                    localStorage.setItem('therapist',JSON.stringify(data.payload))
+                    history.push('/patientDashboard')
+                })
                 history.push('/therapistDashboard')
+
             }
 
-            localStorage.setItem('userData',JSON.stringify(data.payload))
+            localStorage.setItem('generalUserData',JSON.stringify(data.payload))
 
             console.log(data.payload,"payload")
             console.log(JSON.parse(localStorage.getItem("auth")),"returned after json")
@@ -132,7 +138,9 @@ const mapDispatchToProps = dispatch => {
     return {
         login: (data) => dispatch(registrationActions.login(data)),
         logout:()=>dispatch(registrationActions.logout(null)),
-        getPatientData:(data)=>dispatch(patientActions.getProfileData(data))
+        loadPatientData:(data)=>dispatch(patientActions.getProfileData(data)),
+        loadTherapistData:(data)=>dispatch(therapistActions.getProfileData(data))
+
     };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
