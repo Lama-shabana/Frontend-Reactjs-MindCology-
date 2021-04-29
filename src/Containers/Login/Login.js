@@ -8,7 +8,7 @@ import LoggedOutTopBar from "../../Components/LoggedOutTopBar/LoggedOutTopBar";
 import * as registrationActions from "./store/LoginActions";
 import {connect} from "react-redux";
 import {useHistory} from "react-router-dom";
-
+import * as patientActions from "../Patient/store/PatientActions"
 const Login = (props) => {
     let history = useHistory();
 
@@ -21,12 +21,21 @@ const Login = (props) => {
         props.login(userFormState).then((data)=>{
             localStorage.setItem('auth',JSON.stringify(data.payload))
             if(data.payload.userType==="patient"){
-                history.push('/patientDashboard')
+                props.getPatientData({id:data.payload.id}).then((data)=>{
+                    if(!data.payload.filledMedicalHistoryForm){
+                        history.push('/medicalHistoryForm')
+                    }else {
+                        history.push('/patientDashboard')
+                    }
+                })
 
             }
             else if(data.payload.userType==="therapist") {
                 history.push('/therapistDashboard')
             }
+
+            localStorage.setItem('userData',JSON.stringify(data.payload))
+
             console.log(data.payload,"payload")
             console.log(JSON.parse(localStorage.getItem("auth")),"returned after json")
         })
@@ -123,6 +132,7 @@ const mapDispatchToProps = dispatch => {
     return {
         login: (data) => dispatch(registrationActions.login(data)),
         logout:()=>dispatch(registrationActions.logout(null)),
+        getPatientData:(data)=>dispatch(patientActions.getProfileData(data))
     };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
