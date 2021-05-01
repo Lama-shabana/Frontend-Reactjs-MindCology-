@@ -10,19 +10,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 
-// import '@fullcalendar/core/main.css';
-// import '@fullcalendar/daygrid/main.css';
-// import '@fullcalendar/timegrid/main.css';
 
-
- class EventService {
-
-    getEvents() {
-        return axios.get('data/events.json')
-            .then(res => res.data.data);
-
-}
-}
 
 const TherapistDashboard = (props) => {
     const [events, setEvents] = useState([]);
@@ -38,11 +26,6 @@ const TherapistDashboard = (props) => {
         editable: true
     };
 
-   const eventService = new EventService();
-
-    useEffect(() => {
-        eventService.getEvents().then(data => setEvents(data));
-    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
 
     return (
