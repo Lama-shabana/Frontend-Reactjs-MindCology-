@@ -49,12 +49,12 @@ const TherapistDashboard = (props) => {
         <div>
 
             <div style={{marginLeft:"1em",paddingTop:"100px"}}>
-                {/*<div className="card">*/}
-                {/*    <FullCalendar*/}
-                {/*        // events={events}*/}
-                {/*         options={options}*/}
-                {/*    />*/}
-                {/*</div>*/}
+                <div className="card">
+                    <FullCalendar
+                        // events={events}
+                         options={options}
+                    />
+                </div>
             </div>
         </div>
     );

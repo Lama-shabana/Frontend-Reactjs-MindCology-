@@ -98,3 +98,35 @@ export const addMedicalHistoryData = createAsyncThunk(actions.ADD_MEDICAL_HISTOR
         return thunkAPI.rejectWithValue(errMsg);
     }
 });
+
+export const viewMedicalHistoryData= createAsyncThunk(actions.VIEW_MEDICAL_HISTORY_DATA, async (payload, thunkAPI) => {
+    let errMsg=''
+    console.log(payload,"before sending")
+    console.log('api/MedicalHistoryForm/'+payload.id,"route")
+    thunkAPI.dispatch(uiActions.showLoading());
+    const response = await axios.get('api/MedicalHistoryForm/'+payload.id,
+        {
+            // headers:{
+            //     Authorization: thunkAPI.getState().login.token
+            // }
+        }).catch((e) => {
+        thunkAPI.dispatch(uiActions.hideLoading());
+        errMsg = 'error at API call ' + e.message;
+    });
+    console.log(payload)
+    if (response) {
+
+        if (response.data.valid) {
+            thunkAPI.dispatch(uiActions.hideLoading());
+            console.log(response.data+" <- valid response");
+            return response.data;
+        } else {
+            thunkAPI.dispatch(uiActions.hideLoading());
+            errMsg = response.data.responseMessage;
+            return thunkAPI.rejectWithValue(response.data);
+        }
+    } else {
+        console.log('no response -> ' + response)
+        return thunkAPI.rejectWithValue(errMsg);
+    }
+});
