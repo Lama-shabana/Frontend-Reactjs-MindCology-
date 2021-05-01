@@ -1,65 +1,75 @@
 import React, {useState} from 'react';
 import {connect} from "react-redux";
-import './ViewTable.css';
-import classes from "../../Patient/PatientDashboard/Profile.css";
-import Add from "../../../assets/Add.png";
+import classes from '../../Patient/PatientDashboard/Profile.css';
 const AddTherapist = (props) => {
 
 
     return (
         <div>
 
+<label className={classes.profile} >  Create Account for therapist</label>
             <form>
                 <div className={classes.profile} >
-                  <button>
-                    <img className={classes.images} src={Add} />
-                    <a>Create an account for therapist </a>
-                  </button>
+
                     <div>
                         <div className={classes.profile}>
                             <ul className="profile-info">
                                 <label>
 
                                     <span className={classes.profile}>Enter therapist name:</span>
+                                    </label>
+                                <label>
                                     <input type="text"  placeholder="Diala khalil" name="name"/>
                                 </label>
                                 <label>
                                     <span className={classes.profile}>Enter therapist email: </span>
-
+                                    </label>
+                                <label>
                                 <input className={classes.profile} type="email"  placeholder="" name="email"/>
                                 </label>
                                 <label>
 
-                                    <span className={classes.profile}> Enter therapist phone: </span>    </label>
+                                    <span className={classes.profile}> Enter therapist phone: </span>
+                                </label>
+                                <label>
                                 <input  className={classes.profile} type="text"  placeholder="" name="phone"/>
-
+                                    </label>
                                 <label>
 
-                                    <span className="title">Enter Education level:</span>    </label>
+                                    <span className="title">Enter Education level:</span>
+                                </label>
+                                <label>
                                 <input type="text"  placeholder="" name="education-level"/>
-
+                                    </label>
 
                                 <label>
 
                                     <span className="title">County: </span>
                                 </label>
+                                <label>
                                 <input type="text"  placeholder="" name="country"/>
-
+                                    </label>
                                 <label>
                                     <span className="title">Gender:</span>
+                                    </label>
+                                <label>
                                     <input type="text"  placeholder="Female" name="gender"/>
+
                                 </label>
                                 <label>
-                                    <span className="title">specialization:</span>
+
+                                    <span className="title">user name:</span>
+                                    </label>
+
+                                <label>
                                     <input type="text"  placeholder="" name="specialization"/>
                                 </label>
                                 <label>
-
                                     <span className="title">Password: </span>
-                                </label>
                                 <input type="password"  placeholder="*********" name="password"/>
-
+                                </label>
                                 <label>
+
                                     <input type="submit"  placeholder="Save" name="save edit"/>
                                 </label>
                             </ul>

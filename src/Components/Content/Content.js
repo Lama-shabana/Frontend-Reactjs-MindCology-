@@ -20,6 +20,10 @@ import TherapistAccountProfile from "../../Containers/Therapist/TherapistDashboa
 import TherapistEditProfile from "../../Containers/Therapist/TherapistDashboard/TherapistEditProfile";
 import TherapistDeleteAccount from "../../Containers/Therapist/TherapistDashboard/TherapistDeleteAccount";
 import HistoryPatientsRecord from "../../Containers/Therapist/TherapistDashboard/HistoryPatientsRecord";
+import AdminDashboard from "../../Containers/Admin/AdminDashboard/AdminDashboard";
+import ViewPatients from "../../Containers/Admin/AdminDashboard/ViewPatients";
+import ViewTherapists from "../../Containers/Admin/AdminDashboard/ViewTherapists";
+import AddTherapist from "../../Containers/Admin/AdminDashboard/AddTherapist";
 
 const Content = (props) => {
     return (
@@ -37,7 +41,10 @@ const Content = (props) => {
                     <Route path="/registration" exact component={Registration}/>
                     <Route path="/login" exact component={Login}/>
                     <Route path="/arabiclogin" exact component={ArabicLogin}/>
-                <Route path="/view" exact component={EnglishHomepage}/>
+                <Route path="/adminDashboard" exact component={AdminDashboard}/>
+                <Route path="/adminDashboard/viewAllPatients" exact component={ViewPatients}/>
+                <Route path="/adminDashboard/viewAllTherapists" exact component={ViewTherapists}/>
+                <Route path ="/adminDashboard/addTherapist" exit component={AddTherapist}/>
 
             </Switch>
         </div>

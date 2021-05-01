@@ -15,48 +15,41 @@ const LoggedInAdminTopbar = (props) => {
     const navigationMenuModel = [
 
         {
-            label: 'Profile',
+            label: 'Dashboard',
             icon: 'pi pi-chart-bar',
             command: () => {
-                history.push('/adminDashboard/patientInfo')
+                history.push('/adminDashboard')
 
             }
         },
 
         {
-            label: 'Delete Account',
-            icon: 'pi pi-delete-account',
+            label: 'Profile',
+            icon: 'pi pi-user',
             command: () => {
-                history.push('/adminDashboard/patientInfo/deleteAccount')
+                history.push('/adminDashboard/adminInfo')
 
             }
         },
         {
-            label: 'Appointments',
-            //icon: 'pi pi-appointment',
+            label: 'Therapists List',
+            icon: 'pi pi-users',
             command: () => {
-                history.push('/adminDashboard/viewAppointment')
+                history.push('/adminDashboard/viewAllTherapists')
             }
         },
         {
-            label: 'therapists',
-            //icon: 'pi pi-appointment',
+            label: 'Patients List',
+            icon: 'pi pi-users',
             command: () => {
                 history.push('/adminDashboard/viewAllTherapists')
             }
         },
         {
             label: 'Create account For therapist',
-            //icon: 'pi pi-appointment',
+            icon: 'pi pi-user-plus',
             command: () => {
                 history.push('/adminDashboard/AddTherapist')
-            }
-        },
-        {
-            label: 'patients',
-            //icon: 'pi pi-appointment',
-            command: () => {
-                history.push('/adminDashboard/viewAllPatients')
             }
         },
 
