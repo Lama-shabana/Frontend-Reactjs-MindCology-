@@ -8,17 +8,31 @@ import * as profileActions from "../../Therapist/store/TherapistActions";
 const PatientDashboard = (props) => {
 
     const [therapistInfo, setTherapistInfo] = useState(
-        {
-            data:
-                [{
-                    id: 1,
-                    username: "test",
-                    specialization: "specialization",
-                    description: "description",
-                    email: "email"
-                }]
 
-        }
+                [
+                    {
+                        id: 1,
+                        username: "test",
+                        specialization: "specialization",
+                        description: "description",
+                        email: "email"
+                    },
+                    {
+                        id: 2,
+                        username: "test",
+                        specialization: "specialization",
+                        description: "description",
+                        email: "email"
+                    },
+                    {
+                        id: 3,
+                        username: "test",
+                        specialization: "specialization",
+                        description: "description",
+                        email: "email"
+                    }
+
+                ]
     )
     const responsiveOptions = [
         {
@@ -48,7 +62,7 @@ const PatientDashboard = (props) => {
     useEffect(() => {
         if (dataLoaded === false) {
             props.getAllTherapists().then((data) => {
-                setTherapistInfo(data.payload)
+                // setTherapistInfo(data.payload)
                 console.log(data, data.payload, "therapist Info")
             })
             dataLoaded = true;
