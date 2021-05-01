@@ -3,39 +3,25 @@ import {connect} from "react-redux";
 import classes from "../../Patient/MedicalHistoryForm/MedicalHistoryForm.module.css";
 import './HistoryPatientsRecord.css';
 import record from '../../../assets/images.png';
-import {waitFor} from "@testing-library/react";
-import { PrimeIcons } from 'primereact/api';
-
 import * as MedicalActions from "../../Patient/store/PatientActions";
-import {MiddlewareArray} from "@reduxjs/toolkit";
-import {Inplace, InplaceContent, InplaceDisplay} from "primereact/inplace";
 const HistoryPatientsRecord = (props) => {
 
 
     const [MedicalInfo, setMedicalInfo] = useState( null)
 
 
-
-    let userID=JSON.parse(localStorage.getItem("auth")).id
-
     let dataLoaded = false;
     useEffect(() => {
-        console.log("entered 1")
-
         if (dataLoaded === false) {
-            console.log("entered 2")
-            props.viewMedicalHistoryData({id: userID}).then((data) => {
+            props.viewMedicalHistoryData().then((data) => {
                 setMedicalInfo(data.payload)
-                {console.log(data, data.payload,"")}
+                console.log(data, data.payload, " view medical history data ")
             })
             dataLoaded = true;
         }
     }, [dataLoaded])
     return (
-        <div className="record">
-         {/*   <div className="p-col-11">*/}
-         {/*<img src={record}/>*/}
-         {/*       </div>*/}
+        <div className="record" style={{marginRight:"12em"} }>
             <div className="p-grid">
             <div className="p-col-12">
                 {/*<i style={{paddingTop:"2em",marginLeft: "2em",fontSize:"2em"}} className="pi pi-id-card"/>*/}
@@ -44,13 +30,13 @@ const HistoryPatientsRecord = (props) => {
                         <span> history Patient's Record</span>
 
                     </label>
-     <line style={{fontSize:"2em",color:"gray"}}>_____________________________________________________</line>
+
             </div>
             </div>
             <div className="p-grid">
                 <div className="p-col-12">
                 <label
-                    key={MedicalInfo.id}
+                    // key={MedicalInfo.id}
                   // value= {patientInfo.name}
                     className={classes.questionLabels}>patient  Name:
 
@@ -78,11 +64,11 @@ const HistoryPatientsRecord = (props) => {
                     <label
                         className={classes.questionLabels}>Have you ever been provided with mental health services
                         before?  </label>
-
-                        <InplaceDisplay>
-                            {MedicalInfo.providedWithMentalHealthServices}
-                        </InplaceDisplay>
-
+                       <div  className="p-col-12">
+                        <label  className={classes.questionLabels}>
+                            {/*{MedicalInfo.providedWithMentalHealthServices}*/}
+                        </label>
+                       </div>
 
                 </div>
 
@@ -90,9 +76,9 @@ const HistoryPatientsRecord = (props) => {
 
                 <div className="p-col-12">
                     <label className={classes.questionLabels}>The language you would like to have sessions in: </label>
-                    <InplaceDisplay>
-                        {MedicalInfo.sessionsLanguage}
-                    </InplaceDisplay>
+                    <label>
+                        {/*{MedicalInfo.sessionsLanguage}*/}
+                    </label>
 
                 </div>
                 <line>____________________________________________________________________________________________</line>
@@ -100,42 +86,42 @@ const HistoryPatientsRecord = (props) => {
 
                 <div className="p-col-12">
                     <label className={classes.questionLabels}> the gender do you prefer your therapist to be: </label>
-                    <InplaceDisplay>
-                        {MedicalInfo.therapistGender}
-                    </InplaceDisplay>
+                    <label>
+                        {/*{MedicalInfo.therapistGender}*/}
+                    </label>
 
                 </div>
                 <line>____________________________________________________________________________________________</line>
 
                 <div className="p-col-12">
                     <label className={classes.questionLabels}>Have you ever been through traumatic experiences? </label>
-                    <InplaceDisplay>
-                        {MedicalInfo.traumaticExperience}
-                    </InplaceDisplay>
+                    <label>
+                        {/*{MedicalInfo.traumaticExperience}*/}
+                    </label>
                 </div>
                 <div className="p-col-12">
                     <label className={classes.questionLabels}> if answer "yes" ,
                         Traumatic Experiences Details:  </label>
-                    <InplaceDisplay>
-                        {MedicalInfo.traumaticExperience}
-                    </InplaceDisplay>
+                    <label>
+                        {/*{MedicalInfo.traumaticExperience}*/}
+                    </label>
                 </div>
                 <line>____________________________________________________________________________________________</line>
 
                 <div className="p-col-12">
                     <label className={classes.questionLabels}>What are exactly are you seeking help for? </label>
-                    <InplaceDisplay>
-                        {MedicalInfo.seekingHelpFor}
-                    </InplaceDisplay>
+                    <label>
+                        {/*{MedicalInfo.seekingHelpFor}*/}
+                    </label>
 
                 </div>
                 <line>____________________________________________________________________________________________</line>
 
                 <div className="p-col-12">
                     <label className={classes.questionLabels}>Do you have any mental or physical disorders that you know of?</label>
-                    <InplaceDisplay>
-                        {MedicalInfo.mentalOrPhysicalDisorder}
-                    </InplaceDisplay>
+                    <label>
+                        {/*{MedicalInfo.mentalOrPhysicalDisorder}*/}
+                    </label>
                 </div>
 
                 <line>____________________________________________________________________________________________</line>
@@ -143,40 +129,40 @@ const HistoryPatientsRecord = (props) => {
                 <div className="p-col-12">
                     <label className={classes.questionLabels}>If answered "yes",
                         Mental Or Physical Disorder Details: </label>
-                    <InplaceDisplay>
-                        {MedicalInfo.mentalOrPhysicalDisorderDetails}
-                    </InplaceDisplay>
+                    <label>
+                        {/*{MedicalInfo.mentalOrPhysicalDisorderDetails}*/}
+                    </label>
                 </div>
                 <div className="p-col-12">
                     <label className={classes.questionLabels}> Have you ever tried or thought about harming yourself? </label>
-                    <InplaceDisplay>
-                        {MedicalInfo.thinkAboutHarmingYourself}
-                    </InplaceDisplay>
+                    <label>
+                        {/*{MedicalInfo.thinkAboutHarmingYourself}*/}
+                    </label>
                 </div>
                 <line>____________________________________________________________________________________________</line>
 
                 <div className="p-col-12">
                     <label className={classes.questionLabels}>  If answered "yes", what happened? </label>
-                    <InplaceDisplay>
-                        {MedicalInfo.thinkAboutHarmingYourselfDetails}
-                    </InplaceDisplay>
+                    <label>
+                        {/*{MedicalInfo.thinkAboutHarmingYourselfDetails}*/}
+                    </label>
                 </div>
                 <line>____________________________________________________________________________________________</line>
 
                 <div className="p-col-12">
                     <label className={classes.questionLabels}> Are you under any medications? </label>
-                    <InplaceDisplay>
-                        {MedicalInfo.underMedications}
-                    </InplaceDisplay>
+                    <label>
+                        {/*{MedicalInfo.underMedications}*/}
+                    </label>
                 </div>
                 <line>____________________________________________________________________________________________</line>
 
                 <div className="p-col-12">
                     <label className={classes.questionLabels}>if you under Medications ,
                         under Medications Details : </label>
-                    <InplaceDisplay>
-                        {MedicalInfo.underMedicationsDetails}
-                    </InplaceDisplay>
+                    <label>
+                        {/*{MedicalInfo.underMedicationsDetails}*/}
+                    </label>
                 </div>
                 <line>____________________________________________________________________________________________</line>
 
@@ -194,7 +180,8 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        viewMedicalHistoryData: (data) => dispatch(MedicalActions.viewMedicalHistoryData()),
+        viewMedicalHistoryData: () => dispatch(MedicalActions.viewMedicalHistoryData()),
+
     };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(HistoryPatientsRecord);
