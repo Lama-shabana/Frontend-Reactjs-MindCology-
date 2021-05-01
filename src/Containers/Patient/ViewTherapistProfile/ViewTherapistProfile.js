@@ -9,25 +9,25 @@ import * as profileActions from "../../Therapist/store/TherapistActions";
 
 const ViewTherapistProfile = (props) => {
 
-    const [TherapistInfo, setTherapistInfo] = useState(null)
+    const [therapistInfo, setTherapistInfo] = useState(null)
 
 
 
-    const idTherapist = JSON.parse(localStorage.getItem("auth"))?.id
+    const userId = JSON.parse(localStorage.getItem("auth"))?.id
+
+    const therapistId=props.match.params.id;
 
     let dataLoaded = false;
     useEffect(() => {
-        console.log("entered 1")
 
         if (dataLoaded === false) {
-            props.getAllTherapists().then((data) => {
-                setTherapistInfo(data.payload)
-                console.log(data, data.payload, "therapist profile")
+            props.getAllTherapists({id:therapistId}).then((data) => {
+                setTherapistInfo(data.payload[0])
             })
             dataLoaded = true;
         }
     }, [dataLoaded])
-    const TherapistInfoDisplay = () => {
+    const therapistInfoDisplay = () => {
         return <div>
             <div className="p-grid">
                 <div className="p-col-4">
@@ -44,7 +44,7 @@ const ViewTherapistProfile = (props) => {
                 <div className="p-col-4" style={{textAlign: "center"}}>
 
                         <label>
-                            {TherapistInfo.firstName}
+                            {therapistInfo.firstName}
                         </label>
 
 
@@ -52,7 +52,7 @@ const ViewTherapistProfile = (props) => {
                 <div className="p-col-4" style={{textAlign: "center"}}>
 
                         <label>
-                            {TherapistInfo.lastName}
+                            {therapistInfo.lastName}
                         </label>
 
 
@@ -60,7 +60,7 @@ const ViewTherapistProfile = (props) => {
                 <div className="p-col-4" style={{textAlign: "center"}}>
 
                         <label>
-                            {TherapistInfo.age}
+                            {therapistInfo.age}
                         </label>
 
 
@@ -86,7 +86,7 @@ const ViewTherapistProfile = (props) => {
                 <div className="p-col-4" style={{textAlign: "center"}}>
 
                         <label>
-                            {TherapistInfo.gender}
+                            {therapistInfo.gender}
                         </label>
 
 
@@ -94,7 +94,7 @@ const ViewTherapistProfile = (props) => {
                 <div className="p-col-4" style={{textAlign: "center"}}>
 
                         <label>
-                            {TherapistInfo.phoneNumber}
+                            {therapistInfo.phoneNumber}
                         </label>
 
 
@@ -104,7 +104,7 @@ const ViewTherapistProfile = (props) => {
                 <div className="p-col-4" style={{textAlign: "center"}}>
 
                         <label>
-                            {TherapistInfo.email}
+                            {therapistInfo.email}
                         </label>
 
 
@@ -124,7 +124,7 @@ const ViewTherapistProfile = (props) => {
                 <div className="p-col-4" style={{textAlign: "center"}}>
 
                         <label>
-                            {TherapistInfo.username}
+                            {therapistInfo.username}
                         </label>
 
 
@@ -132,7 +132,7 @@ const ViewTherapistProfile = (props) => {
                 <div className="p-col-4" style={{textAlign: "center"}}>
 
                         <label>
-                            {TherapistInfo.educationLevel}
+                            {therapistInfo.educationLevel}
                         </label>
 
 
@@ -142,7 +142,7 @@ const ViewTherapistProfile = (props) => {
                 <div className="p-col-4" style={{textAlign: "center"}}>
 
                         <label>
-                            {TherapistInfo.specialization}
+                            {therapistInfo.specialization}
                         </label>
 
 
@@ -157,7 +157,7 @@ const ViewTherapistProfile = (props) => {
 
     return (
         <div className={classes.form}>
-            {TherapistInfo ?
+            {therapistInfo ?
                 <div>
                     <label className={classes.headerLabel}> Profile
                         <i style={{marginLeft: "0.5em"}} className="pi pi-user"/>
@@ -166,7 +166,7 @@ const ViewTherapistProfile = (props) => {
 
                     <Tabs defaultActiveKey="therapistInfo" transition={false}>
                         <Tab eventKey="therapistInfo" title="therapist Info" tabClassName={classes.tab}>
-                            {TherapistInfoDisplay()}
+                            {therapistInfoDisplay()}
                         </Tab>
 
                     </Tabs>

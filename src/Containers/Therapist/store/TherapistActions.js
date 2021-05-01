@@ -96,3 +96,4 @@ export const getAllTherapists = createAsyncThunk(actions.GET_ALL_THERAPISTS, asy
         return thunkAPI.rejectWithValue(errMsg);
     }
 });
+

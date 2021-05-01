@@ -19,7 +19,7 @@ import DeleteAccount from "../../Containers/Patient/PatientDashboard/DeleteAccou
 import MedicalHistoryForm from "../../Containers/Patient/MedicalHistoryForm/MedicalHistoryForm"
 import ArabicMedicalHistoryForm from "../../Containers/Patient/MedicalHistoryForm/ArabicMedicalHistoryForm";
 import PatientProfile from "../../Containers/Patient/PatientDashboard/PatientProfile";
-import ViewTherapist from "../../Containers/Patient/PatientDashboard/ViewTherapistProfile";
+import ViewTherapist from "../../Containers/Patient/ViewTherapistProfile/ViewTherapistProfile";
 const PatientContent = (props) => {
     return (
         <div>
@@ -44,7 +44,7 @@ const PatientContent = (props) => {
                 <Route path="/medicalHistoryForm" exact component={MedicalHistoryForm}/>
                 <Route path="/arabicMedicalHistoryForm" exact component={ArabicMedicalHistoryForm}/>
                 <Route path="/patientDashboard/patientProfileInfo" exact component={PatientProfile}/>
-                <Route path="/patientDashboard/viewTherapistProfile" exact component={ViewTherapist}/>
+                <Route path="/patientDashboard/viewTherapistProfile/:id" exact component={ViewTherapist}/>
             </Switch>
         </div>
     );

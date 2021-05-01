@@ -8,31 +8,30 @@ import * as profileActions from "../../Therapist/store/TherapistActions";
 const PatientDashboard = (props) => {
 
     const [therapistInfo, setTherapistInfo] = useState(
+        [
+            {
+                id: 1,
+                username: "test",
+                specialization: "specialization",
+                description: "description",
+                email: "email"
+            },
+            {
+                id: 2,
+                username: "test",
+                specialization: "specialization",
+                description: "description",
+                email: "email"
+            },
+            {
+                id: 3,
+                username: "test",
+                specialization: "specialization",
+                description: "description",
+                email: "email"
+            }
 
-                [
-                    {
-                        id: 1,
-                        username: "test",
-                        specialization: "specialization",
-                        description: "description",
-                        email: "email"
-                    },
-                    {
-                        id: 2,
-                        username: "test",
-                        specialization: "specialization",
-                        description: "description",
-                        email: "email"
-                    },
-                    {
-                        id: 3,
-                        username: "test",
-                        specialization: "specialization",
-                        description: "description",
-                        email: "email"
-                    }
-
-                ]
+        ]
     )
     const responsiveOptions = [
         {
@@ -60,7 +59,7 @@ const PatientDashboard = (props) => {
     useEffect(() => {
         if (dataLoaded === false) {
             props.getAllTherapists().then((data) => {
-                 setTherapistInfo(data.payload)
+                setTherapistInfo(data.payload)
                 console.log(data, data.payload, "therapist Info")
             })
             dataLoaded = true;
@@ -72,7 +71,7 @@ const PatientDashboard = (props) => {
                 <div className="therapist-item-content">
                     <div className="p-mb-3">
                         {/*< className="therapist-image" img src={}/>*/}
-                        <span  style={{backgroundColor:"powderblue"}}>{therapistInfo.username}</span>
+                        <span style={{backgroundColor: "powderblue"}}>{therapistInfo.username}</span>
 
                     </div>
                     <div>
@@ -84,17 +83,18 @@ const PatientDashboard = (props) => {
                             <Button icon="pi pi-star" className="p-button-success p-button-rounded p-mr-2"/>
                             <Button icon="pi pi-send" className="p-button-help p-button-rounded"/>
                             <div className="box">
-                                <Button label=" view therapist Info " className="primaryBtn" icon="pi pi-chevron-right" style={{
-                                    width: "12em",
-                                    height: "3em",
-                                    marginLeft: "1em",
-                                    marginTop: "2em",
-                                    background: "purple"
+                                <Button label=" view therapist Info " className="primaryBtn" icon="pi pi-chevron-right"
+                                        style={{
+                                            width: "12em",
+                                            height: "3em",
+                                            marginLeft: "1em",
+                                            marginTop: "2em",
+                                            background: "purple"
 
 
-                                }}
-                                        onClick={()=> props.history.push("/patientDashboard/viewTherapistProfile")}
-                                        />
+                                        }}
+                                        onClick={() => props.history.push("/patientDashboard/viewTherapistProfile/" + therapistInfo.id)}
+                                />
 
                             </div>
                         </div>
