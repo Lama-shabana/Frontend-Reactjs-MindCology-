@@ -14,6 +14,7 @@ import {InputNumber} from "primereact/inputnumber";
 import {InputTextarea} from "primereact/inputtextarea";
 import {RadioButton} from "primereact/radiobutton";
 import {useHistory} from "react-router-dom";
+import * as profileActions from "../store/PatientActions";
 
 const ArabicMedicalHistoryForm = (props) => {
 
@@ -60,7 +61,7 @@ const ArabicMedicalHistoryForm = (props) => {
                         ...patientInfo,
                         providedWithMentalHealthService: e.value
                     })} checked={patientInfo.providedWithMentalHealthService === 'yes'}/>
-                    <label className={classes.questionLabelsNotBold} htmlFor="yes">نعم</label>
+                    <label style={{float:"right" , paddingRight:"1em"}} className={classes.questionLabelsNotBold} htmlFor="yes">نعم</label>
 
                 </div>
             </div>
@@ -319,10 +320,9 @@ const ArabicMedicalHistoryForm = (props) => {
 
     return (
         <div className="p-grid" style={{marginTop: "5%"}}>
-
             <div className="p-col-12">
-                <h2 className={classes.title}>
-                    Complete Your Medical History Data
+                <h2  style={{float:"right" , paddingRight:"1em"}} className={classes.title} >
+                  اكمل السجل الصحي الخاص فيك
                 </h2>
                 <hr/>
             </div>
@@ -336,7 +336,7 @@ const ArabicMedicalHistoryForm = (props) => {
 
                     <div className={classes.form}>
 
-                        <label className={classes.headerLabel}>Medical History</label>
+                        <label className={classes.headerLabel}>السجل الصحي </label>
                         <Steps model={steps} activeIndex={activeIndex} onSelect={(e) => setActiveIndex(e.index)}
                                readOnly={false}/>
 
@@ -372,7 +372,10 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-    return {};
+    return {
+        addMedicalHistoryData: (data) => dispatch(profileActions.addMedicalHistoryData(data)),
+        editProfile: (data) => dispatch(profileActions.editProfile(data)),
+    };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArabicMedicalHistoryForm);
