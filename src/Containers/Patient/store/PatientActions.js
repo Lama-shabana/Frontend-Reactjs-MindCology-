@@ -38,8 +38,6 @@ export const editProfile = createAsyncThunk(actions.EDIT_PATIENT_PROFILE, async 
 
 export const getProfileData = createAsyncThunk(actions.GET_PROFILE_DATA, async (payload, thunkAPI) => {
     let errMsg=''
-    console.log(payload,"before sending")
-    console.log('api/Patient/'+payload.id,"route")
     thunkAPI.dispatch(uiActions.showLoading());
     const response = await axios.get('api/Patient/'+payload.id,
         {
@@ -50,7 +48,6 @@ export const getProfileData = createAsyncThunk(actions.GET_PROFILE_DATA, async (
         thunkAPI.dispatch(uiActions.hideLoading());
         errMsg = 'error at API call ' + e.message;
     });
-    console.log(payload)
     if (response) {
 
         if (response.data.valid) {
@@ -130,3 +127,4 @@ export const viewMedicalHistoryData= createAsyncThunk(actions.VIEW_MEDICAL_HISTO
         return thunkAPI.rejectWithValue(errMsg);
     }
 });
+

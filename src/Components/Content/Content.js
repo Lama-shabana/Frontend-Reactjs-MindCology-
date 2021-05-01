@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Route, Switch } from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import EnglishHomepage from "../../Containers/Homepage/EnglishHomepage";
 import Registration from "../../Containers/Registration/Registration";
 import ArabicRegistration from "../../Containers/Registration/ArabicRegistration";
@@ -24,6 +24,7 @@ import AdminDashboard from "../../Containers/Admin/AdminDashboard/AdminDashboard
 import ViewPatients from "../../Containers/Admin/AdminDashboard/ViewPatients";
 import ViewTherapists from "../../Containers/Admin/AdminDashboard/ViewTherapists";
 import AddTherapist from "../../Containers/Admin/AdminDashboard/AddTherapist";
+import ViewAllPatients from "../../Containers/Therapist/ViewAllPatients/ViewAllPatients";
 
 const Content = (props) => {
     return (
@@ -31,20 +32,21 @@ const Content = (props) => {
 
             <Switch>
 
-                    <Route path="/" exact component={EnglishHomepage}/>
-                    <Route path="/arabicHomepage" exact component={ArabicHomepage}/>
-                    <Route path="/about" exact component={About}/>
-                    <Route path="/arabicabout" exact component={ArabicAbout}/>
-                    <Route path="/contact" exact component={Contact}/>
-                    <Route path="/arabiccontact" exact component={ArabicContact}/>
-                    <Route path="/arabicregistration" exact component={ArabicRegistration}/>
-                    <Route path="/registration" exact component={Registration}/>
-                    <Route path="/login" exact component={Login}/>
-                    <Route path="/arabiclogin" exact component={ArabicLogin}/>
+                <Route path="/" exact component={EnglishHomepage}/>
+                <Route path="/arabicHomepage" exact component={ArabicHomepage}/>
+                <Route path="/about" exact component={About}/>
+                <Route path="/arabicabout" exact component={ArabicAbout}/>
+                <Route path="/contact" exact component={Contact}/>
+                <Route path="/arabiccontact" exact component={ArabicContact}/>
+                <Route path="/arabicregistration" exact component={ArabicRegistration}/>
+                <Route path="/registration" exact component={Registration}/>
+                <Route path="/login" exact component={Login}/>
+                <Route path="/arabiclogin" exact component={ArabicLogin}/>
                 <Route path="/adminDashboard" exact component={AdminDashboard}/>
                 <Route path="/adminDashboard/viewAllPatients" exact component={ViewPatients}/>
                 <Route path="/adminDashboard/viewAllTherapists" exact component={ViewTherapists}/>
-                <Route path ="/adminDashboard/addTherapist" exit component={AddTherapist}/>
+                <Route path="/adminDashboard/addTherapist" exit component={AddTherapist}/>
+
 
             </Switch>
         </div>

@@ -44,6 +44,7 @@ const TherapistDashboard = (props) => {
         eventService.getEvents().then(data => setEvents(data));
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+
     return (
 
         <div>

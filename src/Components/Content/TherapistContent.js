@@ -17,6 +17,7 @@ import HistoryPatientsRecord from "../../Containers/Therapist/TherapistDashboard
 import TherapistDeleteAccount from "../../Containers/Therapist/TherapistDashboard/TherapistDeleteAccount";
 import TherapistEditProfile from "../../Containers/Therapist/TherapistDashboard/TherapistEditProfile";
 import TherapistProfile from "../../Containers/Therapist/TherapistDashboard/TherapistProfile";
+import ViewAllPatients from "../../Containers/Therapist/ViewAllPatients/ViewAllPatients";
 
 
 const TherapistContent = (props) => {
@@ -41,6 +42,8 @@ const TherapistContent = (props) => {
                 <Route path="/therapistDashboard/therapistInfo/deleteAccount" exact component={TherapistDeleteAccount}/>
                 <Route path="/therapistDashboard/historyPatientsRecord" exact component ={HistoryPatientsRecord}/>
                 <Route path="/therapistDashboard/therapistProfileInfo" exact component={TherapistProfile}/>
+                <Route path="/viewAllPatients" exit component={ViewAllPatients}/>
+
 
             </Switch>
         </div>

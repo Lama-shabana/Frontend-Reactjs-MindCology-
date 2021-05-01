@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {Carousel} from 'primereact/carousel';
 import {Button} from 'primereact/button';
 import './CarouselDemo.css';
-import * as profileActions from "../../Therapist/store/TherapistActions";
+import * as therapistProfileActions from "../../Therapist/store/TherapistActions";
 
 const PatientDashboard = (props) => {
 
@@ -140,7 +140,7 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        getAllTherapists: () => dispatch(profileActions.getAllTherapists()),
+        getAllTherapists: () => dispatch(therapistProfileActions.getAllTherapists()),
     };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(PatientDashboard);

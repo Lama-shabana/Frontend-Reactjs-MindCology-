@@ -37,6 +37,8 @@ const Login = (props) => {
                     history.push('/patientDashboard')
                 })
                 history.push('/therapistDashboard')
+            } else if(data.payload.userType==="admin"){
+                history.push('/adminDashboard')
 
             }
 
