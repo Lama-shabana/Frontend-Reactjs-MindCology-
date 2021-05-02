@@ -17,7 +17,7 @@ const ViewTherapists = (props) => {
 
         if (dataLoaded === false) {
             console.log("entered 2")
-            props.getProfileData().then((data) => {
+            props.getAllTherapists().then((data) => {
                 setTherapists(data.payload)
                 {console.log(data, data.payload,"therapists List")}
             })
@@ -45,14 +45,16 @@ const ViewTherapists = (props) => {
                         <div className="card">
 
                             <DataTable value={therapists}>
-                                <Column field="First name" header="First name"></Column>
-                                <Column field="Last name" header="Last name"></Column>
-                                <Column field="Gender" header="Gender"></Column>
-                                <Column field="Email" header="Email"></Column>
-                                <Column field="Education Level" header="Education Level"></Column>
-                                <Column field="Specialization" header="specialization"></Column>
-                                <Column field="Description" header="Description"></Column>
-                                <Column field="Status" header="Status"></Column>
+                                <Column field="firstName" header="First name"></Column>
+                                <Column field="lastName" header="Last name"></Column>
+                                <Column field="gender" header="Gender"></Column>
+                                <Column field="phoneNumber" header="phone Number"></Column>
+                                <Column field="email" header="Email"></Column>
+                                <Column field="educationLevel" header="Education Level"></Column>
+                                <Column field="specialization" header="specialization"></Column>
+                                <Column field="description" header="Description"></Column>
+
+                                {/*<Column field="Status" header="Status"></Column>*/}
 
 
                             </DataTable>
@@ -76,7 +78,7 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        getProfileData: () => dispatch(profileActions.getProfileData()),
+        getAllTherapists: () => dispatch(profileActions.getAllTherapists()),
     };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ViewTherapists);

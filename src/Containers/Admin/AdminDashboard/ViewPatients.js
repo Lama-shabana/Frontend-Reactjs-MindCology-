@@ -1,11 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import {connect} from "react-redux";
-import { Button } from 'primereact/button';
-import { DataTable } from 'primereact/datatable';
-import { Column } from 'primereact/column';
-import { ButtonHeader } from 'primereact/button'
-import * as profileActions from "../../Patient/store/PatientActions";
-import './DataTableDemo.css';
+import * as patientProfileActions from "../../Patient/store/PatientActions"
+import {DataTable} from "primereact/datatable";
+import {Column} from "primereact/column";
+
 const ViewPatients = (props) => {
 
     const [patients, setPatients] = useState([] );
@@ -17,50 +15,61 @@ const ViewPatients = (props) => {
 
         if (dataLoaded === false) {
             console.log("entered 2")
-            props.getProfileData().then((data) => {
+            props.getAllPatients().then((data) => {
                 setPatients(data.payload)
                 {console.log(data, data.payload,"patients List")}
             })
             dataLoaded = true;
         }
     }, [dataLoaded])
-
-    const header = (
-        <div className="table-header">
-            Patients
-            <ButtonHeader icon="pi pi-refresh" />
-        </div>
-    );
-
     return (
-
-            <div>
-                <div>
-
-                    <div   style={{marginTop:"6em"}}>
-
-                        <div className="datatable-templating-demo">
-                            <div className="card">
-
-                                <DataTable value={patients}>
-                                    <Column field="First name" header="First name"></Column>
-                                    <Column field="Last name" header="Last name"></Column>
-                                    <Column field="Gender" header="Gender"></Column>
-                                    <Column field="Email" header="Email"></Column>
-                                    <Column field="Age " header="Age"></Column>
-                                    <Column field="Phone" header="Phone"></Column>
-                                    <Column field="Status" header="Status"></Column>
+        <div>
 
 
-                                </DataTable>
-                            </div>
-                        </div>
+            <div   style={{marginTop:"6em"}}>
+
+                <div className="datatable-templating-demo">
+                    <div className="card">
+
+
+                            <DataTable
+                                value={patients}
+                            >
+                                <Column field="firstName" header="First name"/>
+
+                                <Column field="lastName" header="Last name">
+
+                                </Column>
+                                <Column field="gender" header="Gender">
+
+                                </Column>
+                                <Column field="email" header="Email">
+
+                                </Column>
+                                <Column field="age" header="Age">
+
+                                </Column>
+                                <Column field="phoneNumber" header="Phone">
+
+                                </Column>
+                                {/*<Column field="status" header="Status">*/}
+
+                                {/*</Column>*/}
+                                {/*<Column field="History patient's record" header="History patient's record">*/}
+
+                                {/*</Column>*/}
+
+
+                            </DataTable>
+                            {/*:null}*/}
+
                     </div>
-
                 </div>
 
-        </div>
+            </div>
 
+
+        </div>
     );
 }
 
@@ -71,7 +80,9 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        getProfileData: () => dispatch(profileActions.getProfileData()),
+        getAllPatients: () => dispatch(patientProfileActions.getAllPatients()),
+
+
     };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ViewPatients);

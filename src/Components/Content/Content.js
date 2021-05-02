@@ -42,10 +42,6 @@ const Content = (props) => {
                 <Route path="/registration" exact component={Registration}/>
                 <Route path="/login" exact component={Login}/>
                 <Route path="/arabiclogin" exact component={ArabicLogin}/>
-                <Route path="/adminDashboard" exact component={AdminDashboard}/>
-                <Route path="/adminDashboard/viewAllPatients" exact component={ViewPatients}/>
-                <Route path="/adminDashboard/viewAllTherapists" exact component={ViewTherapists}/>
-                <Route path="/adminDashboard/addTherapist" exit component={AddTherapist}/>
 
 
             </Switch>

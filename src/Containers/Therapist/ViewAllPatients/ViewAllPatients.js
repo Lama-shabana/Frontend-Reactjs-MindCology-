@@ -60,7 +60,7 @@ const ViewAllPatients = (props) => {
                                 <Column field="phoneNumber" header="Phone">
 
                                 </Column>
-                                {/*<Column field="Status" header="Status">*/}
+                                {/*<Column field="status" header="Status">*/}
 
                                 {/*</Column>*/}
                                 {/*<Column field="History patient's record" header="History patient's record">*/}

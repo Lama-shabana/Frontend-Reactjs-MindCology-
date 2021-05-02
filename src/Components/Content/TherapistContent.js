@@ -42,7 +42,7 @@ const TherapistContent = (props) => {
                 <Route path="/therapistDashboard/therapistInfo/deleteAccount" exact component={TherapistDeleteAccount}/>
                 <Route path="/therapistDashboard/historyPatientsRecord" exact component ={HistoryPatientsRecord}/>
                 <Route path="/therapistDashboard/therapistProfileInfo" exact component={TherapistProfile}/>
-                <Route path="/viewAllPatients" exit component={ViewAllPatients}/>
+                <Route path="/therapistDashboard/viewAllPatients" exit component={ViewAllPatients}/>
 
 
             </Switch>
