@@ -3,14 +3,9 @@ import {connect} from 'react-redux';
 import classes from './Profile.module.css';
 import {InputText} from 'primereact/inputtext';
 import {Dropdown} from "primereact/dropdown";
-import {Steps} from "primereact/steps";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {InputNumber} from "primereact/inputnumber";
-import {InputTextarea} from "primereact/inputtextarea";
 import {Inplace, InplaceContent, InplaceDisplay} from "primereact/inplace";
 import {Tab, Tabs} from "react-bootstrap";
-// import { Tabs, Tab } from 'react-tab-view'
-
 import {Button} from "primereact/button";
 import * as profileActions from "../store/PatientActions";
 
@@ -208,7 +203,7 @@ const PatientProfile = (props) => {
                         <div className="p-col-3">
                             <Button label="Delete Account" className="primaryBtn" icon="pi pi-trash
 " style={{
-                                width: "100%",
+                                width: "12em",
                                 height: "2.5em",
                                 marginLeft: "1em",
                                 marginTop: "2em",

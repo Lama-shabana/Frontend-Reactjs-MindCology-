@@ -2,7 +2,6 @@ import "../../Containers/Homepage/Homepage.css";
 import MindCology from "../../assets/MindCology.png";
 import classes from "./TopBar.module.css"
 import React from "react";
-// import Sticky from "react-sticky-el";
 
 
 let user=JSON.parse(localStorage.getItem("auth"));

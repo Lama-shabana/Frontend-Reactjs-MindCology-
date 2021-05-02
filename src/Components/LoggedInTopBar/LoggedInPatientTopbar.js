@@ -31,15 +31,7 @@ const LoggedInPatientTopbar = (props) => {
         },
 
         {
-            label: 'Delete Account',
-            icon: 'pi pi-times',
-            command: () => {
-                history.push('/patientDashboard/patientInfo/deleteAccount')
-
-            }
-        },
-        {
-            label: 'Appointments',
+            label: 'Appointment',
              icon: 'pi pi-calendar',
             command: () => {
                 history.push('/patientDashboard/takeAppointment')
@@ -109,15 +101,6 @@ const LoggedInPatientTopbar = (props) => {
 
                 </div>
 
-
-                {/*<span>*/}
-                {/*        <link rel="stylesheet"*/}
-                {/*              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>*/}
-                {/*        <form className="example">*/}
-                {/*            <input type="text" placeholder="Search" name="search"/>*/}
-                {/*            <button type="submit"><i className="fa fa-search"></i></button>*/}
-                {/*        </form>*/}
-                {/*</span>*/}
 
 
             </div>

@@ -11,20 +11,6 @@ import Contact from "../../Containers/Homepage/Contact/Contact";
 import ArabicContact from "../../Containers/Homepage/Contact/ArabicContact";
 import Login from "../../Containers/Login/Login";
 import ArabicLogin from "../../Containers/Login/ArabicLogin";
-import PatientDashboard from "../../Containers/Patient/PatientDashboard/PatientDashboard";
-import PatientAccountProfile from "../../Containers/Patient/PatientDashboard/PatientAccountProfile";
-import TakeAppointment from "../../Containers/Patient/PatientDashboard/TakeAppointment";
-import EditProfile from "../../Containers/Patient/PatientDashboard/EditProfile";
-import TherapistDashboard from "../../Containers/Therapist/TherapistDashboard/TherapistDashboard";
-import TherapistAccountProfile from "../../Containers/Therapist/TherapistDashboard/TherapistAccountProfile";
-import TherapistEditProfile from "../../Containers/Therapist/TherapistDashboard/TherapistEditProfile";
-import TherapistDeleteAccount from "../../Containers/Therapist/TherapistDashboard/TherapistDeleteAccount";
-import HistoryPatientsRecord from "../../Containers/Therapist/TherapistDashboard/HistoryPatientsRecord";
-import AdminDashboard from "../../Containers/Admin/AdminDashboard/AdminDashboard";
-import ViewPatients from "../../Containers/Admin/AdminDashboard/ViewPatients";
-import ViewTherapists from "../../Containers/Admin/AdminDashboard/ViewTherapists";
-import AddTherapist from "../../Containers/Admin/AdminDashboard/AddTherapist";
-import ViewAllPatients from "../../Containers/Therapist/ViewAllPatients/ViewAllPatients";
 
 const Content = (props) => {
     return (

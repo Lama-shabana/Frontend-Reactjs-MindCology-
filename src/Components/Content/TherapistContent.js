@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {Route, Switch} from "react-router-dom";
 import EnglishHomepage from "../../Containers/Homepage/EnglishHomepage";
 import Registration from "../../Containers/Registration/Registration";
@@ -12,10 +11,7 @@ import ArabicContact from "../../Containers/Homepage/Contact/ArabicContact";
 import Login from "../../Containers/Login/Login";
 import ArabicLogin from "../../Containers/Login/ArabicLogin";
 import TherapistDashboard from "../../Containers/Therapist/TherapistDashboard/TherapistDashboard";
-import TherapistAccountProfile from "../../Containers/Therapist/TherapistDashboard/TherapistAccountProfile";
-import HistoryPatientsRecord from "../../Containers/Therapist/TherapistDashboard/HistoryPatientsRecord";
-import TherapistDeleteAccount from "../../Containers/Therapist/TherapistDashboard/TherapistDeleteAccount";
-import TherapistEditProfile from "../../Containers/Therapist/TherapistDashboard/TherapistEditProfile";
+import HistoryPatientsRecord from "../../Containers/Therapist/TherapistDashboard/HistoryPatient\'sRecord/HistoryPatientsRecord";
 import TherapistProfile from "../../Containers/Therapist/TherapistDashboard/TherapistProfile";
 import ViewAllPatients from "../../Containers/Therapist/ViewAllPatients/ViewAllPatients";
 
@@ -37,9 +33,6 @@ const TherapistContent = (props) => {
                 <Route path="/login" exact component={Login}/>
                 <Route path="/arabiclogin" exact component={ArabicLogin}/>
                 <Route path="/therapistDashboard" exact component={TherapistDashboard}/>
-                <Route path="/therapistDashboard/therapistInfo" exact component={TherapistAccountProfile}/>
-                <Route path="/therapistDashboard/therapistInfo/editProfile" exact component={TherapistEditProfile}/>
-                <Route path="/therapistDashboard/therapistInfo/deleteAccount" exact component={TherapistDeleteAccount}/>
                 <Route path="/therapistDashboard/historyPatientsRecord" exact component ={HistoryPatientsRecord}/>
                 <Route path="/therapistDashboard/therapistProfileInfo" exact component={TherapistProfile}/>
                 <Route path="/therapistDashboard/viewAllPatients" exit component={ViewAllPatients}/>

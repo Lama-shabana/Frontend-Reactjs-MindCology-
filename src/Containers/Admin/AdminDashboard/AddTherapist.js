@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import {connect} from "react-redux";
-import classes from '../../Patient/PatientDashboard/Profile.css';
+import classes from '../../Patient/PatientDashboard/Profile.module.css';
 const AddTherapist = (props) => {
 
 
     return (
-        <div>
+        <div style={{paddingTop:"4em"}}>
 
 <label className={classes.profile} >  Create Account for therapist</label>
             <form>

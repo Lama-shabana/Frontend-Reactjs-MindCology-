@@ -24,14 +24,6 @@ const LoggedInAdminTopbar = (props) => {
         },
 
         {
-            label: 'Profile',
-            icon: 'pi pi-user',
-            command: () => {
-                history.push('/adminDashboard/adminInfo')
-
-            }
-        },
-        {
             label: 'Therapists List',
             icon: 'pi pi-users',
             command: () => {
@@ -40,7 +32,7 @@ const LoggedInAdminTopbar = (props) => {
         },
         {
             label: 'Patients List',
-            icon: 'pi pi-users',
+            icon: 'pi pi-user',
             command: () => {
                 history.push('/adminDashboard/viewAllPatients')
             }

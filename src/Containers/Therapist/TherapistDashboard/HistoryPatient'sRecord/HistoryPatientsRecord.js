@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {connect} from "react-redux";
-import classes from "../../Patient/MedicalHistoryForm/MedicalHistoryForm.module.css";
-import './HistoryPatientsRecord.css';
-import record from '../../../assets/images.png';
-import * as MedicalActions from "../../Patient/store/PatientActions";
+import classes from "../../../Patient/MedicalHistoryForm/MedicalHistoryForm.module.css";
+import './historyPatientRecord.module.css';
+import record from '../../../../assets/images.png';
+import * as MedicalActions from "../../../Patient/store/PatientActions";
 const HistoryPatientsRecord = (props) => {
 
 
@@ -21,7 +21,7 @@ const HistoryPatientsRecord = (props) => {
         }
     }, [dataLoaded])
     return (
-        <div className="record" style={{marginRight:"12em"} }>
+        <div className="record" style={{marginRight:"12em",paddingTop:"5em"} }>
             <div className="p-grid">
             <div className="p-col-12">
                 {/*<i style={{paddingTop:"2em",marginLeft: "2em",fontSize:"2em"}} className="pi pi-id-card"/>*/}

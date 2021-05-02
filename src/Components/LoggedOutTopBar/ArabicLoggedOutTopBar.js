@@ -3,7 +3,6 @@ import "../../Containers/Homepage/Contact/Contact.css";
 import MindCology from "../../assets/MindCology.png";
 import classes from "./TopBar.module.css";
 import React from "react";
-import {RouteComponentProps} from "react-router-dom";
 
 
 const ArabicLoggedOutTopBar=() => {

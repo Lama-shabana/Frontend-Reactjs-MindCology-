@@ -6,7 +6,7 @@ import './TakeAppointment.css';
 const TakeAppointment = (props) => {
 
     return (
-        <div>
+        <div style={{paddingTop:"4em"}}>
      <form>
          <label>
              <fieldset>

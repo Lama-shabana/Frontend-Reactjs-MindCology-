@@ -3,14 +3,9 @@ import {connect} from 'react-redux';
 import classes from './therapistProfile.module.css';
 import {InputText} from 'primereact/inputtext';
 import {Dropdown} from "primereact/dropdown";
-import {Steps} from "primereact/steps";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {InputNumber} from "primereact/inputnumber";
-import {InputTextarea} from "primereact/inputtextarea";
 import {Inplace, InplaceContent, InplaceDisplay} from "primereact/inplace";
 import {Tab, Tabs} from "react-bootstrap";
-// import { Tabs, Tab } from 'react-tab-view'
-
 import {Button} from "primereact/button";
 import * as profileActions from "../../Therapist/store/TherapistActions";
 

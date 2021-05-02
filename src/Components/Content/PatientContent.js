@@ -12,10 +12,7 @@ import ArabicContact from "../../Containers/Homepage/Contact/ArabicContact";
 import Login from "../../Containers/Login/Login";
 import ArabicLogin from "../../Containers/Login/ArabicLogin";
 import PatientDashboard from "../../Containers/Patient/PatientDashboard/PatientDashboard";
-import PatientAccountProfile from "../../Containers/Patient/PatientDashboard/PatientAccountProfile";
-import TakeAppointment from "../../Containers/Patient/PatientDashboard/TakeAppointment";
-import EditProfile from "../../Containers/Patient/PatientDashboard/EditProfile";
-import DeleteAccount from "../../Containers/Patient/PatientDashboard/DeleteAccount";
+import TakeAppointment from "../../Containers/Patient/TakeAppointment/TakeAppointment";
 import MedicalHistoryForm from "../../Containers/Patient/MedicalHistoryForm/MedicalHistoryForm"
 import ArabicMedicalHistoryForm from "../../Containers/Patient/MedicalHistoryForm/ArabicMedicalHistoryForm";
 import PatientProfile from "../../Containers/Patient/PatientDashboard/PatientProfile";
@@ -37,10 +34,7 @@ const PatientContent = (props) => {
                 <Route path="/login" exact component={Login}/>
                 <Route path="/arabiclogin" exact component={ArabicLogin}/>
                 <Route path="/patientDashboard" exact component={PatientDashboard}/>
-                <Route path="/patientDashboard/patientInfo" exact component={PatientAccountProfile}/>
                 <Route path="/patientDashboard/takeAppointment" exact component={TakeAppointment}/>
-                <Route path="/patientDashboard/patientInfo/editProfile" exact component={EditProfile}/>
-                <Route path="/patientDashboard/patientInfo/deleteAccount" exact component={DeleteAccount}/>
                 <Route path="/medicalHistoryForm" exact component={MedicalHistoryForm}/>
                 <Route path="/arabicMedicalHistoryForm" exact component={ArabicMedicalHistoryForm}/>
                 <Route path="/patientDashboard/patientProfileInfo" exact component={PatientProfile}/>

@@ -1,6 +1,4 @@
 import "../Homepage.css";
-// import img2 from "../../assets/3485230f.jpg";
-// import img3 from "../../assets/AdobeStock_331776137-960x640.jpeg";
 import ArabicLoggedOutTopBar from "../../../Components/LoggedOutTopBar/ArabicLoggedOutTopBar"
 const ArabicAbout = () => {
     return (

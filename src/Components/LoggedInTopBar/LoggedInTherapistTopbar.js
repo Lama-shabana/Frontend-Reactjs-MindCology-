@@ -32,14 +32,6 @@ const LoggedInTherapistTopbar = (props) => {
         },
 
         {
-            label: 'Delete Account',
-            icon: 'pi pi-times',
-            command: () => {
-                history.push('/therapistDashboard/therapistInfo/deleteAccount')
-
-            }
-        },
-        {
             label: 'Appointments',
             icon: 'pi pi-calendar',
             command: () => {
@@ -48,18 +40,18 @@ const LoggedInTherapistTopbar = (props) => {
         },
         {
             label: ' Patients  ',
-            icon: 'pi pi-id-card',
+            icon: 'pi pi-users',
             command: () => {
                 history.push('/therapistDashboard/viewAllPatients')
             }
         },
-        {
-            label: 'history Patient\'s Record',
-            icon: 'pi pi-id-card',
-            command: () => {
-                history.push('/therapistDashboard/historyPatientsRecord')
-            }
-        },
+        // {
+        //     label: 'history Patient\'s Record',
+        //     icon: 'pi pi-id-card',
+        //     command: () => {
+        //         history.push('/therapistDashboard/historyPatientsRecord')
+        //     }
+        // },
         {
             label: 'Sign Out',
             icon: 'pi pi-sign-out',
