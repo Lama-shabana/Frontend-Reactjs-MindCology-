@@ -26,6 +26,7 @@ const Login = (props) => {
             localStorage.setItem('auth',JSON.stringify(data.payload))
             if(data.payload.userType==="patient"){
                 props.loadPatientData({id:data.payload.id}).then((data)=>{
+                    console.log(data,"DATA")
                     if(data.payload.active){
                         if(!data.payload.filledMedicalHistoryForm){
                             history.push('/medicalHistoryForm')
