@@ -47,6 +47,13 @@ const LoggedInTherapistTopbar = (props) => {
             }
         },
         {
+            label: ' Patients  ',
+            icon: 'pi pi-id-card',
+            command: () => {
+                history.push('/therapistDashboard/viewAllPatients')
+            }
+        },
+        {
             label: 'history Patient\'s Record',
             icon: 'pi pi-id-card',
             command: () => {

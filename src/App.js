@@ -14,6 +14,7 @@ import {Redirect} from "react-router-dom";
 import LoggedInTherapistTopbar from "./Components/LoggedInTopBar/LoggedInTherapistTopbar";
 import TherapistContent from "./Components/Content/TherapistContent";
 import AdminContent from "./Components/Content/AdminContent";
+import LoggedInAdminTopbar from "./Components/LoggedInTopBar/LoggedInAdminTopbar";
 
 function App(props) {
     let divStyleObject = {
@@ -54,7 +55,7 @@ function App(props) {
                         <div>
                             {!generalContent.find(x=>x===props.history.location.pathname)?
                                 <div>
-                                    <LoggedInPatientTopbar/>
+                                    <LoggedInAdminTopbar/>
                                     <div style={divStyleObject} className={classes.Content}>
                                         <AdminContent/>
                                     </div>
