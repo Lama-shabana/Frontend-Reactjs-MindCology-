@@ -12,14 +12,17 @@ const ViewAllPatients = (props) => {
     let loaded=false;
 
     let therapistAppointments=[]
-    let allPatientsData=[]
+    const [allPatientsData,setAllPatientsData]=useState([])
     useEffect(()=>{
-        if(!loaded){
+        if(loaded===false){
             props.getAllAppointments().then((data)=>{
+                console.log("entered")
                 therapistAppointments=data.payload.filter((x)=> id===x.therapistId)
                 therapistAppointments.map((data)=>{
                     props.getProfileData({id:data.patientId}).then((data)=>{
-                        allPatientsData.push(data.payload)
+                        if(!allPatientsData.find((x)=>x.id===data.payload.id)){
+                            setAllPatientsData([...allPatientsData,data.payload])
+                        }
                     })
                 })
             })
@@ -29,42 +32,45 @@ const ViewAllPatients = (props) => {
     return (
         <div>
 
+            {allPatientsData.length>0?console.log(allPatientsData,"Data"):null}
 
             <div   style={{marginTop:"6em"}}>
 
                 <div className="datatable-templating-demo">
                     <div className="card">
 
-                        <DataTable
-                            value={{data:allPatientsData}}
-                        >
-                            <Column field="firstname" header="First name">
+                        {allPatientsData.length>0?
+                            <DataTable
+                                value={allPatientsData}
+                            >
+                                <Column field="firstName" header="First name"/>
 
-                            </Column>
-                            <Column field="lastname" header="Last name">
+                                <Column field="lastName" header="Last name">
 
-                            </Column>
-                            <Column field="gender" header="Gender">
+                                </Column>
+                                <Column field="gender" header="Gender">
 
-                            </Column>
-                            <Column field="email" header="Email">
+                                </Column>
+                                <Column field="email" header="Email">
 
-                            </Column>
-                            <Column field="age" header="Age">
+                                </Column>
+                                <Column field="age" header="Age">
 
-                            </Column>
-                            <Column field="phone" header="Phone">
+                                </Column>
+                                <Column field="phoneNumber" header="Phone">
 
-                            </Column>
-                            {/*<Column field="Status" header="Status">*/}
+                                </Column>
+                                {/*<Column field="Status" header="Status">*/}
 
-                            {/*</Column>*/}
-                            {/*<Column field="History patient's record" header="History patient's record">*/}
+                                {/*</Column>*/}
+                                {/*<Column field="History patient's record" header="History patient's record">*/}
 
-                            {/*</Column>*/}
+                                {/*</Column>*/}
 
 
-                        </DataTable>
+                            </DataTable>
+                            :null}
+
                     </div>
                 </div>
 
