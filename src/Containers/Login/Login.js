@@ -10,6 +10,7 @@ import {connect} from "react-redux";
 import {useHistory} from "react-router-dom";
 import * as patientActions from "../Patient/store/PatientActions"
 import * as therapistActions from "../Therapist/store/TherapistActions"
+import {useToasts} from "react-toast-notifications";
 
 const Login = (props) => {
     let history = useHistory();
@@ -18,17 +19,27 @@ const Login = (props) => {
         username: '',
         password: '',
     })
+    const {addToast} = useToasts()
 
     const handleLogin = (e) => {
         props.login(userFormState).then((data)=>{
             localStorage.setItem('auth',JSON.stringify(data.payload))
             if(data.payload.userType==="patient"){
                 props.loadPatientData({id:data.payload.id}).then((data)=>{
-                    if(!data.payload.filledMedicalHistoryForm){
-                        history.push('/medicalHistoryForm')
-                    }else {
-                        history.push('/patientDashboard')
+                    if(data.payload.active){
+                        if(!data.payload.filledMedicalHistoryForm){
+                            history.push('/medicalHistoryForm')
+                        }else {
+                            history.push('/patientDashboard')
+                        }
+                    }else
+                    {
+                        addToast('Sorry, your account is deactivated', {
+                            appearance: 'error',
+                            autoDismiss: false,
+                        })
                     }
+
                     localStorage.setItem('patientData',JSON.stringify(data.payload))
                 })}
             else if(data.payload.userType==="therapist") {
@@ -110,12 +121,7 @@ const Login = (props) => {
                                             }}>
                                         Not a member yet? <b>Sign up now</b></Button>
 
-                                    <Button variant="logout"
-                                            className={classes.signUpButton}
-                                        // style={}
-                                            onClick={() => {
-                                                localStorage.clear()
-                                            }}>logout</Button>
+
                                 </div>
                             {/*</form>*/}
                         </div>

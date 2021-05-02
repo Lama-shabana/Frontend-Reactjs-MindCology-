@@ -11,6 +11,7 @@ import OnlineCounselling from "../../assets/online-therapy.jpg";
 import {useHistory} from "react-router-dom";
 import * as registrationActions from "./store/LoginActions";
 import {connect} from "react-redux";
+import {useToasts} from "react-toast-notifications";
 
 
 const ArabicLogin = (props) => {
@@ -20,6 +21,7 @@ const ArabicLogin = (props) => {
     })
 
     let history = useHistory();
+    const {addToast} = useToasts()
 
 
     const handleLogin = (e) => {
@@ -27,11 +29,20 @@ const ArabicLogin = (props) => {
             localStorage.setItem('auth',JSON.stringify(data.payload))
             if(data.payload.userType==="patient"){
                 props.loadPatientData({id:data.payload.id}).then((data)=>{
-                    if(!data.payload.filledMedicalHistoryForm){
-                        history.push('/arabicMedicalHistoryForm')
-                    }else {
-                        history.push('/patientDashboard')
+                    if(data.payload.active){
+                        if(!data.payload.filledMedicalHistoryForm){
+                            history.push('/arabicMedicalHistoryForm')
+                        }else {
+                            history.push('/patientDashboard')
+                        }
+                    }else
+                    {
+                        addToast('عذرا, هذا الحساب ملغي', {
+                            appearance: 'error',
+                            autoDismiss: false,
+                        })
                     }
+
                     localStorage.setItem('patientData',JSON.stringify(data.payload))
                 })}
             else if(data.payload.userType==="therapist") {

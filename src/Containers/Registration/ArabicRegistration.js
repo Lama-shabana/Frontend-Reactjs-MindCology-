@@ -243,8 +243,10 @@ const ArabicRegistration = (props) => {
                     "age": patientInfo.age,
                     "username": patientInfo.username,
                     "password": patientInfo.password,
-                    "filledMedicalForm": "false",
-                    "userType": "patient"
+                    "filledMedicalForm": false,
+                    "userType": "patient",
+                    "active": true
+
                 }
             ).then((data) => {
                     if (data.payload.id) {

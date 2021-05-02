@@ -182,15 +182,47 @@ const PatientProfile = (props) => {
         props.editProfile({id: id, patientInfo}).then((data) => console.log(data, "returned"))
     }
 
+    function onDelete() {
+        props.editProfile({id: id, patientInfo:{active:false}}).then((data) => console.log(data))
+        localStorage.clear()
+        props.history.push("/")
+
+    }
+
     return (
         <div className={classes.form}>
             {patientInfo ?
                 <div>
-                    <label className={classes.headerLabel}> Profile
-                        <i style={{marginLeft: "0.5em"}} className="pi pi-user"/>
-                    </label>
+                    <div className="p-grid">
+                        <div className="p-col-3"/>
 
-                    <p className={classes.note}>Click on any field to edit</p>
+                        <div className="p-col-5">
+                            <label className={classes.headerLabel}> Profile
+                                <i style={{marginLeft: "0.5em"}} className="pi pi-user"/>
+                            </label>
+                            <p className={classes.note}>Click on any field to edit</p>
+
+                        </div>
+                        <div className="p-col-1"/>
+
+                        <div className="p-col-3">
+                            <Button label="Delete Account" className="primaryBtn" icon="pi pi-trash
+" style={{
+                                width: "100%",
+                                height: "2.5em",
+                                marginLeft: "1em",
+                                marginTop: "2em",
+                                background: "#79428b"
+                            }}
+                                    onClick={() => {
+                                        onDelete()
+                                    }}
+                            />
+                        </div>
+
+                    </div>
+
+
 
                     <Tabs defaultActiveKey="patientInfo" transition={false}>
                         <Tab eventKey="patientInfo" title="patient Info" tabClassName={classes.tab}>
