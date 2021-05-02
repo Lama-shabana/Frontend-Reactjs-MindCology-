@@ -26,19 +26,19 @@ const Login = (props) => {
             localStorage.setItem('auth',JSON.stringify(data.payload))
             if(data.payload.userType==="patient"){
                 props.loadPatientData({id:data.payload.id}).then((data)=>{
-                    // if(data.payload.active){
+                    if(data.payload.active){
                         if(!data.payload.filledMedicalHistoryForm){
                             history.push('/medicalHistoryForm')
                         }else {
                             history.push('/patientDashboard')
                         }
-                    // }else
-                    // {
-                    //     addToast('Sorry, your account is deactivated', {
-                    //         appearance: 'error',
-                    //         autoDismiss: false,
-                    //     })
-                    // }
+                    }else
+                    {
+                        addToast('Sorry, your account is deactivated', {
+                            appearance: 'error',
+                            autoDismiss: false,
+                        })
+                    }
 
                     localStorage.setItem('patientData',JSON.stringify(data.payload))
                 })}
