@@ -14,7 +14,7 @@ import ArabicLogin from "../../Containers/Login/ArabicLogin";
 import AdminDashboard from "../../Containers/Admin/AdminDashboard/AdminDashboard";
 import ViewPatients from "../../Containers/Admin/AdminDashboard/ViewPatients";
 import ViewTherapists from "../../Containers/Admin/AdminDashboard/ViewTherapists";
-import AddTherapist from "../../Containers/Admin/AdminDashboard/AddTherapist";
+import AddTherapist from "../../Containers/Admin/AdminDashboard/CreateAccountFortherapist/AddTherapist";
 const AdminContent = (props) => {
     return (
         <div>

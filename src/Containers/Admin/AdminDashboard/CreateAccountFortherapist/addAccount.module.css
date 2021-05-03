@@ -1,0 +1,55 @@
+.Form{
+
+}
+.Fields {
+    /*display: block;*/
+
+    width: 100% !important;
+    font-size: 1em !important;
+    /*margin-top: 0.5em;*/
+
+
+}
+
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    margin-bottom: 10%;
+    margin-top: 100px;
+    text-align:center;
+
+
+}
+
+.password{
+    width: 100% !important;
+    /*font-size: 1em !important;*/
+    /*height: 110%;*/
+    /*border-color: lightgrey;*/
+    /*color: dimgray;*/
+    /*border-radius: 3px 3px 3px 3px;*/
+    /*margin-bottom: 15px;*/
+
+}
+
+.welcomeHeader{
+    text-align:center;
+    margin-top: 10%;
+}
+.accountTypeHeader{
+    text-align:center;
+    margin-bottom: 5%;
+}
+.area{
+    height: 50px;
+    width:15em;
+}
+
+.Hh1{
+    color: #a474b7;
+    font-family: monospace;
+}
+

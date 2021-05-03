@@ -37,7 +37,7 @@ const ViewTherapists = (props) => {
             <div>
                 <div>
                     <Button   label="  Add Therapist" icon="pi pi-plus" iconPos="left" style={{width:"220px",marginTop:"6em",marginLeft:"1em",height:"50px",backgroundColor:"var(--purple-300)"}}
-                              onClick={()=> props.history.push("/AdminDashboard/ViewTherapists/addTherapist")}/>
+                              onClick={()=> props.history.push("/adminDashboard/addTherapist")}/>
                 </div>
                 <div   style={{marginTop:"2em"}}>
 
