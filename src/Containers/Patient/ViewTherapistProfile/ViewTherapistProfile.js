@@ -182,8 +182,11 @@ const ViewTherapistProfile = (props) => {
 
 
     return (
+
+
         <div className={classes.form}>
-            <div className="p-grid">
+            {therapistInfo?
+                <div className="p-grid">
 
                 <div className="p-col-4">
                     <img
@@ -230,7 +233,7 @@ const ViewTherapistProfile = (props) => {
 
             </div>
 
-        </div>
+                :null} </div>
     );
 }
 
