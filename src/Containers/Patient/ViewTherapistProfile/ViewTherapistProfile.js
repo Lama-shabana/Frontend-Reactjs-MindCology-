@@ -36,294 +36,199 @@ const ViewTherapistProfile = (props) => {
     }, [dataLoaded])
 
 
-    const therapistInfoDisplay = () => {
-        return <div>
-
-
-            <div className="p-grid">
-                <div className="p-col-4">
-
-                    <MDBCardText>
-                        <label className={classes.labels}>First Name</label>
-                    </MDBCardText>
-                </div>
-                <div className="p-col-4">
-                    <MDBCardText>
-                        <label className={classes.labels}>Last Name</label>
-                    </MDBCardText>
-                </div>
-
-                <div className="p-col-4">
-                    <MDBCardText>
-                        <label className={classes.labels}>Age</label>
-                    </MDBCardText>
-                </div>
-                <div className="p-col-4" style={{textAlign: "center"}}>
-
-                    <label>
-                        {therapistInfo.firstName}
-                    </label>
-
-
-                </div>
-                <div className="p-col-4" style={{textAlign: "center"}}>
-
-                    <label>
-                        {therapistInfo.lastName}
-                    </label>
-
-
-                </div>
-                <div className="p-col-4" style={{textAlign: "center"}}>
-
-                    <label>
-                        {therapistInfo.age}
-                    </label>
-
-
-                </div>
-
-
-                <div className="p-col-4">
-                    <MDBCardText>
-                        <label className={classes.labels}>Gender</label>
-                    </MDBCardText>
-                </div>
-
-                <div className="p-col-4">
-                    <MDBCardText>
-
-                        {/*<MDBIcon fab icon="phone" className="mr-1" />*/}
-                        {/*<i icon="pi pi-clock"  style={{'fontSize': '2em'}} ></i>*/}
-                        <label icon="pi pi-clock" className={classes.labels}> Telephone </label>
-                    </MDBCardText>
-                </div>
-                <div className="p-col-4">
-                    <MDBCardText>
-
-                        <label className={classes.labels}>
-                            <MDBIcon fab className="email-icons" className="mr-1"/>
-                            Email </label>
-                    </MDBCardText>
-                </div>
-
-
-                <div className="p-col-4" style={{textAlign: "center"}}>
-
-                    <label>
-                        {therapistInfo.gender}
-                    </label>
-
-
-                </div>
-                <div className="p-col-4" style={{textAlign: "center"}}>
-
-                    <label>
-                        {therapistInfo.phoneNumber}
-                    </label>
-
-
-                </div>
-                <div className="p-col-4" style={{textAlign: "center"}}>
-
-                    <label>
-                        {therapistInfo.email}
-                    </label>
-
-
-                </div>
-                <div className="p-col-5">
-                    <label className={classes.labels}>Education-level </label>
-
-                </div>
-                <div className="p-col-5">
-                    <label className={classes.labels}>specialization </label>
-                </div>
-                {/*<div className="p-col-4">*/}
-                {/*    /!*<label className={classes.labels}>user-name</label>*!/*/}
-
-                {/*</div>*/}
-
-
-                <div className="p-col-4" style={{textAlign: "center"}}>
-
-                    <label>
-                        {therapistInfo.educationLevel}
-                    </label>
-
-
-                </div>
-                <div className="p-col-4" style={{textAlign: "center"}}>
-
-                    <label>
-                        {therapistInfo.specialization}
-                    </label>
-
-                    <div className="p-col-4" style={{textAlign: "center"}}>
-
-                        {/*<label>*/}
-                        {/*    /!*{therapistInfo.username}*!/*/}
-                        {/*</label>*/}
-
-
-                    </div>
-                </div>
-                {/*<div className="p-col-6"/>*/}
-                {/*<div className="rounded-bottom mdb-color lighten-3 text-center pt-3">*/}
-                {/*    <ul className="list-unstyled list-inline font-small">*/}
-                {/*        <li className="list-inline-item pr-2 white-text">*/}
-                {/*            <MDBIcon far icon="clock" /> 05/10/2015*/}
-                {/*        </li>*/}
-                {/*        <li className="list-inline-item pr-2">*/}
-                {/*            <a href="#!" className="white-text">*/}
-                {/*                <MDBIcon far icon="comments" className="mr-1" />*/}
-                {/*                12*/}
-                {/*            </a>*/}
-                {/*        </li>*/}
-                {/*        <li className="list-inline-item pr-2">*/}
-                {/*            <a href="#!" className="white-text">*/}
-                {/*                <MDBIcon fab icon="facebook-f" className="mr-1" />*/}
-                {/*                21*/}
-                {/*            </a>*/}
-                {/*        </li>*/}
-                {/*        <li className="list-inline-item">*/}
-                {/*            <a href="#!" className="white-text">*/}
-                {/*                <MDBIcon fab icon="twitter" className="mr-1" />5*/}
-                {/*            </a>*/}
-                {/*        </li>*/}
-                {/*    </ul>*/}
-                {/*</div>*/}
-                <div>
-
-
-                </div>
-
-            </div>
-
-
-        </div>
-    }
+    // const therapistInfoDisplay = () => {
+    //     return <div>
+    //
+    //
+    //         <div className="p-grid">
+    //             <div className="p-col-4">
+    //
+    //                 <MDBCardText>
+    //                     <label className={classes.labels}>First Name</label>
+    //                 </MDBCardText>
+    //             </div>
+    //             <div className="p-col-4">
+    //                 <MDBCardText>
+    //                     <label className={classes.labels}>Last Name</label>
+    //                 </MDBCardText>
+    //             </div>
+    //
+    //             <div className="p-col-4">
+    //                 <MDBCardText>
+    //                     <label className={classes.labels}>Age</label>
+    //                 </MDBCardText>
+    //             </div>
+    //             <div className="p-col-4" style={{textAlign: "center"}}>
+    //
+    //                 <label>
+    //                     {therapistInfo.firstName}
+    //                 </label>
+    //
+    //
+    //             </div>
+    //             <div className="p-col-4" style={{textAlign: "center"}}>
+    //
+    //                 <label>
+    //                     {therapistInfo.lastName}
+    //                 </label>
+    //
+    //
+    //             </div>
+    //             <div className="p-col-4" style={{textAlign: "center"}}>
+    //
+    //                 <label>
+    //                     {therapistInfo.age}
+    //                 </label>
+    //
+    //
+    //             </div>
+    //
+    //
+    //             <div className="p-col-4">
+    //                 <MDBCardText>
+    //                     <label className={classes.labels}>Gender</label>
+    //                 </MDBCardText>
+    //             </div>
+    //
+    //             <div className="p-col-4">
+    //                 <MDBCardText>
+    //
+    //                     {/*<MDBIcon fab icon="phone" className="mr-1" />*/}
+    //                     {/*<i icon="pi pi-clock"  style={{'fontSize': '2em'}} ></i>*/}
+    //                     <label icon="pi pi-clock" className={classes.labels}> Telephone </label>
+    //                 </MDBCardText>
+    //             </div>
+    //             <div className="p-col-4">
+    //                 <MDBCardText>
+    //
+    //                     <label className={classes.labels}>
+    //                         <MDBIcon fab className="email-icons" className="mr-1"/>
+    //                         Email </label>
+    //                 </MDBCardText>
+    //             </div>
+    //
+    //
+    //             <div className="p-col-4" style={{textAlign: "center"}}>
+    //
+    //                 <label>
+    //                     {therapistInfo.gender}
+    //                 </label>
+    //
+    //
+    //             </div>
+    //             <div className="p-col-4" style={{textAlign: "center"}}>
+    //
+    //                 <label>
+    //                     {therapistInfo.phoneNumber}
+    //                 </label>
+    //
+    //
+    //             </div>
+    //             <div className="p-col-4" style={{textAlign: "center"}}>
+    //
+    //                 <label>
+    //                     {therapistInfo.email}
+    //                 </label>
+    //
+    //
+    //             </div>
+    //             <div className="p-col-5">
+    //                 <label className={classes.labels}>Education-level </label>
+    //
+    //             </div>
+    //             <div className="p-col-5">
+    //                 <label className={classes.labels}>specialization </label>
+    //             </div>
+    //             {/*<div className="p-col-4">*/}
+    //             {/*    /!*<label className={classes.labels}>user-name</label>*!/*/}
+    //
+    //             {/*</div>*/}
+    //
+    //
+    //             <div className="p-col-4" style={{textAlign: "center"}}>
+    //
+    //                 <label>
+    //                     {therapistInfo.educationLevel}
+    //                 </label>
+    //
+    //
+    //             </div>
+    //             <div className="p-col-4" style={{textAlign: "center"}}>
+    //
+    //                 <label>
+    //                     {therapistInfo.specialization}
+    //                 </label>
+    //
+    //                 <div className="p-col-4" style={{textAlign: "center"}}>
+    //
+    //                     {/*<label>*/}
+    //                     {/*    /!*{therapistInfo.username}*!/*/}
+    //                     {/*</label>*/}
+    //
+    //
+    //                 </div>
+    //             </div>
+    //
+    //             <div>
+    //
+    //
+    //             </div>
+    //
+    //         </div>
+    //
+    //
+    //     </div>
+    // }
 
 
     return (
         <div className={classes.form}>
             <div className="p-grid">
+
                 <div className="p-col-4">
                     <img
-                        width={300}
+                        width={290}
                         // style={{width: "22em", height: "16em", paddingLeft: "1em"}}
                         src={profile}/>
                 </div>
 
                 <div className="p-col-8">
-                    <div className="p-grid">
-                        <div className="p-col-12">
-                            <h2>
-                                Full Name
+                    <div className="p-grid" style={{paddingLeft:"8em"}} >
+                        <div className="p-col-12"  >
+                            <h2 style={{fontFamily:"Arial,helvetica"}}>
+                                {therapistInfo.firstName} { therapistInfo.lastName}
                             </h2>
+                            <h7 style={{fontFamily:"courier,helvetica"}}>
+                                {therapistInfo.specialization}
+                            </h7>
+
                         </div>
                         <div className="p-col-12" >
                             <hr style={{margin:"0"}}/>
                         </div>
                         <div className="p-col-12" >
-                            <p>
-                                We will write our paragraph here.
-                                <i style={{color:"red"}} className="pi pi-clock"/>
+                            <h8 style={{fontFamily:"arial,helvetica"}}> {therapistInfo.educationLevel}</h8>
+                            <p style={{fontFamily:"sans-serif"}}>
+                                {therapistInfo.description}
 
                             </p>
+
+                            <Button  label=" Message " icon="pi pi-comments" />
+                            <span> </span>
+                            <Button style={{backgroundColor:"#a474b7"}} label=" Cancel " icon="pi pi-times" />
+
                         </div>
                     </div>
-              </div>
-                <div className="p-col-12">
-                    <p>5 years of experience</p>
                 </div>
                 <div className="p-col-12">
-                    <p>5 years of experience</p>
+                    <p><i style={{color:"purple"}} className="pi pi-envelope"/> {therapistInfo.email}</p>
+                </div>
+                <div className="p-col-12">
+                    <p><i style={{color:"purple"}} className="pi pi-phone"/> {therapistInfo.phoneNumber}</p>
                 </div>
 
 
             </div>
-            {/*{therapistInfo ?*/
-            }
-
-            {/*    <div>*/
-            }
-            {/*        <MDBRow>*/
-            }
-            {/*            <MDBCol md="5">*/
-            }
-            {/*                <MDBCard cascade>*/
-            }
-            {/*                    <div className="bg-image hover-overlay ripple" data-mdb-ripple-color="light">*/
-            }
-            {/*                        <img style={{width: "150px", height: "8em", paddingLeft: "1em"}}*/
-            }
-            {/*                             src={profile}*/
-            }
-            {/*                             className="img-fluid"*/
-            }
-            {/*                        />*/
-            }
-            {/*                        <div className="" style={{paddingTop: '1em', paddingLeft: "1em"}}>*/
-            }
-            {/*                        <span>*/
-            }
-            {/*           <Button icon="pi pi-comments" style={{marginRight: '.25em'}}/>*/
-            }
-            {/*          <Button icon="pi pi-clock" className="p-button-secondary"/>*/
-            }
-            {/*    </span></div>*/
-            }
-            {/*                    </div>*/
-            }
-            {/*                    <label className={classes.headerLabel}>*/
-            }
-            {/*                        /!*<MDBCardImage*!/*/
-            }
-            {/*                        /!*                        src={profile}*!/*/
-            }
-            {/*                        /!*                    />*!/*/
-            }
-
-            {/*                    </label>*/
-            }
-
-            {/*                    <Tabs defaultActiveKey="therapistInfo" transition={false}>*/
-            }
-            {/*                        <Tab eventKey="therapistInfo"*/
-            }
-            {/*                             title={therapistInfo.username} tabClassName={classes.tab}>*/
-            }
-            {/*                            {therapistInfoDisplay()}*/
-            }
-            {/*                        </Tab>*/
-            }
-
-            {/*                    </Tabs>*/
-            }
-            {/*                    /!*<div className="p-grid">*!/*/
-            }
-
-            {/*                    /!*    <div className="p-col-5"/>*!/*/
-            }
-
-            {/*                    /!*    <div className="p-col-4"/>*!/*/
-            }
-            {/*                    /!*</div>*!/*/
-            }
-
-
-            {/*                </MDBCard>*/
-            }
-            {/*            </MDBCol>*/
-            }
-            {/*        </MDBRow>*/
-            }
-            {/*    </div>*/
-            }
-
-            {/*    : null}*/
-            }
 
         </div>
     );

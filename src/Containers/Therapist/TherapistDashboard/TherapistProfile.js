@@ -167,7 +167,7 @@ const TherapistProfile = (props) => {
                     </Inplace>
                 </div>
                     <div className="p-col-4">
-                        <label className={classes.labels}>user-name</label>
+                        <label className={classes.labels}>Description</label>
 
                     </div>
 
@@ -181,16 +181,16 @@ const TherapistProfile = (props) => {
                     <div className="p-col-4" style={{textAlign: "center"}}>
                         <Inplace closable>
                             <InplaceDisplay>
-                                {therapistInfo.username}
+                                {therapistInfo.description}
                             </InplaceDisplay>
                             <InplaceContent>
                                 <InputText className={classes.inputs}
 
-                                           value={therapistInfo.username}
+                                           value={therapistInfo.description}
                                            options={gender}
                                            onChange={(e) => setTherapistInfo({
                                                ...therapistInfo,
-                                               username: e.target.value
+                                               description: e.target.value
                                            })}
                                            editable
                                 />

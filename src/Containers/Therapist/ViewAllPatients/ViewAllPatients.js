@@ -26,6 +26,7 @@ const ViewAllPatients = (props) => {
                     })
                 })
             })
+
             loaded=true
         }
     },[loaded])
@@ -60,12 +61,14 @@ const ViewAllPatients = (props) => {
                                 <Column field="phoneNumber" header="Phone">
 
                                 </Column>
-                                {/*<Column field="status" header="Status">*/}
 
-                                {/*</Column>*/}
-                                {/*<Column field="History patient's record" header="History patient's record">*/}
+                                <Column  field= {({ filed='active' }) => String('true').toString()}
+                                    header="Active">
 
-                                {/*</Column>*/}
+                                </Column>
+                                <Column field="History patient's record" header="History patient's record">
+
+                                </Column>
 
 
                             </DataTable>
