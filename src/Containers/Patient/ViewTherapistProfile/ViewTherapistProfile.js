@@ -28,8 +28,8 @@ const ViewTherapistProfile = (props) => {
     useEffect(() => {
 
         if (dataLoaded === false) {
-            props.getAllTherapists({id: therapistId}).then((data) => {
-                setTherapistInfo(data.payload[0])
+            props.getProfileData({id: therapistId}).then((data) => {
+                setTherapistInfo(data.payload)
             })
             dataLoaded = true;
         }
@@ -243,7 +243,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        getAllTherapists: () => dispatch(profileActions.getAllTherapists()),
+        getProfileData: (data) => dispatch(profileActions.getProfileData(data)),
+
 
     };
 };
