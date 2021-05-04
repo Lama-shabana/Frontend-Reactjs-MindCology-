@@ -66,7 +66,7 @@ const ViewAllPatients = (props) => {
                                     header="Active">
 
                                 </Column>
-                                <Column field="History patient's record" header="History patient's record">
+                                <Column field="filledMedicalHistoryForm" header="History patient's record">
 
                                 </Column>
 

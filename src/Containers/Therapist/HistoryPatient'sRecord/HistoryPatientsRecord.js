@@ -1,27 +1,37 @@
 import React, {useEffect, useState} from 'react';
 import {connect} from "react-redux";
-import classes from "../../../Patient/MedicalHistoryForm/MedicalHistoryForm.module.css";
-import './historyPatientRecord.module.css';
-import record from '../../../../assets/images.png';
-import * as MedicalActions from "../../../Patient/store/PatientActions";
+import classes from "./historyPatientRecord.module.css";
+import record from '../../../assets/images.png';
+import * as patientProfileActions from "../../Patient/store/PatientActions";
+import * as therapistProfileActions from "../store/TherapistActions";
 const HistoryPatientsRecord = (props) => {
 
 
-    const [MedicalInfo, setMedicalInfo] = useState( null)
+    const id = JSON.parse(localStorage.getItem("auth"))?.id
 
+    let loaded=false;
 
-    let dataLoaded = false;
-    useEffect(() => {
-        if (dataLoaded === false) {
-            props.viewMedicalHistoryData().then((data) => {
-                setMedicalInfo(data.payload)
-                console.log(data, data.payload, " view medical history data ")
+    let therapistAppointments=[]
+    const [historyPatientData,setHistoryPatientData]=useState([])
+    useEffect(()=>{
+        if(loaded===false){
+            props.getAllAppointments().then((data)=>{
+                console.log("entered")
+                therapistAppointments=data.payload.filter((x)=> id===x.therapistId)
+                therapistAppointments.map((data)=>{
+                    props.getProfileData({id:data.patientId}).then((data)=>{
+                        if(!historyPatientData.find((x)=>x.id===data.payload.id)){
+                            setHistoryPatientData([...historyPatientData,data.payload])
+                        }
+                    })
+                })
             })
-            dataLoaded = true;
+
+            loaded=true
         }
-    }, [dataLoaded])
+    },[loaded])
     return (
-        <div className="record" style={{marginRight:"12em",paddingTop:"5em"} }>
+        <div className={classes.record} style={{marginRight:"12em",paddingTop:"5em"} }>
             <div className="p-grid">
             <div className="p-col-12">
                 {/*<i style={{paddingTop:"2em",marginLeft: "2em",fontSize:"2em"}} className="pi pi-id-card"/>*/}
@@ -39,7 +49,7 @@ const HistoryPatientsRecord = (props) => {
                     // key={MedicalInfo.id}
                   // value= {patientInfo.name}
                     className={classes.questionLabels}>patient  Name:
-
+                    {therapistAppointments.firstName}
                 </label>
                     </div>
             </div>
@@ -66,7 +76,7 @@ const HistoryPatientsRecord = (props) => {
                         before?  </label>
                        <div  className="p-col-12">
                         <label  className={classes.questionLabels}>
-                            {/*{MedicalInfo.providedWithMentalHealthServices}*/}
+                            {historyPatientData.providedWithMentalHealthServices}
                         </label>
                        </div>
 
@@ -77,7 +87,7 @@ const HistoryPatientsRecord = (props) => {
                 <div className="p-col-12">
                     <label className={classes.questionLabels}>The language you would like to have sessions in: </label>
                     <label>
-                        {/*{MedicalInfo.sessionsLanguage}*/}
+                        {historyPatientData.sessionsLanguage}
                     </label>
 
                 </div>
@@ -180,7 +190,9 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        viewMedicalHistoryData: () => dispatch(MedicalActions.viewMedicalHistoryData()),
+        viewMedicalHistoryData: (data) => dispatch(patientProfileActions.viewMedicalHistoryData(data)),
+        getAllAppointments: () => dispatch(therapistProfileActions.getAllAppointments()),
+        getProfileData: (data) => dispatch(patientProfileActions.getProfileData(data)),
 
     };
 }

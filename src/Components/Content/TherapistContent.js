@@ -11,7 +11,7 @@ import ArabicContact from "../../Containers/Homepage/Contact/ArabicContact";
 import Login from "../../Containers/Login/Login";
 import ArabicLogin from "../../Containers/Login/ArabicLogin";
 import TherapistDashboard from "../../Containers/Therapist/TherapistDashboard/TherapistDashboard";
-import HistoryPatientsRecord from "../../Containers/Therapist/TherapistDashboard/HistoryPatient\'sRecord/HistoryPatientsRecord";
+import HistoryPatientsRecord from "../../Containers/Therapist/HistoryPatient'sRecord/HistoryPatientsRecord";
 import TherapistProfile from "../../Containers/Therapist/TherapistDashboard/TherapistProfile";
 import ViewAllPatients from "../../Containers/Therapist/ViewAllPatients/ViewAllPatients";
 
@@ -33,9 +33,9 @@ const TherapistContent = (props) => {
                 <Route path="/login" exact component={Login}/>
                 <Route path="/arabiclogin" exact component={ArabicLogin}/>
                 <Route path="/therapistDashboard" exact component={TherapistDashboard}/>
-                <Route path="/therapistDashboard/historyPatientsRecord" exact component ={HistoryPatientsRecord}/>
-                <Route path="/therapistDashboard/therapistProfileInfo" exact component={TherapistProfile}/>
+                 <Route path="/therapistDashboard/therapistProfileInfo" exact component={TherapistProfile}/>
                 <Route path="/therapistDashboard/viewAllPatients" exit component={ViewAllPatients}/>
+                <Route path="/therapistDashboard/historyPatientsRecord/:id" exact component ={HistoryPatientsRecord}/>
 
 
             </Switch>

@@ -1,9 +1,9 @@
 import { createAsyncThunk} from "@reduxjs/toolkit";
-import * as actions from '../../../../constants/actionTypes/registrationAndLoginActionTypes';
+import * as actions from '../../../../constants/actionTypes/AdminActionTypes';
 import * as uiActions from "../../../InterfaceUtility/store/InterfaceUtilityActions";
 import axios from "axios";
 
-export const createAccount = createAsyncThunk(actions.CREATE_ACCOUNT, async (payload, thunkAPI) => {
+export const createAccountForTherapist = createAsyncThunk(<actions className="CREATE_ACCOUNT_FOR_THERAPIST"></actions>, async (payload, thunkAPI) => {
     let errMsg=''
     thunkAPI.dispatch(uiActions.showLoading());
     const response = await axios.post('api/Users',

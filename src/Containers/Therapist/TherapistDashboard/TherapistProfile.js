@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Inplace, InplaceContent, InplaceDisplay} from "primereact/inplace";
 import {Tab, Tabs} from "react-bootstrap";
 import {Button} from "primereact/button";
-import * as profileActions from "../../Therapist/store/TherapistActions";
+import * as profileActions from "../store/TherapistActions";
 
 const TherapistProfile = (props) => {
 
@@ -26,12 +26,12 @@ const TherapistProfile = (props) => {
             console.log("entered 2")
             props.getProfileData({id: id}).then((data) => {
                 setTherapistInfo(data.payload)
-                {console.log(data, data.payload,"therapist info")}
+                {console.log(data, data.payload,"patient info")}
             })
             dataLoaded = true;
         }
     }, [dataLoaded])
-    const TherapistInfoDisplay = () => {
+    const therapistInfoDisplay = () => {
         return <div>
             <div className="p-grid">
                 <div className="p-col-4">
@@ -166,77 +166,73 @@ const TherapistProfile = (props) => {
                         </InplaceContent>
                     </Inplace>
                 </div>
-                    <div className="p-col-4">
-                        <label className={classes.labels}>Description</label>
-
-                    </div>
-
-                    <div className="p-col-4">
-                        <label className={classes.labels}>Education-level </label>
-
-                    </div>
-                    <div className="p-col-4">
-                        <label className={classes.labels}>specialization </label>
-                    </div>
-                    <div className="p-col-4" style={{textAlign: "center"}}>
-                        <Inplace closable>
-                            <InplaceDisplay>
-                                {therapistInfo.description}
-                            </InplaceDisplay>
-                            <InplaceContent>
-                                <InputText className={classes.inputs}
-
-                                           value={therapistInfo.description}
-                                           options={gender}
-                                           onChange={(e) => setTherapistInfo({
-                                               ...therapistInfo,
-                                               description: e.target.value
-                                           })}
-                                           editable
-                                />
-                            </InplaceContent>
-                        </Inplace>
-                    </div>
-                    <div className="p-col-4" style={{textAlign: "center"}}>
-                        <Inplace closable>
-                            <InplaceDisplay>
-                                {therapistInfo.educationLevel}
-                            </InplaceDisplay>
-                            <InplaceContent>
-                                <InputText className={classes.inputs}
-
-                                           value={therapistInfo.educationLevel}
-                                           onChange={(e) => setTherapistInfo({
-                                               ...therapistInfo,
-                                               educationLevel: e.target.value
-                                           })}
-                                />
-
-                            </InplaceContent>
-                        </Inplace>
 
 
-                    </div>
-                    <div className="p-col-4" style={{textAlign: "center"}}>
-                        <Inplace closable>
-                            <InplaceDisplay>
-                                {therapistInfo.specialization}
-                            </InplaceDisplay>
-                            <InplaceContent>
-                                <InputText className={classes.inputs}
+                <div className="p-col-4">
+                    <label className={classes.labels}>education Level</label>
 
-                                           value={therapistInfo.specialization}
-                                           onChange={(e) => setTherapistInfo({
-                                               ...therapistInfo,
-                                               specialization: e.target.value
-                                           })}
-                                />
+                </div>
+
+                <div className="p-col-4">
+                    <label className={classes.labels}>Specialization </label>
+
+                </div>
+                <div className="p-col-4">
+                    <label className={classes.labels}>Description </label>
+                </div>
 
 
-                            </InplaceContent>
-                        </Inplace>
+                <div className="p-col-4" style={{textAlign: "center"}}>
+                    <Inplace closable>
+                        <InplaceDisplay>
+                            {therapistInfo.educationLevel}
+                        </InplaceDisplay>
+                        <InplaceContent>
+                            <Dropdown className={classes.inputs}
+                                      value={therapistInfo.educationLevel}
+                                      options={gender}
+                                      onChange={(e) => setTherapistInfo({
+                                          ...therapistInfo,
+                                          educationLevel: e.target.value
+                                      })}
+                                      editable
+                            />
+                        </InplaceContent>
+                    </Inplace>
+                </div>
+                <div className="p-col-4" style={{textAlign: "center"}}>
+                    <Inplace closable>
+                        <InplaceDisplay>
+                            {therapistInfo.specialization}
+                        </InplaceDisplay>
+                        <InplaceContent>
+                            <InputText className={classes.inputs}
+                                       value={therapistInfo.specialization}
+                                       onChange={(e) => setTherapistInfo({
+                                           ...therapistInfo,
+                                           specialization: e.target.value
+                                       })}
+                            />
+
+                        </InplaceContent>
+                    </Inplace>
 
 
+                </div>
+                <div className="p-col-4" style={{textAlign: "center"}}>
+                    <Inplace closable>
+                        <InplaceDisplay>
+                            {therapistInfo.description}
+                        </InplaceDisplay>
+                        <InplaceContent>
+                            <InputText className={classes.inputs}
+                                       value={therapistInfo.description}
+                                       onChange={(e) => setTherapistInfo({
+                                           ...therapistInfo,
+                                           description: e.target.value
+                                       })}/>
+                        </InplaceContent>
+                    </Inplace>
                 </div>
 
             </div>
@@ -249,19 +245,51 @@ const TherapistProfile = (props) => {
         props.editProfile({id: id, therapistInfo}).then((data) => console.log(data, "returned"))
     }
 
+    // function onDelete() {
+    //     props.editProfile({id: id, patientInfo:{active:false}}).then((data) => console.log(data))
+    //     localStorage.clear()
+    //     props.history.push("/")
+    //
+    // }
+
     return (
         <div className={classes.form}>
             {therapistInfo ?
                 <div>
-                    <label className={classes.headerLabel}> Profile
-                        <i style={{marginLeft: "0.5em"}} className="pi pi-user"/>
-                    </label>
+                    <div className="p-grid">
+                        <div className="p-col-3"/>
 
-                    <p className={classes.note}>Click on any field to edit</p>
+                        <div className="p-col-5">
+                            <label className={classes.headerLabel}> Profile
+                                <i style={{marginLeft: "0.5em"}} className="pi pi-user"/>
+                            </label>
+                            <p className={classes.note}>Click on any field to edit</p>
 
-                    <Tabs defaultActiveKey="therapistInfo" transition={false}>
-                        <Tab eventKey="therapistInfo" title="therapist Info" tabClassName={classes.tab}>
-                            {TherapistInfoDisplay()}
+                        </div>
+                        <div className="p-col-1"/>
+
+                        <div className="p-col-3">
+{/*                            <Button label="Delete Account" className="primaryBtn" icon="pi pi-trash*/}
+{/*" style={{*/}
+{/*                                width: "12em",*/}
+{/*                                height: "2.5em",*/}
+{/*                                marginLeft: "1em",*/}
+{/*                                marginTop: "2em",*/}
+{/*                                background: "#79428b"*/}
+{/*                            }}*/}
+{/*                                    onClick={() => {*/}
+{/*                                        onDelete()*/}
+{/*                                    }}*/}
+{/*                            />*/}
+                        </div>
+
+                    </div>
+
+
+
+                    <Tabs defaultActiveKey="patientInfo" transition={false}>
+                        <Tab eventKey="patientInfo" title="patient Info" tabClassName={classes.tab}>
+                            {therapistInfoDisplay()}
                         </Tab>
 
                     </Tabs>

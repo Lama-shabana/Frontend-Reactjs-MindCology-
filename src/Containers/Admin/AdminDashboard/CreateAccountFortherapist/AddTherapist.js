@@ -13,17 +13,17 @@ import { InputTextarea } from 'primereact/inputtextarea';
 const AddTherapist = (props) => {
 
     const [therapistInfo, setTherapistInfo] = useState({
-        "firstName": "",
-        "lastName": "",
-        "phoneNumber": "",
-        "email": "",
-        "gender": "",
-        "age": 0,
-        "username": "",
-        "password": "",
-        "educationLevel": "",
-        "specialization": "",
-        "description": ""
+        firstName: "",
+        lastName: "",
+        gender: "",
+        age: "",
+        phoneNumber: "",
+        email: "",
+        username: "",
+        password: "",
+        educationLevel: "",
+        specialization: "",
+        description: ""
 
     })
 
@@ -33,7 +33,7 @@ const AddTherapist = (props) => {
 
     let validator = require("email-validator");
 
-    function handleCreateAccount() {
+    function handleCreateAccountForTherapist() {
 
         let allFieldsFilled = true;
 
@@ -54,7 +54,7 @@ const AddTherapist = (props) => {
                 autoDismiss: true,
             })
         } else
-            props.createAccount(
+            props.createAccountForTherapist(
                 {
                     "firstName": therapistInfo.firstName,
                     "lastName": therapistInfo.lastName,
@@ -67,7 +67,8 @@ const AddTherapist = (props) => {
                     "userType": "therapist",
                     "educationLevel": therapistInfo.educationLevel,
                     "specialization": therapistInfo.specialization,
-                    "description": therapistInfo.description
+                    "description": therapistInfo.description,
+                    "active": true
 
                 }
             ).then((data) => {
@@ -293,7 +294,7 @@ const AddTherapist = (props) => {
                         className="primaryBtn"
                         icon="pi pi-step-forward"
                         onClick={() => {
-                            handleCreateAccount()
+                            handleCreateAccountForTherapist()
                         }}/>
                 <div className="p-col-2"/>
             </div>
@@ -315,7 +316,7 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        createAccount: (data) => dispatch(AdminActions.createAccount(data)),
+        createAccountForTherapist: (data) => dispatch(AdminActions.createAccountForTherapist(data)),
     };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(AddTherapist);

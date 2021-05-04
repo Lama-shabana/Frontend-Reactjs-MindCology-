@@ -1,0 +1,54 @@
+.report{
+    padding-top:20px;
+    background-color: #a474b7;
+    padding-right: 100px;
+    border-bottom-style: dashed;
+    font-family:  sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    padding-left:100px;
+    padding-bottom:20px;
+    font-size: 20%;
+}
+.record {
+    padding-left: 70px;
+}
+
+.picture {
+    margin-top:15%;
+    margin-right:2em;
+    width:42em !important;
+}
+.headerLabel {
+    color: dimgrey;
+    font-weight: 500;
+    width: 100%;
+    font-size: 2.3em;
+
+    text-align: center;
+}
+.form {
+    margin: 0 auto !important;
+    width: 30em;
+}
+.questionLabels{
+    color: dimgrey;
+    /*margin-top: 200px !important;*/
+    font-weight: bold;
+    font-size: 1em;
+
+}
+.questionLabelsNotBold{
+    color: dimgrey;
+    /*margin-top: 200px !important;*/
+    font-weight: 500;
+    font-size: 1em;
+}
+.textArea{
+    height: 4em;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+.title{
+    color: #5c0e5c;
+}
