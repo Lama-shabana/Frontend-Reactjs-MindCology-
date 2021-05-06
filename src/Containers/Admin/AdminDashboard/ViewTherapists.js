@@ -36,14 +36,13 @@ const ViewTherapists = (props) => {
         <div>
             <div>
                 <div>
-                    <Button   label="  Add Therapist" icon="pi pi-plus" iconPos="left" style={{width:"220px",marginTop:"6em",marginLeft:"1em",height:"50px",backgroundColor:"var(--purple-300)"}}
+                    <Button   label="Add Therapist" icon="pi pi-plus" iconPos="left" style={{width:"220px",marginTop:"6em",marginLeft:"1em",height:"50px",backgroundColor:"var(--purple-300)"}}
                               onClick={()=> props.history.push("/adminDashboard/addTherapist")}/>
                 </div>
                 <div   style={{marginTop:"2em"}}>
 
                     <div className="datatable-templating-demo">
                         <div className="card">
-
                             <DataTable value={therapists}>
                                 <Column field="firstName" header="First name"></Column>
                                 <Column field="lastName" header="Last name"></Column>
@@ -53,10 +52,7 @@ const ViewTherapists = (props) => {
                                 <Column field="educationLevel" header="Education Level"></Column>
                                 <Column field="specialization" header="specialization"></Column>
                                 <Column field="description" header="Description"></Column>
-
                                 {/*<Column field="Status" header="Status"></Column>*/}
-
-
                             </DataTable>
                         </div>
                     </div>
