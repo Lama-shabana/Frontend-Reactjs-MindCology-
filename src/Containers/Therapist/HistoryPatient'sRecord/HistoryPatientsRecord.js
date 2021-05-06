@@ -32,6 +32,8 @@ const HistoryPatientsRecord = (props) => {
     }, [loaded])
     return (
         <div>
+
+            {console.log(userData,"DATA")}
             {historyPatientData ?
                 <div className={classes.record} style={{marginRight: "12em", paddingTop: "5em"}}>
                     <div className="p-grid">
@@ -48,8 +50,6 @@ const HistoryPatientsRecord = (props) => {
                     <div className="p-grid">
                         <div className="p-col-12">
                             <label
-                                // key={MedicalInfo.id}
-                                // value= {patientInfo.name}
                                 className={classes.questionLabels}>patient Name:
                                 {/*{therapistAppointments.firstName}*/}
                             </label>

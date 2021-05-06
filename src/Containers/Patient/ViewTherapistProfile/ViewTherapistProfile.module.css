@@ -1,7 +1,7 @@
 .form {
     margin: 0 auto !important;
     width: 70%;
-    padding-top:8em;
+    padding-top: 8em;
 
 }
 
@@ -30,7 +30,7 @@
 }
 
 .headerLabel {
-    color:rgba(66, 35, 95, 1);
+    color: rgba(66, 35, 95, 1);
     font-weight: bold;
     width: 100%;
     font-size: 2.4em;
@@ -43,7 +43,7 @@
     /*height:400px ;*/
 }
 
-.halfWidthLabel{
+.halfWidthLabel {
     width: 48.5%;
     margin-top: 1em;
     color: dimgrey;
@@ -51,10 +51,11 @@
     text-align: center;
 }
 
-.halfWidthInputs{
+.halfWidthInputs {
     width: 20%;
 }
-.note{
+
+.note {
     color: dimgrey;
     font-weight: 500;
     width: 100%;
@@ -63,19 +64,19 @@
 }
 
 
-
-.welcomeHeader{
-    text-align:center;
+.welcomeHeader {
+    text-align: center;
     margin-top: 5%;
     color: dimgrey;
 }
-.accountTypeHeader{
-    text-align:center;
+
+.accountTypeHeader {
+    text-align: center;
     margin-bottom: 5%;
 }
 
-.tab{
-    color:#68597c!important;
+.tab {
+    color: #68597c !important;
     font-weight: 500;
     font-size: 1.7em;
 }
@@ -90,13 +91,14 @@
     text-align: left;
 }
 
-.test{
+.test {
     /*color:Red;*/
 
     /*padding-right: 50px !important;*/
 }
 
-button{
+button {
     color: #a474b7;
 }
+
 

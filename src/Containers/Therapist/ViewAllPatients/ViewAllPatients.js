@@ -5,7 +5,7 @@ import * as patientProfileActions from "../../Patient/store/PatientActions"
 import {DataTable} from "primereact/datatable";
 import {Column} from "primereact/column";
 import {Button} from 'primereact/button'; //lowercase
-
+import classes from "./ViewAllPatients.module.css"
 const ViewAllPatients = (props) => {
 
     const id = JSON.parse(localStorage.getItem("auth"))?.id
@@ -36,9 +36,9 @@ const ViewAllPatients = (props) => {
     function actionBodyTemplate(rowData) {
         return (
             <div>
-                <Button label="View Patient's Info" className="primaryBtn" style={{
-                    width: "9em",
-                    height: "3em",
+                <Button label="View" className="primaryBtn" style={{
+                    width: "6em",
+                    height: "2.5em",
                     background: "#6d3986"
                 }}
                     onClick={() => {
@@ -54,8 +54,11 @@ const ViewAllPatients = (props) => {
         <div>
             {console.log(loaded,"CURRENT")}
             {allPatientsData.length>0 ?
-                <div style={{marginTop: "6em"}}>
-
+                // <div style={{marginTop:"6em"}} >
+                    <div className={classes.tableData}>
+                        <label className={classes.headerLabel}> Patients
+                            <i style={{fontSize:"2.5em",marginLeft: "0.3em"}} className="pi pi-users"/>
+                        </label>
                     <div className="datatable-templating-demo">
                         <div className="card">
                             <DataTable
@@ -79,13 +82,10 @@ const ViewAllPatients = (props) => {
 
                                 </Column>
 
-                                <Column field={({filed = 'active'}) => String('true').toString()}
-                                        header="Active">
 
-                                </Column>
                                 <Column field="filledMedicalHistoryForm"
                                         body={(e)=>actionBodyTemplate(e)}
-                                        header="History patient's record">
+                                        header="Medical Record">
                                 </Column>
 
 

@@ -1,3 +1,16 @@
 .button{
     color: #a474b7;
 }
+.tableData {
+    padding-top: 5em;
+    margin: 0 auto !important;
+    width: 80%;
+}
+.headerLabel {
+    color:rgba(66, 35, 95, 1);
+    font-weight: bold;
+    width: 100%;
+    font-size: 2.4em;
+    text-align: center;
+    margin-bottom: 0.5em;
+}
