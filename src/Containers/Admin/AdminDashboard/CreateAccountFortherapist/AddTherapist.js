@@ -9,7 +9,18 @@ import {Password} from "primereact/password";
 import {Button} from "primereact/button";
 import * as AdminActions from "../store/AdminActions";
 import { InputTextarea } from 'primereact/inputtextarea';
+import addtherapist from "../../../../assets/therapist.png";
+import record from "../../../../assets/images.png";
 
+
+const onImageChange = event => {
+    if (event.target.files && event.target.files[0]) {
+        let img = event.target.files[0];
+        this.setState({
+            image: URL.createObjectURL(img)
+        });
+    }
+};
 const AddTherapist = (props) => {
 
     const [therapistInfo, setTherapistInfo] = useState({
@@ -92,10 +103,19 @@ const AddTherapist = (props) => {
 
         return <div className={classes.Form}>
             <div >
-               <h1 className={classes.Hh1}> Create account for therapist</h1>
+               {/* <img style={{borderRadius: "50%"}} src={addtherapist}/>*/}
+               {/*<h1 */}
+               {/*    */}
+               {/*    className={classes.Hh1}> Create account for therapist</h1>*/}
+
+                <label className={classes.headerLabel}>
+                    <img style={{borderRadius: "10%",width:"10%"}} src={addtherapist}/>
+                    <span className={classes.Hh1}> Create account for therapist</span>
+
+                </label>
             </div>
             <div className="p-grid">
-                <div className="p-col-2"/>
+               <div className="p-col-2"/>
                 <div className="p-col-2"/>
                 <div className="p-col-3">
                     <span className="p-float-label">
@@ -236,6 +256,9 @@ const AddTherapist = (props) => {
                         <label htmlFor='password'> Password</label>
                     </span>
                 </div>
+                <div className="p-col-2"/>
+                <div className="p-col-2"/>
+                <div className="p-col-2"/>
                 <div className="p-col-3" style={{marginTop: "1em"}}>
                     <span className="p-float-label" style={{width: "100%"}}>
                         <InputTextarea
@@ -253,6 +276,7 @@ const AddTherapist = (props) => {
 
                     </span>
                 </div>
+
                 <div className="p-col-3" style={{marginTop: "1em"}}>
                     <span className="p-float-label" style={{width: "100%"}}>
                         <InputTextarea
@@ -270,7 +294,7 @@ const AddTherapist = (props) => {
 
                     </span>
                 </div>
-                <div className="p-col-3" style={{marginTop: "1em"}}>
+                <div className="p-col-2" style={{marginTop: "1em"}}>
                     <span className="p-float-label" style={{width: "100%"}}>
                         <InputTextarea
                             placeholder="description"
@@ -287,10 +311,32 @@ const AddTherapist = (props) => {
 
                     </span>
                 </div>
+                <div className="p-col-2"/>
+                <div className="p-col-2"/>
+                <div className="p-col-2">
+                    <div>
+                        <div>
+                            <div>
+                                {/*<img src={this.state.image} />*/}
+                                <Button label="select image"
+                                        style={{marginTop: "2em", height: "3em",width: "12em"}}
+                                        className="primaryBtn"
+                                        icon='pi pi-fw pi-images'
+                                />
+                                <input style={{marginTop: "1em",color:"purple",border:"10em"}}
+                                       type="file" name="myImage" placeholder="select image"
+                                    // onChange={this.onImageChange}
+
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
             <div className="p-grid p-justify-end">
                 <Button label="Finish"
-                        style={{marginTop: "2em", height: "3em",width: "6em"}}
+                        style={{marginTop: "0.1em", height: "3em",width: "6em"}}
                         className="primaryBtn"
                         icon="pi pi-step-forward"
                         onClick={() => {
