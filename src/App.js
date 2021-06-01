@@ -31,6 +31,8 @@ function App(props) {
     const generalContent=["/","/login",'/arabicHomepage','/about','/arabicabout','/contact','/arabiccontact','/arabicregistration','/registration','/login','/arabiclogin']
     return (
         <React.Fragment>
+            <script src='https://meet.jit.si/external_api.js'/>
+
             <ToastProvider>
                 {props.history.location.pathname==="/login"&&localStorage.getItem("auth")?<Redirect to="/"/>:null}
                 {{

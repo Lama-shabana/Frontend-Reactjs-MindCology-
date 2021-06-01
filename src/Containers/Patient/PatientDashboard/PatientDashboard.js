@@ -60,7 +60,6 @@ const PatientDashboard = (props) => {
         if (dataLoaded === false) {
             props.getAllTherapists().then((data) => {
                 setTherapistInfo(data.payload)
-                console.log(data, data.payload, "therapist Info")
             })
             dataLoaded = true;
         }

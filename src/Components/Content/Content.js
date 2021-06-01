@@ -11,6 +11,8 @@ import Contact from "../../Containers/Homepage/Contact/Contact";
 import ArabicContact from "../../Containers/Homepage/Contact/ArabicContact";
 import Login from "../../Containers/Login/Login";
 import ArabicLogin from "../../Containers/Login/ArabicLogin";
+import VideoCalls from "../../Containers/VideoCalls/VideoCalls";
+import TakeAppointment from "../../Containers/Patient/TakeAppointment/TakeAppointment";
 
 const Content = (props) => {
     return (
@@ -28,6 +30,8 @@ const Content = (props) => {
                 <Route path="/registration" exact component={Registration}/>
                 <Route path="/login" exact component={Login}/>
                 <Route path="/arabiclogin" exact component={ArabicLogin}/>
+
+                <Route path="/video" exact component={VideoCalls}/>
 
 
             </Switch>

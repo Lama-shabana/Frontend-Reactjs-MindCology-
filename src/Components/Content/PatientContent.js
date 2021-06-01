@@ -17,6 +17,7 @@ import MedicalHistoryForm from "../../Containers/Patient/MedicalHistoryForm/Medi
 import ArabicMedicalHistoryForm from "../../Containers/Patient/MedicalHistoryForm/ArabicMedicalHistoryForm";
 import PatientProfile from "../../Containers/Patient/PatientDashboard/PatientProfile";
 import ViewTherapist from "../../Containers/Patient/ViewTherapistProfile/ViewTherapistProfile";
+import VideoCalls from "../../Containers/VideoCalls/VideoCalls";
 const PatientContent = (props) => {
     return (
         <div>
@@ -39,6 +40,8 @@ const PatientContent = (props) => {
                 <Route path="/arabicMedicalHistoryForm" exact component={ArabicMedicalHistoryForm}/>
                 <Route path="/patientDashboard/patientProfileInfo" exact component={PatientProfile}/>
                 <Route path="/patientDashboard/viewTherapistProfile/:id" exact component={ViewTherapist}/>
+                <Route path="/video" exact component={VideoCalls}/>
+
             </Switch>
         </div>
     );

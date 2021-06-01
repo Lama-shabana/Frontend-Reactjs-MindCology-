@@ -30,155 +30,13 @@ const ViewTherapistProfile = (props) => {
         if (dataLoaded === false) {
             props.getProfileData({id: therapistId}).then((data) => {
                 setTherapistInfo(data.payload)
+                localStorage.setItem('visitedTherapist',JSON.stringify(data.payload))
+
             })
             dataLoaded = true;
         }
     }, [dataLoaded])
 
-
-    // const therapistInfoDisplay = () => {
-    //     return <div>
-    //
-    //
-    //         <div className="p-grid">
-    //             <div className="p-col-4">
-    //
-    //                 <MDBCardText>
-    //                     <label className={classes.labels}>First Name</label>
-    //                 </MDBCardText>
-    //             </div>
-    //             <div className="p-col-4">
-    //                 <MDBCardText>
-    //                     <label className={classes.labels}>Last Name</label>
-    //                 </MDBCardText>
-    //             </div>
-    //
-    //             <div className="p-col-4">
-    //                 <MDBCardText>
-    //                     <label className={classes.labels}>Age</label>
-    //                 </MDBCardText>
-    //             </div>
-    //             <div className="p-col-4" style={{textAlign: "center"}}>
-    //
-    //                 <label>
-    //                     {therapistInfo.firstName}
-    //                 </label>
-    //
-    //
-    //             </div>
-    //             <div className="p-col-4" style={{textAlign: "center"}}>
-    //
-    //                 <label>
-    //                     {therapistInfo.lastName}
-    //                 </label>
-    //
-    //
-    //             </div>
-    //             <div className="p-col-4" style={{textAlign: "center"}}>
-    //
-    //                 <label>
-    //                     {therapistInfo.age}
-    //                 </label>
-    //
-    //
-    //             </div>
-    //
-    //
-    //             <div className="p-col-4">
-    //                 <MDBCardText>
-    //                     <label className={classes.labels}>Gender</label>
-    //                 </MDBCardText>
-    //             </div>
-    //
-    //             <div className="p-col-4">
-    //                 <MDBCardText>
-    //
-    //                     {/*<MDBIcon fab icon="phone" className="mr-1" />*/}
-    //                     {/*<i icon="pi pi-clock"  style={{'fontSize': '2em'}} ></i>*/}
-    //                     <label icon="pi pi-clock" className={classes.labels}> Telephone </label>
-    //                 </MDBCardText>
-    //             </div>
-    //             <div className="p-col-4">
-    //                 <MDBCardText>
-    //
-    //                     <label className={classes.labels}>
-    //                         <MDBIcon fab className="email-icons" className="mr-1"/>
-    //                         Email </label>
-    //                 </MDBCardText>
-    //             </div>
-    //
-    //
-    //             <div className="p-col-4" style={{textAlign: "center"}}>
-    //
-    //                 <label>
-    //                     {therapistInfo.gender}
-    //                 </label>
-    //
-    //
-    //             </div>
-    //             <div className="p-col-4" style={{textAlign: "center"}}>
-    //
-    //                 <label>
-    //                     {therapistInfo.phoneNumber}
-    //                 </label>
-    //
-    //
-    //             </div>
-    //             <div className="p-col-4" style={{textAlign: "center"}}>
-    //
-    //                 <label>
-    //                     {therapistInfo.email}
-    //                 </label>
-    //
-    //
-    //             </div>
-    //             <div className="p-col-5">
-    //                 <label className={classes.labels}>Education-level </label>
-    //
-    //             </div>
-    //             <div className="p-col-5">
-    //                 <label className={classes.labels}>specialization </label>
-    //             </div>
-    //             {/*<div className="p-col-4">*/}
-    //             {/*    /!*<label className={classes.labels}>user-name</label>*!/*/}
-    //
-    //             {/*</div>*/}
-    //
-    //
-    //             <div className="p-col-4" style={{textAlign: "center"}}>
-    //
-    //                 <label>
-    //                     {therapistInfo.educationLevel}
-    //                 </label>
-    //
-    //
-    //             </div>
-    //             <div className="p-col-4" style={{textAlign: "center"}}>
-    //
-    //                 <label>
-    //                     {therapistInfo.specialization}
-    //                 </label>
-    //
-    //                 <div className="p-col-4" style={{textAlign: "center"}}>
-    //
-    //                     {/*<label>*/}
-    //                     {/*    /!*{therapistInfo.username}*!/*/}
-    //                     {/*</label>*/}
-    //
-    //
-    //                 </div>
-    //             </div>
-    //
-    //             <div>
-    //
-    //
-    //             </div>
-    //
-    //         </div>
-    //
-    //
-    //     </div>
-    // }
 
 
     return (
@@ -218,17 +76,18 @@ const ViewTherapistProfile = (props) => {
 
                             <Button  label=" Message " icon="pi pi-comments" />
                             <span> </span>
-                            <Button style={{backgroundColor:"#a474b7"}} label=" Cancel " icon="pi pi-times" />
-
+                            <Button style={{backgroundColor:"#a474b7"}}
+                                    onClick={()=>{props.history.push("/patientDashboard/takeAppointment")}} label=" Make Appointment " icon="pi pi-calendar-plus" />
                         </div>
                     </div>
                 </div>
                 <div className="p-col-12">
                     <p><i style={{color:"purple"}} className="pi pi-envelope"/> {therapistInfo.email}</p>
-                </div>
-                <div className="p-col-12">
                     <p><i style={{color:"purple"}} className="pi pi-phone"/> {therapistInfo.phoneNumber}</p>
+
                 </div>
+                {/*<div className="p-col-12">*/}
+                {/*</div>*/}
 
 
             </div>

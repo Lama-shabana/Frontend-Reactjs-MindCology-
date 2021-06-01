@@ -288,7 +288,7 @@ const TherapistProfile = (props) => {
 
 
                     <Tabs defaultActiveKey="patientInfo" transition={false}>
-                        <Tab eventKey="patientInfo" title="patient Info" tabClassName={classes.tab}>
+                        <Tab eventKey="patientInfo" title="Therapist info" tabClassName={classes.tab}>
                             {therapistInfoDisplay()}
                         </Tab>
 
