@@ -9,56 +9,48 @@ import {useHistory} from "react-router-dom";
 import {InputText} from "primereact/inputtext";
 
 
-
-
-const LoggedInTherapistTopbar = (props) => {
+const ArabicLoggedInAdminTopbar = (props) => {
     let history = useHistory();
 
     const navigationMenuModel = [
+
         {
-            label: 'Dashboard',
+            label: 'الصفحة الرئيسية',
             icon: 'pi pi-chart-bar',
             command: () => {
-                history.push('/therapistDashboard')
-
-            }
-        },
-        {
-            label: 'Profile',
-            icon: 'pi pi-user',
-            command: () => {
-                history.push('/therapistDashboard/therapistProfileInfo')
+                history.push('/arabicAdminDashboard')
 
             }
         },
 
         {
-            label: 'Appointments',
-            icon: 'pi pi-calendar',
-            command: () => {
-                history.push('/therapistDashboard')
-            }
-        },
-        {
-            label: ' Patients  ',
+            label: ' قائمة المعالجين',
             icon: 'pi pi-users',
             command: () => {
-                history.push('/therapistDashboard/viewAllPatients')
+                history.push('/arabicAdminDashboard/arabicViewAllTherapists')
             }
         },
-        // {
-        //     label: 'history Patient\'s Record',
-        //     icon: 'pi pi-id-card',
-        //     command: () => {
-        //         history.push('/therapistDashboard/historyPatientsRecord')
-        //     }
-        // },
         {
-            label: 'Sign Out',
+            label: 'قائمة المرضى',
+            icon: 'pi pi-user',
+            command: () => {
+                history.push('/arabicAdminDashboard/arabicViewAllPatients')
+            }
+        },
+        {
+            label: 'انشاء حساب جديد لمعالج',
+            icon: 'pi pi-user-plus',
+            command: () => {
+                history.push('/arabicAdminDashboard/arabicAddTherapist')
+            }
+        },
+
+        {
+            label: 'تسجيل الخروج',
             icon: 'pi pi-sign-out',
             command: () => {
                 localStorage.clear()
-                history.push('/')
+                history.push('/arabicHomepage')
 
             }
         }
@@ -118,7 +110,14 @@ const LoggedInTherapistTopbar = (props) => {
                 </div>
 
 
-
+                {/*<span>*/}
+                {/*        <link rel="stylesheet"*/}
+                {/*              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>*/}
+                {/*        <form className="example">*/}
+                {/*            <input type="text" placeholder="Search" name="search"/>*/}
+                {/*            <button type="submit"><i className="fa fa-search"></i></button>*/}
+                {/*        </form>*/}
+                {/*</span>*/}
 
 
             </div>
@@ -139,4 +138,4 @@ const mapDispatchToProps = dispatch => {
         hideMenu: () => dispatch(uiActions.hideMenu())
     };
 }
-export default connect(mapStateToProps, mapDispatchToProps)(LoggedInTherapistTopbar);
+export default connect(mapStateToProps, mapDispatchToProps)(ArabicLoggedInAdminTopbar);

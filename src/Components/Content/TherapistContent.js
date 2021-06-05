@@ -14,6 +14,10 @@ import TherapistDashboard from "../../Containers/Therapist/TherapistDashboard/Th
 import HistoryPatientsRecord from "../../Containers/Therapist/HistoryPatient'sRecord/HistoryPatientsRecord";
 import TherapistProfile from "../../Containers/Therapist/TherapistDashboard/TherapistProfile";
 import ViewAllPatients from "../../Containers/Therapist/ViewAllPatients/ViewAllPatients";
+import ArabicTherapistDashboard from "../../Containers/Therapist/TherapistDashboard/ArabicTherapistDashboard";
+import ArabicTherapistProfile from "../../Containers/Therapist/TherapistDashboard/ArabicTherapistProfile";
+import ArabicViewAllPatients from "../../Containers/Therapist/ViewAllPatients/ArabicViewAllPatients";
+import ArabicHistoryPatientsRecord from "../../Containers/Therapist/HistoryPatient'sRecord/ArabicHistoryPatientsRecord";
 
 
 const TherapistContent = (props) => {
@@ -36,6 +40,12 @@ const TherapistContent = (props) => {
                  <Route path="/therapistDashboard/therapistProfileInfo" exact component={TherapistProfile}/>
                 <Route path="/therapistDashboard/viewAllPatients" exit component={ViewAllPatients}/>
                 <Route path="/therapistDashboard/historyPatientsRecord/:id" exact component ={HistoryPatientsRecord}/>
+
+
+                <Route path="/arabicTherapistDashboard" exact component={ArabicTherapistDashboard}/>
+                <Route path="/arabicTherapistDashboard/arabicTherapistProfileInfo" exact component={ArabicTherapistProfile}/>
+                <Route path="/arabicTherapistDashboard/arabicViewAllPatients" exit component={ArabicViewAllPatients}/>
+                <Route path="/arabicTherapistDashboard/ArabicHistoryPatientsRecord/:id" exact component ={ArabicHistoryPatientsRecord}/>
 
 
             </Switch>

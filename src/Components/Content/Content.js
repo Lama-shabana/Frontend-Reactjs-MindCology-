@@ -13,7 +13,7 @@ import Login from "../../Containers/Login/Login";
 import ArabicLogin from "../../Containers/Login/ArabicLogin";
 import VideoCalls from "../../Containers/VideoCalls/VideoCalls";
 import TakeAppointment from "../../Containers/Patient/TakeAppointment/TakeAppointment";
-
+import ChatBox from "../../Containers/Chat";
 const Content = (props) => {
     return (
         <div>
@@ -30,8 +30,8 @@ const Content = (props) => {
                 <Route path="/registration" exact component={Registration}/>
                 <Route path="/login" exact component={Login}/>
                 <Route path="/arabiclogin" exact component={ArabicLogin}/>
-
                 <Route path="/video" exact component={VideoCalls}/>
+                <Route path="/chat" exact component={ChatBox}/>
 
 
             </Switch>

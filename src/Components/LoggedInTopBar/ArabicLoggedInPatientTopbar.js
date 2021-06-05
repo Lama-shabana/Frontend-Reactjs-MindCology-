@@ -10,55 +10,40 @@ import {InputText} from "primereact/inputtext";
 
 
 
-
-const LoggedInTherapistTopbar = (props) => {
+const ArabicLoggedInPatientTopbar = (props) => {
     let history = useHistory();
 
     const navigationMenuModel = [
         {
-            label: 'Dashboard',
+            label: 'الصفحة الرئيسية',
             icon: 'pi pi-chart-bar',
             command: () => {
-                history.push('/therapistDashboard')
+                history.push('/arabicPatientDashboard')
 
             }
         },
         {
-            label: 'Profile',
+            label: 'الصفحة الشخصية',
             icon: 'pi pi-user',
             command: () => {
-                history.push('/therapistDashboard/therapistProfileInfo')
+                history.push('/arabicPatientDashboard/arabicPatientProfileInfo')
 
             }
         },
 
         {
-            label: 'Appointments',
+            label: 'المواعيد',
             icon: 'pi pi-calendar',
             command: () => {
-                history.push('/therapistDashboard')
+                history.push('/arabicPatientDashboard/arabicTakeAppointment')
             }
         },
         {
-            label: ' Patients  ',
-            icon: 'pi pi-users',
-            command: () => {
-                history.push('/therapistDashboard/viewAllPatients')
-            }
-        },
-        // {
-        //     label: 'history Patient\'s Record',
-        //     icon: 'pi pi-id-card',
-        //     command: () => {
-        //         history.push('/therapistDashboard/historyPatientsRecord')
-        //     }
-        // },
-        {
-            label: 'Sign Out',
+            label: 'تسجيل الخروج',
             icon: 'pi pi-sign-out',
             command: () => {
                 localStorage.clear()
-                history.push('/')
+                history.push('/arabicHomepage')
 
             }
         }
@@ -119,8 +104,6 @@ const LoggedInTherapistTopbar = (props) => {
 
 
 
-
-
             </div>
 
 
@@ -139,4 +122,4 @@ const mapDispatchToProps = dispatch => {
         hideMenu: () => dispatch(uiActions.hideMenu())
     };
 }
-export default connect(mapStateToProps, mapDispatchToProps)(LoggedInTherapistTopbar);
+export default connect(mapStateToProps, mapDispatchToProps)(ArabicLoggedInPatientTopbar);

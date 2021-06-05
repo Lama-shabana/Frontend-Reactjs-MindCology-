@@ -11,39 +11,39 @@ import {InputText} from "primereact/inputtext";
 
 
 
-const LoggedInTherapistTopbar = (props) => {
+const ArabicLoggedInTherapistTopbar = (props) => {
     let history = useHistory();
 
     const navigationMenuModel = [
         {
-            label: 'Dashboard',
+            label: 'الصفحة الرئيسية',
             icon: 'pi pi-chart-bar',
             command: () => {
-                history.push('/therapistDashboard')
+                history.push('/arabicTherapistDashboard')
 
             }
         },
         {
-            label: 'Profile',
+            label: 'الصفحة الشخصية',
             icon: 'pi pi-user',
             command: () => {
-                history.push('/therapistDashboard/therapistProfileInfo')
+                history.push('/arabicTherapistDashboard/arabicTherapistProfileInfo')
 
             }
         },
 
         {
-            label: 'Appointments',
+            label: 'المواعيد ',
             icon: 'pi pi-calendar',
             command: () => {
-                history.push('/therapistDashboard')
+                history.push('/arabicTherapistDashboard')
             }
         },
         {
-            label: ' Patients  ',
+            label: ' المرضى  ',
             icon: 'pi pi-users',
             command: () => {
-                history.push('/therapistDashboard/viewAllPatients')
+                history.push('/arabicTherapistDashboard/arabicViewAllPatients')
             }
         },
         // {
@@ -54,11 +54,11 @@ const LoggedInTherapistTopbar = (props) => {
         //     }
         // },
         {
-            label: 'Sign Out',
+            label: 'تسجيل الخروج',
             icon: 'pi pi-sign-out',
             command: () => {
                 localStorage.clear()
-                history.push('/')
+                history.push('/arabicHomepage')
 
             }
         }
@@ -139,4 +139,4 @@ const mapDispatchToProps = dispatch => {
         hideMenu: () => dispatch(uiActions.hideMenu())
     };
 }
-export default connect(mapStateToProps, mapDispatchToProps)(LoggedInTherapistTopbar);
+export default connect(mapStateToProps, mapDispatchToProps)(ArabicLoggedInTherapistTopbar);

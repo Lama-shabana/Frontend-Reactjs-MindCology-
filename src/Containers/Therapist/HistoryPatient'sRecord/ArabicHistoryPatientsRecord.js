@@ -5,7 +5,7 @@ import medical from '../../../assets/medical.png';
 import * as patientProfileActions from "../../Patient/store/PatientActions";
 import * as therapistProfileActions from "../store/TherapistActions";
 
-const HistoryPatientsRecord = (props) => {
+const ArabicHistoryPatientsRecord = (props) => {
 
 
     const patientId = props.match.params.id
@@ -31,26 +31,24 @@ const HistoryPatientsRecord = (props) => {
         }
     }, [loaded])
     return (
-
-
         <div className={classes.form}>
-            {/*<div className={classes.datatablescrollDemo}>*/}
+
             {console.log(userData,"DATA")}
             {historyPatientData ?
-                <div className={classes.record} style={{marginRight: "0em", paddingTop: "5em"}}>
+                <div className={classes.record} style={{marginRight: "12em", paddingTop: "5em"}}>
                     <div className="p-grid">
                         <div className="p-col-12">
                             {/*<i style={{paddingTop:"2em",marginLeft: "2em",fontSize:"2em"}} className="pi pi-id-card"/>*/}
                             <label className={classes.headerLabel}>
-                                <img style={{fontSize:"xx-small",width:"7em"}} src={medical}/>
-                                <span>  Patient's Medical History</span>
+                                <img style={{fontSize:"xx-small",width:"11em"}} src={medical}/>
+                                <span> سجل المريض الطبي </span>
                             </label>
                         </div>
                     </div>
                     <div className="p-grid">
                         <div className="p-col-12">
                             <label
-                                className={classes.questionLabels}>patient Name :
+                                className={classes.questionLabels}>اسم المريض:
                                 {userData.firstName}  {userData.lastName}
                             </label>
                         </div>
@@ -58,7 +56,7 @@ const HistoryPatientsRecord = (props) => {
                     <div className="p-col-12">
                         <div className="p-grid">
                             <label className={classes.questionLabels}>
-                                patient Age:
+                                عمر المريض:
                                 {userData.age}
 
                             </label>
@@ -68,9 +66,7 @@ const HistoryPatientsRecord = (props) => {
 
                         <div className="p-col-12">
                             <div className="p-col-4"/>
-                            <h5  className={classes.H3}>
-                                {/*Medical History For  {userData.firstName}  {userData.lastName} */}
-                            </h5>
+                            <h5  className={classes.H3}>   {userData.firstName}  {userData.lastName}السجل الطبي ل </h5>
                         </div>
 
                     </div>
@@ -78,9 +74,8 @@ const HistoryPatientsRecord = (props) => {
                     <div className="p-grid">
                         <div className="p-col-12">
                             <label
-                                className={classes.questionLabels}> mental health
-                                services :
-                                </label>
+                                className={classes.questionLabels}>: خدمات الصحة النفسية
+                            </label>
 
 
                         </div>
@@ -92,8 +87,8 @@ const HistoryPatientsRecord = (props) => {
                         </div>
 
                         <div className="p-col-12">
-                            <label className={classes.questionLabels}>The language you would like to have sessions
-                                in: </label>
+                            <label className={classes.questionLabels}>اللغة التي ترغب في إجراء الجلسات بها
+                                في: </label>
 
                         </div>
                         <div className="p-col-12">
@@ -104,8 +99,8 @@ const HistoryPatientsRecord = (props) => {
                         </div>
 
                         <div className="p-col-12">
-                            <label className={classes.questionLabels}> the gender do you prefer your therapist to
-                                be: </label>
+                            <label className={classes.questionLabels}> الجنس الذي تفضله لمعالجك
+                                يكون: </label>
 
 
                         </div>
@@ -119,7 +114,7 @@ const HistoryPatientsRecord = (props) => {
 
                         <div className="p-col-12">
                             <label className={classes.questionLabels}>
-                                Traumatic Experiences Details: </label>
+                                تفاصيل التجارب الصادمة: </label>
 
                         </div>
                         <div className="p-col-12">
@@ -130,8 +125,7 @@ const HistoryPatientsRecord = (props) => {
                         </div>
 
                         <div className="p-col-12">
-                            <label className={classes.questionLabels}>Seeking help
-                                for: </label>
+                            <label className={classes.questionLabels}>طلب الحاجة لمساعدة: </label>
 
 
                         </div>
@@ -145,7 +139,7 @@ const HistoryPatientsRecord = (props) => {
 
                         <div className="p-col-12">
                             <label className={classes.questionLabels}>
-                                Mental Or Physical Disorder Details: </label>
+                                تفاصيل الاضطراب العقلي أو البدني: </label>
 
                         </div>
                         <div className="p-col-12">
@@ -155,11 +149,20 @@ const HistoryPatientsRecord = (props) => {
                             </label>
                         </div>
 
+                        {/*<div className="p-col-12">*/}
+                        {/*    <label className={classes.questionLabels}>  Ever tried or thought about harming*/}
+                        {/*        yourself: </label>*/}
 
+                        {/*</div>*/}
+                        {/*<div className="p-col-12">*/}
+                        {/*    <label className={classes.questionLabelsNotBold}>*/}
+
+                        {/*        {historyPatientData.thinkAboutHarmingYourself}*/}
+                        {/*    </label>*/}
+                        {/*</div>*/}
 
                         <div className="p-col-12">
-                            <label className={classes.questionLabels}> Details  about harming
-                                yourself:  </label>
+                            <label className={classes.questionLabels}> تفاصيل حول تفكيره بالانتحار  </label>
 
                         </div>
                         <div className="p-col-12">
@@ -170,7 +173,7 @@ const HistoryPatientsRecord = (props) => {
                         </div>
                         <div className="p-col-12">
                             <label className={classes.questionLabels}>
-                                 Medications Details : </label>
+                                تفاصيل الأدوية التي يتلقاها: </label>
 
                         </div>
                         <div className="p-col-12">
@@ -201,4 +204,4 @@ const mapDispatchToProps = dispatch => {
 
     };
 }
-export default connect(mapStateToProps, mapDispatchToProps)(HistoryPatientsRecord);
+export default connect(mapStateToProps, mapDispatchToProps)(ArabicHistoryPatientsRecord);

@@ -1,54 +1,77 @@
 .report{
-    padding-top:20px;
-    background-color: #a474b7;
+
     padding-right: 100px;
     border-bottom-style: dashed;
-    font-family:  sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family:  "Segoe UI Emoji", "Segoe UI Symbol";
     padding-left:100px;
     padding-bottom:20px;
     font-size: 20%;
 }
 .record {
-    padding-left: 70px;
+    font-size: small;
+    padding-left: 100px;
+     marginRight: 12em;
+    paddingTop: 5em;
+
 }
 
-.picture {
-    margin-top:15%;
-    margin-right:2em;
-    width:42em !important;
-}
 .headerLabel {
     color: dimgrey;
     font-weight: 500;
     width: 100%;
     font-size: 2.3em;
-
+    font-family: "Lucida Console", "Courier New", monospace;
     text-align: center;
 }
 .form {
-    margin: 0 auto !important;
-    width: 30em;
+    background-color: #e6d4f6;
+    width: 60% !important;
+    margin-top:8%;
+    margin-left: 25%;
+    /*box-shadow: 0px 0px 30px -6px rgba(0, 0, 0, 0.75);*/
+    height: 60%;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 30px -6px rgba(0, 0, 0, 0.75);
+    border-radius: 15px 15px 15px 15px;
+    padding-bottom:2%;
+
 }
 .questionLabels{
     color: dimgrey;
     /*margin-top: 200px !important;*/
     font-weight: bold;
-    font-size: 1em;
+    font-size: 1.5em;
+    font-family: Times New Roman;
+    color: gray;
 
+}
+.H3{
+    color: dimgrey;
+    /*margin-top: 200px !important;*/
+    font-weight: bold;
+    color: #5c0e5c;
+    font-family: "Lucida Console";
 }
 .questionLabelsNotBold{
     color: dimgrey;
     /*margin-top: 200px !important;*/
     font-weight: 500;
     font-size: 1em;
+    font-family: Arial, Helvetica, sans-serif;
 }
-.textArea{
-    height: 4em;
-}
-.grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-}
+
 .title{
     color: #5c0e5c;
+}
+
+.datatablescrollDemo{
+    display: block;
+    background-color: #f1f1f1;
+    min-height: 19px;
+    animation: pulse 1s infinite ease-in-out;
+    text-indent: -99999px;
+    overflow: hidden;
 }
