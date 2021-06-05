@@ -15,6 +15,10 @@ import AdminDashboard from "../../Containers/Admin/AdminDashboard/AdminDashboard
 import ViewPatients from "../../Containers/Admin/AdminDashboard/ViewPatients";
 import ViewTherapists from "../../Containers/Admin/AdminDashboard/ViewTherapists";
 import AddTherapist from "../../Containers/Admin/AdminDashboard/CreateAccountFortherapist/AddTherapist";
+import ArabicAdminDashboard from "../../Containers/Admin/AdminDashboard/ArabicAdminDashboard";
+import ArabicViewPatients from "../../Containers/Admin/AdminDashboard/ArabicViewPatients";
+import ArabicViewTherapists from "../../Containers/Admin/AdminDashboard/ArabicViewTherapists";
+import ArabicAddTherapist from "../../Containers/Admin/AdminDashboard/CreateAccountFortherapist/ArabicAddTherapist";
 const AdminContent = (props) => {
     return (
         <div>
@@ -32,6 +36,10 @@ const AdminContent = (props) => {
                 <Route path="/login" exact component={Login}/>
                 <Route path="/arabiclogin" exact component={ArabicLogin}/>
                 <Route path="/adminDashboard" exact component={AdminDashboard}/>
+                <Route path="/arabicAdminDashboard" exact component={ArabicAdminDashboard}/>
+                <Route path="/arabicAdminDashboard/arabicViewAllPatients" exact component={ArabicViewPatients}/>
+                <Route path="/arabicAdminDashboard/arabicViewAllTherapists" exact component={ArabicViewTherapists}/>
+                <Route path ="/arabicAdminDashboard/arabicAddTherapist" exit component={ArabicAddTherapist}/>
                 <Route path="/adminDashboard/viewAllPatients" exact component={ViewPatients}/>
                 <Route path="/adminDashboard/viewAllTherapists" exact component={ViewTherapists}/>
                 <Route path ="/adminDashboard/addTherapist" exit component={AddTherapist}/>

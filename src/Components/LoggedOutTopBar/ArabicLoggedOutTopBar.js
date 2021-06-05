@@ -87,7 +87,7 @@ const ArabicLoggedOutTopBar=() => {
                     </div>
 
                     <div className="p-col-1">
-                        <a href="/patientDashboard" className={classes.links}>صفحتي</a>
+                        <a href="/arabicPatientDashboard" className={classes.links}>صفحتي</a>
                     </div>
 
 

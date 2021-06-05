@@ -20,7 +20,7 @@ import addtherapist from "../../../../assets/therapist.png";
 //         });
 //     }
 // };
-const AddTherapist = (props) => {
+const ArabicAddTherapist = (props) => {
 
     const [therapistInfo, setTherapistInfo] = useState({
         firstName: "",
@@ -38,7 +38,7 @@ const AddTherapist = (props) => {
 
     })
 
-    const genders = ["Female","Male"]
+    const genders = ["انثى","ذكر"]
 
     const {addToast} = useToasts()
 
@@ -55,12 +55,12 @@ const AddTherapist = (props) => {
         })
 
         if (allFieldsFilled === false) {
-            addToast('Please fill all fields', {
+            addToast('لو سمحت أملأ كل البيانات', {
                 appearance: 'error',
                 autoDismiss: true,
             })
         } else if (!(validator.validate(therapistInfo.email))) {
-            addToast('Please enter a valid email', {
+            addToast('يرجى إدخال البريد الإلكتروني الصحيح', {
                 appearance: 'error',
                 autoDismiss: true,
             })
@@ -85,13 +85,13 @@ const AddTherapist = (props) => {
                 }
             ).then((data) => {
                     if (data.payload.id) {
-                        addToast('Account Successfully Created', {
+                        addToast('تم إنشاء الحساب بنجاح', {
                             appearance: 'success',
                             autoDismiss: true,
                         })
 
                     } else
-                        addToast('Something went wrong', {
+                        addToast('هناك خطأ ما', {
                             appearance: 'error',
                             autoDismiss: true,
                         })
@@ -100,28 +100,29 @@ const AddTherapist = (props) => {
     }
 
 
-        function therapistInfoSection() {
+    function therapistInfoSection() {
 
         return <div className={classes.Form}>
             <div >
-               {/* <img style={{borderRadius: "50%"}} src={addtherapist}/>*/}
-               {/*<h1 */}
-               {/*    */}
-               {/*    className={classes.Hh1}> Create account for therapist</h1>*/}
+                {/* <img style={{borderRadius: "50%"}} src={addtherapist}/>*/}
+                {/*<h1 */}
+                {/*    */}
+                {/*    className={classes.Hh1}> Create account for therapist</h1>*/}
 
                 <label className={classes.headerLabel}>
+                    <span className={classes.Hh1}> انشاء حساب جديد لمعالج </span>
                     <img style={{borderRadius: "10%",width:"12%",paddingTop:"1.2em",paddingBottom:"1.2em"}} src={addtherapist}/>
-                    <span className={classes.Hh1}> Create account for therapist</span>
+
 
                 </label>
             </div>
             <div className="p-grid">
-               <div className="p-col-2"/>
+                <div className="p-col-2"/>
 
                 <div className="p-col-3">
                     <span className="p-float-label">
                         <InputText
-                            placeholder="First Name"
+                            placeholder="الاسم الاول"
                             value={therapistInfo.firstName}
                             className={classes.Fields}
                             onChange={(e) =>
@@ -135,7 +136,7 @@ const AddTherapist = (props) => {
                 <div className="p-col-3">
                     <span className="p-float-label">
                         <InputText
-                            placeholder="Last Name"
+                            placeholder="الاسم الاخير"
                             id="lastName"
                             value={therapistInfo.lastName}
                             className={classes.Fields}
@@ -156,7 +157,7 @@ const AddTherapist = (props) => {
                         className={classes.Fields}
                         value={therapistInfo.gender}
                         options={genders}
-                        placeholder="Gender "
+                        placeholder="الجنس "
                         onChange={(e) => {
                             console.log(e,"gender")
                             setTherapistInfo({
@@ -168,7 +169,7 @@ const AddTherapist = (props) => {
                 </div>
                 <div className="p-col-3">
                     <InputText
-                        placeholder="Age"
+                        placeholder="العمر"
                         keyfilter="int"
                         className={classes.Fields}
                         value={therapistInfo.age}
@@ -195,7 +196,7 @@ const AddTherapist = (props) => {
                     <PhoneInput
                         inputStyle={{width: "100%"}}
                         country={'ps'}
-                        placeholder='Enter your phone Number'
+                        placeholder='ادخل رفم الهاتف'
                         value={therapistInfo.phoneNumber}
                         onChange={phone =>
                             setTherapistInfo({
@@ -213,7 +214,7 @@ const AddTherapist = (props) => {
                 <div className="p-col-6">
                     <InputText value={therapistInfo.email}
                                className={classes.Fields}
-                               placeholder="Email"
+                               placeholder="البريد الالكتروني"
                                onChange={(e) => {
                                    setTherapistInfo({
                                        ...therapistInfo,
@@ -230,7 +231,7 @@ const AddTherapist = (props) => {
                 <div className="p-col-3" style={{marginTop: "1em",paddingBottomBottom:"1em"}}>
                     <span className="p-float-label" style={{width: "100%"}}>
                         <InputText
-                            placeholder="username"
+                            placeholder="اسم المستخدم "
                             id="username"
                             value={therapistInfo.username}
                             className={classes.Fields}
@@ -254,7 +255,7 @@ const AddTherapist = (props) => {
                                       ...therapistInfo,
                                       password: e.currentTarget.value
                                   })}/>
-                        <label htmlFor='password'> Password</label>
+                        <label htmlFor='password'> كلمة المرور</label>
                     </span>
                 </div>
                 <div className="p-col-2"/>
@@ -263,7 +264,7 @@ const AddTherapist = (props) => {
                 <div className="p-col-3" style={{marginTop: "1em"}}>
                     <span className="p-float-label" style={{width: "100%"}}>
                         <InputTextarea
-                            placeholder="specialization"
+                            placeholder="التخصص"
                             id="specialization"
                             value={therapistInfo.specialization}
                             className={classes.area}
@@ -281,7 +282,7 @@ const AddTherapist = (props) => {
                 <div className="p-col-3" style={{marginTop: "1em"}}>
                     <span className="p-float-label" style={{width: "100%"}}>
                         <InputTextarea
-                            placeholder="educationLevel"
+                            placeholder="مستوى الدراسات العليا "
                             id="educationLevel"
                             value={therapistInfo.educationLevel}
                             className={classes.area}
@@ -298,7 +299,7 @@ const AddTherapist = (props) => {
                 <div className="p-col-2" style={{marginTop: "1em"}}>
                     <span className="p-float-label" style={{width: "100%"}}>
                         <InputTextarea
-                            placeholder="description"
+                            placeholder="الوصف"
                             id="description"
                             value={therapistInfo.description}
                             className={classes.area}
@@ -319,13 +320,13 @@ const AddTherapist = (props) => {
                         <div>
                             <div>
                                 {/*<img src={this.state.image} />*/}
-                                <Button label="select image"
+                                <Button label="اختيار صورة"
                                         style={{marginTop: "2em", height: "3em",width: "12em",backgroundColor:" #a474b7"}}
                                         className="primaryBtn"
                                         icon='pi pi-fw pi-images'
                                 />
                                 <input style={{marginTop: "1em",color:" #a474b7",border:"4em"}}
-                                       type="file" name="myImage" placeholder="select image"
+                                       type="file" name="myImage" placeholder="اختيار صورة"
                                        onChange={(e) => {
                                            setTherapistInfo({
                                                ...therapistInfo,
@@ -341,7 +342,7 @@ const AddTherapist = (props) => {
             </div>
 
             <div className="p-grid p-justify-end">
-                <Button label="Finish"
+                <Button label="انشاء"
                         style={{marginTop: "0.1em", height: "3em",width: "6em",backgroundColor:"#a474b7"}}
                         className="primaryBtn"
                         icon="pi pi-step-forward"
@@ -355,8 +356,8 @@ const AddTherapist = (props) => {
     return (
         <div style={{paddingTop:"4em"}}>
 
-        {therapistInfoSection()}
-    </div>
+            {therapistInfoSection()}
+        </div>
 
     );
 }
@@ -371,4 +372,4 @@ const mapDispatchToProps = dispatch => {
         createAccountForTherapist: (data) => dispatch(AdminActions.createAccountForTherapist(data)),
     };
 }
-export default connect(mapStateToProps, mapDispatchToProps)(AddTherapist);
+export default connect(mapStateToProps, mapDispatchToProps)(ArabicAddTherapist);

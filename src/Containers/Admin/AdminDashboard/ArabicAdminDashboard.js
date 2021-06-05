@@ -44,8 +44,8 @@ import { Chart } from 'primereact/chart';
 // };
 
 
-const AdminDashboard = (props) => {
-  
+const ArabicAdminDashboard = (props) => {
+
 
 
     return (
@@ -57,11 +57,11 @@ const AdminDashboard = (props) => {
         //         />
         //     </div>
 
-            <div style={{fontSize:"inherit"}}>
-                <img style={{ paddingTop:"1em",width:"100%"}} src={Counselling}
-                     alt="logo"/>
+        <div style={{fontSize:"inherit"}}>
+            <img style={{ paddingTop:"1em",width:"100%"}} src={Counselling}
+                 alt="logo"/>
 
-            </div>
+        </div>
 
 
     );
@@ -76,4 +76,4 @@ const mapDispatchToProps = dispatch => {
     return {
     };
 }
-export default connect(mapStateToProps, mapDispatchToProps)(AdminDashboard);
+export default connect(mapStateToProps, mapDispatchToProps)(ArabicAdminDashboard);
