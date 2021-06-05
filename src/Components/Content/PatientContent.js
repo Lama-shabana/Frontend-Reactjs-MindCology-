@@ -22,6 +22,7 @@ import ArabicPatientDashboard from "../../Containers/Patient/PatientDashboard/Ar
 import ArabicTakeAppointment from "../../Containers/Patient/TakeAppointment/ArabicTakeAppiontment";
 import ArabicPatientProfile from "../../Containers/Patient/PatientDashboard/ArabicPatientProfile";
 import ArabicViewTherapistProfile from "../../Containers/Patient/ViewTherapistProfile/ArabicViewTherapistProfile";
+import BothMedicalHistoryForms from "../../Containers/Patient/MedicalHistoryForm/BothMedicalHistoryForms";
 const PatientContent = (props) => {
     return (
         <div>
@@ -40,8 +41,11 @@ const PatientContent = (props) => {
                 <Route path="/arabiclogin" exact component={ArabicLogin}/>
                 <Route path="/patientDashboard" exact component={PatientDashboard}/>
                 <Route path="/patientDashboard/takeAppointment" exact component={TakeAppointment}/>
-                <Route path="/medicalHistoryForm" exact component={MedicalHistoryForm}/>
-                <Route path="/arabicMedicalHistoryForm" exact component={ArabicMedicalHistoryForm}/>
+
+                <Route path="/medicalHistoryForm" exact component={BothMedicalHistoryForms}/>
+                {/*<Route path="/arabicMedicalHistoryForm" exact component={ArabicMedicalHistoryForm}/>*/}
+
+
                 <Route path="/patientDashboard/patientProfileInfo" exact component={PatientProfile}/>
                 <Route path="/patientDashboard/viewTherapistProfile/:id" exact component={ViewTherapist}/>
                 <Route path="/arabicPatientDashboard" exact component={ArabicPatientDashboard}/>

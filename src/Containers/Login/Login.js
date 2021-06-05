@@ -33,6 +33,8 @@ const Login = (props) => {
                         }else {
                             history.push('/patientDashboard')
                         }
+                        localStorage.setItem('lang',JSON.stringify("english"))
+
                     }else
                     {
                         addToast('Sorry, your account is deactivated', {
