@@ -11,13 +11,13 @@ const TakeAppointment = (props) => {
 
     const [dateTimeReady,setDateTimeReady]=useState(false);
     const [allDays,setAllDays]=useState([
-        {id:0,name:"saturday"},
-        {id:1,name:"sunday"},
-        {id:2,name:"monday"},
-        {id:3,name:"tuesday"},
-        {id:4,name:"wednesday"},
-        {id:5,name:"thursday"},
-        {id:6,name:"friday"},
+        {id:0,name:"sat"},
+        {id:1,name:"sun"},
+        {id:2,name:"mon"},
+        {id:3,name:"tue"},
+        {id:4,name:"wed"},
+        {id:5,name:"thu"},
+        {id:6,name:"fri"},
 
     ])
     const [availableDays,setAvailableDays]=useState([])
@@ -31,18 +31,31 @@ const TakeAppointment = (props) => {
         if(!dateTimeReady){
             for(let i=parseInt(therapistDateTime.startTime);i<=parseInt(therapistDateTime.endTime);i++){
                 if(!availableHours.find(x=>x===(i+"00"))){
+
                     availableHours.push(i+":00")
                 }
             }
             setDateTimeReady(true)
 
 
-            let today=new Date()
-            console.log(Date.today().add(-30).days(),"HI")
+            var date=new Date();
+
+
+            for (var x=0;x<30;++x)
+            {
+                var d=date.getDate();
+                date.setDate(d+1);
+                let withoutTime=date.toString().split(" ")
+                if(allDays.find(x=>x.name=withoutTime[0])){
+                    availableDays.push(withoutTime[0]+"-"+withoutTime[1]+"-"+withoutTime[2]+"-"+withoutTime[3])
+                }
+         // console.log(date,"HERE")
+            }
         }
     },[])
     return (
         <div className="p-grid" >
+            {console.log(availableDays,"DAYS")}
             <div className="p-col-7">
                 <img src={appointment} className={classes.picture} width={600}/>
             </div>
@@ -57,10 +70,10 @@ const TakeAppointment = (props) => {
                     {dateTimeReady?
                         <Dropdown
                             className={classes.field}
-                            value={selectedHour}
-                            options={availableHours}
-                            onChange={(e) => setSelectedHour(e.target.value)}
-                            placeholder="Time"
+                            value={selectedDay}
+                            options={availableDays}
+                            onChange={(e) => setSelectedDay(e.target.value)}
+                            placeholder="Date"
                             // className={classes.field}
                             // style={{marginTop: "5px"}}
                         />
