@@ -1,50 +1,41 @@
 
-.background{
-    background-color: ghostwhite;
-}
+/*.background{*/
+/*    background-color: ghostwhite;*/
+/*}*/
 /*@import url(https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i);*/
 /*@import Url(https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700|Oswald:200,300,400,500,600,700|PT+Sans:400,400i,700,700i);*/
 
+.form{
+width:30em;
+    margin:0 auto;
+}
+.headerLabel {
+    color: #60426d;
+    font-weight: 600;
+    width: 100%;
+    font-size: 2.5em;
+    text-align: center;
+}
 
+.labels {
+    color: #60426d;
+    width: 100%;
+    font-size: 1.5em;
+    text-align: left;
+    margin-top:1em!important;
+}
+.field{
+    width:100%;
+}
+.submit{
+    background: #60426d !important;
+    color: #fff;
+    font-weight: 600;
+    width: 100%;
+    margin-top:2em !important;
+}
 
+.picture{
+margin-top:7em;
 
-
-/*input[type=button], input[type=submit], input[type=reset] {*/
-/*    background-color: #a474b7;*/
-/*    border: none;*/
-/*    color: white;*/
-/*    padding: 16px 32px;*/
-/*    text-decoration: none;*/
-/*    margin: 4px 2px;*/
-/*    cursor: pointer;*/
-
-/*}*/
-
-/*fieldset {*/
-
-/*    background-color:ghostwhite;*/
-/*}*/
-/*legend {*/
-/*    background-color: #a474b7;*/
-/*    color: white;*/
-/*    padding: 5px 10px;*/
-/*}*/
-/*p{*/
-/*    padding-left: 10px;*/
-/*}*/
-
-/*.text{*/
-/*    font-family: "Times New Roman", "Bold";*/
-/*    text-align: left;*/
-/*}*/
-/*lable{*/
-/*    font-family: "Arial Black";*/
-/*}*/
-/*.edit-profile button{*/
-
-/*    background: #a474b7;*/
-/*    color: #fff;*/
-/*    font-weight: 600;*/
-/*    width: 25%;*/
-
-/*}*/
+}

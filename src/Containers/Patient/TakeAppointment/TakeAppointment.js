@@ -1,49 +1,92 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {connect} from "react-redux";
-import LoggedInPatientTopbar from "../../../Components/LoggedInTopBar/LoggedInPatientTopbar";
-import './TakeAppointment.css';
-
+import classes from './TakeAppointment.module.css';
+import {Dropdown} from "primereact/dropdown";
+import {Button} from "primereact/button";
+import appointment from "../assets/img.png";
 const TakeAppointment = (props) => {
+    const therapistData=JSON.parse(localStorage.getItem("visitedTherapist"));
 
+    const therapistDateTime={startTime:'8:00',endTime:"17:00",startDay:0,endDay:4}
+
+    const [dateTimeReady,setDateTimeReady]=useState(false);
+    const [allDays,setAllDays]=useState([
+        {id:0,name:"saturday"},
+        {id:1,name:"sunday"},
+        {id:2,name:"monday"},
+        {id:3,name:"tuesday"},
+        {id:4,name:"wednesday"},
+        {id:5,name:"thursday"},
+        {id:6,name:"friday"},
+
+    ])
+    const [availableDays,setAvailableDays]=useState([])
+    const [availableHours,setAvailableHours]=useState([])
+
+
+    const [selectedHour,setSelectedHour]=useState(null)
+    const [selectedDay,setSelectedDay]=useState(null)
+
+    useEffect(()=>{
+        if(!dateTimeReady){
+            for(let i=parseInt(therapistDateTime.startTime);i<=parseInt(therapistDateTime.endTime);i++){
+                if(!availableHours.find(x=>x===(i+"00"))){
+                    availableHours.push(i+":00")
+                }
+            }
+            setDateTimeReady(true)
+
+
+            let today=new Date()
+            console.log(Date.today().add(-30).days(),"HI")
+        }
+    },[])
     return (
-        <div style={{paddingTop:"4em"}}>
-     <form>
-         <label>
-             <fieldset>
-                 <legend>For Take An Appointment</legend>
+        <div className="p-grid" >
+            <div className="p-col-7">
+                <img src={appointment} className={classes.picture} width={600}/>
+            </div>
 
-                 <div >
+            <div className="p-col-4" style={{marginTop:"10em"}}>
+                    <label className={classes.headerLabel}> Schedule Appointment
+                        <i style={{marginLeft: "0.5em",fontSize:"2em",marginTop:"10px"}} className="pi pi-calendar-plus"/>
+                    </label>
 
-                     <label>
-                        Time
-                         <input type="time" name="time"/>
-                     </label>
-                     <label>
-                        Date
-                         <input type="date" name="Date"/>
-                     </label>
-                 </div>
-                 <p>Confirmation requested by</p>
-                 <div >
-                     <label> Email
-                         <input type="radio" name="Confirmation requested by" value="email" checked/>
+                    <label className={classes.labels}>Select Suitable Date</label>
 
-                     </label>
-                     <label>  Phone call
-                         <input type="radio" name="Confirmation requested by" value="phone"/>
+                    {dateTimeReady?
+                        <Dropdown
+                            className={classes.field}
+                            value={selectedHour}
+                            options={availableHours}
+                            onChange={(e) => setSelectedHour(e.target.value)}
+                            placeholder="Time"
+                            // className={classes.field}
+                            // style={{marginTop: "5px"}}
+                        />
+                        :null}
+                    <label className={classes.labels}>Select Suitable Time</label>
 
-                     </label>
-                 </div>
-                 <div >
-                     <input type="text" name="_gotcha" placeholder="message"  />
-                     <input type="submit" value="Submit request"/>
-                 </div>
-             </fieldset>
+                    {dateTimeReady?
+                        <Dropdown
+                            className={classes.field}
+                            value={selectedHour}
+                            options={availableHours}
+                            onChange={(e) => setSelectedHour(e.target.value)}
+                            placeholder="Time"
+                            // className={classes.field}
+                            // style={{marginTop: "5px"}}
+                        />
+                        :null}
+                    <Button className={classes.submit} label='Submit'
 
-         </label>
-
-         </form>
+                        // onClick={}
+                    />
+            </div>
+            <div className="p-col-1"/>
         </div>
+
+
 
     );
 }
