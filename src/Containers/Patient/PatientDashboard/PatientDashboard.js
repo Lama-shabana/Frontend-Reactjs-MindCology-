@@ -81,7 +81,7 @@ const PatientDashboard = (props) => {
                             <Button icon="pi pi-star" className="p-button-success p-button-rounded p-mr-2"/>
                             <Button icon="pi pi-send" className="p-button-help p-button-rounded"/>
                             <div className="box">
-                                <Button label="see Profile" className="primaryBtn" icon="pi pi-chevron-right"
+                                <Button label="View Profile" className="primaryBtn" icon="pi pi-chevron-right"
                                         style={{
                                             width: "12em",
                                             height: "3em",

@@ -18,6 +18,7 @@ import ArabicTherapistDashboard from "../../Containers/Therapist/TherapistDashbo
 import ArabicTherapistProfile from "../../Containers/Therapist/TherapistDashboard/ArabicTherapistProfile";
 import ArabicViewAllPatients from "../../Containers/Therapist/ViewAllPatients/ArabicViewAllPatients";
 import ArabicHistoryPatientsRecord from "../../Containers/Therapist/HistoryPatient'sRecord/ArabicHistoryPatientsRecord";
+import VideoCalls from "../../Containers/VideoCalls/VideoCalls";
 
 
 const TherapistContent = (props) => {
@@ -47,6 +48,7 @@ const TherapistContent = (props) => {
                 <Route path="/arabicTherapistDashboard/arabicViewAllPatients" exit component={ArabicViewAllPatients}/>
                 <Route path="/arabicTherapistDashboard/ArabicHistoryPatientsRecord/:id" exact component ={ArabicHistoryPatientsRecord}/>
 
+                <Route path="/video/:room/:password" exact component={VideoCalls}/>
 
             </Switch>
         </div>

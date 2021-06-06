@@ -32,7 +32,6 @@ const Content = (props) => {
                 <Route path="/registration" exact component={Registration}/>
                 <Route path="/login" exact component={Login}/>
                 <Route path="/arabiclogin" exact component={ArabicLogin}/>
-                <Route path="/video" exact component={VideoCalls}/>
                 {/*<Route path="/chat" exact component={ChatBox}/>*/}
 
                 {/*<Route path="/medicalHistoryForm" exact component={MedicalHistoryForm}/>*/}
