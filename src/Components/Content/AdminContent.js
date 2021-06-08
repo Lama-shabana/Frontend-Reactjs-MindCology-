@@ -11,14 +11,10 @@ import Contact from "../../Containers/Homepage/Contact/Contact";
 import ArabicContact from "../../Containers/Homepage/Contact/ArabicContact";
 import Login from "../../Containers/Login/Login";
 import ArabicLogin from "../../Containers/Login/ArabicLogin";
-import AdminDashboard from "../../Containers/Admin/AdminDashboard/AdminDashboard";
-import ViewPatients from "../../Containers/Admin/AdminDashboard/ViewPatients";
-import ViewTherapists from "../../Containers/Admin/AdminDashboard/ViewTherapists";
-import AddTherapist from "../../Containers/Admin/AdminDashboard/CreateAccountFortherapist/AddTherapist";
-import ArabicAdminDashboard from "../../Containers/Admin/AdminDashboard/ArabicAdminDashboard";
-import ArabicViewPatients from "../../Containers/Admin/AdminDashboard/ArabicViewPatients";
-import ArabicViewTherapists from "../../Containers/Admin/AdminDashboard/ArabicViewTherapists";
-import ArabicAddTherapist from "../../Containers/Admin/AdminDashboard/CreateAccountFortherapist/ArabicAddTherapist";
+import BothAddtherapists from "../../Containers/Admin/AdminDashboard/CreateAccountFortherapist/BothAddtherapists";
+import BothAdminDashboards from "../../Containers/Admin/AdminDashboard/BothAdminDashboards";
+import BothViewPatients from "../../Containers/Admin/AdminDashboard/BothViewPatients";
+import BothViewTherapists from "../../Containers/Admin/AdminDashboard/BothViewTherapists";
 const AdminContent = (props) => {
     return (
         <div>
@@ -35,14 +31,14 @@ const AdminContent = (props) => {
                 <Route path="/registration" exact component={Registration}/>
                 <Route path="/login" exact component={Login}/>
                 <Route path="/arabiclogin" exact component={ArabicLogin}/>
-                <Route path="/adminDashboard" exact component={AdminDashboard}/>
-                <Route path="/arabicAdminDashboard" exact component={ArabicAdminDashboard}/>
-                <Route path="/arabicAdminDashboard/arabicViewAllPatients" exact component={ArabicViewPatients}/>
-                <Route path="/arabicAdminDashboard/arabicViewAllTherapists" exact component={ArabicViewTherapists}/>
-                <Route path ="/arabicAdminDashboard/arabicAddTherapist" exit component={ArabicAddTherapist}/>
-                <Route path="/adminDashboard/viewAllPatients" exact component={ViewPatients}/>
-                <Route path="/adminDashboard/viewAllTherapists" exact component={ViewTherapists}/>
-                <Route path ="/adminDashboard/addTherapist" exit component={AddTherapist}/>
+                <Route path="/adminDashboard" exact component={BothAdminDashboards}/>
+                {/*<Route path="/arabicAdminDashboard" exact component={ArabicAdminDashboard}/>*/}
+                {/*<Route path="/arabicAdminDashboard/arabicViewAllPatients" exact component={ArabicViewPatients}/>*/}
+                {/*<Route path="/arabicAdminDashboard/arabicViewAllTherapists" exact component={ArabicViewTherapists}/>*/}
+                {/*<Route path ="/arabicAdminDashboard/arabicAddTherapist" exit component={ArabicAddTherapist}/>*/}
+                <Route path="/adminDashboard/viewAllPatients" exact component={BothViewPatients}/>
+                <Route path="/adminDashboard/viewAllTherapists" exact component={BothViewTherapists}/>
+                <Route path ="/adminDashboard/addTherapist" exit component={BothAddtherapists}/>
 
 
 

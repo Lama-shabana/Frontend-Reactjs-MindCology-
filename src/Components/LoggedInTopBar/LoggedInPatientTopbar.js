@@ -6,7 +6,6 @@ import * as uiActions from "../../Containers/InterfaceUtility/store/InterfaceUti
 import {Sidebar} from "primereact/sidebar";
 import {PanelMenu} from "primereact/panelmenu";
 import {useHistory} from "react-router-dom";
-import {InputText} from "primereact/inputtext";
 import {Button} from "primereact/button";
 
 
@@ -77,25 +76,6 @@ const LoggedInPatientTopbar = (props) => {
                 </Sidebar>
 
 
-                {/*{lang&& lang === "english" ?*/}
-
-                {/*<Button label="Arabic" className="primaryBtn" style={{*/}
-                {/*    width: "9em",*/}
-                {/*    height: "3em",*/}
-                {/*    marginLeft: "1em",*/}
-                {/*    marginTop: "2em",*/}
-                {/*    background: "#a474b7"*/}
-                {/*}}*/}
-                {/*        onClick={() => {*/}
-
-                {/*            localStorage.setItem('lang', JSON.stringify("arabic"))*/}
-                {/*            console.log(JSON.parse(localStorage.getItem("lang")),"AFTER ARAB")*/}
-
-                {/*        }}*/}
-                {/*/>*/}
-                {/*    : null*/}
-
-                {/*}*/}
                 <a className={classes.MenuBarLink} onClick={handleNavBarClick}>
                         <span style={{color: 'inherit'}} className={
                             props.menuVisible ? 'pi pi-times' : 'pi pi-bars'}/>

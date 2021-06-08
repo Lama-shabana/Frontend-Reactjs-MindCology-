@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import classes from './Topbar.module.css';
 import {connect} from 'react-redux';
 import './NavigationMenuStyle.css';
@@ -7,6 +7,7 @@ import {Sidebar} from "primereact/sidebar";
 import {PanelMenu} from "primereact/panelmenu";
 import {useHistory} from "react-router-dom";
 import {InputText} from "primereact/inputtext";
+import {Button} from "primereact/button";
 
 
 
@@ -72,7 +73,13 @@ const ArabicLoggedInTherapistTopbar = (props) => {
         else
             props.showMenu();
     }
+    const [lang, setLang] = useState(null)
+    useEffect(() => {
+        if (JSON.parse(localStorage.getItem("lang"))) {
+            setLang(JSON.parse(localStorage.getItem("lang")))
+        }
 
+    }, [localStorage.getItem('lang')])
 
     return (
         <header className={classes.Topbar}>
@@ -89,15 +96,46 @@ const ArabicLoggedInTherapistTopbar = (props) => {
                 </a>
                 <div className="p-grid">
                     <div className="p-col-3"/>
-                    <div className="p-col-5">
-                        <span className="p-input-icon-left">
-                            <i className="pi pi-search"/>
-                            <InputText className={classes.search}
-                                // value={value3} onChange={(e) => setValue3(e.target.value)} placeholder="Search"
-                            />
-                        </span>
 
-                    </div>
+                        {lang && lang === "arabic" ?
+                            <Button label="English" className="primaryBtn" style={{
+                                width: "9em",
+                                height: "4em",
+                                // marginLeft: "1em",
+                                // marginTop: "1em",
+                                background: "#a474b7"
+                            }}
+                                    onClick={() => {
+                                        localStorage.setItem('lang', JSON.stringify("english"))
+                                        window.location.reload();
+
+                                    }}
+                            /> :
+
+
+                            <Button label="Arabic" className="primaryBtn" style={{
+                                width: "9em",
+                                height: "4em",
+                                // marginLeft: "1em",
+                                // marginTop: "1em",
+                                background: "#a474b7"
+                            }}
+                                    onClick={() => {
+                                        localStorage.setItem('lang', JSON.stringify("arabic"))
+                                        window.location.reload();
+
+                                    }}
+                            />}
+
+                        {/*<div className="p-col-5">*/}
+                    {/*    <span className="p-input-icon-left">*/}
+                    {/*        <i className="pi pi-search"/>*/}
+                    {/*        <InputText className={classes.search}*/}
+                    {/*            // value={value3} onChange={(e) => setValue3(e.target.value)} placeholder="Search"*/}
+                    {/*        />*/}
+                    {/*    </span>*/}
+
+                    {/*</div>*/}
 
                     <div className="p-col-1">
 

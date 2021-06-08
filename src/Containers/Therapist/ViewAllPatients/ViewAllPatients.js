@@ -6,10 +6,13 @@ import {DataTable} from "primereact/datatable";
 import {Column} from "primereact/column";
 import {Button} from 'primereact/button'; //lowercase
 import classes from "./ViewAllPatients.module.css"
+import {useHistory} from "react-router-dom";
+
+
 const ViewAllPatients = (props) => {
 
     const id = JSON.parse(localStorage.getItem("auth"))?.id
-
+    let history = useHistory()
     let loaded = false;
 
     let therapistAppointments = []
@@ -41,10 +44,7 @@ const ViewAllPatients = (props) => {
                     height: "2.5em",
                     background: "#6d3986"
                 }}
-                    onClick={() => {
-                        props.history.push("/therapistDashboard/historyPatientsRecord/"+rowData.id)
-                        console.log(rowData.id,"TES")
-                    }}
+                        onClick={() => history.push("/historyPatient/" + rowData.id)}
                 />
             </div>
         );
@@ -55,10 +55,10 @@ const ViewAllPatients = (props) => {
             {console.log(loaded,"CURRENT")}
             {allPatientsData.length>0 ?
                 // <div style={{marginTop:"6em"}} >
-                    <div className={classes.tableData}>
-                        <label className={classes.headerLabel}> Patients
-                            <i style={{fontSize:"2.5em",marginLeft: "0.3em"}} className="pi pi-users"/>
-                        </label>
+                <div className={classes.tableData}>
+                    <label className={classes.headerLabel}> Patients
+                        <i style={{fontSize:"2.5em",marginLeft: "0.3em"}} className="pi pi-users"/>
+                    </label>
                     <div className="datatable-templating-demo">
                         <div className="card">
                             <DataTable

@@ -6,8 +6,9 @@ import {DataTable} from "primereact/datatable";
 import {Column} from "primereact/column";
 import {Button} from 'primereact/button'; //lowercase
 import classes from "./ViewAllPatients.module.css"
+import {useHistory} from "react-router-dom";
 const ArabicViewAllPatients = (props) => {
-
+let history= useHistory()
     const id = JSON.parse(localStorage.getItem("auth"))?.id
 
     let loaded = false;
@@ -41,10 +42,12 @@ const ArabicViewAllPatients = (props) => {
                     height: "2.5em",
                     background: "#6d3986"
                 }}
-                        onClick={() => {
-                            props.history.push("/arabicTherapistDashboard/arabicHistoryPatientsRecord/"+rowData.id)
-                            console.log(rowData.id,"TES")
-                        }}
+                        // onClick={() => {
+                        //     props.history.push("/therapistDashboard/historyPatientsRecord/"+rowData.id)
+                        //     console.log(rowData.id,"TES")
+                        // }
+                        // }
+                        onClick={() => history.push("/arabicHistoryPatient/" + rowData.id)}
                 />
             </div>
         );

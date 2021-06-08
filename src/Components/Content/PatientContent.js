@@ -23,6 +23,10 @@ import ArabicTakeAppointment from "../../Containers/Patient/TakeAppointment/Arab
 import ArabicPatientProfile from "../../Containers/Patient/PatientDashboard/ArabicPatientProfile";
 import ArabicViewTherapistProfile from "../../Containers/Patient/ViewTherapistProfile/ArabicViewTherapistProfile";
 import BothMedicalHistoryForms from "../../Containers/Patient/MedicalHistoryForm/BothMedicalHistoryForms";
+import BothpatientDashboards from "../../Containers/Patient/PatientDashboard/BothpatientDashboards";
+import BothTakeAppointments from "../../Containers/Patient/TakeAppointment/BothTakeAppointments";
+import BothViewTherapistProfiles from "../../Containers/Patient/ViewTherapistProfile/BothViewTherapistProfiles";
+import BothPatientProfiles from "../../Containers/Patient/PatientDashboard/BothPatientProfiles";
 const PatientContent = (props) => {
     return (
         <div>
@@ -39,15 +43,15 @@ const PatientContent = (props) => {
                 <Route path="/registration" exact component={Registration}/>
                 <Route path="/login" exact component={Login}/>
                 <Route path="/arabiclogin" exact component={ArabicLogin}/>
-                <Route path="/patientDashboard" exact component={PatientDashboard}/>
-                <Route path="/patientDashboard/takeAppointment" exact component={TakeAppointment}/>
+
+                <Route path="/patientDashboard" exact component={BothpatientDashboards}/>
+                <Route path="/patientDashboard/takeAppointment" exact component={BothTakeAppointments}/>
 
                 <Route path="/medicalHistoryForm" exact component={BothMedicalHistoryForms}/>
                 {/*<Route path="/arabicMedicalHistoryForm" exact component={ArabicMedicalHistoryForm}/>*/}
 
-
-                <Route path="/patientDashboard/patientProfileInfo" exact component={PatientProfile}/>
-                <Route path="/patientDashboard/viewTherapistProfile/:id" exact component={ViewTherapist}/>
+                <Route path="/patientDashboard/patientProfileInfo" exact component={BothPatientProfiles}/>
+                <Route path="/patientDashboard/viewTherapistProfile/:id" exact component={BothViewTherapistProfiles}/>
                 <Route path="/arabicPatientDashboard" exact component={ArabicPatientDashboard}/>
                 <Route path="/arabicPatientDashboard/arabicTakeAppointment" exact component={ArabicTakeAppointment}/>
                 <Route path="/arabicPatientDashboard/arabicPatientProfileInfo" exact component={ArabicPatientProfile}/>
