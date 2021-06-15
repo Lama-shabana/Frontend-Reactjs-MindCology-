@@ -10,15 +10,17 @@ import Contact from "../../Containers/Homepage/Contact/Contact";
 import ArabicContact from "../../Containers/Homepage/Contact/ArabicContact";
 import Login from "../../Containers/Login/Login";
 import ArabicLogin from "../../Containers/Login/ArabicLogin";
-import TherapistDashboard from "../../Containers/Therapist/TherapistDashboard/TherapistDashboard";
-import HistoryPatientsRecord from "../../Containers/Therapist/HistoryPatient'sRecord/HistoryPatientsRecord";
-import TherapistProfile from "../../Containers/Therapist/TherapistDashboard/TherapistProfile";
-import ViewAllPatients from "../../Containers/Therapist/ViewAllPatients/ViewAllPatients";
+import BothHistoryPatientRecords from "../../Containers/Therapist/HistoryPatient'sRecord/BothHistoryPatientRecords";
+import BothViewAllPatients from "../../Containers/Therapist/ViewAllPatients/BothViewAllPatients";
+import BothTherapistDashboards from "../../Containers/Therapist/TherapistDashboard/BothTherapistDashboards";
+import ArabicViewAllPatients from "../../Containers/Therapist/ViewAllPatients/ArabicViewAllPatients";
 import ArabicTherapistDashboard from "../../Containers/Therapist/TherapistDashboard/ArabicTherapistDashboard";
 import ArabicTherapistProfile from "../../Containers/Therapist/TherapistDashboard/ArabicTherapistProfile";
-import ArabicViewAllPatients from "../../Containers/Therapist/ViewAllPatients/ArabicViewAllPatients";
 import ArabicHistoryPatientsRecord from "../../Containers/Therapist/HistoryPatient'sRecord/ArabicHistoryPatientsRecord";
 import VideoCalls from "../../Containers/VideoCalls/VideoCalls";
+import TherapistProfile from "../../Containers/Therapist/TherapistDashboard/TherapistProfile";
+import BothTherapistProfiles from "../../Containers/Therapist/TherapistDashboard/BothTherapistProfiles";
+import HistoryPatientsRecord from "../../Containers/Therapist/HistoryPatient'sRecord/HistoryPatientsRecord";
 
 
 const TherapistContent = (props) => {
@@ -37,16 +39,15 @@ const TherapistContent = (props) => {
                 <Route path="/registration" exact component={Registration}/>
                 <Route path="/login" exact component={Login}/>
                 <Route path="/arabiclogin" exact component={ArabicLogin}/>
-                <Route path="/therapistDashboard" exact component={TherapistDashboard}/>
-                 <Route path="/therapistDashboard/therapistProfileInfo" exact component={TherapistProfile}/>
-                <Route path="/therapistDashboard/viewAllPatients" exit component={ViewAllPatients}/>
-                <Route path="/therapistDashboard/historyPatientsRecord/:id" exact component ={HistoryPatientsRecord}/>
 
-
-                <Route path="/arabicTherapistDashboard" exact component={ArabicTherapistDashboard}/>
+                <Route path="/therapistDashboard" exact component={BothTherapistDashboards}/>
+                 <Route path="/therapistDashboard/therapistProfileInfo" exact component={BothTherapistProfiles}/>
+                <Route path="/therapistDashboard/viewAllPatients" exit component={BothViewAllPatients}/>
+                <Route path="historyPatient/:id" exact component ={BothHistoryPatientRecords}/>
+               <Route path="/arabicTherapistDashboard" exact component={ArabicTherapistDashboard}/>
                 <Route path="/arabicTherapistDashboard/arabicTherapistProfileInfo" exact component={ArabicTherapistProfile}/>
                 <Route path="/arabicTherapistDashboard/arabicViewAllPatients" exit component={ArabicViewAllPatients}/>
-                <Route path="/arabicTherapistDashboard/ArabicHistoryPatientsRecord/:id" exact component ={ArabicHistoryPatientsRecord}/>
+                <Route path="/arabicHistoryPatient/:id" exact component ={ArabicHistoryPatientsRecord}/>
 
                 <Route path="/video/:room/:password" exact component={VideoCalls}/>
 
