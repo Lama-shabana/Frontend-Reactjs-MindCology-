@@ -4,6 +4,7 @@ import {Carousel} from 'primereact/carousel';
 import {Button} from 'primereact/button';
 import './CarouselDemo.css';
 import * as therapistProfileActions from "../../Therapist/store/TherapistActions";
+import {useHistory} from "react-router-dom";
 
 const PatientDashboard = (props) => {
 
@@ -55,6 +56,7 @@ const PatientDashboard = (props) => {
 
     let dataLoaded = false;
 
+    const {history}=useHistory()
 
     useEffect(() => {
         if (dataLoaded === false) {
@@ -89,7 +91,7 @@ const PatientDashboard = (props) => {
                                             marginTop: "2em",
                                             background: "purple"
                                         }}
-                                        onClick={() => props.history.push("/patientDashboard/viewTherapistProfile/" + therapistInfo.id)}
+                                        onClick={() => history.push("/patientDashboard/viewTherapistProfile/" + therapistInfo.id)}
                                 />
                             </div>
                         </div>

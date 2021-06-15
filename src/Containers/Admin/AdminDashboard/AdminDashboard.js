@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {connect} from "react-redux";
 import Counselling from "../../../assets/istockphoto-1169420428-612x612-1.jpg";
-import { Chart } from 'primereact/chart';
 //
 // this.chartData = {
 //     datasets: [{
