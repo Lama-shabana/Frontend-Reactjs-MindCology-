@@ -132,7 +132,7 @@ const PatientDashboard = (props) => {
             </h1>
             {appointment ?
                 <div>
-                    <Button style={{backgroundColor: "#a474b7"}}
+                    <Button style={{marginLeft:"20%",marginBottom:"1em",backgroundColor: "#a474b7"}}
                             onClick={() => {
                                 if (checkDateBeforeAppointment()) {
                                     props.history.push("/video/" + appointment.meetingID + "/" + appointment.password + "/" + userData.firstName + " " + userData.lastName)
@@ -146,7 +146,7 @@ const PatientDashboard = (props) => {
                             label={"Please click here to enter your appointment on " + appointment.date + " at " + appointment.time}
                             icon="pi pi-calendar-plus"/>
 
-                    <Button style={{backgroundColor: "#ad2525"}}
+                    <Button style={{marginLeft:"3%",marginBottom:"1em",backgroundColor: "#ad2525"}}
                             onClick={() => {
                                 console.log(appointment.therapistId.toString().concat(appointment.patientId), "sent")
                                 props.deleteAppointment({id: parseInt(appointment.therapistId.toString().concat(appointment.patientId))}).then(() => {
@@ -154,7 +154,7 @@ const PatientDashboard = (props) => {
                                 })
                             }}
                             label="Delete Appointment"
-                            icon="pi pi-calendar-plus"/>
+                            icon="pi pi-calendar-minus"/>
                 </div>
 
 

@@ -106,7 +106,7 @@ const ViewTherapistProfile = (props) => {
                                     label={"Please click here to enter your appointment on " + appointmentData.date + " at " + appointmentData.time}
                                     icon="pi pi-calendar-plus"/>
                         </div>
-                        : null}
+                        : <div className="p-col-10"/>}
 
 
                     <div className="p-col-4">
@@ -116,12 +116,7 @@ const ViewTherapistProfile = (props) => {
                             // src={therapistInfo.imagePath}
                             alt="new"
                             width={290}
-
                         />
-                        {/*<img*/}
-                        {/*    width={290}*/}
-                        {/*    // style={{width: "22em", height: "16em", paddingLeft: "1em"}}*/}
-                        {/*    src={therapistInfo.imagePath}/>*/}
                     </div>
 
                     <div className="p-col-8">
@@ -147,10 +142,13 @@ const ViewTherapistProfile = (props) => {
 
                                 <Button label=" Message " icon="pi pi-comments"/>
                                 <span> </span>
-                                <Button style={{backgroundColor: "#a474b7"}}
-                                        onClick={() => {
-                                            history.push("/patientDashboard/takeAppointment")
-                                        }} label=" Make Appointment " icon="pi pi-calendar-plus"/>
+                                {!appointmentData?
+                                    <Button style={{backgroundColor: "#a474b7"}}
+                                            onClick={() => {
+                                                history.push("/patientDashboard/takeAppointment")
+                                            }} label=" Make Appointment " icon="pi pi-calendar-plus"/>
+                                    :null}
+
                             </div>
                         </div>
                     </div>
