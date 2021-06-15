@@ -7,6 +7,7 @@ import {FullCalendar} from 'primereact/fullcalendar';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
+import {Button} from "primereact/button";
 
 
 const TherapistDashboard = (props) => {
@@ -28,7 +29,18 @@ const TherapistDashboard = (props) => {
     return (
 
         <div className="p-grid">
+            {/*<Button style={{backgroundColor: "#a474b7"}}*/}
+            {/*        onClick={() => {*/}
+            {/*            if (checkDateBeforeAppointment()) {*/}
+            {/*                // props.history.push("/video/"+appointmentData.meetingID+"/"+appointmentData.password+"/"+userData.firstName+" "+userData.lastName)*/}
+            {/*            } else {*/}
+
+            {/*            }*/}
+            {/*        }}*/}
+            {/*        label={"Please click here to enter your appointment on " + appointmentData.date + " at " + appointmentData.time}*/}
+            {/*        icon="pi pi-calendar-plus"/>*/}
             <div className="p-col-12">
+
             <div style={{marginLeft:"1em",paddingTop:"100px"}}>
             </div>
                 <div className="card">

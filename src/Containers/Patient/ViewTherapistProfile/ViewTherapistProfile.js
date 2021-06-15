@@ -12,6 +12,7 @@ import {Button} from "primereact/button";
 import * as profileActions from "../../Therapist/store/TherapistActions";
 import VideoCalls from "../../VideoCalls/VideoCalls";
 import {useToasts} from "react-toast-notifications";
+import {useHistory} from "react-router-dom";
 
 const ViewTherapistProfile = (props) => {
 
@@ -93,6 +94,7 @@ const ViewTherapistProfile = (props) => {
         }
     }
     let test = "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
+    let history=useHistory();
     return (
         <div className={classes.form}>
             {console.log(props,"IDD")}
@@ -158,7 +160,7 @@ const ViewTherapistProfile = (props) => {
                                 <span> </span>
                                 <Button style={{backgroundColor: "#a474b7"}}
                                         onClick={() => {
-                                            props.history.push("/patientDashboard/takeAppointment")
+                                            history.push("/patientDashboard/takeAppointment")
                                         }} label=" Make Appointment " icon="pi pi-calendar-plus"/>
                             </div>
                         </div>

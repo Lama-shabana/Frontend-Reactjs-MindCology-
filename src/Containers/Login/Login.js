@@ -48,7 +48,7 @@ const Login = (props) => {
             else if(data.payload.userType==="therapist") {
                 props.loadPatientData({id:data.payload.id}).then((data)=>{
                     localStorage.setItem('therapist',JSON.stringify(data.payload))
-                    history.push('/patientDashboard')
+                    history.push('/therapistDashboard')
                 })
                 history.push('/therapistDashboard')
 
