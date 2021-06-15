@@ -76,7 +76,11 @@ const LoggedInPatientTopbar = (props) => {
     useEffect(() => {
         if (dataLoaded === false) {
             props.getAllTherapists().then((data) => {
-                setTherapists(data.payload)
+                let temp=[]
+                data.payload.map((data)=>{
+                    temp.push({id:data.id,fullName:data.firstName+" "+data.lastName})
+                })
+                setTherapists(temp)
                 console.log(data.payload,"payload")
             })
             dataLoaded = true;
@@ -84,6 +88,7 @@ const LoggedInPatientTopbar = (props) => {
     }, [dataLoaded])
     return (
         <header className={classes.Topbar}>
+            {console.log(therapists,"ther")}
             <div>
                 <Sidebar showCloseIcon={false}
                          className={classes.Sidebar} modal={false}
@@ -137,18 +142,15 @@ const LoggedInPatientTopbar = (props) => {
                         {therapists?
                             <Dropdown value={selectedTherapist} options={therapists}
                                       onChange={(e)=> {
-                                          console.log(e.target.value)
-
                                           setSelectedTherapist(e.target.value)
                                           history.push("/patientDashboard/viewTherapistProfile/" + e.target.value)
-
-                                      }
-                                      }
-                                      optionLabel="firstName"
+                                          window.location.reload()
+                                      }}
+                                      optionLabel="fullName"
                                       optionValue="id"
                                       filter
                                       className={classes.search}
-                                      showClear filterBy="name" placeholder="Select a Country"
+                                      showClear filterBy="fullName" placeholder="Search for a Therapist"
                             />
                             :null}
 
