@@ -7,10 +7,8 @@ import "mdbreact/dist/css/mdb.css";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
-import profile from "../assets/profileTesting.jpg";
 import {Button} from "primereact/button";
 import * as profileActions from "../../Therapist/store/TherapistActions";
-import VideoCalls from "../../VideoCalls/VideoCalls";
 import {useToasts} from "react-toast-notifications";
 import {useHistory} from "react-router-dom";
 
@@ -29,7 +27,6 @@ const ViewTherapistProfile = (props) => {
             props.getProfileData({id: therapistId}).then((data) => {
                 setTherapistInfo(data.payload)
                 localStorage.setItem('visitedTherapist', JSON.stringify(data.payload))
-                console.log(data.payload, "THERAPIST DATA")
             })
             dataLoaded = true;
         }
@@ -80,38 +77,30 @@ const ViewTherapistProfile = (props) => {
                     correctTime = false
                 }
             }
-            console.log(manipulatedTime, appointmentData.time, Math.abs(parseInt(manipulatedTime.split(":")[1]) - parseInt(appointmentData.time.split(":")[1])), "CALC")
-
             if (correctTime && correctDate) {
                 return true
             } else return false;
 
-            // console.log(manipulatedTime.split(":")[0],appointmentData.time.split(":")[0],"TIME")
-            // console.log(manipulatedDate,"manipulatedDate")
-            // console.log(manipulatedTime,"manipulatedTime")
-            //
-            // console.log(Date().toLocaleString(),"CURRENT")
         }
     }
     let test = "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
-    let history=useHistory();
+    let history = useHistory();
     return (
         <div className={classes.form}>
-            {console.log(props,"IDD")}
             {therapistInfo ?
                 <div className="p-grid">
-                    {console.log(therapistInfo.imagePath, "PATH")}
-
                     <div className="p-col-2"/>
-
                     {appointmentPresent ?
                         <div className="p-col-10">
                             <Button style={{backgroundColor: "#a474b7"}}
                                     onClick={() => {
                                         if (checkDateBeforeAppointment()) {
-                                            // props.history.push("/video/"+appointmentData.meetingID+"/"+appointmentData.password+"/"+userData.firstName+" "+userData.lastName)
+                                            props.history.push("/video/"+appointmentData.meetingID+"/"+appointmentData.password+"/"+userData.firstName+" "+userData.lastName)
                                         } else {
-
+                                            addToast("The meeting isn't currently available", {
+                                                appearance: 'error',
+                                                autoDismiss: true,
+                                            })
                                         }
                                     }}
                                     label={"Please click here to enter your appointment on " + appointmentData.date + " at " + appointmentData.time}

@@ -6,6 +6,7 @@ import {Button} from "primereact/button";
 import appointment from "../assets/img.png";
 import {useToasts} from "react-toast-notifications";
 import * as profileActions from "../store/PatientActions";
+import {useHistory} from "react-router-dom";
 
 const TakeAppointment = (props) => {
     const therapistData = JSON.parse(localStorage.getItem("visitedTherapist"));
@@ -59,6 +60,7 @@ const TakeAppointment = (props) => {
     }, [])
     const {addToast} = useToasts()
 
+    let history=useHistory()
     function makeAppointment() {
         if (selectedHour && selectedDay) {
             props.createApppointment({
@@ -68,6 +70,13 @@ const TakeAppointment = (props) => {
                 password: userId.toString().concat(therapistData.id),
                 date: selectedDay,
                 time: selectedHour
+            }).then(()=>{
+                addToast("Appointment Successfully Created ", {
+                    appearance: 'success',
+                    autoDismiss: true,
+                })
+                history.push("/patientDashboard")
+
             })
             console.log({
 

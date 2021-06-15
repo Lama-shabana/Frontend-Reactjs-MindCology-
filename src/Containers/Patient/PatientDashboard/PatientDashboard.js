@@ -4,36 +4,13 @@ import {Carousel} from 'primereact/carousel';
 import {Button} from 'primereact/button';
 import './CarouselDemo.css';
 import * as therapistProfileActions from "../../Therapist/store/TherapistActions";
+import * as profileActions from "../../Therapist/store/TherapistActions";
 import {useHistory} from "react-router-dom";
+import {useToasts} from "react-toast-notifications";
 
 const PatientDashboard = (props) => {
 
-    const [therapistInfo, setTherapistInfo] = useState(
-        [
-            {
-                id: 1,
-                username: "test",
-                specialization: "specialization",
-                description: "description",
-                email: "email"
-            },
-            {
-                id: 2,
-                username: "test",
-                specialization: "specialization",
-                description: "description",
-                email: "email"
-            },
-            {
-                id: 3,
-                username: "test",
-                specialization: "specialization",
-                description: "description",
-                email: "email"
-            }
-
-        ]
-    )
+    const [therapistInfo, setTherapistInfo] = useState()
     const responsiveOptions = [
         {
             breakpoint: '1024px',
@@ -52,20 +29,63 @@ const PatientDashboard = (props) => {
         }
     ];
 
-    const id = JSON.parse(localStorage.getItem("auth"))?.id
+    const userData = JSON.parse(localStorage.getItem("auth"))
 
     let dataLoaded = false;
 
     let history = useHistory();
 
+    const [appointment, setAppointment] = useState(null)
     useEffect(() => {
         if (dataLoaded === false) {
             props.getAllTherapists().then((data) => {
                 setTherapistInfo(data.payload)
             })
+            props.getAllAppointments().then((data) => {
+                console.log(data.payload, "pay")
+
+                data.payload?.map((current) => {
+                    if (current.patientId === userData.id) {
+                        setAppointment(current)
+                    }
+                })
+            })
             dataLoaded = true;
+
         }
     }, [dataLoaded])
+
+    const checkDateBeforeAppointment = () => {
+        if (appointment) {
+            // Thu-Jun-10-2021 at 13:00 APPOINTMENT
+            // Sat Jun 12 2021 18:37:16 GMT+0300 (Eastern European Summer Time)
+            // console.log(appointmentData.date+" at "+appointmentData.time,"APPOINTMENT")
+            let splitDate = Date().toLocaleString().split(" ");
+            let manipulatedDate = splitDate[0] + "-" + splitDate[1] + "-" + splitDate[2] + "-" + splitDate[3];
+            let manipulatedTime = splitDate[4];
+
+
+            manipulatedTime = manipulatedTime.split(":")[0] + ":" + manipulatedTime.split(":")[1]
+
+            let correctTime = true;
+            let correctDate = true;
+
+            if (!manipulatedDate.includes(appointment.date)) {
+                correctDate = false;
+            }
+            if (manipulatedTime.split(":")[0] === appointment.time.split(":")[0]) {
+                if (!(Math.abs(parseInt(manipulatedTime.split(":")[1]) - parseInt(appointment.time.split(":")[1])) <= 15)) {
+                    correctTime = false
+                }
+            }
+            if (correctTime && correctDate) {
+                return true
+            } else return false;
+
+        }
+    }
+
+    const {addToast} = useToasts()
     const therapistTemplate = (therapistInfo) => {
         return (
             <div className="therapist-item">
@@ -101,16 +121,44 @@ const PatientDashboard = (props) => {
         );
     }
     return (
-
         <div style={{paddingTop: "2em"}}>
-
-            <h1>
-                <blockquote>You don’t have to struggle in silence. We are here to provide you with the mental
+            <h1 style={{marginTop:"1em",color:"#25032f",fontSize:"2em",marginBottom:"1em"}}>
+                <blockquote >You don’t have to struggle in silence. We are here to provide you with the mental
                     health
                     care you need
-                </blockquote>
+                    <i className="pi pi-sun" style={{'fontSize': '1em',marginLeft:"0.25em",marginTop:"0.5em"}}/>
 
+                </blockquote>
             </h1>
+            {appointment ?
+                <div>
+                    <Button style={{backgroundColor: "#a474b7"}}
+                            onClick={() => {
+                                if (checkDateBeforeAppointment()) {
+                                    props.history.push("/video/" + appointment.meetingID + "/" + appointment.password + "/" + userData.firstName + " " + userData.lastName)
+                                } else {
+                                    addToast("The meeting isn't currently available", {
+                                        appearance: 'error',
+                                        autoDismiss: true,
+                                    })
+                                }
+                            }}
+                            label={"Please click here to enter your appointment on " + appointment.date + " at " + appointment.time}
+                            icon="pi pi-calendar-plus"/>
+
+                    <Button style={{backgroundColor: "#ad2525"}}
+                            onClick={() => {
+                                console.log(appointment.therapistId.toString().concat(appointment.patientId), "sent")
+                                props.deleteAppointment({id: parseInt(appointment.therapistId.toString().concat(appointment.patientId))}).then(() => {
+                                    window.location.reload();
+                                })
+                            }}
+                            label="Delete Appointment"
+                            icon="pi pi-calendar-plus"/>
+                </div>
+
+
+                : null}
 
             <div>
                 <div className="therapist-demo">
@@ -138,6 +186,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getAllTherapists: () => dispatch(therapistProfileActions.getAllTherapists()),
+        getAllAppointments: (data) => dispatch(profileActions.getAllAppointments(data)),
+        deleteAppointment: (data) => dispatch(profileActions.deleteAppointment(data)),
+
     };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(PatientDashboard);

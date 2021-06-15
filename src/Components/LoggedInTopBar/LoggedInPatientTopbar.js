@@ -77,7 +77,7 @@ const LoggedInPatientTopbar = (props) => {
         if (dataLoaded === false) {
             props.getAllTherapists().then((data) => {
                 let temp=[]
-                data.payload.map((data)=>{
+                data.payload?.map((data)=>{
                     temp.push({id:data.id,fullName:data.firstName+" "+data.lastName})
                 })
                 setTherapists(temp)
