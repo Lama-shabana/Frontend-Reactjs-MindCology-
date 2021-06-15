@@ -81,14 +81,12 @@ const LoggedInPatientTopbar = (props) => {
                     temp.push({id:data.id,fullName:data.firstName+" "+data.lastName})
                 })
                 setTherapists(temp)
-                console.log(data.payload,"payload")
             })
             dataLoaded = true;
         }
     }, [dataLoaded])
     return (
         <header className={classes.Topbar}>
-            {console.log(therapists,"ther")}
             <div>
                 <Sidebar showCloseIcon={false}
                          className={classes.Sidebar} modal={false}

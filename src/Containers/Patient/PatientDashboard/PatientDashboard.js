@@ -56,7 +56,7 @@ const PatientDashboard = (props) => {
 
     let dataLoaded = false;
 
-    const {history}=useHistory()
+    let history = useHistory();
 
     useEffect(() => {
         if (dataLoaded === false) {

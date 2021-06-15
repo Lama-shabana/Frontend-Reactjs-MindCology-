@@ -20,7 +20,7 @@ const ViewTherapistProfile = (props) => {
 
     const userData = JSON.parse(localStorage.getItem("auth"))
 
-    const therapistId = props.match.params.id;
+    const therapistId = props.props.match.params.id;
 
     let dataLoaded = false;
     useEffect(() => {
@@ -95,6 +95,7 @@ const ViewTherapistProfile = (props) => {
     let test = "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
     return (
         <div className={classes.form}>
+            {console.log(props,"IDD")}
             {therapistInfo ?
                 <div className="p-grid">
                     {console.log(therapistInfo.imagePath, "PATH")}

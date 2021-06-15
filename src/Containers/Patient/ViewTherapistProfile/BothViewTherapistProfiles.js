@@ -12,7 +12,7 @@ const BothViewTherapistProfiles = (props) => {
 
             {console.log(lang,"LANG")}
             {lang&&lang === "english" ?
-                <ViewTherapistProfile/> :
+                <ViewTherapistProfile props={props}/> :
                 null
             }
 
