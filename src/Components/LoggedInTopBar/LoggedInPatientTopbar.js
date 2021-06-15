@@ -196,6 +196,8 @@ const mapDispatchToProps = dispatch => {
         hideMenu: () => dispatch(uiActions.hideMenu()),
         getAllTherapists: () => dispatch(therapistProfileActions.getAllTherapists()),
 
+
+
     };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(LoggedInPatientTopbar);

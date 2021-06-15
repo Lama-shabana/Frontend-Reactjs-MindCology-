@@ -28,6 +28,7 @@ const ViewTherapistProfile = (props) => {
             props.getProfileData({id: therapistId}).then((data) => {
                 setTherapistInfo(data.payload)
                 localStorage.setItem('visitedTherapist', JSON.stringify(data.payload))
+                console.log(data.payload, "THERAPIST DATA")
             })
             dataLoaded = true;
         }
@@ -54,35 +55,35 @@ const ViewTherapistProfile = (props) => {
 
     const {addToast} = useToasts()
 
-    const checkDateBeforeAppointment=()=>{
-        if(appointmentData){
+    const checkDateBeforeAppointment = () => {
+        if (appointmentData) {
 
             // Thu-Jun-10-2021 at 13:00 APPOINTMENT
             // Sat Jun 12 2021 18:37:16 GMT+0300 (Eastern European Summer Time)
             // console.log(appointmentData.date+" at "+appointmentData.time,"APPOINTMENT")
-            let splitDate=Date().toLocaleString().split(" ");
-            let manipulatedDate=splitDate[0]+"-"+splitDate[1]+"-"+splitDate[2]+"-"+splitDate[3];
-            let manipulatedTime=splitDate[4];
+            let splitDate = Date().toLocaleString().split(" ");
+            let manipulatedDate = splitDate[0] + "-" + splitDate[1] + "-" + splitDate[2] + "-" + splitDate[3];
+            let manipulatedTime = splitDate[4];
 
 
-            manipulatedTime=manipulatedTime.split(":")[0]+":"+manipulatedTime.split(":")[1]
+            manipulatedTime = manipulatedTime.split(":")[0] + ":" + manipulatedTime.split(":")[1]
 
-            let correctTime=true;
-            let correctDate=true;
+            let correctTime = true;
+            let correctDate = true;
 
-            if(!manipulatedDate.includes(appointmentData.date)){
-                correctDate=false;
+            if (!manipulatedDate.includes(appointmentData.date)) {
+                correctDate = false;
             }
-            if(manipulatedTime.split(":")[0]===appointmentData.time.split(":")[0]){
-                if(!(Math.abs(parseInt(manipulatedTime.split(":")[1])-parseInt(appointmentData.time.split(":")[1]))<=15)){
-                    correctTime=false
+            if (manipulatedTime.split(":")[0] === appointmentData.time.split(":")[0]) {
+                if (!(Math.abs(parseInt(manipulatedTime.split(":")[1]) - parseInt(appointmentData.time.split(":")[1])) <= 15)) {
+                    correctTime = false
                 }
             }
-            console.log(manipulatedTime,appointmentData.time,Math.abs(parseInt(manipulatedTime.split(":")[1])-parseInt(appointmentData.time.split(":")[1])),"CALC")
+            console.log(manipulatedTime, appointmentData.time, Math.abs(parseInt(manipulatedTime.split(":")[1]) - parseInt(appointmentData.time.split(":")[1])), "CALC")
 
-            if(correctTime&&correctDate){
+            if (correctTime && correctDate) {
                 return true
-            }else return false;
+            } else return false;
 
             // console.log(manipulatedTime.split(":")[0],appointmentData.time.split(":")[0],"TIME")
             // console.log(manipulatedDate,"manipulatedDate")
@@ -91,32 +92,44 @@ const ViewTherapistProfile = (props) => {
             // console.log(Date().toLocaleString(),"CURRENT")
         }
     }
+    let test = "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
     return (
         <div className={classes.form}>
             {therapistInfo ?
                 <div className="p-grid">
+                    {console.log(therapistInfo.imagePath, "PATH")}
+
                     <div className="p-col-2"/>
 
-                    {appointmentPresent?
+                    {appointmentPresent ?
                         <div className="p-col-10">
                             <Button style={{backgroundColor: "#a474b7"}}
                                     onClick={() => {
-                                        if(checkDateBeforeAppointment()){
+                                        if (checkDateBeforeAppointment()) {
                                             // props.history.push("/video/"+appointmentData.meetingID+"/"+appointmentData.password+"/"+userData.firstName+" "+userData.lastName)
-                                        }else {
+                                        } else {
 
                                         }
-                                    }} label={"Please click here to enter your appointment on "+appointmentData.date+" at "+appointmentData.time} icon="pi pi-calendar-plus"/>
+                                    }}
+                                    label={"Please click here to enter your appointment on " + appointmentData.date + " at " + appointmentData.time}
+                                    icon="pi pi-calendar-plus"/>
                         </div>
-                        :null}
-
+                        : null}
 
 
                     <div className="p-col-4">
+
                         <img
+                            src="https://drive.google.com/file/d/1QKwlxP6GDRycRiq7NJ-wshy5a4tIyrop/view?usp=sharing"
+                            // src={therapistInfo.imagePath}
+                            alt="new"
                             width={290}
-                            // style={{width: "22em", height: "16em", paddingLeft: "1em"}}
-                            src={profile}/>
+
+                        />
+                        {/*<img*/}
+                        {/*    width={290}*/}
+                        {/*    // style={{width: "22em", height: "16em", paddingLeft: "1em"}}*/}
+                        {/*    src={therapistInfo.imagePath}/>*/}
                     </div>
 
                     <div className="p-col-8">
