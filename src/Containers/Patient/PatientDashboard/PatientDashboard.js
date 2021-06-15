@@ -122,7 +122,7 @@ const PatientDashboard = (props) => {
     }
     return (
         <div style={{paddingTop: "2em"}}>
-            <h1 style={{marginTop:"1em",color:"#25032f",fontSize:"2em",marginBottom:"1em"}}>
+            <h1 style={{marginTop:"1em",color:"#25032f",fontSize:"2.5em",marginBottom:"1em"}}>
                 <blockquote >You don’t have to struggle in silence. We are here to provide you with the mental
                     health
                     care you need
