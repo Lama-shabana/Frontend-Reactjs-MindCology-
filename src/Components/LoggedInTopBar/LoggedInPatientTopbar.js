@@ -8,6 +8,8 @@ import {PanelMenu} from "primereact/panelmenu";
 import {useHistory} from "react-router-dom";
 import {InputText} from "primereact/inputtext";
 import {Button} from "primereact/button";
+import {Dropdown} from "primereact/dropdown";
+import * as therapistProfileActions from "../../Containers/Therapist/store/TherapistActions";
 
 
 const LoggedInPatientTopbar = (props) => {
@@ -66,6 +68,20 @@ const LoggedInPatientTopbar = (props) => {
 
     }, [localStorage.getItem('lang')])
 
+    let dataLoaded = false;
+
+    const [therapists,setTherapists] = useState(null);
+    const [selectedTherapist,setSelectedTherapist]=useState(null);
+
+    useEffect(() => {
+        if (dataLoaded === false) {
+            props.getAllTherapists().then((data) => {
+                setTherapists(data.payload)
+                console.log(data.payload,"payload")
+            })
+            dataLoaded = true;
+        }
+    }, [dataLoaded])
     return (
         <header className={classes.Topbar}>
             <div>
@@ -76,74 +92,74 @@ const LoggedInPatientTopbar = (props) => {
                     <PanelMenu model={navigationMenuModel}/>
                 </Sidebar>
 
-
-                {/*{lang&& lang === "english" ?*/}
-
-                {/*<Button label="Arabic" className="primaryBtn" style={{*/}
-                {/*    width: "9em",*/}
-                {/*    height: "3em",*/}
-                {/*    marginLeft: "1em",*/}
-                {/*    marginTop: "2em",*/}
-                {/*    background: "#a474b7"*/}
-                {/*}}*/}
-                {/*        onClick={() => {*/}
-
-                {/*            localStorage.setItem('lang', JSON.stringify("arabic"))*/}
-                {/*            console.log(JSON.parse(localStorage.getItem("lang")),"AFTER ARAB")*/}
-
-                {/*        }}*/}
-                {/*/>*/}
-                {/*    : null*/}
-
-                {/*}*/}
                 <a className={classes.MenuBarLink} onClick={handleNavBarClick}>
                         <span style={{color: 'inherit'}} className={
                             props.menuVisible ? 'pi pi-times' : 'pi pi-bars'}/>
                 </a>
+
+
                 <div className="p-grid">
-                    <div className="p-col-3"/>
-                    {lang && lang === "arabic" ?
-                        <Button label="English" className="primaryBtn" style={{
-                            width: "9em",
-                            height: "4em",
-                            // marginLeft: "1em",
-                            // marginTop: "1em",
-                            background: "#a474b7"
-                        }}
-                                onClick={() => {
-                                    localStorage.setItem('lang', JSON.stringify("english"))
-                                    window.location.reload();
+                    <div className="p-col-2"/>
 
-                                }}
-                        /> :
+                    <div className="p-col-3">
+                        {lang && lang === "arabic" ?
+                            <Button label="English" className="primaryBtn" style={{
+                                width: "9em",
+                                height: "3.5em",
+                                // marginLeft: "1em",
+                                // marginTop: "1em",
+                                background: "#a474b7"
+                            }}
+                                    onClick={() => {
+                                        localStorage.setItem('lang', JSON.stringify("english"))
+                                        window.location.reload();
+
+                                    }}
+                            /> :
 
 
-                        <Button label="Arabic" className="primaryBtn" style={{
-                            width: "9em",
-                            height: "4em",
-                            // marginLeft: "1em",
-                            // marginTop: "1em",
-                            background: "#a474b7"
-                        }}
-                                onClick={() => {
-                                    localStorage.setItem('lang', JSON.stringify("arabic"))
-                                    window.location.reload();
+                            <Button label="Arabic" className="primaryBtn" style={{
+                                width: "9em",
+                                height: "3.5em",
+                                // marginLeft: "1em",
+                                // marginTop: "1em",
+                                background: "#a474b7"
+                            }}
+                                    onClick={() => {
+                                        localStorage.setItem('lang', JSON.stringify("arabic"))
+                                        window.location.reload();
 
-                                }}
-                        />}
-                    {/*<div className="p-col-5">*/}
-                    {/*    <span className="p-input-icon-left">*/}
-                    {/*        <i className="pi pi-search"/>*/}
-                    {/*        <InputText className={classes.search}*/}
-                    {/*            // value={value3} onChange={(e) => setValue3(e.target.value)} placeholder="Search"*/}
-                    {/*        />*/}
-                    {/*    </span>*/}
-
-                    {/*</div>*/}
-
-                    <div className="p-col-1">
+                                    }}
+                            />}
 
                     </div>
+                    <div className="p-col-4">
+                        {therapists?
+                            <Dropdown value={selectedTherapist} options={therapists}
+                                      onChange={(e)=> {
+                                          console.log(e.target.value)
+
+                                          setSelectedTherapist(e.target.value)
+                                          history.push("/patientDashboard/viewTherapistProfile/" + e.target.value)
+
+                                      }
+                                      }
+                                      optionLabel="firstName"
+                                      optionValue="id"
+                                      filter
+                                      className={classes.search}
+                                      showClear filterBy="name" placeholder="Select a Country"
+                            />
+                            :null}
+
+                    </div>
+
+
+
+
+                    <div className="p-col-1"/>
+
+
                     <div className="p-col-2">
                         <span className={classes.UsernameLabel}>
                              {JSON.parse(localStorage.getItem("auth"))?.username}
@@ -175,7 +191,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         showMenu: () => dispatch(uiActions.showMenu()),
-        hideMenu: () => dispatch(uiActions.hideMenu())
+        hideMenu: () => dispatch(uiActions.hideMenu()),
+        getAllTherapists: () => dispatch(therapistProfileActions.getAllTherapists()),
+
     };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(LoggedInPatientTopbar);

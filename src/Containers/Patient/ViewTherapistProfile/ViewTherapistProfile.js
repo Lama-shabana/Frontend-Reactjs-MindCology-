@@ -11,6 +11,7 @@ import profile from "../assets/profileTesting.jpg";
 import {Button} from "primereact/button";
 import * as profileActions from "../../Therapist/store/TherapistActions";
 import VideoCalls from "../../VideoCalls/VideoCalls";
+import {useToasts} from "react-toast-notifications";
 
 const ViewTherapistProfile = (props) => {
 
@@ -42,7 +43,6 @@ const ViewTherapistProfile = (props) => {
 
             props.getAppointment({id: parseInt(therapistId + userData.id)}).then((data) => {
                 if (data.payload.id) {
-                    console.log(data, "RECC")
                     setAppointmentPresent(true)
                     setAppointmentData(data.payload)
                 }
@@ -51,9 +51,48 @@ const ViewTherapistProfile = (props) => {
         }
 
     }, [])
+
+    const {addToast} = useToasts()
+
+    const checkDateBeforeAppointment=()=>{
+        if(appointmentData){
+
+            // Thu-Jun-10-2021 at 13:00 APPOINTMENT
+            // Sat Jun 12 2021 18:37:16 GMT+0300 (Eastern European Summer Time)
+            // console.log(appointmentData.date+" at "+appointmentData.time,"APPOINTMENT")
+            let splitDate=Date().toLocaleString().split(" ");
+            let manipulatedDate=splitDate[0]+"-"+splitDate[1]+"-"+splitDate[2]+"-"+splitDate[3];
+            let manipulatedTime=splitDate[4];
+
+
+            manipulatedTime=manipulatedTime.split(":")[0]+":"+manipulatedTime.split(":")[1]
+
+            let correctTime=true;
+            let correctDate=true;
+
+            if(!manipulatedDate.includes(appointmentData.date)){
+                correctDate=false;
+            }
+            if(manipulatedTime.split(":")[0]===appointmentData.time.split(":")[0]){
+                if(!(Math.abs(parseInt(manipulatedTime.split(":")[1])-parseInt(appointmentData.time.split(":")[1]))<=15)){
+                    correctTime=false
+                }
+            }
+            console.log(manipulatedTime,appointmentData.time,Math.abs(parseInt(manipulatedTime.split(":")[1])-parseInt(appointmentData.time.split(":")[1])),"CALC")
+
+            if(correctTime&&correctDate){
+                return true
+            }else return false;
+
+            // console.log(manipulatedTime.split(":")[0],appointmentData.time.split(":")[0],"TIME")
+            // console.log(manipulatedDate,"manipulatedDate")
+            // console.log(manipulatedTime,"manipulatedTime")
+            //
+            // console.log(Date().toLocaleString(),"CURRENT")
+        }
+    }
     return (
         <div className={classes.form}>
-            {console.log()}
             {therapistInfo ?
                 <div className="p-grid">
                     <div className="p-col-2"/>
@@ -62,7 +101,11 @@ const ViewTherapistProfile = (props) => {
                         <div className="p-col-10">
                             <Button style={{backgroundColor: "#a474b7"}}
                                     onClick={() => {
-                                        props.history.push("/video/"+appointmentData.meetingID+"/"+appointmentData.password+"/"+userData.firstName+" "+userData.lastName)
+                                        if(checkDateBeforeAppointment()){
+                                            // props.history.push("/video/"+appointmentData.meetingID+"/"+appointmentData.password+"/"+userData.firstName+" "+userData.lastName)
+                                        }else {
+
+                                        }
                                     }} label={"Please click here to enter your appointment on "+appointmentData.date+" at "+appointmentData.time} icon="pi pi-calendar-plus"/>
                         </div>
                         :null}

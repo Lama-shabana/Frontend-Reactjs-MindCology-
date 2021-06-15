@@ -15,6 +15,7 @@ import VideoCalls from "../../Containers/VideoCalls/VideoCalls";
 import TakeAppointment from "../../Containers/Patient/TakeAppointment/TakeAppointment";
 import MedicalHistoryForm from "../../Containers/Patient/MedicalHistoryForm/MedicalHistoryForm";
 import ArabicMedicalHistoryForm from "../../Containers/Patient/MedicalHistoryForm/ArabicMedicalHistoryForm";
+import Chatting from "../../Containers/Chatting/Chatting";
 // import ChatBox from "../../Containers/Chat";
 const Content = (props) => {
     return (
@@ -32,6 +33,8 @@ const Content = (props) => {
                 <Route path="/registration" exact component={Registration}/>
                 <Route path="/login" exact component={Login}/>
                 <Route path="/arabiclogin" exact component={ArabicLogin}/>
+                <Route path="/chatting" exact component={Chatting}/>
+
                 {/*<Route path="/chat" exact component={ChatBox}/>*/}
 
                 {/*<Route path="/medicalHistoryForm" exact component={MedicalHistoryForm}/>*/}
