@@ -319,6 +319,7 @@ const MedicalHistoryForm = (props) => {
     return (
         <div className="p-grid" style={{marginTop: "5%"}}>
 
+            {console.log("entered medical form")}
             <div className="p-col-12">
             <h2 className={classes.title}>
                 Complete Your Medical History Data

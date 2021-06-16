@@ -316,7 +316,7 @@ const ArabicMedicalHistoryForm = (props) => {
     return (
         <div className="p-grid" style={{marginTop: "5%"}}>
             <div className="p-col-12">
-                <h2  style={{float:"right" , paddingRight:"1em"}} className={classes.title} >
+                <h2  style={{textAlign:"right", paddingRight:"1em"}} className={classes.title} >
                   اكمل السجل الصحي الخاص فيك
                 </h2>
                 <hr/>

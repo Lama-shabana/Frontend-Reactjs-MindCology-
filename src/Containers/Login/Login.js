@@ -61,6 +61,7 @@ const Login = (props) => {
 
             console.log(data.payload,"payload")
             console.log(JSON.parse(localStorage.getItem("auth")),"returned after json")
+            // window.location.reload()
         })
 
 
