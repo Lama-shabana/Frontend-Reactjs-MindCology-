@@ -32,14 +32,6 @@ const LoggedInPatientTopbar = (props) => {
 
             }
         },
-
-        {
-            label: 'Appointment',
-            icon: 'pi pi-calendar',
-            command: () => {
-                history.push('/patientDashboard/takeAppointment')
-            }
-        },
         {
             label: 'Sign Out',
             icon: 'pi pi-sign-out',

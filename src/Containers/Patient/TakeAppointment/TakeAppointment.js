@@ -7,6 +7,7 @@ import appointment from "../assets/img.png";
 import {useToasts} from "react-toast-notifications";
 import * as profileActions from "../store/PatientActions";
 import {useHistory} from "react-router-dom";
+import * as therapistActions from "../../Therapist/store/TherapistActions";
 
 const TakeAppointment = (props) => {
     const therapistData = JSON.parse(localStorage.getItem("visitedTherapist"));
@@ -61,26 +62,49 @@ const TakeAppointment = (props) => {
     const {addToast} = useToasts()
 
     let history=useHistory()
+    useEffect(() => {
+
+
+
+
+    }, [])
     function makeAppointment() {
         if (selectedHour && selectedDay) {
-            props.createApppointment({
-                therapistId:therapistData.id,
-                patientId:userId,
-                meetingID: therapistData.id.toString().concat(userId),
-                password: userId.toString().concat(therapistData.id),
-                date: selectedDay,
-                time: selectedHour
-            }).then(()=>{
-                addToast("Appointment Successfully Created ", {
-                    appearance: 'success',
-                    autoDismiss: true,
+            let foundAppointment=false
+
+            props.getAllAppointments().then((data) => {
+                data.payload?.map((current) => {
+                    if (current.patientId === userId) {
+                    foundAppointment=true;
+                    }
                 })
-                history.push("/patientDashboard")
+                if(foundAppointment){
+                    addToast("You already have an appointment.", {
+                        appearance: 'error',
+                        autoDismiss: true,
+                    })
+                }else {
+                    props.createApppointment({
+                        therapistId:therapistData.id,
+                        patientId:userId,
+                        meetingID: therapistData.id.toString().concat(userId),
+                        password: userId.toString().concat(therapistData.id),
+                        date: selectedDay,
+                        time: selectedHour
+                    }).then(()=>{
+                        addToast("Appointment Successfully Created ", {
+                            appearance: 'success',
+                            autoDismiss: true,
+                        })
+                        history.push("/patientDashboard")
+
+                    })
+                }
 
             })
-            console.log({
 
-            })
+
+
 
         } else addToast('Please fill all fields', {
             appearance: 'error',
@@ -145,6 +169,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         createApppointment: (data) => dispatch(profileActions.createApppointment(data)),
+        getAllAppointments: (data) => dispatch(therapistActions.getAllAppointments(data)),
+
 
     };
 }

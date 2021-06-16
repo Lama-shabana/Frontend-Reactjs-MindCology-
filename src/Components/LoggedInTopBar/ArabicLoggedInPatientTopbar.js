@@ -31,14 +31,6 @@ const ArabicLoggedInPatientTopbar = (props) => {
 
             }
         },
-
-        {
-            label: 'المواعيد',
-            icon: 'pi pi-calendar',
-            command: () => {
-                history.push('/arabicPatientDashboard/arabicTakeAppointment')
-            }
-        },
         {
             label: 'تسجيل الخروج',
             icon: 'pi pi-sign-out',
