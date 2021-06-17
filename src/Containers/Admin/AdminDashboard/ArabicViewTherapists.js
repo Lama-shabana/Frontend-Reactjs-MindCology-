@@ -62,21 +62,21 @@ const ArabicViewTherapists = (props) => {
             <div>
                 <div>
                     <Button   label=" اضافة معالج نفسي" icon="pi pi-plus" iconPos="left" style={{width:"220px",marginTop:"6em",marginLeft:"1em",height:"50px",backgroundColor:"var(--purple-300)"}}
-                              onClick={()=> history.push("/arabicAdminDashboard/arabicAddTherapist")}/>
+                              onClick={()=> history.push("/adminDashboard/addTherapist")}/>
                 </div>
                 <div   style={{marginTop:"2em"}}>
 
                     <div className="datatable-templating-demo">
                         <div className="card">
                             <DataTable value={therapists}>
-                                <Column field="firstName" header="الاسم الاول"></Column>
-                                <Column field="lastName" header="الاسم الاخير"></Column>
-                                <Column field="gender" header="الجنس"></Column>
-                                <Column field="phoneNumber" header=" رقم الهاتف"></Column>
-                                <Column field="email" header="البريد الالكتروني"></Column>
-                                <Column field="educationLevel" header=" درجة الدراسات العليا"></Column>
-                                <Column field="specialization" header="التخصص"></Column>
-                                <Column field="description" header="الوصف"></Column>
+                                <Column field="firstName" header="الاسم الاول"/>
+                                <Column field="lastName" header="الاسم الاخير"/>
+                                <Column field="gender" header="الجنس"/>
+                                <Column field="phoneNumber" header=" رقم الهاتف"/>
+                                <Column field="email" header="البريد الالكتروني"/>
+                                <Column field="educationLevel" header=" درجة الدراسات العليا"/>
+                                <Column field="specialization" header="التخصص"/>
+                                <Column field="description" header="الوصف"/>
                                 <Column
                                     body={(e)=>actionActiveTemplate(e)}
                                     header=" الحساب ">
