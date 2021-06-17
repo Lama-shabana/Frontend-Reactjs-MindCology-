@@ -1,14 +1,14 @@
-import React,{useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {connect} from "react-redux";
 import * as patientProfileActions from "../../Patient/store/PatientActions"
+import * as profileActions from "../../Patient/store/PatientActions"
 import {DataTable} from "primereact/datatable";
 import {Column} from "primereact/column";
 import {Button} from "primereact/button";
-import * as profileActions from "../../Patient/store/PatientActions";
 
 const ViewPatients = (props) => {
 
-    const [patients, setPatients] = useState([] );
+    const [patients, setPatients] = useState([]);
 
 
     let dataLoaded = false;
@@ -18,77 +18,88 @@ const ViewPatients = (props) => {
         if (dataLoaded === false) {
             console.log("entered 2")
             props.getAllPatients().then((data) => {
-                setPatients(data.payload)
-                {console.log(data, data.payload,"patients List")}
+                let temp=[]
+                console.log(data.payload,"payy")
+                data.payload.map((current)=>{
+                    if(current.active){
+                        temp.push(current)
+                    }
+                })
+                setPatients(temp)
+
             })
             dataLoaded = true;
         }
     }, [dataLoaded])
-    const id = JSON.parse(localStorage.getItem("auth"))?.id
-    function onDelete() {
-        props.editProfile({id: id, patientInfo:{active:false}}).then((data) => console.log(data))
-        localStorage.clear()
-       // props.history.push("/")
 
+    function onDelete(patientId) {
+
+        props.editProfile({id: patientId, patientInfo: {active: false}}).then((data) => {
+            let deletedPatientIndex=patients.findIndex(x=> x.id===patientId)
+            let temp=[...patients]
+            if (deletedPatientIndex > -1) {
+                temp.splice(deletedPatientIndex, 1);
+                setPatients(temp)
+            }
+        })
     }
 
     function actionActiveTemplate(e) {
         return (
             <div>
-        <Button label="deactivate account" className="primaryBtn" icon="pi pi-trash
-" style={{
-            width: "17em",
-            height: "2.5em",
-            marginTop: "2em",
-            background: "#79428b"
-        }}
-                onClick={() => {
-                    onDelete()
+                <Button label="deactivate account" className="primaryBtn" icon="pi pi-trash" style={{
+                    width: "17em",
+                    height: "2.5em",
+                    marginTop: "2em",
+                    background: "#79428b"
                 }}
-        />
+                        onClick={() => {
+                            onDelete(e.id)
+                        }}
+                />
             </div>
         );
-        }
+    }
 
     return (
         <div>
 
 
-            <div   style={{marginTop:"6em"}}>
+            <div style={{marginTop: "6em"}}>
 
                 <div className="datatable-templating-demo">
                     <div className="card">
 
 
-                            <DataTable
-                                value={patients}
-                            >
-                                <Column field="firstName" header="First name"/>
+                        <DataTable
+                            value={patients}
+                        >
+                            <Column field="firstName" header="First name"/>
 
-                                <Column field="lastName" header="Last name">
+                            <Column field="lastName" header="Last name">
 
-                                </Column>
-                                <Column field="gender" header="Gender">
+                            </Column>
+                            <Column field="gender" header="Gender">
 
-                                </Column>
-                                <Column field="email" header="Email">
+                            </Column>
+                            <Column field="email" header="Email">
 
-                                </Column>
-                                <Column field="age" header="Age">
+                            </Column>
+                            <Column field="age" header="Age">
 
-                                </Column>
-                                <Column field="phoneNumber" header="Phone">
+                            </Column>
+                            <Column field="phoneNumber" header="Phone">
 
-                                </Column>
+                            </Column>
 
-                        <Column
-                                body={(e)=>actionActiveTemplate(e)}
+                            <Column
+                                body={(e) => actionActiveTemplate(e)}
                                 header=" Account">
-                        </Column>
+                            </Column>
 
 
-                            </DataTable>
-                            {/*:null}*/}
+                        </DataTable>
+                        {/*:null}*/}
 
                     </div>
                 </div>
@@ -101,9 +112,7 @@ const ViewPatients = (props) => {
 }
 
 const mapStateToProps = state => {
-    return {
-
-    }
+    return {}
 }
 const mapDispatchToProps = dispatch => {
     return {
