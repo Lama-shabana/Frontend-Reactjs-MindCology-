@@ -14,6 +14,7 @@ import {MDBCard, MDBRow, MDBCol, MDBIcon} from "mdbreact";
 import {Button} from "primereact/button";
 import * as profileActions from "../../Therapist/store/TherapistActions";
 import {Icon} from "@material-ui/core";
+import {useHistory} from "react-router-dom";
 
 const ArabicViewTherapistProfile = (props) => {
 
@@ -36,7 +37,7 @@ const ArabicViewTherapistProfile = (props) => {
             dataLoaded = true;
         }
     }, [dataLoaded])
-
+    let history = useHistory();
     return (
 
    <div className={classes.form}>
@@ -75,7 +76,7 @@ const ArabicViewTherapistProfile = (props) => {
                                 <Button  label=" ارسال رسالة " icon="pi pi-comments" />
                                 <span> </span>
                                 <Button style={{backgroundColor:"#a474b7"}}
-                                        onClick={()=>{props.history.push("/arabicPatientDashboard/arabicTakeAppointment")}} label=" حجز موعد " icon="pi pi-calendar-plus" />
+                                        onClick={()=>{history.push("/arabicPatientDashboard/arabicTakeAppointment")}} label=" حجز موعد " icon="pi pi-calendar-plus" />
                             </div>
                         </div>
                     </div>

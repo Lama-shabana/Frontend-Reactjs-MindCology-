@@ -3,6 +3,8 @@ import {connect} from "react-redux";
 import * as patientProfileActions from "../../Patient/store/PatientActions"
 import {DataTable} from "primereact/datatable";
 import {Column} from "primereact/column";
+import {Button} from "primereact/button";
+import * as profileActions from "../../Patient/store/PatientActions";
 
 const ViewPatients = (props) => {
 
@@ -22,6 +24,32 @@ const ViewPatients = (props) => {
             dataLoaded = true;
         }
     }, [dataLoaded])
+    const id = JSON.parse(localStorage.getItem("auth"))?.id
+    function onDelete() {
+        props.editProfile({id: id, patientInfo:{active:false}}).then((data) => console.log(data))
+        localStorage.clear()
+       // props.history.push("/")
+
+    }
+
+    function actionActiveTemplate(e) {
+        return (
+            <div>
+        <Button label="deactivate account" className="primaryBtn" icon="pi pi-trash
+" style={{
+            width: "17em",
+            height: "2.5em",
+            marginTop: "2em",
+            background: "#79428b"
+        }}
+                onClick={() => {
+                    onDelete()
+                }}
+        />
+            </div>
+        );
+        }
+
     return (
         <div>
 
@@ -52,11 +80,11 @@ const ViewPatients = (props) => {
                                 <Column field="phoneNumber" header="Phone">
 
                                 </Column>
-                                <Column  field= {({ filed='active' }) => String('true').toString()}
-                                         header="Active">
 
-                                </Column>
-
+                        <Column
+                                body={(e)=>actionActiveTemplate(e)}
+                                header=" Account">
+                        </Column>
 
 
                             </DataTable>
@@ -80,6 +108,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getAllPatients: () => dispatch(patientProfileActions.getAllPatients()),
+        editProfile: (data) => dispatch(profileActions.editProfile(data)),
 
 
     };

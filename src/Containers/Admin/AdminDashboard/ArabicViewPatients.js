@@ -3,12 +3,37 @@ import {connect} from "react-redux";
 import * as patientProfileActions from "../../Patient/store/PatientActions"
 import {DataTable} from "primereact/datatable";
 import {Column} from "primereact/column";
+import * as profileActions from "../../Therapist/store/TherapistActions";
+import {Button} from "primereact/button";
 
 const ArabicViewPatients = (props) => {
 
     const [patients, setPatients] = useState([] );
+    const id = JSON.parse(localStorage.getItem("auth"))?.id
+    function onDelete() {
+        props.editProfile({id: id, therapistInfo:{active:false}}).then((data) => console.log(data))
+        localStorage.clear()
+        // props.history.push("/")
 
+    }
+    function actionActiveTemplate(e) {
+        return (
+            <div>
+                <Button label="تعطيل الحساب" className="primaryBtn" icon="pi pi-trash
+" style={{
+                    width: "17em",
+                    height: "2.5em",
+                    marginTop: "2em",
+                    background: "#79428b"
+                }}
+                        onClick={() => {
+                            onDelete()
 
+                        }}
+                />
+            </div>
+        );
+    }
     let dataLoaded = false;
     useEffect(() => {
         console.log("entered 1")
@@ -52,11 +77,10 @@ const ArabicViewPatients = (props) => {
                             <Column field="phoneNumber" header="رقم الهاتف">
 
                             </Column>
-                            <Column  field= {({ filed='active' }) => String('نعم').toString()}
-                                     header="Active">
-
+                            <Column
+                                body={(e)=>actionActiveTemplate(e)}
+                                header=" الحساب ">
                             </Column>
-
 
 
                         </DataTable>
@@ -80,8 +104,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getAllPatients: () => dispatch(patientProfileActions.getAllPatients()),
-
-
+        editProfile: (data) => dispatch(profileActions.editProfile(data)),
     };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ArabicViewPatients);

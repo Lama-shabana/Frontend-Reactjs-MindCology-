@@ -6,12 +6,37 @@ import { Column } from 'primereact/column';
 import { ButtonHeader } from 'primereact/button';
 import './DataTableDemo.css';
 import * as profileActions from "../../Therapist/store/TherapistActions";
+import {useHistory} from "react-router-dom";
 
 const ArabicViewTherapists = (props) => {
-    const [therapists, setTherapists] = useState([] );
+    const [therapists, setTherapists] = useState([]);
 
+    const id = JSON.parse(localStorage.getItem("auth"))?.id
+    function onDelete() {
+        props.editProfile({id: id, therapistInfo:{active:false}}).then((data) => console.log(data))
+        localStorage.clear()
+       // props.history.push("/")
 
+    }
+    function actionActiveTemplate(e) {
+        return (
+            <div>
+                <Button label="تعطيل الحساب" className="primaryBtn" icon="pi pi-trash
+" style={{
+                    width: "17em",
+                    height: "2.5em",
+                    marginTop: "2em",
+                    background: "#79428b"
+                }}
+                        onClick={() => {
+                            onDelete()
+                        }}
+                />
+            </div>
+        );
+    }
     let dataLoaded = false;
+    let history = useHistory();
     useEffect(() => {
         console.log("entered 1")
 
@@ -37,7 +62,7 @@ const ArabicViewTherapists = (props) => {
             <div>
                 <div>
                     <Button   label=" اضافة معالج نفسي" icon="pi pi-plus" iconPos="left" style={{width:"220px",marginTop:"6em",marginLeft:"1em",height:"50px",backgroundColor:"var(--purple-300)"}}
-                              onClick={()=> props.history.push("/arabicAdminDashboard/arabicAddTherapist")}/>
+                              onClick={()=> history.push("/arabicAdminDashboard/arabicAddTherapist")}/>
                 </div>
                 <div   style={{marginTop:"2em"}}>
 
@@ -52,7 +77,10 @@ const ArabicViewTherapists = (props) => {
                                 <Column field="educationLevel" header=" درجة الدراسات العليا"></Column>
                                 <Column field="specialization" header="التخصص"></Column>
                                 <Column field="description" header="الوصف"></Column>
-                                {/*<Column field="Status" header="Status"></Column>*/}
+                                <Column
+                                    body={(e)=>actionActiveTemplate(e)}
+                                    header=" الحساب ">
+                                </Column>
                             </DataTable>
                         </div>
                     </div>
@@ -75,6 +103,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getAllTherapists: () => dispatch(profileActions.getAllTherapists()),
+        editProfile: (data) => dispatch(profileActions.editProfile(data)),
     };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ArabicViewTherapists);
