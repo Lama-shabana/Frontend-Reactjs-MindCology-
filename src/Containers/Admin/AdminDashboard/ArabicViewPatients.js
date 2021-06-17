@@ -10,11 +10,17 @@ const ArabicViewPatients = (props) => {
 
     const [patients, setPatients] = useState([] );
     const id = JSON.parse(localStorage.getItem("auth"))?.id
-    function onDelete() {
-        props.editProfile({id: id, therapistInfo:{active:false}}).then((data) => console.log(data))
-        localStorage.clear()
-        // props.history.push("/")
 
+    function onDelete(patientId) {
+
+        props.editProfile({id: patientId, patientInfo: {active: false}}).then((data) => {
+            let deletedPatientIndex=patients.findIndex(x=> x.id===patientId)
+            let temp=[...patients]
+            if (deletedPatientIndex > -1) {
+                temp.splice(deletedPatientIndex, 1);
+                setPatients(temp)
+            }
+        })
     }
     function actionActiveTemplate(e) {
         return (
@@ -27,8 +33,7 @@ const ArabicViewPatients = (props) => {
                     background: "#79428b"
                 }}
                         onClick={() => {
-                            onDelete()
-
+                            onDelete(e.id)
                         }}
                 />
             </div>
@@ -41,8 +46,15 @@ const ArabicViewPatients = (props) => {
         if (dataLoaded === false) {
             console.log("entered 2")
             props.getAllPatients().then((data) => {
-                setPatients(data.payload)
-                {console.log(data, data.payload,"patients List")}
+                let temp=[]
+                console.log(data.payload,"payy")
+                data.payload.map((current)=>{
+                    if(current.active){
+                        temp.push(current)
+                    }
+                })
+                setPatients(temp)
+
             })
             dataLoaded = true;
         }

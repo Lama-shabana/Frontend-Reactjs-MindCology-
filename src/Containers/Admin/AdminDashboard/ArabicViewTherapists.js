@@ -11,12 +11,16 @@ import {useHistory} from "react-router-dom";
 const ArabicViewTherapists = (props) => {
     const [therapists, setTherapists] = useState([]);
 
-    const id = JSON.parse(localStorage.getItem("auth"))?.id
-    function onDelete() {
-        props.editProfile({id: id, therapistInfo:{active:false}}).then((data) => console.log(data))
-        localStorage.clear()
-       // props.history.push("/")
+    function onDelete(therapistId) {
 
+        props.editProfile({id: therapistId, therapistInfo: {active: false}}).then((data) => {
+            let deletedTherapistIndex=therapists.findIndex(x=> x.id===therapistId)
+            let temp=[...therapists]
+            if (deletedTherapistIndex > -1) {
+                temp.splice(deletedTherapistIndex, 1);
+                setTherapists(temp)
+            }
+        })
     }
     function actionActiveTemplate(e) {
         return (
@@ -29,7 +33,7 @@ const ArabicViewTherapists = (props) => {
                     background: "#79428b"
                 }}
                         onClick={() => {
-                            onDelete()
+                            onDelete(e.id)
                         }}
                 />
             </div>

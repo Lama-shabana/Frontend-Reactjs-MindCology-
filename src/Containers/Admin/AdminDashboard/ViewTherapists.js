@@ -11,14 +11,7 @@ import {useHistory} from "react-router-dom";
 const ViewTherapists = (props) => {
     const [therapists, setTherapists] = useState([] );
 
-    const id = JSON.parse(localStorage.getItem("auth"))?.id
-    function onDelete() {
-        props.editProfile({id: id, therapistInfo:{active:false}}).then((data) => console.log(data))
-        localStorage.clear()
-        // props.history.push("/")
 
-    }
-    let history = useHistory();
     let dataLoaded = false;
     useEffect(() => {
         console.log("entered 1")
@@ -26,12 +19,34 @@ const ViewTherapists = (props) => {
         if (dataLoaded === false) {
             console.log("entered 2")
             props.getAllTherapists().then((data) => {
-                setTherapists(data.payload)
-                {console.log(data, data.payload,"therapists List")}
+                let temp=[]
+                console.log(data.payload,"payy")
+                data.payload.map((current)=>{
+                    if(current.active){
+                        temp.push(current)
+                    }
+                })
+                setTherapists(temp)
+
             })
             dataLoaded = true;
         }
     }, [dataLoaded])
+
+    function onDelete(therapistId) {
+
+        props.editProfile({id: therapistId, therapistInfo: {active: false}}).then((data) => {
+            let deletedPatientIndex=therapists.findIndex(x=> x.id===therapistId)
+            let temp=[...therapists]
+            if (deletedPatientIndex > -1) {
+                temp.splice(deletedPatientIndex, 1);
+                setTherapists(temp)
+            }
+        })
+    }
+    let history = useHistory();
+
+
 
     const header = (
         <div className="table-header">
@@ -51,7 +66,7 @@ const ViewTherapists = (props) => {
                     background: "#79428b"
                 }}
                         onClick={() => {
-                            onDelete()
+                            onDelete(e.id)
                         }}
                 />
             </div>
