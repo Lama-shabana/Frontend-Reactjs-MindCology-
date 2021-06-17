@@ -95,7 +95,7 @@ const ViewAllPatients = (props) => {
                     </div>
 
                 </div>
-                : null}
+                : <label style={{marginTop:"5em",marginLeft:"35%",fontSize:"2.5em",color:"rgba(66, 35, 95, 1)",fontWeight:"bold"}}>No Patients Found</label>}
 
         </div>
     );

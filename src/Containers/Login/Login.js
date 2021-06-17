@@ -22,6 +22,8 @@ const Login = (props) => {
     const {addToast} = useToasts()
 
     const handleLogin = (e) => {
+        localStorage.setItem('lang',JSON.stringify("english"))
+
         props.login(userFormState).then((data)=>{
             localStorage.setItem('auth',JSON.stringify(data.payload))
             if(data.payload.userType==="patient"){
@@ -33,8 +35,6 @@ const Login = (props) => {
                         }else {
                             history.push('/patientDashboard')
                         }
-                        localStorage.setItem('lang',JSON.stringify("english"))
-
                     }else
                     {
                         addToast('Sorry, your account is deactivated', {
@@ -50,6 +50,7 @@ const Login = (props) => {
                     localStorage.setItem('therapist',JSON.stringify(data.payload))
                     history.push('/therapistDashboard')
                 })
+
                 history.push('/therapistDashboard')
 
             } else if(data.payload.userType==="admin"){
