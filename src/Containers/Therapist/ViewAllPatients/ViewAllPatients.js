@@ -45,6 +45,7 @@ const ViewAllPatients = (props) => {
                     background: "#6d3986"
                 }}
                         onClick={() => history.push("/historyPatient/" + rowData.id)}
+
                 />
             </div>
         );

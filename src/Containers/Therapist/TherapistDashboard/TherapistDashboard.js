@@ -84,7 +84,7 @@ const TherapistDashboard = (props) => {
 
             <div className="p-col-4">
                 <img style={{marginRight: "4%"}} src={Counselling}
-                     width={550}
+                     width={480}
                      alt="logo"/>
 
             </div>
@@ -98,14 +98,14 @@ const TherapistDashboard = (props) => {
                             textAlign: "center",
                             color: "#471b53",
                             fontSize: "2.5em",
-                            marginBottom: "1em"
+                            marginTop:"2em"
                         }}>Appointments</h1>
 
                         {
                             appointments.map((appointment) => {
                                 return <div>
                                     <Button
-                                        style={{marginLeft: "2em", backgroundColor: "#a474b7"}}
+                                        style={{marginLeft: "2em",  marginBottom: "1em", backgroundColor: "#a474b7"}}
                                         onClick={() => {
                                             if (checkDateBeforeAppointment(appointment)) {
                                                 history.push("/video/" + appointment.meetingID + "/" + appointment.password + "/" + userData.firstName + " " + userData.lastName)
@@ -119,7 +119,7 @@ const TherapistDashboard = (props) => {
                                         label={"Please click here to enter your appointment on " + appointment.date + " at " + appointment.time}
                                         icon="pi pi-calendar-plus"/>
 
-                                    <Button style={{backgroundColor: "#ad2525", marginLeft: "2%"}}
+                                    <Button style={{backgroundColor: "#ad2525",  marginBottom: "1em", marginLeft: "2%"}}
                                             onClick={() => {
                                                 console.log(appointment.therapistId.toString().concat(appointment.patientId), "sent")
                                                 props.deleteAppointment({id: parseInt(appointment.therapistId.toString().concat(appointment.patientId))}).then(() => {

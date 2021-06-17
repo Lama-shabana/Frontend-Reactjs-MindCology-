@@ -15,20 +15,22 @@ const HistoryPatientsRecord = (props) => {
 
     const [userData, setUserData] = useState(null)
     const [historyPatientData, setHistoryPatientData] = useState(null)
-
+    const lang = JSON.parse(localStorage.getItem("lang"))
     useEffect(() => {
-        if (loaded === false) {
-            props.getProfileData({id: patientId}).then((data) => {
-                console.log(data.payload)
-                setUserData(data.payload)
-                props.viewMedicalHistoryData({id: patientId}).then((data) => {
+        if(lang===null){
+            window.location.reload()
+            if (loaded === false) {
+                props.getProfileData({id: patientId}).then((data) => {
                     console.log(data.payload)
-                    setHistoryPatientData(data.payload)
-                })
+                    setUserData(data.payload)
+                    props.viewMedicalHistoryData({id: patientId}).then((data) => {
+                        console.log(data.payload)
+                        setHistoryPatientData(data.payload)
+                    })
 
-            })
-            loaded = true
-        }
+                })
+                loaded = true
+            }}
     }, [loaded])
     return (
         <div className={classes.form}>
@@ -41,7 +43,7 @@ const HistoryPatientsRecord = (props) => {
                             {/*<i style={{paddingTop:"2em",marginLeft: "2em",fontSize:"2em"}} className="pi pi-id-card"/>*/}
                             <label className={classes.headerLabel}>
                                 <img style={{fontSize:"xx-small",width:"11em"}} src={medical}/>
-                                <span> Patient's Medical History</span>
+                                <span>Patient's Medical History </span>
                             </label>
                         </div>
                     </div>
@@ -66,7 +68,7 @@ const HistoryPatientsRecord = (props) => {
 
                         <div className="p-col-12">
                             <div className="p-col-4"/>
-                            <h5  className={classes.H3}>Medical History  For  {userData.firstName}  {userData.lastName}</h5>
+                            <h5  className={classes.H3}>  Medical History for {userData.firstName}  {userData.lastName}</h5>
                         </div>
 
                     </div>
@@ -88,8 +90,8 @@ const HistoryPatientsRecord = (props) => {
                         </div>
 
                         <div className="p-col-12">
-                            <label className={classes.questionLabels}>اللغة التي ترغب في إجراء الجلسات بهاhe language you would like to have sessions
-                                in: </label>
+                            <label className={classes.questionLabels}>language you would like to have sessions
+                                in:</label>
 
                         </div>
                         <div className="p-col-12">
@@ -100,7 +102,7 @@ const HistoryPatientsRecord = (props) => {
                         </div>
 
                         <div className="p-col-12">
-                            <label className={classes.questionLabels}> the gender do you prefer your therapist to
+                            <label className={classes.questionLabels}>the gender do you prefer your therapist to
                                 be: </label>
 
 
@@ -115,7 +117,6 @@ const HistoryPatientsRecord = (props) => {
 
                         <div className="p-col-12">
                             <label className={classes.questionLabels}>
-
                                 Traumatic Experiences Details: </label>
 
                         </div>
@@ -128,7 +129,7 @@ const HistoryPatientsRecord = (props) => {
 
                         <div className="p-col-12">
                             <label className={classes.questionLabels}>Seeking help
-                                for: </label>
+                                for:</label>
 
 
                         </div>
@@ -165,8 +166,8 @@ const HistoryPatientsRecord = (props) => {
                         {/*</div>*/}
 
                         <div className="p-col-12">
-                            <label className={classes.questionLabels}> Details  about harming
-                                yourself:  </label>
+                            <label className={classes.questionLabels}>Details  about harming
+                                yourself: </label>
 
                         </div>
                         <div className="p-col-12">
@@ -209,33 +210,3 @@ const mapDispatchToProps = dispatch => {
     };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(HistoryPatientsRecord);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
