@@ -45,7 +45,9 @@ const ArabicViewTherapistProfile = (props) => {
                 <div className="p-grid">
 
                     <div className="p-col-4">
-                        <img src={therapistInfo.ImagePath} alt={therapistInfo.username} style={{width: 300}} />
+                        <img
+                            src={therapistInfo.imagePath}
+                            alt={therapistInfo.username} style={{width: 300}} />
                         {/*<img*/}
                         {/*    width={290}*/}
                         {/*    // style={{width: "22em", height: "16em", paddingLeft: "1em"}}*/}

@@ -112,8 +112,12 @@ const ViewTherapistProfile = (props) => {
                     <div className="p-col-4">
 
                         <img
-                            src="https://drive.google.com/file/d/1QKwlxP6GDRycRiq7NJ-wshy5a4tIyrop/view?usp=sharing"
-                            // src={therapistInfo.imagePath}
+                           // src="https://cdn.shopify.com/s/files/1/1579/2895/files/Iusso_-Roberto-web_1c966034-5b10-4002-8945-89e06e125812_medium.jpg?v=1511465932"
+                           // src1="http://www.organics-beauty.com/img/img_therapist_shizuka.jpg"
+                            //src2="https://i1.sndcdn.com/artworks-000088448563-l8arb8-t500x500.jpg"
+                           //src3="http://cdn0.sussexdirectories.com/rms/rms_photos/sized/57/77/117757-956998-2_320x400.jpg?pu=1496545030"
+                           //src4="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJm5OHYCO7O6qiw1HYrbux4plyWAu0Dvv4ndL8uI19kvGGJfOrMwzpeJExvApN3nHrVk8&usqp=CAU"
+                              src={therapistInfo.imagePath}
                             alt="new"
                             width={290}
                         />
@@ -180,4 +184,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ViewTherapistProfile);
+export default connect(mapStateToProps,mapDispatchToProps)(ViewTherapistProfile);
