@@ -5,6 +5,7 @@ import {DataTable} from "primereact/datatable";
 import {Column} from "primereact/column";
 import * as profileActions from "../../Therapist/store/TherapistActions";
 import {Button} from "primereact/button";
+import classes from "../../Therapist/ViewAllPatients/ViewAllPatients.module.css";
 
 const ArabicViewPatients = (props) => {
 
@@ -27,10 +28,7 @@ const ArabicViewPatients = (props) => {
             <div>
                 <Button label="تعطيل الحساب" className="primaryBtn" icon="pi pi-trash
 " style={{
-                    width: "17em",
-                    height: "2.5em",
-                    marginTop: "2em",
-                    background: "#79428b"
+                 background: "#79428b"
                 }}
                         onClick={() => {
                             onDelete(e.id)
@@ -63,10 +61,14 @@ const ArabicViewPatients = (props) => {
         <div>
 
 
-            <div   style={{marginTop:"6em"}}>
+            <div   style={{marginTop:"7em"}}>
 
-                <div className="datatable-templating-demo">
-                    <div className="card">
+                <label className={classes.headerLabel}>
+                    <i style={{fontSize:"2.5em",marginRight: "0.3em"}} className="pi pi-users"/>
+
+                    المرضى
+
+                </label>
 
 
                         <DataTable
@@ -98,8 +100,6 @@ const ArabicViewPatients = (props) => {
                         </DataTable>
                         {/*:null}*/}
 
-                    </div>
-                </div>
 
             </div>
 

@@ -27,9 +27,6 @@ const ArabicViewTherapists = (props) => {
             <div>
                 <Button label="تعطيل الحساب" className="primaryBtn" icon="pi pi-trash
 " style={{
-                    width: "17em",
-                    height: "2.5em",
-                    marginTop: "2em",
                     background: "#79428b"
                 }}
                         onClick={() => {
@@ -68,10 +65,8 @@ const ArabicViewTherapists = (props) => {
                     <Button   label=" اضافة معالج نفسي" icon="pi pi-plus" iconPos="left" style={{width:"220px",marginTop:"6em",marginLeft:"1em",height:"50px",backgroundColor:"var(--purple-300)"}}
                               onClick={()=> history.push("/adminDashboard/addTherapist")}/>
                 </div>
-                <div   style={{marginTop:"2em"}}>
+                <div   style={{marginTop:"3em"}}>
 
-                    <div className="datatable-templating-demo">
-                        <div className="card">
                             <DataTable value={therapists}>
                                 <Column field="firstName" header="الاسم الاول"/>
                                 <Column field="lastName" header="الاسم الاخير"/>
@@ -86,8 +81,7 @@ const ArabicViewTherapists = (props) => {
                                     header=" الحساب ">
                                 </Column>
                             </DataTable>
-                        </div>
-                    </div>
+
                 </div>
 
             </div>

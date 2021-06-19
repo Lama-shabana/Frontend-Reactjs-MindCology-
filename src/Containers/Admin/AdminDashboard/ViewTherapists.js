@@ -82,9 +82,9 @@ const ViewTherapists = (props) => {
                 </div>
                 <div   style={{marginTop:"2em"}}>
 
-                    <div className="datatable-templating-demo">
-                        <div className="card">
-                            <DataTable value={therapists}>
+                    <div >
+                        <div >
+                            <DataTable value={therapists} >
                                 <Column field="firstName" header="First name"></Column>
                                 <Column field="lastName" header="Last name"></Column>
                                 <Column field="gender" header="Gender"></Column>
