@@ -12,6 +12,7 @@ import * as patientActions from "../Patient/store/PatientActions"
 import * as therapistActions from "../Therapist/store/TherapistActions"
 import {useToasts} from "react-toast-notifications";
 
+// import { signInWithGoogle } from "./services/firebase";
 const Login = (props) => {
     let history = useHistory();
 
@@ -135,6 +136,10 @@ const Login = (props) => {
 
                     </div>
 
+
+                {/*<button  onClick={signInWithGoogle}>*/}
+                {/*    <span> Continue with Google</span>*/}
+                {/*</button>*/}
             {/*{props.isLoggedIn ? <Redirect to="/dashboard"/> : null}*/}
             {/*{console.log(props.isLoggedIn,"test")}*/}
         </div>

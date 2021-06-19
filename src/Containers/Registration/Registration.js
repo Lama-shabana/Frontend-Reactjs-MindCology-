@@ -207,7 +207,6 @@ const Registration = (props) => {
     }
 
 
-
     function handleRegistration() {
 
         let allFieldsFilled = true;
