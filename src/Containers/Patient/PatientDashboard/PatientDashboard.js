@@ -135,7 +135,7 @@ const PatientDashboard = (props) => {
                     <Button style={{marginLeft:"20%",marginBottom:"1em",backgroundColor: "#a474b7"}}
                             onClick={() => {
                                 if (checkDateBeforeAppointment()) {
-                                    props.history.push("/video/" + appointment.meetingID + "/" + appointment.password + "/" + userData.firstName + " " + userData.lastName)
+                                    history.push("/video/" + appointment.meetingID + "/" + appointment.password + "/" + userData.firstName + " " + userData.lastName)
                                 } else {
                                     addToast("The meeting isn't currently available", {
                                         appearance: 'error',
