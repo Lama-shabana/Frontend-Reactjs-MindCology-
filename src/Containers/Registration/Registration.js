@@ -177,10 +177,9 @@ const Registration = (props) => {
 
                     </span>
                 </div>
-                <div className="p-col-3" style={{marginTop: "0.5em"}}>
-                    <span className="p-float-label" style={{width: "100%"}}>
+                <div className="p-col-3" style={{marginTop: "1em"}}>
+                    <span className="p-float-label" >
                         <Password id="password"
-
                                   value={patientInfo.password}
                                   className={classes.password}
                                   onChange={(e) => setPatientInfo({
