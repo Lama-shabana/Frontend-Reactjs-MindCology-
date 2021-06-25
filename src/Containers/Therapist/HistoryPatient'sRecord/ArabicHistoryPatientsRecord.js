@@ -12,17 +12,12 @@ const ArabicHistoryPatientsRecord = (props) => {
     // const id = JSON.parse(localStorage.getItem("auth"))?.id
 
     let loaded = false;
-
     const [userData, setUserData] = useState(null)
     const [historyPatientData, setHistoryPatientData] = useState(null)
     const lang = JSON.parse(localStorage.getItem("lang"))
 
-    let history = useHistory()
-
     useEffect(() => {
-        // if (lang === "english") {
-        //     history.push("/historyPatient/" + patientId)
-        // } else
+
             if (loaded === false && lang === "arabic") {
             props.getProfileData({id: patientId}).then((data) => {
                 setUserData(data.payload)
@@ -36,8 +31,6 @@ const ArabicHistoryPatientsRecord = (props) => {
     }, [])
     return (
         <div className={classes.form}>
-            {console.log(lang, "arabic page entered")}
-
             {historyPatientData && userData ?
                 <div className={classes.record} style={{marginRight: "12em", paddingTop: "5em"}}>
                     <div className="p-grid">

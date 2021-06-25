@@ -17,7 +17,6 @@ let history= useHistory()
     const [allPatientsData, setAllPatientsData] = useState([])
     useEffect(() => {
         if (loaded===false) {
-            console.log("entered")
             props.getAllAppointments().then((data) => {
                 therapistAppointments = data.payload.filter((x) => id === x.therapistId)
                 therapistAppointments.map((data) => {
