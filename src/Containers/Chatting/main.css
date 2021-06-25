@@ -58,7 +58,7 @@
   left: calc(50vw - 210px);
   padding-top: 36px;
   padding-bottom: 66px;
-  width: 420px;
+  width: 30em;
   text-align: center;
   background-color: white;
   border-radius: 22px;
@@ -69,7 +69,9 @@
   color: white;
   padding: 12px;
   border-radius: 8px;
+  width:50%;
   display: inline-block;
+
 }
 
 .facebook {
