@@ -19,7 +19,6 @@ const ViewAllPatients = (props) => {
     const [allPatientsData, setAllPatientsData] = useState([])
     useEffect(() => {
         if (loaded===false) {
-            console.log("entered")
             props.getAllAppointments().then((data) => {
                 therapistAppointments = data.payload.filter((x) => id === x.therapistId)
                 therapistAppointments.map((data) => {
@@ -44,7 +43,9 @@ const ViewAllPatients = (props) => {
                     height: "2.5em",
                     background: "#6d3986"
                 }}
-                        onClick={() => history.push("/historyPatient/" + rowData.id)}
+                        onClick={() => {
+                            history.push("/historyPatient/" + rowData.id)
+                        }}
 
                 />
             </div>
@@ -53,7 +54,6 @@ const ViewAllPatients = (props) => {
 
     return (
         <div>
-            {console.log(loaded,"CURRENT")}
             {allPatientsData.length>0 ?
                 // <div style={{marginTop:"6em"}} >
                 <div className={classes.tableData}>

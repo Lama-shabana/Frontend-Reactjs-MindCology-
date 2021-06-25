@@ -4,21 +4,23 @@ import classes from "./historyPatientRecord.module.css";
 import medical from '../../../assets/medical.png';
 import * as patientProfileActions from "../../Patient/store/PatientActions";
 import * as therapistProfileActions from "../store/TherapistActions";
+import {useHistory} from "react-router-dom";
 
 const HistoryPatientsRecord = (props) => {
 
-
-    const patientId = props.match.params.id
+    const lang = JSON.parse(localStorage.getItem("lang"))
+    const patientId = props.props.match.params.id
     // const id = JSON.parse(localStorage.getItem("auth"))?.id
-
     let loaded = false;
+    let history = useHistory()
 
     const [userData, setUserData] = useState(null)
     const [historyPatientData, setHistoryPatientData] = useState(null)
-    const lang = JSON.parse(localStorage.getItem("lang"))
     useEffect(() => {
-        if(lang===null){
-            window.location.reload()
+        // if(lang==="arabic"){
+        //     history.push("/historyPatient/" + patientId)
+        // }else
+            // window.location.reload()
             if (loaded === false) {
                 props.getProfileData({id: patientId}).then((data) => {
                     console.log(data.payload)
@@ -30,13 +32,14 @@ const HistoryPatientsRecord = (props) => {
 
                 })
                 loaded = true
-            }}
-    }, [loaded])
+            }
+    }, [])
+
+
     return (
         <div className={classes.form}>
-
-            {console.log(userData,"DATA")}
-            {historyPatientData ?
+            {console.log(lang,"english page entered")}
+            {historyPatientData &&userData?
                 <div className={classes.record} style={{marginRight: "12em", paddingTop: "5em"}}>
                     <div className="p-grid">
                         <div className="p-col-12">

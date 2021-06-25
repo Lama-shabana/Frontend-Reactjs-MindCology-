@@ -43,12 +43,14 @@ const TherapistContent = (props) => {
                 <Route path="/therapistDashboard" exact component={BothTherapistDashboards}/>
                  <Route path="/therapistDashboard/therapistProfileInfo" exact component={BothTherapistProfiles}/>
                 <Route path="/therapistDashboard/viewAllPatients" exit component={BothViewAllPatients}/>
-                <Route path="historyPatient/:id" exact component ={BothHistoryPatientRecords}/>
+                <Route path="/historyPatient/:id" exact component ={BothHistoryPatientRecords}/>
                <Route path="/arabicTherapistDashboard" exact component={ArabicTherapistDashboard}/>
                 <Route path="/arabicTherapistDashboard/arabicTherapistProfileInfo" exact component={ArabicTherapistProfile}/>
                 <Route path="/arabicTherapistDashboard/arabicViewAllPatients" exit component={ArabicViewAllPatients}/>
-                <Route path="/arabicHistoryPatient/:id" exact component ={ArabicHistoryPatientsRecord}/>
-                <Route path="/historyPatient/:id" exact component ={HistoryPatientsRecord}/>
+
+                {/*<Route path="/arabicHistoryPatient/:id" exact component ={ArabicHistoryPatientsRecord}/>*/}
+                {/*<Route path="/historyPatient/:id" exact component ={BothHistoryPatientRecords}/>*/}
+
                 <Route path="/video/:room/:password" exact component={VideoCalls}/>
 
             </Switch>

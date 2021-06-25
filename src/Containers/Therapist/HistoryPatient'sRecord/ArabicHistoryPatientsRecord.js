@@ -4,43 +4,47 @@ import classes from "./historyPatientRecord.module.css";
 import medical from '../../../assets/medical.png';
 import * as patientProfileActions from "../../Patient/store/PatientActions";
 import * as therapistProfileActions from "../store/TherapistActions";
+import {useHistory} from "react-router-dom";
 
 const ArabicHistoryPatientsRecord = (props) => {
 
-
-    const patientId = props.match.params.id
+    const patientId = props.props.match.params.id
     // const id = JSON.parse(localStorage.getItem("auth"))?.id
 
     let loaded = false;
 
     const [userData, setUserData] = useState(null)
     const [historyPatientData, setHistoryPatientData] = useState(null)
+    const lang = JSON.parse(localStorage.getItem("lang"))
+
+    let history = useHistory()
 
     useEffect(() => {
-        if (loaded === false) {
+        // if (lang === "english") {
+        //     history.push("/historyPatient/" + patientId)
+        // } else
+            if (loaded === false && lang === "arabic") {
             props.getProfileData({id: patientId}).then((data) => {
-                console.log(data.payload)
                 setUserData(data.payload)
                 props.viewMedicalHistoryData({id: patientId}).then((data) => {
                     console.log(data.payload)
                     setHistoryPatientData(data.payload)
                 })
-
             })
             loaded = true
         }
-    }, [loaded])
+    }, [])
     return (
         <div className={classes.form}>
+            {console.log(lang, "arabic page entered")}
 
-            {console.log(userData,"DATA")}
-            {historyPatientData ?
+            {historyPatientData && userData ?
                 <div className={classes.record} style={{marginRight: "12em", paddingTop: "5em"}}>
                     <div className="p-grid">
                         <div className="p-col-12">
                             {/*<i style={{paddingTop:"2em",marginLeft: "2em",fontSize:"2em"}} className="pi pi-id-card"/>*/}
                             <label className={classes.headerLabel}>
-                                <img style={{fontSize:"xx-small",width:"11em"}} src={medical}/>
+                                <img style={{fontSize: "xx-small", width: "11em"}} src={medical}/>
                                 <span> سجل المريض الطبي </span>
                             </label>
                         </div>
@@ -49,7 +53,7 @@ const ArabicHistoryPatientsRecord = (props) => {
                         <div className="p-col-12">
                             <label
                                 className={classes.questionLabels}>اسم المريض:
-                                {userData.firstName}  {userData.lastName}
+                                {userData.firstName} {userData.lastName}
                             </label>
                         </div>
                     </div>
@@ -66,7 +70,7 @@ const ArabicHistoryPatientsRecord = (props) => {
 
                         <div className="p-col-12">
                             <div className="p-col-4"/>
-                            <h5  className={classes.H3}>   {userData.firstName}  {userData.lastName}السجل الطبي ل </h5>
+                            <h5 className={classes.H3}>   {userData.firstName} {userData.lastName}السجل الطبي ل </h5>
                         </div>
 
                     </div>
@@ -162,7 +166,7 @@ const ArabicHistoryPatientsRecord = (props) => {
                         {/*</div>*/}
 
                         <div className="p-col-12">
-                            <label className={classes.questionLabels}> تفاصيل حول تفكيره بالانتحار  </label>
+                            <label className={classes.questionLabels}> تفاصيل حول تفكيره بالانتحار </label>
 
                         </div>
                         <div className="p-col-12">

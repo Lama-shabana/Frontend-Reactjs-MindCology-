@@ -47,7 +47,7 @@ let history= useHistory()
                         //     console.log(rowData.id,"TES")
                         // }
                         // }
-                        onClick={() => history.push("/arabicHistoryPatient/" + rowData.id)}
+                        onClick={() => history.push("/historyPatient/" + rowData.id)}
                 />
             </div>
         );
