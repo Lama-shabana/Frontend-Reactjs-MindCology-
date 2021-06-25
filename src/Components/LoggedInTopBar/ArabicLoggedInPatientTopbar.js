@@ -32,6 +32,14 @@ const ArabicLoggedInPatientTopbar = (props) => {
             }
         },
         {
+            label: 'الدردشة',
+            icon: 'pi pi-comments',
+            command: () => {
+                history.push('/chatLogin')
+
+            }
+        },
+        {
             label: 'تسجيل الخروج',
             icon: 'pi pi-sign-out',
             command: () => {

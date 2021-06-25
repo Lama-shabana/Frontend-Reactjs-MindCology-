@@ -47,13 +47,14 @@ const LoggedInTherapistTopbar = (props) => {
                 history.push('/therapistDashboard/viewAllPatients')
             }
         },
-        // {
-        //     label: 'history Patient\'s Record',
-        //     icon: 'pi pi-id-card',
-        //     command: () => {
-        //         history.push('/therapistDashboard/historyPatientsRecord')
-        //     }
-        // },
+        {
+            label: 'Chatting',
+            icon: 'pi pi-comments',
+            command: () => {
+                history.push('/chatLogin')
+
+            }
+        },
         {
             label: 'Sign Out',
             icon: 'pi pi-sign-out',

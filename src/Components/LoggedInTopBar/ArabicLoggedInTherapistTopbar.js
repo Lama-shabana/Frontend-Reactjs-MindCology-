@@ -47,13 +47,14 @@ const ArabicLoggedInTherapistTopbar = (props) => {
                 history.push('/arabicTherapistDashboard/arabicViewAllPatients')
             }
         },
-        // {
-        //     label: 'history Patient\'s Record',
-        //     icon: 'pi pi-id-card',
-        //     command: () => {
-        //         history.push('/therapistDashboard/historyPatientsRecord')
-        //     }
-        // },
+        {
+            label: 'الدردشة',
+            icon: 'pi pi-comments',
+            command: () => {
+                history.push('/chatLogin')
+
+            }
+        },
         {
             label: 'تسجيل الخروج',
             icon: 'pi pi-sign-out',
