@@ -21,6 +21,9 @@ import VideoCalls from "../../Containers/VideoCalls/VideoCalls";
 import TherapistProfile from "../../Containers/Therapist/TherapistDashboard/TherapistProfile";
 import BothTherapistProfiles from "../../Containers/Therapist/TherapistDashboard/BothTherapistProfiles";
 import HistoryPatientsRecord from "../../Containers/Therapist/HistoryPatient'sRecord/HistoryPatientsRecord";
+import {AuthProvider} from "../../Containers/Chatting/contexts/AuthContext";
+import Chats from "../../Containers/Chatting/components/Chats";
+import ChatLogin from "../../Containers/Chatting/components/ChatLogin";
 
 
 const TherapistContent = (props) => {
@@ -51,6 +54,11 @@ const TherapistContent = (props) => {
                 {/*<Route path="/arabicHistoryPatient/:id" exact component ={ArabicHistoryPatientsRecord}/>*/}
                 {/*<Route path="/historyPatient/:id" exact component ={BothHistoryPatientRecords}/>*/}
 
+
+                <AuthProvider>
+                    <Route path="/chats" component={Chats} />
+                    <Route path="/chatLogin" component={ChatLogin} />
+                </AuthProvider>
                 <Route path="/video/:room/:password" exact component={VideoCalls}/>
 
             </Switch>

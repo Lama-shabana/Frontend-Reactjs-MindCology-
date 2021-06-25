@@ -15,6 +15,9 @@ import BothAddtherapists from "../../Containers/Admin/AdminDashboard/CreateAccou
 import BothAdminDashboards from "../../Containers/Admin/AdminDashboard/BothAdminDashboards";
 import BothViewPatients from "../../Containers/Admin/AdminDashboard/BothViewPatients";
 import BothViewTherapists from "../../Containers/Admin/AdminDashboard/BothViewTherapists";
+import {AuthProvider} from "../../Containers/Chatting/contexts/AuthContext";
+import Chats from "../../Containers/Chatting/components/Chats";
+import ChatLogin from "../../Containers/Chatting/components/ChatLogin";
 const AdminContent = (props) => {
     return (
         <div>
@@ -40,6 +43,10 @@ const AdminContent = (props) => {
                 <Route path="/adminDashboard/viewAllTherapists" exact component={BothViewTherapists}/>
                 <Route path ="/adminDashboard/addTherapist" exit component={BothAddtherapists}/>
 
+                <AuthProvider>
+                    <Route path="/chats" component={Chats} />
+                    <Route path="/chatLogin" component={ChatLogin} />
+                </AuthProvider>
 
 
             </Switch>

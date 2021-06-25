@@ -32,10 +32,7 @@ const Content = (props) => {
                 <Route path="/login" exact component={Login}/>
                 <Route path="/arabiclogin" exact component={ArabicLogin}/>
 
-                <AuthProvider>
-                        <Route path="/chats" component={Chats} />
-                        <Route path="/chatLogin" component={ChatLogin} />
-                </AuthProvider>
+
 
 
             </Switch>

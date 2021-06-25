@@ -27,6 +27,9 @@ import BothpatientDashboards from "../../Containers/Patient/PatientDashboard/Bot
 import BothTakeAppointments from "../../Containers/Patient/TakeAppointment/BothTakeAppointments";
 import BothViewTherapistProfiles from "../../Containers/Patient/ViewTherapistProfile/BothViewTherapistProfiles";
 import BothPatientProfiles from "../../Containers/Patient/PatientDashboard/BothPatientProfiles";
+import {AuthProvider} from "../../Containers/Chatting/contexts/AuthContext";
+import Chats from "../../Containers/Chatting/components/Chats";
+import ChatLogin from "../../Containers/Chatting/components/ChatLogin";
 const PatientContent = (props) => {
     return (
         <div>
@@ -59,6 +62,10 @@ const PatientContent = (props) => {
                 <Route path="/video" exact component={VideoCalls}/>
                 <Route path="/video/:room/:password/:fullName" exact component={VideoCalls}/>
 
+                <AuthProvider>
+                    <Route path="/chats" component={Chats} />
+                    <Route path="/chatLogin" component={ChatLogin} />
+                </AuthProvider>
             </Switch>
         </div>
     );

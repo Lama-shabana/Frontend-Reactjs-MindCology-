@@ -73,10 +73,11 @@ function Chats() {
     if (!user || loading) return <div />
 
     return (
-        <div className='chats-page'>
+        <div className='chats-page' >
             <div className='nav-bar'>
                 <div className='logo-tab'>
-                    MindCology Chats
+                    MindCology Chatting
+                    <i style={{margin:"10px",fontSize:"40px"}} className="pi pi-comments"/>
                 </div>
 
                 <div onClick={handleLogout} className='logout-tab'>

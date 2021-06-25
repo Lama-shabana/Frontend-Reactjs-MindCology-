@@ -7,6 +7,8 @@ import * as therapistProfileActions from "../../Therapist/store/TherapistActions
 import * as profileActions from "../../Therapist/store/TherapistActions";
 import {useHistory} from "react-router-dom";
 import {useToasts} from "react-toast-notifications";
+import {auth} from "../../Chatting/Firebase";
+import firebase from "firebase";
 
 const PatientDashboard = (props) => {
 
@@ -158,6 +160,7 @@ const PatientDashboard = (props) => {
 
                     <Button style={{marginLeft:"3%",marginBottom:"1em",backgroundColor: "#3ba193"}}
                             onClick={() => {
+                                auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())
                             }}
                             label="Chatting"
                             icon="pi pi-calendar-minus"/>
