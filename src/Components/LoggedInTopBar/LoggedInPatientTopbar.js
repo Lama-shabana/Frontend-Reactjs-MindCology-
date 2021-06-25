@@ -33,6 +33,14 @@ const LoggedInPatientTopbar = (props) => {
             }
         },
         {
+            label: 'Chatting',
+            icon: 'pi pi-comments',
+            command: () => {
+                history.push('/chatLogin')
+
+            }
+        },
+        {
             label: 'Sign Out',
             icon: 'pi pi-sign-out',
             command: () => {
@@ -41,14 +49,7 @@ const LoggedInPatientTopbar = (props) => {
 
             }
         },
-        {
-            label: 'Chatting',
-            icon: 'pi pi-comments',
-            command: () => {
-                history.push('/chatLogin')
 
-            }
-        },
 
     ];
 
