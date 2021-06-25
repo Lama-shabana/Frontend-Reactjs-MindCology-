@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import EnglishHomepage from "../../Containers/Homepage/EnglishHomepage";
 import Registration from "../../Containers/Registration/Registration";
 import ArabicRegistration from "../../Containers/Registration/ArabicRegistration";
@@ -11,12 +11,10 @@ import Contact from "../../Containers/Homepage/Contact/Contact";
 import ArabicContact from "../../Containers/Homepage/Contact/ArabicContact";
 import Login from "../../Containers/Login/Login";
 import ArabicLogin from "../../Containers/Login/ArabicLogin";
-import VideoCalls from "../../Containers/VideoCalls/VideoCalls";
-import TakeAppointment from "../../Containers/Patient/TakeAppointment/TakeAppointment";
-import MedicalHistoryForm from "../../Containers/Patient/MedicalHistoryForm/MedicalHistoryForm";
-import ArabicMedicalHistoryForm from "../../Containers/Patient/MedicalHistoryForm/ArabicMedicalHistoryForm";
-import Chatting from "../../Containers/Chatting/Chatting";
-// import ChatBox from "../../Containers/Chat";
+import {AuthProvider} from "../../Containers/Chatting/contexts/AuthContext";
+import Chats from "../../Containers/Chatting/components/Chats";
+import ChatLogin from "../../Containers/Chatting/components/ChatLogin";
+
 const Content = (props) => {
     return (
         <div>
@@ -33,13 +31,11 @@ const Content = (props) => {
                 <Route path="/registration" exact component={Registration}/>
                 <Route path="/login" exact component={Login}/>
                 <Route path="/arabiclogin" exact component={ArabicLogin}/>
-                <Route path="/chatting" exact component={Chatting}/>
 
-                {/*<Route path="/chat" exact component={ChatBox}/>*/}
-
-                {/*<Route path="/medicalHistoryForm" exact component={MedicalHistoryForm}/>*/}
-                {/*<Route path="/arabicMedicalHistoryForm" exact component={ArabicMedicalHistoryForm}/>*/}
-
+                <AuthProvider>
+                        <Route path="/chats" component={Chats} />
+                        <Route path="/chatLogin" component={ChatLogin} />
+                </AuthProvider>
 
 
             </Switch>
