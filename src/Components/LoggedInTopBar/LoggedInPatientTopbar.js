@@ -40,7 +40,15 @@ const LoggedInPatientTopbar = (props) => {
                 history.push('/')
 
             }
-        }
+        },
+        {
+            label: 'Chatting',
+            icon: 'pi pi-comments',
+            command: () => {
+                history.push('/chatLogin')
+
+            }
+        },
 
     ];
 

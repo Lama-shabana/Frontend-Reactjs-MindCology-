@@ -39,7 +39,8 @@ const ArabicLoggedInPatientTopbar = (props) => {
                 history.push('/arabicHomepage')
 
             }
-        }
+        },
+
 
     ];
 

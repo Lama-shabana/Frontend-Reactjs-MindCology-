@@ -158,12 +158,12 @@ const PatientDashboard = (props) => {
                             label="Delete Appointment"
                             icon="pi pi-calendar-minus"/>
 
-                    <Button style={{marginLeft:"3%",marginBottom:"1em",backgroundColor: "#3ba193"}}
-                            onClick={() => {
-                                auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())
-                            }}
-                            label="Chatting"
-                            icon="pi pi-calendar-minus"/>
+                    {/*<Button style={{marginLeft:"3%",marginBottom:"1em",backgroundColor: "#3ba193"}}*/}
+                    {/*        onClick={() => {*/}
+                    {/*            auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())*/}
+                    {/*        }}*/}
+                    {/*        label="Chatting"*/}
+                    {/*        icon="pi pi-calendar-minus"/>*/}
                 </div>
 
 

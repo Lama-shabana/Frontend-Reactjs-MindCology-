@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Route, Switch } from "react-router-dom";
 import EnglishHomepage from "../../Containers/Homepage/EnglishHomepage";
 import Registration from "../../Containers/Registration/Registration";
@@ -11,12 +10,6 @@ import Contact from "../../Containers/Homepage/Contact/Contact";
 import ArabicContact from "../../Containers/Homepage/Contact/ArabicContact";
 import Login from "../../Containers/Login/Login";
 import ArabicLogin from "../../Containers/Login/ArabicLogin";
-import PatientDashboard from "../../Containers/Patient/PatientDashboard/PatientDashboard";
-import TakeAppointment from "../../Containers/Patient/TakeAppointment/TakeAppointment";
-import MedicalHistoryForm from "../../Containers/Patient/MedicalHistoryForm/MedicalHistoryForm"
-import ArabicMedicalHistoryForm from "../../Containers/Patient/MedicalHistoryForm/ArabicMedicalHistoryForm";
-import PatientProfile from "../../Containers/Patient/PatientDashboard/PatientProfile";
-import ViewTherapist from "../../Containers/Patient/ViewTherapistProfile/ViewTherapistProfile";
 import VideoCalls from "../../Containers/VideoCalls/VideoCalls";
 import ArabicPatientDashboard from "../../Containers/Patient/PatientDashboard/ArabicPatientDashboard";
 import ArabicTakeAppointment from "../../Containers/Patient/TakeAppointment/ArabicTakeAppiontment";

@@ -43,10 +43,6 @@ const AdminContent = (props) => {
                 <Route path="/adminDashboard/viewAllTherapists" exact component={BothViewTherapists}/>
                 <Route path ="/adminDashboard/addTherapist" exit component={BothAddtherapists}/>
 
-                <AuthProvider>
-                    <Route path="/chats" component={Chats} />
-                    <Route path="/chatLogin" component={ChatLogin} />
-                </AuthProvider>
 
 
             </Switch>
