@@ -10,6 +10,7 @@ import {InputText} from "primereact/inputtext";
 import {Button} from "primereact/button";
 import {Dropdown} from "primereact/dropdown";
 import * as therapistProfileActions from "../../Containers/Therapist/store/TherapistActions";
+import {auth} from "../../Containers/Chatting/Firebase";
 
 
 const LoggedInPatientTopbar = (props) => {
@@ -43,16 +44,19 @@ const LoggedInPatientTopbar = (props) => {
         {
             label: 'Sign Out',
             icon: 'pi pi-sign-out',
-            command: () => {
-                localStorage.clear()
-                history.push('/')
-
+            command:()=> {
+                handleLogout()
             }
         },
 
 
     ];
+    async function handleLogout() {
+        localStorage.clear()
 
+        await auth.signOut()
+        history.push('/')
+    }
 
     const handleNavBarClick = (e) => {
         if (props.menuVisible)

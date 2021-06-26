@@ -8,6 +8,7 @@ import {PanelMenu} from "primereact/panelmenu";
 import {useHistory} from "react-router-dom";
 import {InputText} from "primereact/inputtext";
 import {Button} from "primereact/button";
+import {auth} from "../../Containers/Chatting/Firebase";
 
 
 
@@ -43,14 +44,20 @@ const ArabicLoggedInPatientTopbar = (props) => {
             label: 'تسجيل الخروج',
             icon: 'pi pi-sign-out',
             command: () => {
-                localStorage.clear()
-                history.push('/arabicHomepage')
+                handleLogout()
 
             }
         },
 
 
     ];
+    async function handleLogout() {
+        localStorage.clear()
+
+        await auth.signOut()
+        history.push('/')
+    }
+
 
 
     const handleNavBarClick = (e) => {
