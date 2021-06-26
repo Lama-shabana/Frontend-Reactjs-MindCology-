@@ -10,6 +10,7 @@ import {Button} from "primereact/button";
 import * as AdminActions from "../store/AdminActions";
 import { InputTextarea } from 'primereact/inputtextarea';
 import addtherapist from "../../../../assets/therapist.png";
+import {useHistory} from "react-router-dom";
 
 //
 // const onImageChange = event => {
@@ -44,6 +45,7 @@ const AddTherapist = (props) => {
 
     let validator = require("email-validator");
 
+    let history=useHistory();
     function handleCreateAccountForTherapist() {
 
         let allFieldsFilled = true;
@@ -107,6 +109,7 @@ const AddTherapist = (props) => {
                             appearance: 'success',
                             autoDismiss: true,
                         })
+                        history.push("/adminDashboard/viewAllTherapists")
 
                     } else
                         addToast('Something went wrong', {
