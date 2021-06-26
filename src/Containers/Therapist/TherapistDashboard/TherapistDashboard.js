@@ -107,14 +107,19 @@ const TherapistDashboard = (props) => {
                                     <Button
                                         style={{marginLeft: "2em",  marginBottom: "1em", backgroundColor: "#a474b7"}}
                                         onClick={() => {
-                                            if (checkDateBeforeAppointment(appointment)) {
-                                                history.push("/video/" + appointment.meetingID + "/" + appointment.password + "/" + userData.firstName + " " + userData.lastName)
-                                            } else {
-                                                addToast("The meeting isn't currently available", {
-                                                    appearance: 'error',
-                                                    autoDismiss: true,
-                                                })
-                                            }
+                                            console.log("/video/" + appointment.meetingID + "/" + appointment.password + "/" + userData.firstName + " " + userData.lastName,"PATH")
+
+                                            // history.push("/video/" + appointment.meetingID + "/" + appointment.password + "/" + "TEST" + " " + "NEW")
+                                            history.push("/video/" + appointment.meetingID + "/" + appointment.password + "/" + userData.firstName + " " + userData.lastName)
+
+                                            // if (checkDateBeforeAppointment(appointment)) {
+                                            //     history.push("/video/" + appointment.meetingID + "/" + appointment.password + "/" + userData.firstName + " " + userData.lastName)
+                                            // } else {
+                                            //     addToast("The meeting isn't currently available", {
+                                            //         appearance: 'error',
+                                            //         autoDismiss: true,
+                                            //     })
+                                            // }
                                         }}
                                         label={"Please click here to enter your appointment on " + appointment.date + " at " + appointment.time}
                                         icon="pi pi-calendar-plus"/>

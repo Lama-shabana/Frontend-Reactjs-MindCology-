@@ -12,6 +12,7 @@ const VideoCalls = (props) => {
 
     return (
         <div style={{marginTop:"5em"}}>
+            {console.log(room,name,password,"receievd")}
              <div style={{width:"10000px",marginLeft:"5em"}}>
                     <Jutsu
                         // jitsiContainerStyles={{width:"100%",height:"100%"}}

@@ -54,12 +54,12 @@ const TherapistContent = (props) => {
                 {/*<Route path="/arabicHistoryPatient/:id" exact component ={ArabicHistoryPatientsRecord}/>*/}
                 {/*<Route path="/historyPatient/:id" exact component ={BothHistoryPatientRecords}/>*/}
 
+                <Route path="/video/:room/:password/:fullName" exact component={VideoCalls}/>
 
                 <AuthProvider>
                     <Route path="/chats" component={Chats} />
                     <Route path="/chatLogin" component={ChatLogin} />
                 </AuthProvider>
-                <Route path="/video/:room/:password" exact component={VideoCalls}/>
 
             </Switch>
         </div>

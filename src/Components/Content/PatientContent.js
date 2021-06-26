@@ -52,7 +52,7 @@ const PatientContent = (props) => {
                 <Route path="/arabicPatientDashboard/arabicTakeAppointment" exact component={ArabicTakeAppointment}/>
                 <Route path="/arabicPatientDashboard/arabicPatientProfileInfo" exact component={ArabicPatientProfile}/>
                 <Route path="/arabicPatientDashboard/arabicViewTherapistProfile/:id" exact component={ArabicViewTherapistProfile}/>
-                <Route path="/video" exact component={VideoCalls}/>
+                {/*<Route path="/video" exact component={VideoCalls}/>*/}
                 <Route path="/video/:room/:password/:fullName" exact component={VideoCalls}/>
 
                 <AuthProvider>
