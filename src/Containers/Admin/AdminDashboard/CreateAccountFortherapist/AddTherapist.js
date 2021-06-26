@@ -65,6 +65,23 @@ const AddTherapist = (props) => {
                 autoDismiss: true,
             })
         } else
+            console.log( {
+                "firstName": therapistInfo.firstName,
+                "lastName": therapistInfo.lastName,
+                "phoneNumber": therapistInfo.phoneNumber,
+                "email": therapistInfo.email,
+                "gender": therapistInfo.gender,
+                "age": therapistInfo.age,
+                "username": therapistInfo.username,
+                "password": therapistInfo.password,
+                "userType": "therapist",
+                "educationLevel": therapistInfo.educationLevel,
+                "specialization": therapistInfo.specialization,
+                "description": therapistInfo.description,
+                "ImagePath":therapistInfo.ImagePath,
+                "active": true
+
+            },"sent")
             props.createAccountForTherapist(
                 {
                     "firstName": therapistInfo.firstName,
@@ -85,6 +102,7 @@ const AddTherapist = (props) => {
                 }
             ).then((data) => {
                     if (data.payload.id) {
+                        console.log(data.payload,"receieved")
                         addToast('Account Successfully Created', {
                             appearance: 'success',
                             autoDismiss: true,
