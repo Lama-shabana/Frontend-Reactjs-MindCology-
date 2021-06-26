@@ -8,6 +8,7 @@ import {Inplace, InplaceContent, InplaceDisplay} from "primereact/inplace";
 import {Tab, Tabs} from "react-bootstrap";
 import {Button} from "primereact/button";
 import * as profileActions from "../store/PatientActions";
+import {useHistory} from "react-router-dom";
 
 const ArabicPatientProfile = (props) => {
 
@@ -177,10 +178,12 @@ const ArabicPatientProfile = (props) => {
         props.editProfile({id: id, patientInfo}).then((data) => console.log(data, "returned"))
     }
 
+    let history=useHistory()
+
     function onDelete() {
         props.editProfile({id: id, patientInfo:{active:false}}).then((data) => console.log(data))
         localStorage.clear()
-        props.history.push("/")
+        history.push("/arabicHomepage")
 
     }
 
