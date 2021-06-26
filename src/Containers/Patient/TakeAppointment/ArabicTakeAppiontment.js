@@ -92,7 +92,7 @@ const ArabicTakeAppointment = (props) => {
                        className="pi pi-calendar-plus"/>
                 </label>
 
-                <label className={classes.labels}>حدد الوقت المناسب</label>
+                <label className={classes.labels}>حدد التاريخ المناسب</label>
 
                 {dateTimeReady ?
                     <Dropdown

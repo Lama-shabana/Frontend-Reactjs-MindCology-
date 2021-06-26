@@ -80,9 +80,9 @@ function Chats() {
                     <i style={{margin:"10px",fontSize:"40px"}} className="pi pi-comments"/>
                 </div>
 
-                <div onClick={handleLogout} className='logout-tab'>
-                    Logout
-                </div>
+                {/*<div onClick={handleLogout} className='logout-tab'>*/}
+                {/*    Logout*/}
+                {/*</div>*/}
             </div>
 
             <ChatEngine
