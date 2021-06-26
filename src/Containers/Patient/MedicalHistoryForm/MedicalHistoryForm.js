@@ -25,24 +25,24 @@ const MedicalHistoryForm = (props) => {
     const [activeIndex, setActiveIndex] = useState(0)
 
 
-    let userID=JSON.parse(localStorage.getItem("auth")).id
+    let userID = JSON.parse(localStorage.getItem("auth")).id
 
     const [patientInfo, setPatientInfo] = useState(
-    {
-        patientId: userID,
-        providedWithMentalHealthServices: "",
-        sessionsLanguage: "",
-        therapistGender: "",
-        traumaticExperience: "",
-        seekingHelpFor: "",
-        mentalOrPhysicalDisorder: false,
-        mentalOrPhysicalDisorderDetails: "",
-        thinkAboutHarmingYourself: true,
-        thinkAboutHarmingYourselfDetails: "",
-        underMedications: true,
-        underMedicationsDetails: ""
+        {
+            patientId: userID,
+            providedWithMentalHealthServices: "",
+            sessionsLanguage: "",
+            therapistGender: "",
+            traumaticExperience: "",
+            seekingHelpFor: "",
+            mentalOrPhysicalDisorder: false,
+            mentalOrPhysicalDisorderDetails: "",
+            thinkAboutHarmingYourself: true,
+            thinkAboutHarmingYourselfDetails: "",
+            underMedications: true,
+            underMedicationsDetails: ""
 
-})
+        })
 
 
     const stepOne = () => {
@@ -56,8 +56,8 @@ const MedicalHistoryForm = (props) => {
                 <div className="p-field-radiobutton">
                     <RadioButton inputId="yes" name="yes" value="yes" onChange={(e) => setPatientInfo({
                         ...patientInfo,
-                        providedWithMentalHealthService: e.value
-                    })} checked={patientInfo.providedWithMentalHealthService === 'yes'}/>
+                        providedWithMentalHealthServices: e.value
+                    })} checked={patientInfo.providedWithMentalHealthServices === 'yes'}/>
                     <label className={classes.questionLabelsNotBold} htmlFor="yes">Yes</label>
 
                 </div>
@@ -184,10 +184,24 @@ const MedicalHistoryForm = (props) => {
 
             <div className="p-col-12">
                 <div className="p-field-radiobutton">
-                    <RadioButton inputId="yes" name="yes" value="yes" onChange={(e) => setPatientInfo({
-                        ...patientInfo,
-                        mentalOrPhysicalDisorder: e.value
-                    })} checked={patientInfo.mentalOrPhysicalDisorder === 'yes'}/>
+                    <RadioButton inputId="yes" name="yes" value="yes" onChange={(e) => {
+                        console.log(e.value, "value")
+                        if (e.value === "yes") {
+                            setPatientInfo({
+                                ...patientInfo,
+                                mentalOrPhysicalDisorder: true
+                            })
+                        } else {
+                            setPatientInfo({
+                                ...patientInfo,
+                                mentalOrPhysicalDisorder: false
+                            })
+                        }
+
+
+                    }}
+
+                                 checked={patientInfo.mentalOrPhysicalDisorder === 'yes'}/>
                     <label className={classes.questionLabelsNotBold} htmlFor="yes">Yes</label>
 
                 </div>
@@ -196,10 +210,21 @@ const MedicalHistoryForm = (props) => {
             <div className="p-col-12">
                 <div className="p-field-radiobutton">
 
-                    <RadioButton inputId="no" name="no" value="no" onChange={(e) => setPatientInfo({
-                        ...patientInfo,
-                        mentalOrPhysicalDisorder: e.value
-                    })} checked={patientInfo.mentalOrPhysicalDisorder === 'no'}/>
+                    <RadioButton inputId="no" name="no" value="no" onChange={(e) => {
+                        if (e.value === "yes") {
+                            setPatientInfo({
+                                ...patientInfo,
+                                mentalOrPhysicalDisorder: true
+                            })
+                        } else {
+                            setPatientInfo({
+                                ...patientInfo,
+                                mentalOrPhysicalDisorder: false
+                            })
+                        }
+                    }
+                    }
+                                 checked={patientInfo.mentalOrPhysicalDisorder === 'no'}/>
                     <label className={classes.questionLabelsNotBold} htmlFor="no">No</label>
                 </div>
             </div>
@@ -218,15 +243,28 @@ const MedicalHistoryForm = (props) => {
             </div>
 
             <div className="p-col-12">
-                <label className={classes.questionLabels}>Have you ever tried or thought about harming yourself? *</label>
+                <label className={classes.questionLabels}>Have you ever tried or thought about harming yourself?
+                    *</label>
             </div>
 
             <div className="p-col-12">
                 <div className="p-field-radiobutton">
-                    <RadioButton inputId="yes" name="yes" value="yes" onChange={(e) => setPatientInfo({
-                        ...patientInfo,
-                        thinkAboutHarmingYourself: e.value
-                    })} checked={patientInfo.thinkAboutHarmingYourself === 'yes'}/>
+                    <RadioButton inputId="yes" name="yes" value="yes" onChange={(e) => {
+                        if (e.value === "yes") {
+                            setPatientInfo({
+                                ...patientInfo,
+                                thinkAboutHarmingYourself: true
+                            })
+                        } else {
+                            setPatientInfo({
+                                ...patientInfo,
+                                thinkAboutHarmingYourself: false
+                            })
+                        }
+
+                    }}
+
+                                 checked={patientInfo.thinkAboutHarmingYourself === 'yes'}/>
                     <label className={classes.questionLabelsNotBold} htmlFor="yes">Yes</label>
 
                 </div>
@@ -261,10 +299,21 @@ const MedicalHistoryForm = (props) => {
 
             <div className="p-col-12">
                 <div className="p-field-radiobutton">
-                    <RadioButton inputId="yes" name="yes" value="yes" onChange={(e) => setPatientInfo({
-                        ...patientInfo,
-                        underMedications: e.value
-                    })} checked={patientInfo.underMedications === 'yes'}/>
+                    <RadioButton inputId="yes" name="yes" value="yes" onChange={(e) => {
+                        if (e.value === "yes") {
+                            setPatientInfo({
+                                ...patientInfo,
+                                underMedications: true
+                            })
+                        } else {
+                            setPatientInfo({
+                                ...patientInfo,
+                                underMedications: false
+                            })
+                        }
+
+                    }}
+                                 checked={patientInfo.underMedications === 'yes'}/>
                     <label className={classes.questionLabelsNotBold} htmlFor="yes">Yes</label>
 
                 </div>
@@ -272,10 +321,20 @@ const MedicalHistoryForm = (props) => {
 
             <div className="p-col-12">
                 <div className="p-field-radiobutton">
-                    <RadioButton inputId="no" name="no" value="no" onChange={(e) => setPatientInfo({
-                        ...patientInfo,
-                        underMedications: e.value
-                    })} checked={patientInfo.underMedications === 'no'}/>
+                    <RadioButton inputId="no" name="no" value="no" onChange={(e) => {
+                        if (e.value === "yes") {
+                            setPatientInfo({
+                                ...patientInfo,
+                                underMedications: true
+                            })
+                        } else {
+                            setPatientInfo({
+                                ...patientInfo,
+                                underMedications: false
+                            })
+                        }
+                    }}
+                                 checked={patientInfo.underMedications === 'no'}/>
                     <label className={classes.questionLabelsNotBold} htmlFor="no">No</label>
                 </div>
             </div>
@@ -307,8 +366,8 @@ const MedicalHistoryForm = (props) => {
     let history = useHistory();
 
     function onSave() {
-        props.addMedicalHistoryData(patientInfo).then((data)=>{
-            props.editProfile({id: patientInfo.patientId, patientInfo:{filledMedicalHistoryForm:true,active:true}})
+        props.addMedicalHistoryData(patientInfo).then((data) => {
+            props.editProfile({id: patientInfo.patientId, patientInfo: {filledMedicalHistoryForm: true, active: true}})
             history.push('/patientDashboard')
 
         })
@@ -317,9 +376,9 @@ const MedicalHistoryForm = (props) => {
     return (
         <div className="p-grid" style={{marginTop: "5%"}}>
             <div className="p-col-12">
-            <h2 className={classes.title}>
-                Complete Your Medical History Data
-            </h2>
+                <h2 className={classes.title}>
+                    Complete Your Medical History Data
+                </h2>
                 <hr/>
             </div>
 
@@ -358,7 +417,6 @@ const MedicalHistoryForm = (props) => {
                         }}
                 />
             </div>
-
 
 
         </div>

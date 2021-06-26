@@ -25,6 +25,8 @@ const ArabicRegistration = (props) => {
         email: "",
         username: "",
         password: "",
+        active:true
+
     })
 
 
@@ -254,7 +256,7 @@ const ArabicRegistration = (props) => {
                             appearance: 'success',
                             autoDismiss: true,
                         })
-                        props.history.push("/login")
+                        props.history.push("/arabiclogin")
                     } else
                         addToast('هناك خطأ ما', {
                             appearance: 'error',

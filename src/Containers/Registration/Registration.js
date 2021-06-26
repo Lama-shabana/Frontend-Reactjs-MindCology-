@@ -25,6 +25,7 @@ const Registration = (props) => {
         email: "",
         username: "",
         password: "",
+        active:true
     })
 
 

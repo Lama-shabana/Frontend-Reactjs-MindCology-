@@ -6,7 +6,7 @@ import axios from "axios";
 export const createAccount = createAsyncThunk(actions.CREATE_ACCOUNT, async (payload, thunkAPI) => {
     let errMsg=''
     thunkAPI.dispatch(uiActions.showLoading());
-    const response = await axios.post('api/Users',
+    const response = await axios.post('api/Patient',
         payload
     ,{
         // headers:{
