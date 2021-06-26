@@ -14,20 +14,9 @@ const ViewTherapists = (props) => {
 
     let dataLoaded = false;
     useEffect(() => {
-        console.log("entered 1")
-
         if (dataLoaded === false) {
-            console.log("entered 2")
             props.getAllTherapists().then((data) => {
-                let temp=[]
-                console.log(data.payload,"payy")
-                data.payload.map((current)=>{
-                    if(current.active){
-                        temp.push(current)
-                    }
-                })
-                setTherapists(temp)
-
+                setTherapists(data.payload)
             })
             dataLoaded = true;
         }
@@ -46,14 +35,6 @@ const ViewTherapists = (props) => {
     }
     let history = useHistory();
 
-
-
-    const header = (
-        <div className="table-header">
-            Therapists
-            <ButtonHeader icon="pi pi-refresh" />
-        </div>
-    );
 
     function actionActiveTemplate(e) {
         return (
