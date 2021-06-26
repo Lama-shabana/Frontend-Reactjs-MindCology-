@@ -377,7 +377,6 @@ const MedicalHistoryForm = (props) => {
     let history = useHistory();
 
     function onSave() {
-        console.log(patientInfo,"info")
         props.addMedicalHistoryData(patientInfo).then((data) => {
             props.editProfile({id: patientInfo.patientId, patientInfo: {filledMedicalHistoryForm: true, active: true}})
             history.push('/patientDashboard')
