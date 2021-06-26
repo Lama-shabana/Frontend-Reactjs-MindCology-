@@ -24,7 +24,7 @@ const ArabicMedicalHistoryForm = (props) => {
 
     const [activeIndex, setActiveIndex] = useState(0)
 
-    let userID=JSON.parse(localStorage.getItem("auth")).id
+    let userID = JSON.parse(localStorage.getItem("auth")).id
 
     const [patientInfo, setPatientInfo] = useState(
         {
@@ -36,9 +36,9 @@ const ArabicMedicalHistoryForm = (props) => {
             seekingHelpFor: "",
             mentalOrPhysicalDisorder: false,
             mentalOrPhysicalDisorderDetails: "",
-            thinkAboutHarmingYourself: true,
+            thinkAboutHarmingYourself: false,
             thinkAboutHarmingYourselfDetails: "",
-            underMedications: true,
+            underMedications: false,
             underMedicationsDetails: ""
 
         })
@@ -54,9 +54,10 @@ const ArabicMedicalHistoryForm = (props) => {
                 <div className="p-field-radiobutton">
                     <RadioButton inputId="yes" name="yes" value="yes" onChange={(e) => setPatientInfo({
                         ...patientInfo,
-                        providedWithMentalHealthService: e.value
-                    })} checked={patientInfo.providedWithMentalHealthService === 'yes'}/>
-                    <label style={{float:"right" , paddingRight:"1em"}} className={classes.questionLabelsNotBold} htmlFor="yes">نعم</label>
+                        providedWithMentalHealthServices: e.value
+                    })} checked={patientInfo.providedWithMentalHealthServices === 'yes'}/>
+                    <label style={{float: "right", paddingRight: "1em"}} className={classes.questionLabelsNotBold}
+                           htmlFor="yes">نعم</label>
 
                 </div>
             </div>
@@ -66,8 +67,8 @@ const ArabicMedicalHistoryForm = (props) => {
 
                     <RadioButton inputId="no" name="no" value="no" onChange={(e) => setPatientInfo({
                         ...patientInfo,
-                        providedWithMentalHealthService: e.value
-                    })} checked={patientInfo.providedWithMentalHealthService === 'no'}/>
+                        providedWithMentalHealthServices: e.value
+                    })} checked={patientInfo.providedWithMentalHealthServices === 'no'}/>
                     <label className={classes.questionLabelsNotBold} htmlFor="no">لا</label>
                 </div>
             </div>
@@ -163,7 +164,7 @@ const ArabicMedicalHistoryForm = (props) => {
             <div className="p-col-12">
                 <InputTextarea value={patientInfo.seekingHelpFor} onChange={(e) => setPatientInfo({
                     ...patientInfo,
-                    seekingHelpFor: e.value
+                    seekingHelpFor: e.target.value
                 })}
                                className={classes.textArea} autoResize/>
             </div>
@@ -182,10 +183,20 @@ const ArabicMedicalHistoryForm = (props) => {
 
             <div className="p-col-12">
                 <div className="p-field-radiobutton">
-                    <RadioButton inputId="yes" name="yes" value="yes" onChange={(e) => setPatientInfo({
-                        ...patientInfo,
-                        mentalOrPhysicalDisorderBoolean: e.value
-                    })} checked={patientInfo.mentalOrPhysicalDisorderBoolean === 'yes'}/>
+                    <RadioButton inputId="yes" name="yes" value="yes" onChange={(e) => {
+                        if (e.value === "yes") {
+                            setPatientInfo({
+                                ...patientInfo,
+                                mentalOrPhysicalDisorder: true
+                            })
+                        } else {
+                            setPatientInfo({
+                                ...patientInfo,
+                                mentalOrPhysicalDisorder: false
+                            })
+                        }
+                    }
+                    } checked={patientInfo.mentalOrPhysicalDisorder === true}/>
                     <label className={classes.questionLabelsNotBold} htmlFor="yes">نعم</label>
 
                 </div>
@@ -194,10 +205,20 @@ const ArabicMedicalHistoryForm = (props) => {
             <div className="p-col-12">
                 <div className="p-field-radiobutton">
 
-                    <RadioButton inputId="no" name="no" value="no" onChange={(e) => setPatientInfo({
-                        ...patientInfo,
-                        mentalOrPhysicalDisorderBoolean: e.value
-                    })} checked={patientInfo.mentalOrPhysicalDisorderBoolean === 'no'}/>
+                    <RadioButton inputId="no" name="no" value="no" onChange={(e) => {
+                        if (e.value === "yes") {
+                            setPatientInfo({
+                                ...patientInfo,
+                                mentalOrPhysicalDisorder: true
+                            })
+                        } else {
+                            setPatientInfo({
+                                ...patientInfo,
+                                mentalOrPhysicalDisorder: false
+                            })
+                        }
+                    }}
+                                 checked={patientInfo.mentalOrPhysicalDisorder === false}/>
                     <label className={classes.questionLabelsNotBold} htmlFor="no">لا</label>
                 </div>
             </div>
@@ -211,7 +232,7 @@ const ArabicMedicalHistoryForm = (props) => {
                 <InputText value={patientInfo.mentalOrPhysicalDisorderDetails}
                            onChange={(e) => setPatientInfo({
                                ...patientInfo,
-                               mentalOrPhysicalDisorderDetails: e.value
+                               mentalOrPhysicalDisorderDetails: e.target.value
                            })}/>
             </div>
 
@@ -221,10 +242,23 @@ const ArabicMedicalHistoryForm = (props) => {
 
             <div className="p-col-12">
                 <div className="p-field-radiobutton">
-                    <RadioButton inputId="yes" name="yes" value="yes" onChange={(e) => setPatientInfo({
-                        ...patientInfo,
-                        thinkAboutHarmingYourselfBoolean: e.value
-                    })} checked={patientInfo.thinkAboutHarmingYourselfBoolean === 'yes'}/>
+                    <RadioButton inputId="yes" name="yes" value="yes" onChange={(e) => {
+                        if (e.value === "yes") {
+                            setPatientInfo({
+                                ...patientInfo,
+                                thinkAboutHarmingYourself: true
+                            })
+                        } else {
+                            setPatientInfo({
+                                ...patientInfo,
+                                thinkAboutHarmingYourself: false
+                            })
+                        }
+                    }
+
+                    }
+
+                                 checked={patientInfo.thinkAboutHarmingYourself === true}/>
                     <label className={classes.questionLabelsNotBold} htmlFor="yes">نعم</label>
 
                 </div>
@@ -232,10 +266,20 @@ const ArabicMedicalHistoryForm = (props) => {
 
             <div className="p-col-12">
                 <div className="p-field-radiobutton">
-                    <RadioButton inputId="no" name="no" value="no" onChange={(e) => setPatientInfo({
-                        ...patientInfo,
-                        thinkAboutHarmingYourselfBoolean: e.value
-                    })} checked={patientInfo.thinkAboutHarmingYourselfBoolean === 'no'}/>
+                    <RadioButton inputId="no" name="no" value="no" onChange={(e) => {
+                        if (e.value === "yes") {
+                            setPatientInfo({
+                                ...patientInfo,
+                                thinkAboutHarmingYourself: true
+                            })
+                        } else {
+                            setPatientInfo({
+                                ...patientInfo,
+                                thinkAboutHarmingYourself: false
+                            })
+                        }
+                    } }
+                        checked={patientInfo.thinkAboutHarmingYourself === false}/>
                     <label className={classes.questionLabelsNotBold} htmlFor="no">لا</label>
                 </div>
             </div>
@@ -248,7 +292,7 @@ const ArabicMedicalHistoryForm = (props) => {
                 <InputText value={patientInfo.thinkAboutHarmingYourselfDetails}
                            onChange={(e) => setPatientInfo({
                                ...patientInfo,
-                               thinkAboutHarmingYourselfDetails: e.value
+                               thinkAboutHarmingYourselfDetails: e.target.value
                            })}/>
             </div>
 
@@ -259,10 +303,24 @@ const ArabicMedicalHistoryForm = (props) => {
 
             <div className="p-col-12">
                 <div className="p-field-radiobutton">
-                    <RadioButton inputId="yes" name="yes" value="yes" onChange={(e) => setPatientInfo({
-                        ...patientInfo,
-                        underMedicationsBoolean: e.value
-                    })} checked={patientInfo.underMedicationsBoolean === 'yes'}/>
+                    <RadioButton inputId="yes" name="yes" value="yes" onChange={(e) =>
+                    {
+                        if (e.value === "yes") {
+                            setPatientInfo({
+                                ...patientInfo,
+                                underMedications: true
+                            })
+                        } else {
+                            setPatientInfo({
+                                ...patientInfo,
+                                underMedications: false
+                            })
+                        }
+                    }
+
+                    }
+
+                     checked={patientInfo.underMedications === true}/>
                     <label className={classes.questionLabelsNotBold} htmlFor="yes">نعم</label>
 
                 </div>
@@ -270,10 +328,24 @@ const ArabicMedicalHistoryForm = (props) => {
 
             <div className="p-col-12">
                 <div className="p-field-radiobutton">
-                    <RadioButton inputId="no" name="no" value="no" onChange={(e) => setPatientInfo({
-                        ...patientInfo,
-                        underMedicationsBoolean: e.value
-                    })} checked={patientInfo.underMedicationsBoolean === 'no'}/>
+                    <RadioButton inputId="no" name="no" value="no" onChange={(e) =>
+                    {
+                        if (e.value === "yes") {
+                            setPatientInfo({
+                                ...patientInfo,
+                                underMedications: true
+                            })
+                        } else {
+                            setPatientInfo({
+                                ...patientInfo,
+                                underMedications: false
+                            })
+                        }
+                    }
+
+                    }
+
+                                 checked={patientInfo.underMedications === false}/>
                     <label className={classes.questionLabelsNotBold} htmlFor="no">لا</label>
                 </div>
             </div>
@@ -283,10 +355,10 @@ const ArabicMedicalHistoryForm = (props) => {
             </div>
 
             <div className="p-col-12">
-                <InputText value={patientInfo.thinkAboutHarmingYourselfDetails}
+                <InputText value={patientInfo.underMedicationsDetails}
                            onChange={(e) => setPatientInfo({
                                ...patientInfo,
-                               underMedicationsDetails: e.value
+                               underMedicationsDetails: e.target.value
                            })}/>
             </div>
 
@@ -305,10 +377,10 @@ const ArabicMedicalHistoryForm = (props) => {
 
     function onSave() {
 
-        console.log(patientInfo,"sent")
-        props.addMedicalHistoryData(patientInfo).then((data)=>{
-            props.editProfile({id: patientInfo.patientId, patientInfo:{filledMedicalHistoryForm:true,active:true}})
-            console.log(data,"returned")
+        console.log(patientInfo, "sent")
+        props.addMedicalHistoryData(patientInfo).then((data) => {
+            props.editProfile({id: patientInfo.patientId, patientInfo: {filledMedicalHistoryForm: true, active: true}})
+            console.log(data, "returned")
             // history.push('/patientDashboard')
 
         })
@@ -318,8 +390,8 @@ const ArabicMedicalHistoryForm = (props) => {
     return (
         <div className="p-grid" style={{marginTop: "5%"}}>
             <div className="p-col-12">
-                <h2  style={{textAlign:"right", paddingRight:"1em"}} className={classes.title} >
-                  اكمل السجل الصحي الخاص فيك
+                <h2 style={{textAlign: "right", paddingRight: "1em"}} className={classes.title}>
+                    اكمل السجل الصحي الخاص فيك
                 </h2>
                 <hr/>
             </div>
