@@ -43,7 +43,7 @@ const Registration = (props) => {
             <div className="p-grid">
 
                 <div className="p-col-1" >
-                    <a  href="/registration" className={classes.Signup}>
+                    <a  className={classes.Signup}>
                         <img   className ={classes.image} src={imgaccount}
                              alt="logo"/>
                     </a>

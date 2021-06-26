@@ -2,11 +2,21 @@ import "../../Containers/Homepage/Homepage.css";
 import "../../Containers/Homepage/Contact/Contact.css";
 import MindCology from "../../assets/MindCology.png";
 import classes from "./TopBar.module.css";
-import React from "react";
+import React, {useEffect, useState} from "react";
+import {useHistory} from "react-router-dom";
 
 
 const ArabicLoggedOutTopBar=() => {
     let user = "";
+    let history = useHistory();
+
+    const [location,setLocation]=useState(null)
+    useEffect(()=>{
+        console.log(history.location,"loc")
+        if(history.location?.pathname){
+            setLocation(history.location.pathname.toLowerCase())
+        }
+    },[history.location.pathname])
     return (
         <div>
             {!localStorage.getItem("auth")?
@@ -54,13 +64,36 @@ const ArabicLoggedOutTopBar=() => {
 
 
                     <div className="p-col-2">
-                        <div className="dropdown" style={{marginTop: "2em"}}>
-                            <button className="dropbtn">العربية</button>
-                            <div className="dropdown-content">
-                                <a href="/">English</a>
-                                <a href="/ArabicHomepage"> Arabic </a>
+                        {location=="/arabichomepage"?
+                            <div className="dropdown" style={{marginTop: "2em"}}>
+                                {console.log("1")}
+                                <button className="dropbtn">العربي</button>
+
+                                <div className="dropdown-content">
+                                    <a href="/">الانجليزية</a>
+                                    <a href="/ArabicHomepage"> العربي </a>
+                                </div>
                             </div>
-                        </div>
+                            :null}
+
+                        {location==="/arabicregistration"?
+                            <div className="dropdown" style={{marginTop: "2em"}}>
+                                {console.log("2")}
+
+                                <button className="dropbtn">العربي</button>
+                                <div className="dropdown-content">
+                                    <a href="/registration">الانجليزية</a>
+                                    <a href="/arabicregistration"> العربي </a>
+                                </div>
+                            </div>
+                            :null}
+                        {/*<div className="dropdown" style={{marginTop: "2em"}}>*/}
+                        {/*    <button className="dropbtn">العربية</button>*/}
+                        {/*    <div className="dropdown-content">*/}
+                        {/*        <a href="/">English</a>*/}
+                        {/*        <a href="/ArabicHomepage"> Arabic </a>*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
                     </div>
                     <div className="p-col-1"/>
                 </div>

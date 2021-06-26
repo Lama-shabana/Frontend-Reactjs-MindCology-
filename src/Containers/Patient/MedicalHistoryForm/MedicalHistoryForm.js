@@ -307,19 +307,15 @@ const MedicalHistoryForm = (props) => {
     let history = useHistory();
 
     function onSave() {
-
-        console.log(patientInfo,"sent")
         props.addMedicalHistoryData(patientInfo).then((data)=>{
+            props.editProfile({id: patientInfo.patientId, patientInfo:{filledMedicalHistoryForm:true,active:true}})
             history.push('/patientDashboard')
 
         })
-        // props.editProfile({id:userID,patientInfo:{filledMedicalHistoryForm:true}})
     }
 
     return (
         <div className="p-grid" style={{marginTop: "5%"}}>
-
-            {console.log("entered medical form")}
             <div className="p-col-12">
             <h2 className={classes.title}>
                 Complete Your Medical History Data

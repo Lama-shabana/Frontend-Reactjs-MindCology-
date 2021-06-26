@@ -44,7 +44,7 @@ const ArabicRegistration = (props) => {
             <div className="p-grid">
 
                 <div className="p-col-1">
-                    <a href="/arabicregistration" className={classes.Signup}>
+                    <a  className={classes.Signup}>
                         <img  className ={classes.image} src={imgaccount}
                              alt="logo"/>
                     </a>

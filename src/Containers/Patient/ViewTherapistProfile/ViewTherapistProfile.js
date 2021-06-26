@@ -144,8 +144,6 @@ const ViewTherapistProfile = (props) => {
                                     {therapistInfo.description}
 
                                 </p>
-
-                                <Button label=" Message " icon="pi pi-comments"/>
                                 <span> </span>
                                 {!appointmentData?
                                     <Button style={{backgroundColor: "#a474b7"}}

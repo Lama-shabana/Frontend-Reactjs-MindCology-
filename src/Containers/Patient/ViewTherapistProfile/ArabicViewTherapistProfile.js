@@ -74,9 +74,6 @@ const ArabicViewTherapistProfile = (props) => {
                                     {therapistInfo.description}
 
                                 </p>
-
-                                <Button  label=" ارسال رسالة " icon="pi pi-comments" />
-                                <span> </span>
                                 <Button style={{backgroundColor:"#a474b7"}}
                                         onClick={()=>{history.push("/arabicPatientDashboard/arabicTakeAppointment")}} label=" حجز موعد " icon="pi pi-calendar-plus" />
                             </div>

@@ -1,17 +1,25 @@
 import "../../Containers/Homepage/Homepage.css";
 import MindCology from "../../assets/MindCology.png";
 import classes from "./TopBar.module.css"
-import React from "react";
+import React, {useEffect, useState} from "react";
+import {useHistory} from "react-router-dom";
 
 
-let user=JSON.parse(localStorage.getItem("auth"));
 
 const LoggedOutTopBar = (props) => {
+    let history = useHistory();
     let user = "";
+
+    const [location,setLocation]=useState(null)
+    useEffect(()=>{
+        if(history.location.pathname){
+            setLocation(history.location.pathname.toLowerCase())
+        }
+    },[history.location.pathname])
     return (
         // <Sticky className={classes.stickyBackground}>
         <div>
-            {console.log(localStorage.getItem("auth"),"here")}
+            {console.log(history.location.pathname,"historyy")}
 
             {!localStorage.getItem("auth")?
                 <div className="p-grid">
@@ -60,13 +68,30 @@ const LoggedOutTopBar = (props) => {
 
 
                     <div className="p-col-2">
-                        <div className="dropdown" style={{marginTop: "2em"}}>
-                            <button className="dropbtn">English</button>
-                            <div className="dropdown-content">
-                                <a href="/">English</a>
-                                <a href="/ArabicHomepage"> Arabic </a>
+                        {location==="/"?
+                            <div className="dropdown" style={{marginTop: "2em"}}>
+                                {console.log("1")}
+                                <button className="dropbtn">English</button>
+
+                                <div className="dropdown-content">
+                                    <a href="/">English</a>
+                                    <a href="/ArabicHomepage"> Arabic </a>
+                                </div>
                             </div>
-                        </div>
+                            :null}
+
+                        {location==="/registration"?
+                            <div className="dropdown" style={{marginTop: "2em"}}>
+                                {console.log("2")}
+
+                                <button className="dropbtn">English</button>
+                                <div className="dropdown-content">
+                                    <a href="/registration">English</a>
+                                    <a href="/arabicregistration"> Arabic </a>
+                                </div>
+                            </div>
+                            :null}
+
                     </div>
 
                     <div className="p-col-1"/>
@@ -110,15 +135,7 @@ const LoggedOutTopBar = (props) => {
                     </div>
                     <div className="p-col-2"/>
 
-                    <div className="p-col-2">
-                        <div className="dropdown" style={{marginTop: "2em"}}>
-                            <button className="dropbtn">English</button>
-                            <div className="dropdown-content">
-                                <a href="/">English</a>
-                                <a href="/ArabicHomepage"> Arabic </a>
-                            </div>
-                        </div>
-                    </div>
+
 
                     <div className="p-col-1"/>
                 </div>
