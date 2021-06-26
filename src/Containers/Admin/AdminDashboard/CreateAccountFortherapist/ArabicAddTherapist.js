@@ -188,7 +188,7 @@ const ArabicAddTherapist = (props) => {
                 <div className="p-col-3"/>
                 <div className="p-col-3">
                     <PhoneInput
-                        inputStyle={{width: "100%"}}
+                        inputStyle={{width: "100%",height:"3em"}}
                         country={'ps'}
                         placeholder='ادخل رفم الهاتف'
                         value={therapistInfo.phoneNumber}
