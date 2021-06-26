@@ -381,7 +381,7 @@ const ArabicMedicalHistoryForm = (props) => {
         props.addMedicalHistoryData(patientInfo).then((data) => {
             props.editProfile({id: patientInfo.patientId, patientInfo: {filledMedicalHistoryForm: true, active: true}})
             console.log(data, "returned")
-            // history.push('/patientDashboard')
+            history.push('/patientDashboard')
 
         })
         // props.editProfile({id:userID,patientInfo:{filledMedicalHistoryForm:true}})
