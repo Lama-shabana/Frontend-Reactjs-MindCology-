@@ -121,21 +121,17 @@ const AddTherapist = (props) => {
         function therapistInfoSection() {
 
         return <div className={classes.Form}>
-            <div >
-               {/* <img style={{borderRadius: "50%"}} src={addtherapist}/>*/}
-               {/*<h1 */}
-               {/*    */}
-               {/*    className={classes.Hh1}> Create account for therapist</h1>*/}
 
-                <label className={classes.headerLabel}>
-                    <img style={{borderRadius: "10%",width:"12%",paddingTop:"1.2em",paddingBottom:"1.2em"}} src={addtherapist}/>
-                    <span className={classes.Hh1}> Create account for therapist</span>
-
-                </label>
-            </div>
             <div className="p-grid">
-               <div className="p-col-2"/>
+                <div className="p-col-12">
+                    <label className={classes.headerLabel}>
+                        <img style={{borderRadius: "10%",width:"12%",paddingTop:"1.2em",paddingBottom:"1.2em"}} src={addtherapist}/>
+                        <span className={classes.Hh1}> Create account for therapist</span>
 
+                    </label>
+                </div>
+
+                <div className="p-col-3"/>
                 <div className="p-col-3">
                     <span className="p-float-label">
                         <InputText
@@ -165,10 +161,10 @@ const AddTherapist = (props) => {
 
                    </span>
                 </div>
-                <div className="p-col-1"/>
-                <div className="p-col-2"/>
-                <div className="p-col-2"/>
+                <div className="p-col-3"/>
 
+
+                <div className="p-col-3"/>
                 <div className="p-col-3">
                     <Dropdown
                         className={classes.Fields}
@@ -202,16 +198,12 @@ const AddTherapist = (props) => {
                         }
                         }/>
                 </div>
-                <div className="p-col-2"/>
-                <div className="p-col-2"/>
+                <div className="p-col-3"/>
 
-
-                <div className="p-col-2">
-
-                </div>
-                <div className="p-col-6">
+                <div className="p-col-3"/>
+                <div className="p-col-3">
                     <PhoneInput
-                        inputStyle={{width: "100%"}}
+                        inputStyle={{width: "100%",height:"3.2em"}}
                         country={'ps'}
                         placeholder='Enter your phone Number'
                         value={therapistInfo.phoneNumber}
@@ -222,13 +214,7 @@ const AddTherapist = (props) => {
                             })}
                     />
                 </div>
-                <div className="p-col-2"/>
-
-                <div className="p-col-2"/>
-                <div className="p-col-2">
-
-                </div>
-                <div className="p-col-6">
+                <div className="p-col-3">
                     <InputText value={therapistInfo.email}
                                className={classes.Fields}
                                placeholder="Email"
@@ -240,13 +226,12 @@ const AddTherapist = (props) => {
                                }}
                     />
                 </div>
-                <div className="p-col-2"/>
-                <div className="p-col-2"/>
-                <div className="p-col-2" >
+                <div className="p-col-3"/>
 
-                </div>
-                <div className="p-col-3" style={{marginTop: "1em",paddingBottomBottom:"1em"}}>
-                    <span className="p-float-label" style={{width: "100%"}}>
+
+                <div className="p-col-3"/>
+                <div className="p-col-3"style={{marginTop: "0.5em"}} >
+                    <span className="p-float-label" >
                         <InputText
                             placeholder="username"
                             id="username"
@@ -262,12 +247,11 @@ const AddTherapist = (props) => {
 
                     </span>
                 </div>
-                <div className="p-col-3" style={{marginTop: "0.5em"}}>
-                    <span className="p-float-label" style={{width: "100%"}}>
+                <div className="p-col-3" style={{marginTop: "0.5em"}} >
+                    <span className="p-float-label" >
                         <Password id="password"
-
+                                  inputStyle={{width:"100%"}}
                                   value={therapistInfo.password}
-                                  className={classes.password}
                                   onChange={(e) => setTherapistInfo({
                                       ...therapistInfo,
                                       password: e.currentTarget.value
@@ -275,10 +259,11 @@ const AddTherapist = (props) => {
                         <label htmlFor='password'> Password</label>
                     </span>
                 </div>
-                <div className="p-col-2"/>
-                <div className="p-col-2"/>
-                <div className="p-col-2"/>
-                <div className="p-col-3" style={{marginTop: "1em"}}>
+                <div className="p-col-3"/>
+
+
+                <div className="p-col-3"/>
+                <div className="p-col-3" >
                     <span className="p-float-label" style={{width: "100%"}}>
                         <InputTextarea
                             placeholder="specialization"
@@ -295,8 +280,7 @@ const AddTherapist = (props) => {
 
                     </span>
                 </div>
-
-                <div className="p-col-3" style={{marginTop: "1em"}}>
+                <div className="p-col-3">
                     <span className="p-float-label" style={{width: "100%"}}>
                         <InputTextarea
                             placeholder="educationLevel"
@@ -313,7 +297,11 @@ const AddTherapist = (props) => {
 
                     </span>
                 </div>
-                <div className="p-col-2" style={{marginTop: "1em"}}>
+                <div className="p-col-3"/>
+
+
+                <div className="p-col-3"/>
+                <div className="p-col-3" >
                     <span className="p-float-label" style={{width: "100%"}}>
                         <InputTextarea
                             placeholder="description"
@@ -330,44 +318,39 @@ const AddTherapist = (props) => {
 
                     </span>
                 </div>
-                <div className="p-col-2"/>
-                <div className="p-col-2"/>
-                <div className="p-col-2">
-                    <div>
-                        <div>
-                            <div>
-                                {/*<img src={this.state.image} />*/}
-                                <Button label="select image"
-                                        style={{marginTop: "2em", height: "3em",width: "12em",backgroundColor:" #a474b7"}}
-                                        className="primaryBtn"
-                                        icon='pi pi-fw pi-images'
-                                />
-                                <input style={{marginTop: "1em",color:" #a474b7",border:"4em"}}
-                                       type="file" name="myImage" placeholder="select image"
-                                       onChange={(e) => {
-                                           setTherapistInfo({
-                                               ...therapistInfo,
-                                               ImagePath: e.currentTarget.value,
-                                           })
-                                       }}
+                <div className="p-col-3" >
+                    <span className="p-float-label" style={{width: "100%"}}>
+                        <InputTextarea
+                            placeholder="Personal Photo Link"
+                            id="description"
+                            value={therapistInfo.ImagePath}
+                            className={classes.area}
+                            onChange={(e) => {
+                                setTherapistInfo({
+                                    ...therapistInfo,
+                                    ImagePath: e.currentTarget.value,
+                                })
+                            }}
+                        />
 
-                                />
-                            </div>
-                        </div>
-                    </div>
+                    </span>
+                </div>
+                <div className="p-col-3"/>
+
+                <div className="p-col-5"/>
+                <div className="p-col-3" style={{marginLeft:"3.2em"}}>
+                    <Button label="Finish"
+                            style={{marginTop: "0.1em", height: "3em",width: "6em",backgroundColor:"#a474b7"}}
+                            className="primaryBtn"
+                            icon="pi pi-step-forward"
+                            onClick={() => {
+                                handleCreateAccountForTherapist()
+                            }}/>
+                    <div className="p-col-2"/>
                 </div>
             </div>
 
-            <div className="p-grid p-justify-end">
-                <Button label="Finish"
-                        style={{marginTop: "0.1em", height: "3em",width: "6em",backgroundColor:"#a474b7"}}
-                        className="primaryBtn"
-                        icon="pi pi-step-forward"
-                        onClick={() => {
-                            handleCreateAccountForTherapist()
-                        }}/>
-                <div className="p-col-2"/>
-            </div>
+
         </div>
     }
     return (
