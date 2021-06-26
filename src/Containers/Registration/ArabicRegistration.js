@@ -181,12 +181,12 @@ const ArabicRegistration = (props) => {
 
                     </span>
                 </div>
-                <div className="p-col-3" style={{marginTop: "0.5em"}}>
+                <div className="p-col-3" style={{marginTop: "1em"}}>
                     <span className="p-float-label" style={{width: "100%"}}>
                         <Password id="password"
                                   placeholder="رقم السر الخاص بك"
                                   value={patientInfo.password}
-                                  className={classes.password}
+                                  inputStyle={{width:"100%"}}
                                   onChange={(e) => setPatientInfo({
                                       ...patientInfo,
                                       password: e.currentTarget.value
